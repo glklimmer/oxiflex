@@ -14,11 +14,16 @@
 \contentsline {section}{\numberline {2.4}Figures}{3}{section.16}%
 \contentsline {section}{\numberline {2.5}Packages}{3}{section.24}%
 \contentsline {chapter}{\chapternumberline {3}Constraint Satisfaction Problems}{4}{chapter.25}%
-\contentsline {chapter}{\chapternumberline {4}Oxiflex}{5}{chapter.26}%
-\contentsline {section}{\numberline {4.1}Naive Backtracking}{5}{section.27}%
-\contentsline {section}{\numberline {4.2}Inference}{5}{section.28}%
-\contentsline {chapter}{\chapternumberline {5}Conclusion}{6}{chapter.29}%
+\contentsline {section}{\numberline {3.1}MiniZinc}{4}{section.26}%
+\contentsline {subsection}{\numberline {3.1.1}FlatZinc}{4}{subsection.27}%
+\contentsline {chapter}{\chapternumberline {4}Oxiflex}{5}{chapter.28}%
+\contentsline {section}{\numberline {4.1}Dependecies}{5}{section.29}%
+\contentsline {subsection}{\numberline {4.1.1}flatzinc}{5}{subsection.30}%
+\contentsline {subsection}{\numberline {4.1.2}structopt}{5}{subsection.31}%
+\contentsline {section}{\numberline {4.2}Naive Backtracking}{5}{section.32}%
+\contentsline {section}{\numberline {4.3}Inference}{5}{section.33}%
+\contentsline {chapter}{\chapternumberline {5}Conclusion}{6}{chapter.34}%
 \vspace {2em}
-\contentsline {chapter}{Bibliography}{7}{appendix*.30}%
-\contentsline {appendix}{\chapternumberline {A}Appendix}{8}{appendix.31}%
+\contentsline {chapter}{Bibliography}{7}{appendix*.35}%
+\contentsline {appendix}{\chapternumberline {A}Appendix}{8}{appendix.36}%
 \vspace {2em}
