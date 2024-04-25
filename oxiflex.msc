@@ -1,0 +1,6 @@
+{
+  "name" : "oxiflex",
+  "version": "0.0.1",
+  "id": "org.oxiflex.oxiflex",
+  "executable": "../../../bin/oxiflex"
+}
