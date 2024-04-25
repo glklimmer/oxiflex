@@ -1,0 +1,185 @@
+Parameter(
+    ArrayOfInt {
+        ix: IndexSet(
+            2,
+        ),
+        id: "X_INTRODUCED_2_",
+        v: [
+            1,
+            -2,
+        ],
+    },
+)
+Parameter(
+    ArrayOfInt {
+        ix: IndexSet(
+            2,
+        ),
+        id: "X_INTRODUCED_3_",
+        v: [
+            1,
+            -1,
+        ],
+    },
+)
+Parameter(
+    ArrayOfInt {
+        ix: IndexSet(
+            2,
+        ),
+        id: "X_INTRODUCED_4_",
+        v: [
+            -1,
+            1,
+        ],
+    },
+)
+Variable(
+    IntInRange {
+        id: "w",
+        lb: 2,
+        ub: 4,
+        expr: None,
+        annos: [
+            Annotation {
+                id: "output_var",
+                expressions: [],
+            },
+            Annotation {
+                id: "is_defined_var",
+                expressions: [],
+            },
+        ],
+    },
+)
+Variable(
+    IntInRange {
+        id: "y",
+        lb: 1,
+        ub: 4,
+        expr: None,
+        annos: [
+            Annotation {
+                id: "output_var",
+                expressions: [],
+            },
+        ],
+    },
+)
+Variable(
+    IntInRange {
+        id: "x",
+        lb: 1,
+        ub: 3,
+        expr: None,
+        annos: [
+            Annotation {
+                id: "output_var",
+                expressions: [],
+            },
+        ],
+    },
+)
+Variable(
+    IntInRange {
+        id: "z",
+        lb: 1,
+        ub: 3,
+        expr: None,
+        annos: [
+            Annotation {
+                id: "output_var",
+                expressions: [],
+            },
+        ],
+    },
+)
+Constraint(
+    ConstraintItem {
+        id: "int_lin_eq",
+        exprs: [
+            VarParIdentifier(
+                "X_INTRODUCED_2_",
+            ),
+            ArrayOfBool(
+                [
+                    VarParIdentifier(
+                        "w",
+                    ),
+                    VarParIdentifier(
+                        "x",
+                    ),
+                ],
+            ),
+            Int(
+                0,
+            ),
+        ],
+        annos: [
+            Annotation {
+                id: "defines_var",
+                expressions: [
+                    Expr(
+                        VarParIdentifier(
+                            "w",
+                        ),
+                    ),
+                ],
+            },
+        ],
+    },
+)
+Constraint(
+    ConstraintItem {
+        id: "int_lin_le",
+        exprs: [
+            VarParIdentifier(
+                "X_INTRODUCED_3_",
+            ),
+            ArrayOfBool(
+                [
+                    VarParIdentifier(
+                        "w",
+                    ),
+                    VarParIdentifier(
+                        "z",
+                    ),
+                ],
+            ),
+            Int(
+                -1,
+            ),
+        ],
+        annos: [],
+    },
+)
+Constraint(
+    ConstraintItem {
+        id: "int_lin_le",
+        exprs: [
+            VarParIdentifier(
+                "X_INTRODUCED_4_",
+            ),
+            ArrayOfBool(
+                [
+                    VarParIdentifier(
+                        "y",
+                    ),
+                    VarParIdentifier(
+                        "z",
+                    ),
+                ],
+            ),
+            Int(
+                -1,
+            ),
+        ],
+        annos: [],
+    },
+)
+SolveItem(
+    SolveItem {
+        goal: Satisfy,
+        annotations: [],
+    },
+)
