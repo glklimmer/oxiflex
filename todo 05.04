@@ -1,6 +1,6 @@
 TODO 05.06:
 
-- MSC Config in order for minizinc to take oxiflex as solver
+[X] MSC Config in order for minizinc to take oxiflex as solver
   - Give right "no solution found" output: =====UNKNOWN===== see: https://www.minizinc.org/doc-2.4.3/en/fzn-spec.html#solution-output
 
 [X] Make table of contents
@@ -15,5 +15,5 @@ TODO 05.06:
 
 [X] Attributes to MiniZinc: https://www.minizinc.org/publications.html
 
-- Solve simple problem
+[X] Solve simple problem
   - output correct format minizinc
