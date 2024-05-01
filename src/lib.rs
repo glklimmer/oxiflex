@@ -13,6 +13,10 @@ pub struct Opt {
     /// File to solve
     #[structopt(parse(from_os_str), default_value = "problems/simple/simple.fzn")]
     filename: PathBuf,
+
+    /// Only parse using flatzinc
+    #[structopt(short, long)]
+    pub parse: bool,
 }
 
 #[derive(Clone, PartialEq)]
@@ -344,6 +348,24 @@ enum SearchResult<'a> {
     Unbounded,
     Unknown,
     Assignment(PartialAssignment<'a>),
+}
+
+pub fn parse(opt: Opt) -> Result<(), Box<dyn Error>> {
+    let buf = fs::read_to_string(opt.filename)?;
+
+    for line in buf.lines() {
+        match statement::<VerboseError<&str>>(line) {
+            Ok((_, result)) => println!("{:#?}", result),
+            Err(Err::Error(e)) => {
+                let error = convert_error(buf.as_str(), e);
+                eprintln!("Failed to parse flatzinc!\n{}", error)
+            }
+            Err(e) => eprintln!("Failed to parse flatzinc: {:?}", e),
+        }
+        println!()
+    }
+
+    Ok(())
 }
 
 pub fn run(opt: Opt) -> Result<(), Box<dyn Error>> {
