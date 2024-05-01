@@ -1,7 +1,7 @@
 -start writing
   - intro low prio
 
-- queens problem
+[X] queens problem
   - array of int
   - int_lin_ne builtin
 
