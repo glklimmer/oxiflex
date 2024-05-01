@@ -80,6 +80,7 @@ impl Model {
 enum Builtin {
     IntLinEq(Vec<i128>, Vec<String>, i128), // TODO: Replace String key with VarId
     IntLinLe(Vec<i128>, Vec<String>, i128), // TODO: Replace String key with VarId
+    IntLinNe(Vec<i128>, Vec<String>, i128), // TODO: Replace String key with VarId
 }
 
 impl Builtin {
@@ -173,6 +174,48 @@ impl Builtin {
 
                 Ok(Builtin::IntLinLe(par_data, var_ids, c))
             }
+            "int_lin_ne" => {
+                let par_identifier = constraint.exprs[0].to_owned();
+                let par_id = if let Expr::VarParIdentifier(id) = par_identifier {
+                    id
+                } else {
+                    panic!("Only VarParIdentifier supported for int_lin_ne")
+                };
+
+                let parameter = parameters
+                    .get(&par_id)
+                    .unwrap_or_else(|| panic!("Parameter {} not found", par_id));
+                let par_data = if let ParDeclItem::ArrayOfInt { v, .. } = parameter {
+                    v.to_owned()
+                } else {
+                    Vec::new()
+                };
+
+                let var_expr = constraint.exprs[1].to_owned();
+                let vars = if let Expr::ArrayOfBool(exprs) = var_expr {
+                    exprs
+                } else {
+                    Vec::new()
+                };
+                let var_ids = vars
+                    .iter()
+                    .map(|expr| {
+                        if let BoolExpr::VarParIdentifier(id) = expr {
+                            if variables.get(&id.into()).is_none() {
+                                panic!("Variable {} not found", id);
+                            }
+                            id.to_owned()
+                        } else {
+                            todo!("Only Bool Expr supported");
+                        }
+                    })
+                    .collect();
+
+                let expr = constraint.exprs[2].to_owned();
+                let c = if let Expr::Int(i) = expr { i } else { 0 };
+
+                Ok(Builtin::IntLinNe(par_data, var_ids, c))
+            }
             _ => Err(()),
         }
     }
@@ -188,8 +231,8 @@ impl Builtin {
 
                 let u_key = b_vec_iter.next().unwrap();
                 let u_assignment = alpha.0.get(&u_key.into()).expect("Variable not found");
-                let u_range = if let Some(value) = u_assignment.value {
-                    value..=value
+                let u = if let Some(value) = u_assignment.value {
+                    value
                 } else {
                     // println!("{u_key} not set, check: true");
                     return true;
@@ -197,8 +240,8 @@ impl Builtin {
 
                 let v_key = b_vec_iter.next().unwrap();
                 let v_assignment = alpha.0.get(&v_key.into()).expect("Variable not found");
-                let v_range = if let Some(value) = v_assignment.value {
-                    value..=value
+                let v = if let Some(value) = v_assignment.value {
+                    value
                 } else {
                     // println!("{v_key} not set, check: true");
                     return true;
@@ -208,14 +251,12 @@ impl Builtin {
                 // println!("checking: {u_key}, {v_key}, int_lin_eq");
                 // println!("{alpha}");
                 // println!("c == a_1 * u + a_2 * v");
-                for (u, v) in u_range.zip(v_range) {
-                    let a_1 = a_vec[0];
-                    let a_2 = a_vec[1];
-                    let r = *c == a_1 * u + a_2 * v;
-                    // println!("{c} == {a_1} * {u} + {a_2} * {v}, check: {r}");
-                    if r {
-                        return true;
-                    }
+                let a_1 = a_vec[0];
+                let a_2 = a_vec[1];
+                let r = *c == a_1 * u + a_2 * v;
+                // println!("{c} == {a_1} * {u} + {a_2} * {v}, check: {r}");
+                if r {
+                    return true;
                 }
                 false
             }
@@ -227,8 +268,8 @@ impl Builtin {
 
                 let u_key = b_vec_iter.next().unwrap();
                 let u_assignment = alpha.0.get(&u_key.into()).expect("Variable not found");
-                let u_range = if let Some(value) = u_assignment.value {
-                    value..=value
+                let u = if let Some(value) = u_assignment.value {
+                    value
                 } else {
                     // println!("{u_key} not set, check: true");
                     return true;
@@ -236,8 +277,8 @@ impl Builtin {
 
                 let v_key = b_vec_iter.next().unwrap();
                 let v_assignment = alpha.0.get(&v_key.into()).expect("Variable not found");
-                let v_range = if let Some(value) = v_assignment.value {
-                    value..=value
+                let v = if let Some(value) = v_assignment.value {
+                    value
                 } else {
                     // println!("{v_key} not set, check: true");
                     return true;
@@ -247,14 +288,49 @@ impl Builtin {
                 // println!("checking: {u_key}, {v_key}, int_lin_le");
                 // println!("{alpha}");
                 // println!("c >= a_1 * u + a_2 * v");
-                for (u, v) in u_range.zip(v_range) {
-                    let a_1 = a_vec[0];
-                    let a_2 = a_vec[1];
-                    let r = *c >= a_1 * u + a_2 * v;
-                    // println!("{c} >= {a_1} * {u} + {a_2} * {v}, check: {r}");
-                    if r {
-                        return true;
-                    }
+                let a_1 = a_vec[0];
+                let a_2 = a_vec[1];
+                let r = *c >= a_1 * u + a_2 * v;
+                // println!("{c} >= {a_1} * {u} + {a_2} * {v}, check: {r}");
+                if r {
+                    return true;
+                }
+                false
+            }
+            Builtin::IntLinNe(a_vec, b_vec, c) => {
+                assert!(a_vec.len() == 2, "Only binary constraints supported");
+                assert!(b_vec.len() == 2, "Only binary constraints supported");
+
+                let mut b_vec_iter = b_vec.iter();
+
+                let u_key = b_vec_iter.next().unwrap();
+                let u_assignment = alpha.0.get(&u_key.into()).expect("Variable not found");
+                let u = if let Some(value) = u_assignment.value {
+                    value
+                } else {
+                    // println!("{u_key} not set, check: true");
+                    return true;
+                };
+
+                let v_key = b_vec_iter.next().unwrap();
+                let v_assignment = alpha.0.get(&v_key.into()).expect("Variable not found");
+                let v = if let Some(value) = v_assignment.value {
+                    value
+                } else {
+                    // println!("{v_key} not set, check: true");
+                    return true;
+                };
+
+                // println!("----------");
+                // println!("checking: {u_key}, {v_key}, int_lin_ne");
+                // println!("{alpha}");
+                // println!("c >= a_1 * u + a_2 * v");
+                let a_1 = a_vec[0];
+                let a_2 = a_vec[1];
+                let r = *c != a_1 * u + a_2 * v;
+                // println!("{c} != {a_1} * {u} + {a_2} * {v}, check: {r}");
+                if r {
+                    return true;
                 }
                 false
             }
