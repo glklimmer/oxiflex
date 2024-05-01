@@ -1,5 +1,6 @@
 use core::panic;
 use flatzinc::{statement, *};
+use std::fmt::{Display, Formatter};
 use std::ops::RangeInclusive;
 use std::path::PathBuf;
 use std::{collections::HashMap, error::Error};
@@ -34,15 +35,28 @@ impl From<&String> for VarId {
     }
 }
 
+impl From<String> for VarId {
+    fn from(item: String) -> Self {
+        VarId(item.clone())
+    }
+}
+
+impl Display for VarId {
+    fn fmt(&self, f: &mut Formatter<'_>) -> fmt::Result {
+        write!(f, "{}", self.0)?;
+        Ok(())
+    }
+}
+
 #[derive(Clone, PartialEq)]
 struct PartialAssignment<'a>(HashMap<VarId, Assignment<'a>>);
 
-impl<'a> fmt::Display for PartialAssignment<'a> {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+impl<'a> Display for PartialAssignment<'a> {
+    fn fmt(&self, f: &mut Formatter<'_>) -> fmt::Result {
         for (id, assignment) in &self.0 {
             match assignment.value {
-                Some(v) => writeln!(f, "{} = {};", id.0, v)?,
-                None => writeln!(f, "{}: unset", id.0)?,
+                Some(v) => writeln!(f, "{} = {};", id, v)?,
+                None => writeln!(f, "{}: unset", id)?,
             }
         }
         Ok(())
@@ -374,6 +388,8 @@ pub fn run(opt: Opt) -> Result<(), Box<dyn Error>> {
     let mut parameters = HashMap::new();
     let mut variables = HashMap::new();
     let mut constraints = Vec::new();
+    let mut output: Vec<VarId> = Vec::new();
+    let mut output_arrays = HashMap::new();
 
     for line in buf.lines() {
         match statement::<VerboseError<&str>>(line) {
@@ -386,6 +402,13 @@ pub fn run(opt: Opt) -> Result<(), Box<dyn Error>> {
                 }
                 Stmt::Variable(item) => {
                     let id = extract_var_id(&item);
+                    if is_output(&item) {
+                        output.push(id.clone());
+                        if let VarDeclItem::ArrayOfInt { .. } = item {
+                            output_arrays.insert(id, item);
+                            continue;
+                        }
+                    }
                     variables.insert(id, item);
                 }
                 Stmt::Constraint(item) => constraints.push(item),
@@ -421,13 +444,87 @@ pub fn run(opt: Opt) -> Result<(), Box<dyn Error>> {
         SearchResult::Unbounded => println!("=====UNBOUNDED====="),
         SearchResult::Unsatisfiable => println!("=====UNSATISFIABLE====="),
         SearchResult::Assignment(assignments) => {
-            println!("{assignments}");
+            for id in output {
+                let variable = model.variables.get(&id);
+                let variable = match variable {
+                    Some(variable) => variable,
+                    None => output_arrays.get(&id).expect("test"),
+                };
+                match variable {
+                    VarDeclItem::ArrayOfInt { ix, array_expr, .. } => {
+                        if let Option::Some(array_of_int_expr) = array_expr {
+                            match array_of_int_expr {
+                                ArrayOfIntExpr::Array(exprs) => {
+                                    let values: Vec<String> = exprs
+                                        .iter()
+                                        .map(|expr| match expr {
+                                            IntExpr::Int(_) => todo!(),
+                                            IntExpr::VarParIdentifier(var_id) => assignments
+                                                .0
+                                                .get(&var_id.into())
+                                                .expect("Variable not found in assignments.")
+                                                .value
+                                                .expect("No value for variable found.")
+                                                .to_string(),
+                                        })
+                                        .collect();
+                                    println!(
+                                        "{} = array1d(1..{}, [{}]);",
+                                        id,
+                                        ix.0,
+                                        values.join(", ")
+                                    );
+                                }
+                                ArrayOfIntExpr::VarParIdentifier(_) => todo!(),
+                            }
+                        }
+                    }
+                    _ => {
+                        println!(
+                            "{} = {};",
+                            id,
+                            assignments
+                                .0
+                                .get(&id)
+                                .expect("No value for variable found")
+                                .value
+                                .expect("No value for variable found.")
+                        )
+                    }
+                }
+            }
             println!("----------");
             println!("==========");
         }
     }
 
     Ok(())
+}
+
+fn is_output(item: &VarDeclItem) -> bool {
+    let annos = match item {
+        VarDeclItem::Bool { annos, .. } => annos,
+        VarDeclItem::Int { annos, .. } => annos,
+        VarDeclItem::IntInRange { annos, .. } => annos,
+        VarDeclItem::IntInSet { annos, .. } => annos,
+        VarDeclItem::Float { annos, .. } => annos,
+        VarDeclItem::BoundedFloat { annos, .. } => annos,
+        VarDeclItem::SetOfInt { annos, .. } => annos,
+        VarDeclItem::SubSetOfIntSet { annos, .. } => annos,
+        VarDeclItem::SubSetOfIntRange { annos, .. } => annos,
+        VarDeclItem::ArrayOfBool { annos, .. } => annos,
+        VarDeclItem::ArrayOfInt { annos, .. } => annos,
+        VarDeclItem::ArrayOfIntInRange { annos, .. } => annos,
+        VarDeclItem::ArrayOfIntInSet { annos, .. } => annos,
+        VarDeclItem::ArrayOfFloat { annos, .. } => annos,
+        VarDeclItem::ArrayOfBoundedFloat { annos, .. } => annos,
+        VarDeclItem::ArrayOfSet { annos, .. } => annos,
+        VarDeclItem::ArrayOfSubSetOfIntRange { annos, .. } => annos,
+        VarDeclItem::ArrayOfSubSetOfIntSet { annos, .. } => annos,
+    };
+    annos
+        .iter()
+        .any(|anno| anno.id == "output_array" || anno.id == "output_var")
 }
 
 fn extract_par_id(item: ParDeclItem) -> (String, ParDeclItem) {
