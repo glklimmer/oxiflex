@@ -5,7 +5,7 @@
   - array of int
   - int_lin_ne builtin
 
-- adjust readme for minizinc config solver
+[X] adjust readme for minizinc config solver
   - not releases / no install.sh
 
 - checkout if minizinc has logging (time/memory/open nodes) functionality
