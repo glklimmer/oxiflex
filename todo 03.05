@@ -1,0 +1,12 @@
+- add improvment to naive_backtracking (static / dynamic variable ordering)
+
+- start writing
+  - intro low prio
+
+- check what problems can be solved right now
+  examples:
+    - sudoku
+    - nrp
+    - map coloring
+
+- checkout if minizinc has logging (time/memory/open nodes) functionality
