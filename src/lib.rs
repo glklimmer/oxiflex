@@ -239,7 +239,7 @@ impl Builtin {
     }
 
     // check (v, u, c, alpha)
-    fn check(&self, model: &Model, alpha: &PartialAssignment) -> bool {
+    fn check(&self, alpha: &PartialAssignment) -> bool {
         match self {
             Builtin::IntLinEq(a_vec, b_vec, c) => {
                 assert!(a_vec.len() == 2, "Only binary constraints supported");
@@ -570,7 +570,7 @@ fn naive_backtracking<'a>(model: &'a Model, alpha: PartialAssignment<'a>) -> Sea
     if model
         .constraints
         .iter()
-        .any(|constraint| !constraint.check(model, &alpha))
+        .any(|constraint| !constraint.check(&alpha))
     {
         return SearchResult::Unsatisfiable;
     }
