@@ -1,7 +1,6 @@
 use core::panic;
 use flatzinc::{statement, *};
 use std::fmt::{Display, Formatter};
-use std::ops::RangeInclusive;
 use std::path::PathBuf;
 use std::{collections::HashMap, error::Error};
 use std::{fmt, fs, i128};
@@ -21,8 +20,8 @@ pub struct Opt {
 }
 
 #[derive(Clone, PartialEq)]
-struct Assignment<'a> {
-    variable: &'a VarDeclItem,
+struct Assignment {
+    var_id: VarId,
     value: Option<i128>,
 }
 
@@ -49,9 +48,9 @@ impl Display for VarId {
 }
 
 #[derive(Clone, PartialEq)]
-struct PartialAssignment<'a>(HashMap<VarId, Assignment<'a>>);
+struct PartialAssignment(HashMap<VarId, Assignment>);
 
-impl<'a> Display for PartialAssignment<'a> {
+impl Display for PartialAssignment {
     fn fmt(&self, f: &mut Formatter<'_>) -> fmt::Result {
         for (id, assignment) in &self.0 {
             match assignment.value {
@@ -63,8 +62,10 @@ impl<'a> Display for PartialAssignment<'a> {
     }
 }
 
+#[derive(Clone)]
 struct Model {
     variables: HashMap<VarId, VarDeclItem>,
+    domains: HashMap<VarId, Vec<i128>>,
     constraints: Vec<Builtin>,
 }
 
@@ -81,20 +82,48 @@ impl Model {
 
         Self {
             variables,
+            domains: HashMap::new(),
             constraints,
         }
     }
 
-    fn dom(variable: &VarDeclItem) -> RangeInclusive<i128> {
-        match variable {
+    fn domains_available(&self) -> bool {
+        self.variables.iter().all(|v| {
+            let id = extract_var_id(v.1);
+            if let Some(domain) = self.domains.get(&id) {
+                if !domain.is_empty() {
+                    return true;
+                }
+            }
+            false
+        })
+    }
+
+    fn dom(&self, var_id: &VarId) -> Box<dyn Iterator<Item = i128> + '_> {
+        if let Some(domain) = self.domains.get(&var_id) {
+            if !domain.is_empty() {
+                return Box::new(domain.iter().cloned());
+            }
+        }
+
+        let variable = self.variables.get(&var_id).expect("Variable not found.");
+
+        let range = match variable {
             VarDeclItem::Bool { .. } => 0..=1,
             VarDeclItem::Int { .. } => i128::MIN..=i128::MAX,
             VarDeclItem::IntInRange { lb, ub, .. } => *lb..=*ub,
             _ => todo!(),
-        }
+        };
+
+        Box::new(range)
+    }
+
+    fn forward_checking(&mut self) {
+        self.variables.remove(&VarId("test".to_string()));
     }
 }
 
+#[derive(Clone)]
 enum Builtin {
     IntLinEq(Vec<i128>, Vec<String>, i128), // TODO: Replace String key with VarId
     IntLinLe(Vec<i128>, Vec<String>, i128), // TODO: Replace String key with VarId
@@ -357,11 +386,11 @@ impl Builtin {
 }
 
 #[derive(PartialEq)]
-enum SearchResult<'a> {
+enum SearchResult {
     Unsatisfiable,
     Unbounded,
     Unknown,
-    Assignment(PartialAssignment<'a>),
+    Assignment(PartialAssignment),
 }
 
 pub fn parse(opt: Opt) -> Result<(), Box<dyn Error>> {
@@ -430,13 +459,14 @@ pub fn run(opt: Opt) -> Result<(), Box<dyn Error>> {
             .variables
             .values()
             .map(|v| Assignment {
-                variable: v,
+                var_id: extract_var_id(v),
                 value: None,
             })
-            .map(|assignment| (extract_var_id(assignment.variable), assignment))
+            .map(|assignment| (assignment.var_id.clone(), assignment))
             .collect(),
     );
-    let result = naive_backtracking(&model, empty_assignment);
+    // let result = naive_backtracking(&model, empty_assignment);
+    let result = backtracking_with_forward_checking(&model, empty_assignment);
 
     // output
     match result {
@@ -564,7 +594,7 @@ fn extract_var_id(item: &VarDeclItem) -> VarId {
     }
 }
 
-fn naive_backtracking<'a>(model: &'a Model, alpha: PartialAssignment<'a>) -> SearchResult<'a> {
+fn naive_backtracking<'a>(model: &'a Model, alpha: PartialAssignment) -> SearchResult {
     // if α is inconsistent with C:
     // // return inconsistent
     if model
@@ -591,19 +621,19 @@ fn naive_backtracking<'a>(model: &'a Model, alpha: PartialAssignment<'a>) -> Sea
         .iter()
         .find(|assignment_entry| assignment_entry.1.value.is_none());
     let v = if let Some(assignment) = v {
-        assignment.1.variable
+        assignment.1.var_id
     } else {
         return SearchResult::Unsatisfiable;
     };
 
     // for each d ∈ dom(v ) in some order:
-    for d in Model::dom(v) {
+    for d in model.dom(&v) {
         // // α′ := α ∪ {v 7→ d}
         let mut alpha_prime = alpha.clone();
         alpha_prime.0.insert(
-            extract_var_id(v),
+            v,
             Assignment {
-                variable: v,
+                var_id: v,
                 value: Some(d),
             },
         );
@@ -614,6 +644,76 @@ fn naive_backtracking<'a>(model: &'a Model, alpha: PartialAssignment<'a>) -> Sea
         if alpha_prime_prime != SearchResult::Unsatisfiable {
             // // // return α′′
             return alpha_prime_prime;
+        }
+    }
+
+    // return inconsistent
+    SearchResult::Unsatisfiable
+}
+
+fn backtracking_with_forward_checking<'a>(
+    model: &'a Model,
+    alpha: PartialAssignment,
+) -> SearchResult {
+    // if α is inconsistent with C:
+    // // return inconsistent
+    if model
+        .constraints
+        .iter()
+        .any(|constraint| !constraint.check(&alpha))
+    {
+        return SearchResult::Unsatisfiable;
+    }
+
+    // if α is a total assignment:
+    // // return α
+    if alpha
+        .0
+        .iter()
+        .all(|assignment_entry| assignment_entry.1.value.is_some())
+    {
+        return SearchResult::Assignment(alpha);
+    }
+
+    // C′ := ⟨V, dom′, (R_uv)⟩ := copy of C
+    let mut model_prime = model.clone();
+
+    // apply inference to C′
+    model_prime.forward_checking();
+
+    // if dom′(v) ̸= ∅ for all variables v:
+    if model_prime.domains_available() {
+        // // select some variable v for which α is not defined
+        let v = alpha
+            .0
+            .iter()
+            .find(|assignment_entry| assignment_entry.1.value.is_none());
+        let v = if let Some(assignment) = v {
+            assignment.1.var_id
+        } else {
+            return SearchResult::Unsatisfiable;
+        };
+
+        // // for each d ∈ dom(v ) in some order:
+        for d in model_prime.dom(&v) {
+            // // // α′ := α ∪ {v 7→ d}
+            let mut alpha_prime = alpha.clone();
+            alpha_prime.0.insert(
+                v,
+                Assignment {
+                    var_id: v,
+                    value: Some(d),
+                },
+            );
+
+            // // // α′′ := BacktrackingWithForwardChecking(C, α′ )
+            let alpha_prime_prime = backtracking_with_forward_checking(&model_prime, alpha_prime);
+
+            // // // if α′′ ̸= inconsistent:
+            if alpha_prime_prime != SearchResult::Unsatisfiable {
+                // // // // return α′′
+                return alpha_prime_prime;
+            }
         }
     }
 
