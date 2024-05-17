@@ -1,12 +1,16 @@
-- add improvment to naive_backtracking (static / dynamic variable ordering)
-
 - start writing
   - intro low prio
+  - email for feedback on sections
+
+- add improvment to naive_backtracking (static / dynamic variable ordering)
+ordering:
+-> look for variables with most constraint participation L24, after algo
 
 - check what problems can be solved right now
   examples:
     - sudoku
     - nrp
     - map coloring
+-> write down needed builtins
 
 - checkout if minizinc has logging (time/memory/open nodes) functionality
