@@ -62,6 +62,14 @@ impl Display for PartialAssignment {
     }
 }
 
+impl PartialAssignment {
+    fn union(&self, id: &VarId, value: i128) -> PartialAssignment {
+        let mut alpha_prime = self.clone();
+        alpha_prime.0.insert(id.clone(), Some(value));
+        alpha_prime
+    }
+}
+
 #[derive(Clone)]
 struct Model {
     variables: HashMap<VarId, VarDeclItem>,
@@ -80,9 +88,22 @@ impl Model {
             .filter_map(|constraint| Builtin::from(constraint, &variables, parameters).ok())
             .collect();
 
+        let domains: HashMap<VarId, Vec<i128>> = variables
+            .iter()
+            .map(|(id, variable)| {
+                let range = match variable {
+                    VarDeclItem::Bool { .. } => 0..=1,
+                    VarDeclItem::Int { .. } => i128::MIN..=i128::MAX,
+                    VarDeclItem::IntInRange { lb, ub, .. } => *lb..=*ub,
+                    _ => todo!(),
+                };
+                (id.clone(), range.collect())
+            })
+            .collect();
+
         Self {
             variables,
-            domains: HashMap::new(),
+            domains,
             constraints,
         }
     }
@@ -99,27 +120,43 @@ impl Model {
         })
     }
 
-    fn dom(&self, var_id: &VarId) -> Box<dyn Iterator<Item = i128> + '_> {
-        if let Some(domain) = self.domains.get(&var_id) {
-            if !domain.is_empty() {
-                return Box::new(domain.iter().cloned());
-            }
-        }
-
-        let variable = self.variables.get(&var_id).expect("Variable not found.");
-
-        let range = match variable {
-            VarDeclItem::Bool { .. } => 0..=1,
-            VarDeclItem::Int { .. } => i128::MIN..=i128::MAX,
-            VarDeclItem::IntInRange { lb, ub, .. } => *lb..=*ub,
-            _ => todo!(),
-        };
-
-        Box::new(range)
+    fn dom(&self, var_id: &VarId) -> &Vec<i128> {
+        self.domains.get(var_id).unwrap()
     }
 
-    fn forward_checking(&mut self) {
-        self.variables.remove(&VarId("test".to_string()));
+    fn forward_checking(&mut self, alpha: &PartialAssignment) {
+        // for each assignment in alpha
+        // go over domains and apply all constraints
+
+        let unassigned_vars = alpha
+            .0
+            .iter()
+            .filter(|ass| ass.1.is_none())
+            .map(|ass| ass.0);
+
+        for (_, assignment) in alpha.0.iter() {
+            if assignment.is_some() {
+                for unassigned_id in unassigned_vars.clone() {
+                    let current_domain = self.dom(unassigned_id);
+                    let mut infered_changes = HashMap::new();
+
+                    for constraint in self.constraints.iter() {
+                        let infered_domain: Vec<i128> = current_domain
+                            .iter()
+                            .filter(|&possible_value| {
+                                constraint.check(&alpha.union(unassigned_id, *possible_value))
+                            })
+                            .copied()
+                            .collect();
+                        infered_changes.insert(unassigned_id.clone(), infered_domain);
+                    }
+
+                    for (var_id, domain) in infered_changes {
+                        self.domains.insert(var_id, domain);
+                    }
+                }
+            }
+        }
     }
 }
 
@@ -442,7 +479,7 @@ pub fn run(opt: Opt) -> Result<(), Box<dyn Error>> {
         }
     }
 
-    let model = Model::new(variables, &constraints, &parameters);
+    let mut model = Model::new(variables, &constraints, &parameters);
 
     // solve
     let empty_assignment = PartialAssignment(
@@ -453,7 +490,7 @@ pub fn run(opt: Opt) -> Result<(), Box<dyn Error>> {
             .collect(),
     );
     // let result = naive_backtracking(&model, empty_assignment);
-    let result = backtracking_with_forward_checking(&model, empty_assignment);
+    let result = backtracking_with_forward_checking(&mut model, empty_assignment);
 
     // output
     match result {
@@ -614,8 +651,7 @@ fn naive_backtracking(model: &Model, alpha: PartialAssignment) -> SearchResult {
     // for each d ∈ dom(v ) in some order:
     for d in model.dom(v) {
         // // α′ := α ∪ {v 7→ d}
-        let mut alpha_prime = alpha.clone();
-        alpha_prime.0.insert(v.clone(), Some(d));
+        let alpha_prime = alpha.union(v, *d);
         // // α′′ := NaiveBacktracking(C, α′ )
         let alpha_prime_prime = naive_backtracking(model, alpha_prime);
 
@@ -655,7 +691,7 @@ fn backtracking_with_forward_checking(model: &Model, alpha: PartialAssignment) -
     let mut model_prime = model.clone();
 
     // apply inference to C′
-    model_prime.forward_checking();
+    model_prime.forward_checking(&alpha);
 
     // if dom′(v) ̸= ∅ for all variables v:
     if model_prime.domains_available() {
@@ -673,8 +709,7 @@ fn backtracking_with_forward_checking(model: &Model, alpha: PartialAssignment) -
         // // for each d ∈ dom(v ) in some order:
         for d in model_prime.dom(v) {
             // // // α′ := α ∪ {v 7→ d}
-            let mut alpha_prime = alpha.clone();
-            alpha_prime.0.insert(v.clone(), Some(d));
+            let alpha_prime = alpha.union(v, *d);
 
             // // // α′′ := BacktrackingWithForwardChecking(C, α′ )
             let alpha_prime_prime = backtracking_with_forward_checking(&model_prime, alpha_prime);
