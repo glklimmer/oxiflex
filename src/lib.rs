@@ -125,9 +125,9 @@ impl Model {
 
 #[derive(Clone)]
 enum Builtin {
-    IntLinEq(Vec<i128>, Vec<String>, i128), // TODO: Replace String key with VarId
-    IntLinLe(Vec<i128>, Vec<String>, i128), // TODO: Replace String key with VarId
-    IntLinNe(Vec<i128>, Vec<String>, i128), // TODO: Replace String key with VarId
+    IntLinEq(Vec<i128>, Vec<VarId>, i128),
+    IntLinLe(Vec<i128>, Vec<VarId>, i128),
+    IntLinNe(Vec<i128>, Vec<VarId>, i128),
 }
 
 impl Builtin {
@@ -164,10 +164,7 @@ impl Builtin {
                     .iter()
                     .map(|expr| {
                         if let BoolExpr::VarParIdentifier(id) = expr {
-                            if variables.get(&id.into()).is_none() {
-                                panic!("Variable {} not found", id);
-                            }
-                            id.to_owned()
+                            id.into()
                         } else {
                             todo!("Only Bool Expr supported");
                         }
@@ -206,10 +203,7 @@ impl Builtin {
                     .iter()
                     .map(|expr| {
                         if let BoolExpr::VarParIdentifier(id) = expr {
-                            if variables.get(&id.into()).is_none() {
-                                panic!("Variable {} not found", id);
-                            }
-                            id.to_owned()
+                            id.into()
                         } else {
                             todo!("Only Bool Expr supported");
                         }
@@ -248,10 +242,7 @@ impl Builtin {
                     .iter()
                     .map(|expr| {
                         if let BoolExpr::VarParIdentifier(id) = expr {
-                            if variables.get(&id.into()).is_none() {
-                                panic!("Variable {} not found", id);
-                            }
-                            id.to_owned()
+                            id.into()
                         } else {
                             todo!("Only Bool Expr supported");
                         }
@@ -277,7 +268,7 @@ impl Builtin {
                 let mut b_vec_iter = b_vec.iter();
 
                 let u_key = b_vec_iter.next().unwrap();
-                let u_assignment = alpha.0.get(&u_key.into()).expect("Variable not found");
+                let u_assignment = alpha.0.get(&u_key).expect("Variable not found");
                 let u = if let Some(value) = u_assignment {
                     value
                 } else {
@@ -286,7 +277,7 @@ impl Builtin {
                 };
 
                 let v_key = b_vec_iter.next().unwrap();
-                let v_assignment = alpha.0.get(&v_key.into()).expect("Variable not found");
+                let v_assignment = alpha.0.get(&v_key).expect("Variable not found");
                 let v = if let Some(value) = v_assignment {
                     value
                 } else {
@@ -314,7 +305,7 @@ impl Builtin {
                 let mut b_vec_iter = b_vec.iter();
 
                 let u_key = b_vec_iter.next().unwrap();
-                let u_assignment = alpha.0.get(&u_key.into()).expect("Variable not found");
+                let u_assignment = alpha.0.get(&u_key).expect("Variable not found");
                 let u = if let Some(value) = u_assignment {
                     value
                 } else {
@@ -323,7 +314,7 @@ impl Builtin {
                 };
 
                 let v_key = b_vec_iter.next().unwrap();
-                let v_assignment = alpha.0.get(&v_key.into()).expect("Variable not found");
+                let v_assignment = alpha.0.get(&v_key).expect("Variable not found");
                 let v = if let Some(value) = v_assignment {
                     value
                 } else {
@@ -351,7 +342,7 @@ impl Builtin {
                 let mut b_vec_iter = b_vec.iter();
 
                 let u_key = b_vec_iter.next().unwrap();
-                let u_assignment = alpha.0.get(&u_key.into()).expect("Variable not found");
+                let u_assignment = alpha.0.get(&u_key).expect("Variable not found");
                 let u = if let Some(value) = u_assignment {
                     value
                 } else {
@@ -360,7 +351,7 @@ impl Builtin {
                 };
 
                 let v_key = b_vec_iter.next().unwrap();
-                let v_assignment = alpha.0.get(&v_key.into()).expect("Variable not found");
+                let v_assignment = alpha.0.get(&v_key).expect("Variable not found");
                 let v = if let Some(value) = v_assignment {
                     value
                 } else {
