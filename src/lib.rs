@@ -48,12 +48,12 @@ impl Display for VarId {
 }
 
 #[derive(Clone, PartialEq)]
-struct PartialAssignment(HashMap<VarId, Assignment>);
+struct PartialAssignment(HashMap<VarId, Option<i128>>);
 
 impl Display for PartialAssignment {
     fn fmt(&self, f: &mut Formatter<'_>) -> fmt::Result {
         for (id, assignment) in &self.0 {
-            match assignment.value {
+            match assignment {
                 Some(v) => writeln!(f, "{} = {};", id, v)?,
                 None => writeln!(f, "{}: unset", id)?,
             }
@@ -278,7 +278,7 @@ impl Builtin {
 
                 let u_key = b_vec_iter.next().unwrap();
                 let u_assignment = alpha.0.get(&u_key.into()).expect("Variable not found");
-                let u = if let Some(value) = u_assignment.value {
+                let u = if let Some(value) = u_assignment {
                     value
                 } else {
                     // println!("{u_key} not set, check: true");
@@ -287,7 +287,7 @@ impl Builtin {
 
                 let v_key = b_vec_iter.next().unwrap();
                 let v_assignment = alpha.0.get(&v_key.into()).expect("Variable not found");
-                let v = if let Some(value) = v_assignment.value {
+                let v = if let Some(value) = v_assignment {
                     value
                 } else {
                     // println!("{v_key} not set, check: true");
@@ -315,7 +315,7 @@ impl Builtin {
 
                 let u_key = b_vec_iter.next().unwrap();
                 let u_assignment = alpha.0.get(&u_key.into()).expect("Variable not found");
-                let u = if let Some(value) = u_assignment.value {
+                let u = if let Some(value) = u_assignment {
                     value
                 } else {
                     // println!("{u_key} not set, check: true");
@@ -324,7 +324,7 @@ impl Builtin {
 
                 let v_key = b_vec_iter.next().unwrap();
                 let v_assignment = alpha.0.get(&v_key.into()).expect("Variable not found");
-                let v = if let Some(value) = v_assignment.value {
+                let v = if let Some(value) = v_assignment {
                     value
                 } else {
                     // println!("{v_key} not set, check: true");
@@ -352,7 +352,7 @@ impl Builtin {
 
                 let u_key = b_vec_iter.next().unwrap();
                 let u_assignment = alpha.0.get(&u_key.into()).expect("Variable not found");
-                let u = if let Some(value) = u_assignment.value {
+                let u = if let Some(value) = u_assignment {
                     value
                 } else {
                     // println!("{u_key} not set, check: true");
@@ -361,7 +361,7 @@ impl Builtin {
 
                 let v_key = b_vec_iter.next().unwrap();
                 let v_assignment = alpha.0.get(&v_key.into()).expect("Variable not found");
-                let v = if let Some(value) = v_assignment.value {
+                let v = if let Some(value) = v_assignment {
                     value
                 } else {
                     // println!("{v_key} not set, check: true");
@@ -458,11 +458,7 @@ pub fn run(opt: Opt) -> Result<(), Box<dyn Error>> {
         model
             .variables
             .values()
-            .map(|v| Assignment {
-                var_id: extract_var_id(v),
-                value: None,
-            })
-            .map(|assignment| (assignment.var_id.clone(), assignment))
+            .map(|variable| (extract_var_id(variable), None))
             .collect(),
     );
     // let result = naive_backtracking(&model, empty_assignment);
@@ -493,7 +489,6 @@ pub fn run(opt: Opt) -> Result<(), Box<dyn Error>> {
                                                 .0
                                                 .get(&var_id.into())
                                                 .expect("Variable not found in assignments.")
-                                                .value
                                                 .expect("No value for variable found.")
                                                 .to_string(),
                                         })
@@ -517,7 +512,6 @@ pub fn run(opt: Opt) -> Result<(), Box<dyn Error>> {
                                 .0
                                 .get(&id)
                                 .expect("No value for variable found")
-                                .value
                                 .expect("No value for variable found.")
                         )
                     }
@@ -594,7 +588,7 @@ fn extract_var_id(item: &VarDeclItem) -> VarId {
     }
 }
 
-fn naive_backtracking<'a>(model: &'a Model, alpha: PartialAssignment) -> SearchResult {
+fn naive_backtracking(model: &Model, alpha: PartialAssignment) -> SearchResult {
     // if α is inconsistent with C:
     // // return inconsistent
     if model
@@ -610,7 +604,7 @@ fn naive_backtracking<'a>(model: &'a Model, alpha: PartialAssignment) -> SearchR
     if alpha
         .0
         .iter()
-        .all(|assignment_entry| assignment_entry.1.value.is_some())
+        .all(|assignment_entry| assignment_entry.1.is_some())
     {
         return SearchResult::Assignment(alpha);
     }
@@ -619,24 +613,18 @@ fn naive_backtracking<'a>(model: &'a Model, alpha: PartialAssignment) -> SearchR
     let v = alpha
         .0
         .iter()
-        .find(|assignment_entry| assignment_entry.1.value.is_none());
+        .find(|assignment_entry| assignment_entry.1.is_none());
     let v = if let Some(assignment) = v {
-        assignment.1.var_id
+        assignment.0
     } else {
         return SearchResult::Unsatisfiable;
     };
 
     // for each d ∈ dom(v ) in some order:
-    for d in model.dom(&v) {
+    for d in model.dom(v) {
         // // α′ := α ∪ {v 7→ d}
         let mut alpha_prime = alpha.clone();
-        alpha_prime.0.insert(
-            v,
-            Assignment {
-                var_id: v,
-                value: Some(d),
-            },
-        );
+        alpha_prime.0.insert(v.clone(), Some(d));
         // // α′′ := NaiveBacktracking(C, α′ )
         let alpha_prime_prime = naive_backtracking(model, alpha_prime);
 
@@ -651,10 +639,7 @@ fn naive_backtracking<'a>(model: &'a Model, alpha: PartialAssignment) -> SearchR
     SearchResult::Unsatisfiable
 }
 
-fn backtracking_with_forward_checking<'a>(
-    model: &'a Model,
-    alpha: PartialAssignment,
-) -> SearchResult {
+fn backtracking_with_forward_checking(model: &Model, alpha: PartialAssignment) -> SearchResult {
     // if α is inconsistent with C:
     // // return inconsistent
     if model
@@ -670,7 +655,7 @@ fn backtracking_with_forward_checking<'a>(
     if alpha
         .0
         .iter()
-        .all(|assignment_entry| assignment_entry.1.value.is_some())
+        .all(|assignment_entry| assignment_entry.1.is_some())
     {
         return SearchResult::Assignment(alpha);
     }
@@ -687,24 +672,18 @@ fn backtracking_with_forward_checking<'a>(
         let v = alpha
             .0
             .iter()
-            .find(|assignment_entry| assignment_entry.1.value.is_none());
+            .find(|assignment_entry| assignment_entry.1.is_none());
         let v = if let Some(assignment) = v {
-            assignment.1.var_id
+            assignment.0
         } else {
             return SearchResult::Unsatisfiable;
         };
 
         // // for each d ∈ dom(v ) in some order:
-        for d in model_prime.dom(&v) {
+        for d in model_prime.dom(v) {
             // // // α′ := α ∪ {v 7→ d}
             let mut alpha_prime = alpha.clone();
-            alpha_prime.0.insert(
-                v,
-                Assignment {
-                    var_id: v,
-                    value: Some(d),
-                },
-            );
+            alpha_prime.0.insert(v.clone(), Some(d));
 
             // // // α′′ := BacktrackingWithForwardChecking(C, α′ )
             let alpha_prime_prime = backtracking_with_forward_checking(&model_prime, alpha_prime);
