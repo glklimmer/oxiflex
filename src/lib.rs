@@ -17,6 +17,10 @@ pub struct Opt {
     /// Only parse using flatzinc
     #[structopt(short, long)]
     pub parse: bool,
+
+    /// Use naive backtracking, e.g. no forward_checking
+    #[structopt(short, long)]
+    pub naive_backtracking: bool,
 }
 
 #[derive(Clone, PartialEq)]
@@ -479,7 +483,7 @@ pub fn run(opt: Opt) -> Result<(), Box<dyn Error>> {
         }
     }
 
-    let mut model = Model::new(variables, &constraints, &parameters);
+    let model = Model::new(variables, &constraints, &parameters);
 
     // solve
     let empty_assignment = PartialAssignment(
@@ -489,8 +493,11 @@ pub fn run(opt: Opt) -> Result<(), Box<dyn Error>> {
             .map(|variable| (extract_var_id(variable), None))
             .collect(),
     );
-    // let result = naive_backtracking(&model, empty_assignment);
-    let result = backtracking_with_forward_checking(&mut model, empty_assignment);
+    let result = if opt.naive_backtracking {
+        naive_backtracking(&model, empty_assignment)
+    } else {
+        backtracking_with_forward_checking(&model, empty_assignment)
+    };
 
     // output
     match result {
