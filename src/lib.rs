@@ -2,6 +2,7 @@ use core::panic;
 use flatzinc::{statement, *};
 use std::fmt::{Display, Formatter};
 use std::path::PathBuf;
+use std::rc::Rc;
 use std::{collections::HashMap, error::Error};
 use std::{fmt, fs, i128};
 use structopt::StructOpt;
@@ -75,10 +76,45 @@ impl PartialAssignment {
 }
 
 #[derive(Clone)]
+struct Domain(Vec<i128>);
+
+impl Domain {
+    fn is_empty(&self) -> bool {
+        self.0.is_empty()
+    }
+}
+
+impl FromIterator<i128> for Domain {
+    fn from_iter<T: IntoIterator<Item = i128>>(iter: T) -> Self {
+        let collected = iter.into_iter().collect::<Vec<i128>>();
+        Domain(collected)
+    }
+}
+
+impl IntoIterator for Domain {
+    type Item = i128;
+    type IntoIter = std::vec::IntoIter<Self::Item>;
+
+    fn into_iter(self) -> Self::IntoIter {
+        self.0.into_iter()
+    }
+}
+
+impl<'a> IntoIterator for &'a Domain {
+    type Item = &'a i128;
+    type IntoIter = std::slice::Iter<'a, i128>;
+
+    fn into_iter(self) -> Self::IntoIter {
+        self.0.iter()
+    }
+}
+
+#[derive(Clone)]
 struct Model {
     variables: HashMap<VarId, VarDeclItem>,
-    domains: HashMap<VarId, Vec<i128>>,
-    constraints: Vec<Builtin>,
+    domains: HashMap<VarId, Domain>,
+    constraints: Vec<Rc<Builtin>>,
+    index: HashMap<VarId, Vec<Rc<Builtin>>>,
 }
 
 impl Model {
@@ -87,12 +123,20 @@ impl Model {
         constraints: &[ConstraintItem],
         parameters: &HashMap<String, ParDeclItem>,
     ) -> Self {
-        let constraints = constraints
-            .iter()
-            .filter_map(|constraint| Builtin::from(constraint, &variables, parameters).ok())
-            .collect();
+        let mut constraint_vec = Vec::new();
+        let mut index: HashMap<VarId, Vec<Rc<Builtin>>> = HashMap::new();
 
-        let domains: HashMap<VarId, Vec<i128>> = variables
+        for constraint in constraints.iter() {
+            if let Ok(builtin) = Builtin::from(constraint, &variables, parameters) {
+                let rc_builtin = Rc::new(builtin);
+                for var_id in rc_builtin.involved_var_ids() {
+                    index.entry(var_id).or_default().push(rc_builtin.clone());
+                }
+                constraint_vec.push(rc_builtin);
+            }
+        }
+
+        let domains: HashMap<VarId, Domain> = variables
             .iter()
             .map(|(id, variable)| {
                 let range = match variable {
@@ -108,7 +152,8 @@ impl Model {
         Self {
             variables,
             domains,
-            constraints,
+            constraints: constraint_vec,
+            index,
         }
     }
 
@@ -124,14 +169,11 @@ impl Model {
         })
     }
 
-    fn dom(&self, var_id: &VarId) -> &Vec<i128> {
+    fn dom(&self, var_id: &VarId) -> &Domain {
         self.domains.get(var_id).unwrap()
     }
 
     fn forward_checking(&mut self, alpha: &PartialAssignment) {
-        // for each assignment in alpha
-        // go over domains and apply all constraints
-
         let unassigned_vars = alpha
             .0
             .iter()
@@ -141,26 +183,27 @@ impl Model {
         for (_, assignment) in alpha.0.iter() {
             if assignment.is_some() {
                 for unassigned_id in unassigned_vars.clone() {
-                    let current_domain = self.dom(unassigned_id);
-                    let mut infered_changes = HashMap::new();
+                    let mut current_domain = self.dom(unassigned_id).clone();
 
-                    for constraint in self.constraints.iter() {
-                        let infered_domain: Vec<i128> = current_domain
-                            .iter()
-                            .filter(|&possible_value| {
-                                constraint.check(&alpha.union(unassigned_id, *possible_value))
-                            })
-                            .copied()
-                            .collect();
-                        infered_changes.insert(unassigned_id.clone(), infered_domain);
-                    }
+                    if let Some(constraints) = self.involved_constraints(unassigned_id) {
+                        for constraint in constraints.iter() {
+                            current_domain = current_domain
+                                .into_iter()
+                                .filter(|&possible_value| {
+                                    constraint.check(&alpha.union(unassigned_id, possible_value))
+                                })
+                                .collect();
+                        }
 
-                    for (var_id, domain) in infered_changes {
-                        self.domains.insert(var_id, domain);
+                        self.domains.insert(unassigned_id.clone(), current_domain);
                     }
                 }
             }
         }
+    }
+
+    fn involved_constraints(&self, var_id: &VarId) -> Option<&Vec<Rc<Builtin>>> {
+        self.index.get(var_id)
     }
 }
 
@@ -172,6 +215,14 @@ enum Builtin {
 }
 
 impl Builtin {
+    fn involved_var_ids(&self) -> Vec<VarId> {
+        match self {
+            Builtin::IntLinEq(_, ids, _) => ids.clone(),
+            Builtin::IntLinLe(_, ids, _) => ids.clone(),
+            Builtin::IntLinNe(_, ids, _) => ids.clone(),
+        }
+    }
+
     fn from(
         constraint: &ConstraintItem,
         variables: &HashMap<VarId, VarDeclItem>,
