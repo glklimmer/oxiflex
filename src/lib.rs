@@ -73,6 +73,12 @@ impl PartialAssignment {
         alpha_prime.0.insert(id.clone(), Some(value));
         alpha_prime
     }
+
+    fn is_total_assignment(&self) -> bool {
+        self.0
+            .iter()
+            .all(|assignment_entry| assignment_entry.1.is_some())
+    }
 }
 
 #[derive(Clone)]
@@ -673,11 +679,7 @@ fn naive_backtracking(model: &Model, alpha: PartialAssignment) -> SearchResult {
 
     // if α is a total assignment:
     // // return α
-    if alpha
-        .0
-        .iter()
-        .all(|assignment_entry| assignment_entry.1.is_some())
-    {
+    if alpha.is_total_assignment() {
         return SearchResult::Assignment(alpha);
     }
 
@@ -723,11 +725,7 @@ fn backtracking_with_forward_checking(model: &Model, alpha: PartialAssignment) -
 
     // if α is a total assignment:
     // // return α
-    if alpha
-        .0
-        .iter()
-        .all(|assignment_entry| assignment_entry.1.is_some())
-    {
+    if alpha.is_total_assignment() {
         return SearchResult::Assignment(alpha);
     }
 
