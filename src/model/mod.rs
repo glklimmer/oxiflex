@@ -13,7 +13,7 @@ pub struct Model {
     pub variables: HashMap<VarId, VarDeclItem>,
     domains: HashMap<VarId, Domain>,
     constraints: Vec<Rc<Builtin>>,
-    index: HashMap<VarId, Vec<Rc<Builtin>>>,
+    constraint_index: HashMap<VarId, Vec<Rc<Builtin>>>,
 }
 
 impl Model {
@@ -23,13 +23,16 @@ impl Model {
         parameters: &HashMap<String, ParDeclItem>,
     ) -> Self {
         let mut constraint_vec = Vec::new();
-        let mut index: HashMap<VarId, Vec<Rc<Builtin>>> = HashMap::new();
+        let mut constraint_index: HashMap<VarId, Vec<Rc<Builtin>>> = HashMap::new();
 
         for constraint in constraints.iter() {
             if let Ok(builtin) = Builtin::from(constraint, parameters) {
                 let rc_builtin = Rc::new(builtin);
                 for var_id in rc_builtin.involved_var_ids() {
-                    index.entry(var_id).or_default().push(rc_builtin.clone());
+                    constraint_index
+                        .entry(var_id)
+                        .or_default()
+                        .push(rc_builtin.clone());
                 }
                 constraint_vec.push(rc_builtin);
             }
@@ -52,7 +55,7 @@ impl Model {
             variables,
             domains,
             constraints: constraint_vec,
-            index,
+            constraint_index,
         }
     }
 
@@ -82,7 +85,7 @@ impl Model {
         for unassigned_id in alpha.unassigned_variables() {
             let domain = self.domains.get_mut(unassigned_id).unwrap();
 
-            if let Some(constraints) = self.index.get(unassigned_id) {
+            if let Some(constraints) = self.constraint_index.get(unassigned_id) {
                 for constraint in constraints.iter() {
                     domain.retain(|&possible_value| {
                         constraint.check(&alpha.union(unassigned_id, possible_value))
