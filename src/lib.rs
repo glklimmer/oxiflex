@@ -180,30 +180,17 @@ impl Model {
             .filter(|ass| ass.1.is_none())
             .map(|ass| ass.0);
 
-        for (_, assignment) in alpha.0.iter() {
-            if assignment.is_some() {
-                for unassigned_id in unassigned_vars.clone() {
-                    let mut current_domain = self.dom(unassigned_id).clone();
+        for unassigned_id in unassigned_vars {
+            let domain = self.domains.get_mut(unassigned_id).unwrap();
 
-                    if let Some(constraints) = self.involved_constraints(unassigned_id) {
-                        for constraint in constraints.iter() {
-                            current_domain = current_domain
-                                .into_iter()
-                                .filter(|&possible_value| {
-                                    constraint.check(&alpha.union(unassigned_id, possible_value))
-                                })
-                                .collect();
-                        }
-
-                        self.domains.insert(unassigned_id.clone(), current_domain);
-                    }
+            if let Some(constraints) = self.index.get(unassigned_id) {
+                for constraint in constraints.iter() {
+                    domain.0.retain(|&possible_value| {
+                        constraint.check(&alpha.union(unassigned_id, possible_value))
+                    });
                 }
             }
         }
-    }
-
-    fn involved_constraints(&self, var_id: &VarId) -> Option<&Vec<Rc<Builtin>>> {
-        self.index.get(var_id)
     }
 }
 
