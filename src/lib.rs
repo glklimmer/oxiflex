@@ -127,7 +127,7 @@ impl Model {
         let mut index: HashMap<VarId, Vec<Rc<Builtin>>> = HashMap::new();
 
         for constraint in constraints.iter() {
-            if let Ok(builtin) = Builtin::from(constraint, &variables, parameters) {
+            if let Ok(builtin) = Builtin::from(constraint, parameters) {
                 let rc_builtin = Rc::new(builtin);
                 for var_id in rc_builtin.involved_var_ids() {
                     index.entry(var_id).or_default().push(rc_builtin.clone());
@@ -225,7 +225,6 @@ impl Builtin {
 
     fn from(
         constraint: &ConstraintItem,
-        variables: &HashMap<VarId, VarDeclItem>,
         parameters: &HashMap<String, ParDeclItem>,
     ) -> Result<Self, ()> {
         match constraint.id.as_str() {
