@@ -1,6 +1,6 @@
 # oxiflex
 
-Constraint Porgramming solver for [MiniZinc](https://www.minizinc.org/).
+Constraint Satisfaction Problem solver for [MiniZinc](https://www.minizinc.org/).
 
 ## Usage
 
