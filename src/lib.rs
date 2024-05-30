@@ -1,8 +1,8 @@
 use core::panic;
 use flatzinc::{statement, *};
 use std::fmt::{Display, Formatter};
-use std::ops::RangeInclusive;
 use std::path::PathBuf;
+use std::rc::Rc;
 use std::{collections::HashMap, error::Error};
 use std::{fmt, fs, i128};
 use structopt::StructOpt;
@@ -18,11 +18,15 @@ pub struct Opt {
     /// Only parse using flatzinc
     #[structopt(short, long)]
     pub parse: bool,
+
+    /// Use naive backtracking, e.g. no forward_checking
+    #[structopt(short, long)]
+    pub naive_backtracking: bool,
 }
 
 #[derive(Clone, PartialEq)]
-struct Assignment<'a> {
-    variable: &'a VarDeclItem,
+struct Assignment {
+    var_id: VarId,
     value: Option<i128>,
 }
 
@@ -49,12 +53,12 @@ impl Display for VarId {
 }
 
 #[derive(Clone, PartialEq)]
-struct PartialAssignment<'a>(HashMap<VarId, Assignment<'a>>);
+struct PartialAssignment(HashMap<VarId, Option<i128>>);
 
-impl<'a> Display for PartialAssignment<'a> {
+impl Display for PartialAssignment {
     fn fmt(&self, f: &mut Formatter<'_>) -> fmt::Result {
         for (id, assignment) in &self.0 {
-            match assignment.value {
+            match assignment {
                 Some(v) => writeln!(f, "{} = {};", id, v)?,
                 None => writeln!(f, "{}: unset", id)?,
             }
@@ -63,9 +67,54 @@ impl<'a> Display for PartialAssignment<'a> {
     }
 }
 
+impl PartialAssignment {
+    fn union(&self, id: &VarId, value: i128) -> PartialAssignment {
+        let mut alpha_prime = self.clone();
+        alpha_prime.0.insert(id.clone(), Some(value));
+        alpha_prime
+    }
+}
+
+#[derive(Clone)]
+struct Domain(Vec<i128>);
+
+impl Domain {
+    fn is_empty(&self) -> bool {
+        self.0.is_empty()
+    }
+}
+
+impl FromIterator<i128> for Domain {
+    fn from_iter<T: IntoIterator<Item = i128>>(iter: T) -> Self {
+        let collected = iter.into_iter().collect::<Vec<i128>>();
+        Domain(collected)
+    }
+}
+
+impl IntoIterator for Domain {
+    type Item = i128;
+    type IntoIter = std::vec::IntoIter<Self::Item>;
+
+    fn into_iter(self) -> Self::IntoIter {
+        self.0.into_iter()
+    }
+}
+
+impl<'a> IntoIterator for &'a Domain {
+    type Item = &'a i128;
+    type IntoIter = std::slice::Iter<'a, i128>;
+
+    fn into_iter(self) -> Self::IntoIter {
+        self.0.iter()
+    }
+}
+
+#[derive(Clone)]
 struct Model {
     variables: HashMap<VarId, VarDeclItem>,
-    constraints: Vec<Builtin>,
+    domains: HashMap<VarId, Domain>,
+    constraints: Vec<Rc<Builtin>>,
+    index: HashMap<VarId, Vec<Rc<Builtin>>>,
 }
 
 impl Model {
@@ -74,37 +123,95 @@ impl Model {
         constraints: &[ConstraintItem],
         parameters: &HashMap<String, ParDeclItem>,
     ) -> Self {
-        let constraints = constraints
+        let mut constraint_vec = Vec::new();
+        let mut index: HashMap<VarId, Vec<Rc<Builtin>>> = HashMap::new();
+
+        for constraint in constraints.iter() {
+            if let Ok(builtin) = Builtin::from(constraint, parameters) {
+                let rc_builtin = Rc::new(builtin);
+                for var_id in rc_builtin.involved_var_ids() {
+                    index.entry(var_id).or_default().push(rc_builtin.clone());
+                }
+                constraint_vec.push(rc_builtin);
+            }
+        }
+
+        let domains: HashMap<VarId, Domain> = variables
             .iter()
-            .filter_map(|constraint| Builtin::from(constraint, &variables, parameters).ok())
+            .map(|(id, variable)| {
+                let range = match variable {
+                    VarDeclItem::Bool { .. } => 0..=1,
+                    VarDeclItem::Int { .. } => i128::MIN..=i128::MAX,
+                    VarDeclItem::IntInRange { lb, ub, .. } => *lb..=*ub,
+                    _ => todo!(),
+                };
+                (id.clone(), range.collect())
+            })
             .collect();
 
         Self {
             variables,
-            constraints,
+            domains,
+            constraints: constraint_vec,
+            index,
         }
     }
 
-    fn dom(variable: &VarDeclItem) -> RangeInclusive<i128> {
-        match variable {
-            VarDeclItem::Bool { .. } => 0..=1,
-            VarDeclItem::Int { .. } => i128::MIN..=i128::MAX,
-            VarDeclItem::IntInRange { lb, ub, .. } => *lb..=*ub,
-            _ => todo!(),
+    fn domains_available(&self) -> bool {
+        self.variables.iter().all(|v| {
+            let id = extract_var_id(v.1);
+            if let Some(domain) = self.domains.get(&id) {
+                if !domain.is_empty() {
+                    return true;
+                }
+            }
+            false
+        })
+    }
+
+    fn dom(&self, var_id: &VarId) -> &Domain {
+        self.domains.get(var_id).unwrap()
+    }
+
+    fn forward_checking(&mut self, alpha: &PartialAssignment) {
+        let unassigned_vars = alpha
+            .0
+            .iter()
+            .filter(|ass| ass.1.is_none())
+            .map(|ass| ass.0);
+
+        for unassigned_id in unassigned_vars {
+            let domain = self.domains.get_mut(unassigned_id).unwrap();
+
+            if let Some(constraints) = self.index.get(unassigned_id) {
+                for constraint in constraints.iter() {
+                    domain.0.retain(|&possible_value| {
+                        constraint.check(&alpha.union(unassigned_id, possible_value))
+                    });
+                }
+            }
         }
     }
 }
 
+#[derive(Clone)]
 enum Builtin {
-    IntLinEq(Vec<i128>, Vec<String>, i128), // TODO: Replace String key with VarId
-    IntLinLe(Vec<i128>, Vec<String>, i128), // TODO: Replace String key with VarId
-    IntLinNe(Vec<i128>, Vec<String>, i128), // TODO: Replace String key with VarId
+    IntLinEq(Vec<i128>, Vec<VarId>, i128),
+    IntLinLe(Vec<i128>, Vec<VarId>, i128),
+    IntLinNe(Vec<i128>, Vec<VarId>, i128),
 }
 
 impl Builtin {
+    fn involved_var_ids(&self) -> Vec<VarId> {
+        match self {
+            Builtin::IntLinEq(_, ids, _) => ids.clone(),
+            Builtin::IntLinLe(_, ids, _) => ids.clone(),
+            Builtin::IntLinNe(_, ids, _) => ids.clone(),
+        }
+    }
+
     fn from(
         constraint: &ConstraintItem,
-        variables: &HashMap<VarId, VarDeclItem>,
         parameters: &HashMap<String, ParDeclItem>,
     ) -> Result<Self, ()> {
         match constraint.id.as_str() {
@@ -135,10 +242,7 @@ impl Builtin {
                     .iter()
                     .map(|expr| {
                         if let BoolExpr::VarParIdentifier(id) = expr {
-                            if variables.get(&id.into()).is_none() {
-                                panic!("Variable {} not found", id);
-                            }
-                            id.to_owned()
+                            id.into()
                         } else {
                             todo!("Only Bool Expr supported");
                         }
@@ -177,10 +281,7 @@ impl Builtin {
                     .iter()
                     .map(|expr| {
                         if let BoolExpr::VarParIdentifier(id) = expr {
-                            if variables.get(&id.into()).is_none() {
-                                panic!("Variable {} not found", id);
-                            }
-                            id.to_owned()
+                            id.into()
                         } else {
                             todo!("Only Bool Expr supported");
                         }
@@ -219,10 +320,7 @@ impl Builtin {
                     .iter()
                     .map(|expr| {
                         if let BoolExpr::VarParIdentifier(id) = expr {
-                            if variables.get(&id.into()).is_none() {
-                                panic!("Variable {} not found", id);
-                            }
-                            id.to_owned()
+                            id.into()
                         } else {
                             todo!("Only Bool Expr supported");
                         }
@@ -248,8 +346,8 @@ impl Builtin {
                 let mut b_vec_iter = b_vec.iter();
 
                 let u_key = b_vec_iter.next().unwrap();
-                let u_assignment = alpha.0.get(&u_key.into()).expect("Variable not found");
-                let u = if let Some(value) = u_assignment.value {
+                let u_assignment = alpha.0.get(&u_key).expect("Variable not found");
+                let u = if let Some(value) = u_assignment {
                     value
                 } else {
                     // println!("{u_key} not set, check: true");
@@ -257,8 +355,8 @@ impl Builtin {
                 };
 
                 let v_key = b_vec_iter.next().unwrap();
-                let v_assignment = alpha.0.get(&v_key.into()).expect("Variable not found");
-                let v = if let Some(value) = v_assignment.value {
+                let v_assignment = alpha.0.get(&v_key).expect("Variable not found");
+                let v = if let Some(value) = v_assignment {
                     value
                 } else {
                     // println!("{v_key} not set, check: true");
@@ -285,8 +383,8 @@ impl Builtin {
                 let mut b_vec_iter = b_vec.iter();
 
                 let u_key = b_vec_iter.next().unwrap();
-                let u_assignment = alpha.0.get(&u_key.into()).expect("Variable not found");
-                let u = if let Some(value) = u_assignment.value {
+                let u_assignment = alpha.0.get(&u_key).expect("Variable not found");
+                let u = if let Some(value) = u_assignment {
                     value
                 } else {
                     // println!("{u_key} not set, check: true");
@@ -294,8 +392,8 @@ impl Builtin {
                 };
 
                 let v_key = b_vec_iter.next().unwrap();
-                let v_assignment = alpha.0.get(&v_key.into()).expect("Variable not found");
-                let v = if let Some(value) = v_assignment.value {
+                let v_assignment = alpha.0.get(&v_key).expect("Variable not found");
+                let v = if let Some(value) = v_assignment {
                     value
                 } else {
                     // println!("{v_key} not set, check: true");
@@ -322,8 +420,8 @@ impl Builtin {
                 let mut b_vec_iter = b_vec.iter();
 
                 let u_key = b_vec_iter.next().unwrap();
-                let u_assignment = alpha.0.get(&u_key.into()).expect("Variable not found");
-                let u = if let Some(value) = u_assignment.value {
+                let u_assignment = alpha.0.get(&u_key).expect("Variable not found");
+                let u = if let Some(value) = u_assignment {
                     value
                 } else {
                     // println!("{u_key} not set, check: true");
@@ -331,8 +429,8 @@ impl Builtin {
                 };
 
                 let v_key = b_vec_iter.next().unwrap();
-                let v_assignment = alpha.0.get(&v_key.into()).expect("Variable not found");
-                let v = if let Some(value) = v_assignment.value {
+                let v_assignment = alpha.0.get(&v_key).expect("Variable not found");
+                let v = if let Some(value) = v_assignment {
                     value
                 } else {
                     // println!("{v_key} not set, check: true");
@@ -357,11 +455,11 @@ impl Builtin {
 }
 
 #[derive(PartialEq)]
-enum SearchResult<'a> {
+enum SearchResult {
     Unsatisfiable,
     Unbounded,
     Unknown,
-    Assignment(PartialAssignment<'a>),
+    Assignment(PartialAssignment),
 }
 
 pub fn parse(opt: Opt) -> Result<(), Box<dyn Error>> {
@@ -429,14 +527,14 @@ pub fn run(opt: Opt) -> Result<(), Box<dyn Error>> {
         model
             .variables
             .values()
-            .map(|v| Assignment {
-                variable: v,
-                value: None,
-            })
-            .map(|assignment| (extract_var_id(assignment.variable), assignment))
+            .map(|variable| (extract_var_id(variable), None))
             .collect(),
     );
-    let result = naive_backtracking(&model, empty_assignment);
+    let result = if opt.naive_backtracking {
+        naive_backtracking(&model, empty_assignment)
+    } else {
+        backtracking_with_forward_checking(&model, empty_assignment)
+    };
 
     // output
     match result {
@@ -463,7 +561,6 @@ pub fn run(opt: Opt) -> Result<(), Box<dyn Error>> {
                                                 .0
                                                 .get(&var_id.into())
                                                 .expect("Variable not found in assignments.")
-                                                .value
                                                 .expect("No value for variable found.")
                                                 .to_string(),
                                         })
@@ -487,7 +584,6 @@ pub fn run(opt: Opt) -> Result<(), Box<dyn Error>> {
                                 .0
                                 .get(&id)
                                 .expect("No value for variable found")
-                                .value
                                 .expect("No value for variable found.")
                         )
                     }
@@ -564,7 +660,7 @@ fn extract_var_id(item: &VarDeclItem) -> VarId {
     }
 }
 
-fn naive_backtracking<'a>(model: &'a Model, alpha: PartialAssignment<'a>) -> SearchResult<'a> {
+fn naive_backtracking(model: &Model, alpha: PartialAssignment) -> SearchResult {
     // if α is inconsistent with C:
     // // return inconsistent
     if model
@@ -580,7 +676,7 @@ fn naive_backtracking<'a>(model: &'a Model, alpha: PartialAssignment<'a>) -> Sea
     if alpha
         .0
         .iter()
-        .all(|assignment_entry| assignment_entry.1.value.is_some())
+        .all(|assignment_entry| assignment_entry.1.is_some())
     {
         return SearchResult::Assignment(alpha);
     }
@@ -589,24 +685,17 @@ fn naive_backtracking<'a>(model: &'a Model, alpha: PartialAssignment<'a>) -> Sea
     let v = alpha
         .0
         .iter()
-        .find(|assignment_entry| assignment_entry.1.value.is_none());
+        .find(|assignment_entry| assignment_entry.1.is_none());
     let v = if let Some(assignment) = v {
-        assignment.1.variable
+        assignment.0
     } else {
         return SearchResult::Unsatisfiable;
     };
 
     // for each d ∈ dom(v ) in some order:
-    for d in Model::dom(v) {
+    for d in model.dom(v) {
         // // α′ := α ∪ {v 7→ d}
-        let mut alpha_prime = alpha.clone();
-        alpha_prime.0.insert(
-            extract_var_id(v),
-            Assignment {
-                variable: v,
-                value: Some(d),
-            },
-        );
+        let alpha_prime = alpha.union(v, *d);
         // // α′′ := NaiveBacktracking(C, α′ )
         let alpha_prime_prime = naive_backtracking(model, alpha_prime);
 
@@ -614,6 +703,66 @@ fn naive_backtracking<'a>(model: &'a Model, alpha: PartialAssignment<'a>) -> Sea
         if alpha_prime_prime != SearchResult::Unsatisfiable {
             // // // return α′′
             return alpha_prime_prime;
+        }
+    }
+
+    // return inconsistent
+    SearchResult::Unsatisfiable
+}
+
+fn backtracking_with_forward_checking(model: &Model, alpha: PartialAssignment) -> SearchResult {
+    // if α is inconsistent with C:
+    // // return inconsistent
+    if model
+        .constraints
+        .iter()
+        .any(|constraint| !constraint.check(&alpha))
+    {
+        return SearchResult::Unsatisfiable;
+    }
+
+    // if α is a total assignment:
+    // // return α
+    if alpha
+        .0
+        .iter()
+        .all(|assignment_entry| assignment_entry.1.is_some())
+    {
+        return SearchResult::Assignment(alpha);
+    }
+
+    // C′ := ⟨V, dom′, (R_uv)⟩ := copy of C
+    let mut model_prime = model.clone();
+
+    // apply inference to C′
+    model_prime.forward_checking(&alpha);
+
+    // if dom′(v) ̸= ∅ for all variables v:
+    if model_prime.domains_available() {
+        // // select some variable v for which α is not defined
+        let v = alpha
+            .0
+            .iter()
+            .find(|assignment_entry| assignment_entry.1.is_none());
+        let v = if let Some(assignment) = v {
+            assignment.0
+        } else {
+            return SearchResult::Unsatisfiable;
+        };
+
+        // // for each d ∈ dom(v ) in some order:
+        for d in model_prime.dom(v) {
+            // // // α′ := α ∪ {v 7→ d}
+            let alpha_prime = alpha.union(v, *d);
+
+            // // // α′′ := BacktrackingWithForwardChecking(C, α′ )
+            let alpha_prime_prime = backtracking_with_forward_checking(&model_prime, alpha_prime);
+
+            // // // if α′′ ̸= inconsistent:
+            if alpha_prime_prime != SearchResult::Unsatisfiable {
+                // // // // return α′′
+                return alpha_prime_prime;
+            }
         }
     }
 
