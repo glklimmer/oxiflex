@@ -79,6 +79,14 @@ impl PartialAssignment {
             .iter()
             .all(|assignment_entry| assignment_entry.1.is_some())
     }
+
+    fn find_any_unassigned(&self) -> &VarId {
+        self.0
+            .iter()
+            .find(|assignment_entry| assignment_entry.1.is_none())
+            .unwrap()
+            .0
+    }
 }
 
 #[derive(Clone)]
@@ -686,15 +694,7 @@ fn naive_backtracking(model: &Model, alpha: PartialAssignment) -> SearchResult {
     }
 
     // select some variable v for which α is not defined
-    let v = alpha
-        .0
-        .iter()
-        .find(|assignment_entry| assignment_entry.1.is_none());
-    let v = if let Some(assignment) = v {
-        assignment.0
-    } else {
-        return SearchResult::Unsatisfiable;
-    };
+    let v = alpha.find_any_unassigned();
 
     // for each d ∈ dom(v ) in some order:
     for d in model.dom(v) {
@@ -736,15 +736,7 @@ fn backtracking_with_forward_checking(model: &Model, alpha: PartialAssignment) -
     // if dom′(v) ̸= ∅ for all variables v:
     if model_prime.domains_available() {
         // // select some variable v for which α is not defined
-        let v = alpha
-            .0
-            .iter()
-            .find(|assignment_entry| assignment_entry.1.is_none());
-        let v = if let Some(assignment) = v {
-            assignment.0
-        } else {
-            return SearchResult::Unsatisfiable;
-        };
+        let v = alpha.find_any_unassigned();
 
         // // for each d ∈ dom(v ) in some order:
         for d in model_prime.dom(v) {
