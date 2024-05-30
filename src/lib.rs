@@ -163,6 +163,12 @@ impl Model {
         }
     }
 
+    fn is_inconsistent(&self, alpha: &PartialAssignment) -> bool {
+        self.constraints
+            .iter()
+            .any(|constraint| !constraint.check(alpha))
+    }
+
     fn domains_available(&self) -> bool {
         self.variables.iter().all(|v| {
             let id = extract_var_id(v.1);
@@ -669,11 +675,7 @@ fn extract_var_id(item: &VarDeclItem) -> VarId {
 fn naive_backtracking(model: &Model, alpha: PartialAssignment) -> SearchResult {
     // if α is inconsistent with C:
     // // return inconsistent
-    if model
-        .constraints
-        .iter()
-        .any(|constraint| !constraint.check(&alpha))
-    {
+    if model.is_inconsistent(&alpha) {
         return SearchResult::Unsatisfiable;
     }
 
@@ -715,11 +717,7 @@ fn naive_backtracking(model: &Model, alpha: PartialAssignment) -> SearchResult {
 fn backtracking_with_forward_checking(model: &Model, alpha: PartialAssignment) -> SearchResult {
     // if α is inconsistent with C:
     // // return inconsistent
-    if model
-        .constraints
-        .iter()
-        .any(|constraint| !constraint.check(&alpha))
-    {
+    if model.is_inconsistent(&alpha) {
         return SearchResult::Unsatisfiable;
     }
 
