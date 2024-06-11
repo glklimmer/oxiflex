@@ -14,7 +14,7 @@ impl fmt::Display for ConstraintConstruction {
 
 impl std::error::Error for ConstraintConstruction {}
 
-#[derive(Clone)]
+#[derive(Clone, Debug)]
 pub enum Builtin {
     IntLinEq(Vec<i128>, Vec<VarId>, i128),
     IntLinLe(Vec<i128>, Vec<VarId>, i128),

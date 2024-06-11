@@ -1,4 +1,4 @@
-#[derive(Clone)]
+#[derive(Clone, Debug)]
 pub struct Domain(Vec<i128>);
 
 impl Domain {
@@ -6,11 +6,20 @@ impl Domain {
         self.0.is_empty()
     }
 
+    /// Retains only the elements specified by the predicate.
+    ///
+    /// In other words, remove all elements `e` for which `f(&e)` returns `false`.
+    /// This method operates in place, visiting each element exactly once in the
+    /// original order, and preserves the order of the retained elements.
     pub fn retain<F>(&mut self, f: F)
     where
         F: FnMut(&i128) -> bool,
     {
         self.0.retain(f);
+    }
+
+    pub fn len(&self) -> usize {
+        self.0.len()
     }
 }
 
