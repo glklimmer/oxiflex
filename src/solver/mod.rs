@@ -1,4 +1,4 @@
-pub mod forward_checking;
+pub mod inference;
 pub mod naive_backtracking;
 pub mod output;
 
@@ -10,7 +10,7 @@ use crate::{
 use std::error::Error;
 
 use {
-    forward_checking::backtracking_with_forward_checking, naive_backtracking::naive_backtracking,
+    inference::backtracking_with_inference, naive_backtracking::naive_backtracking,
     output::output_as_minizinc,
 };
 
@@ -37,7 +37,12 @@ pub fn run(opt: Opt) -> Result<(), Box<dyn Error>> {
     let result = if opt.naive_backtracking {
         naive_backtracking(&model, empty_assignment)
     } else {
-        backtracking_with_forward_checking(&model, empty_assignment)
+        backtracking_with_inference(
+            &model,
+            empty_assignment,
+            opt.forward_checking,
+            opt.arc_consistency,
+        )
     };
 
     // output

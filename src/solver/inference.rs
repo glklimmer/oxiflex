@@ -1,7 +1,14 @@
+use core::panic;
+
 use super::SearchResult;
 use crate::model::{partial_assignment::PartialAssignment, Model};
 
-pub fn backtracking_with_forward_checking(model: &Model, alpha: PartialAssignment) -> SearchResult {
+pub fn backtracking_with_inference(
+    model: &Model,
+    alpha: PartialAssignment,
+    use_forward_checking: bool,
+    arc_consistency: u8,
+) -> SearchResult {
     // if α is inconsistent with C:
     // // return inconsistent
     if model.is_inconsistent(&alpha) {
@@ -18,7 +25,15 @@ pub fn backtracking_with_forward_checking(model: &Model, alpha: PartialAssignmen
     let mut model_prime = model.clone();
 
     // apply inference to C′
-    model_prime.forward_checking(&alpha);
+    if use_forward_checking {
+        model_prime.forward_checking(&alpha);
+    } else {
+        match arc_consistency {
+            1 => model_prime.arc_consistency_1(),
+            3 => model_prime.arc_consistency_3(),
+            _ => panic!("No such arc consistency implemented."),
+        };
+    };
 
     // if dom′(v) ̸= ∅ for all variables v:
     if model_prime.domains_available() {
@@ -31,7 +46,12 @@ pub fn backtracking_with_forward_checking(model: &Model, alpha: PartialAssignmen
             let alpha_prime = alpha.union(v, *d);
 
             // // // α′′ := BacktrackingWithForwardChecking(C, α′ )
-            let alpha_prime_prime = backtracking_with_forward_checking(&model_prime, alpha_prime);
+            let alpha_prime_prime = backtracking_with_inference(
+                &model_prime,
+                alpha_prime,
+                use_forward_checking,
+                arc_consistency,
+            );
 
             // // // if α′′ ̸= inconsistent:
             if alpha_prime_prime != SearchResult::Unsatisfiable {

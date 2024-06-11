@@ -1,4 +1,4 @@
-use std::path::PathBuf;
+use std::{path::PathBuf, u8};
 use structopt::StructOpt;
 
 /// FlatZinc solver
@@ -16,4 +16,12 @@ pub struct Opt {
     /// Use naive backtracking, e.g. no forward_checking
     #[structopt(short, long)]
     pub naive_backtracking: bool,
+
+    /// Use forward checking as inference
+    #[structopt(short, long)]
+    pub forward_checking: bool,
+
+    /// Specify arc consistency version
+    #[structopt(short, long, default_value = "3")]
+    pub arc_consistency: u8,
 }

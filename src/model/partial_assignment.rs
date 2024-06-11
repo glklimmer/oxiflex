@@ -25,8 +25,10 @@ impl PartialAssignment {
     }
 
     pub fn get(&self, var_id: &VarId) -> Option<i128> {
-        let value = self.0.get(var_id).unwrap();
-        *value
+        match self.0.get(var_id) {
+            Some(value) => *value,
+            None => Option::None,
+        }
     }
 
     pub fn union(&self, id: &VarId, value: i128) -> PartialAssignment {
