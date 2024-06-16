@@ -6,10 +6,15 @@
 %% Use the option citeauthor to be able to use citet. The default cite will still work.
 \usepackage[citeauthor]{basilea}
 
+%% packages
+\usepackage{amsmath}
+\usepackage{tcolorbox}
+\usepackage{multicol}
+
 %% ----------------------------------------------------------------
 
 \title				{Oxiflex - A Constraint Programming Solver for MiniZinc written in Rust}
-\thesistype			{Bachelor project}
+\thesistype			{Bachelor's thesis}
 
 \department 		    {Department of Mathematics and Computer Science}
 \faculty			{Faculty Artificial Intelligence of the University of Basel}
@@ -46,24 +51,22 @@
 %\thesisnomencl
 %% ----------------------------------------------------------------
 \thesismain
-\input{./Chapters/Chapter1}
-\input{./Chapters/Chapter2}
-\input{./Chapters/Chapter3}
-\input{./Chapters/Chapter4}
-\input{./Chapters/Chapter5}
-%\input{./Chapters/Chapter6}
-%\input{./Chapters/Chapter7}
+\input{./Chapters/Introduction}
+\input{./Chapters/ConstraintSatisfactionProblems}
+\input{./Chapters/Implementation}
+\input{./Chapters/Results}
+\input{./Chapters/Conclusion}
 %% ----------------------------------------------------------------
 \thesisappendix
 \thesisbib
 \begin{appendices}
-	\input{./Back/AppendixA} 
+	\input{./Back/AppendixA}
 \end{appendices}
 %% ----------------------------------------------------------------
 \thesisback
 \iflanguage{english}
-  {\includepdf{./Back/wissensch_Redlichkeit_E_09-2023.pdf}}
-  {\includepdf{./Back/wissensch_Redlichkeit_D_09-2023.pdf}}
+{\includepdf{./Back/wissensch_Redlichkeit_E_09-2023.pdf}}
+{\includepdf{./Back/wissensch_Redlichkeit_D_09-2023.pdf}}
 %% ----------------------------------------------------------------
 \end{document}
 %% ----------------------------------------------------------------

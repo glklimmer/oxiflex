@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.3.27)  9 APR 2024 16:40
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.3.27)  16 JUN 2024 14:24
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1105,45 +1105,139 @@ File: tikzlibrarypositioning.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 )
 \c@@todonotes@numberoftodonotes=\count367
 ))
+(/usr/share/texlive/texmf-dist/tex/latex/tcolorbox/tcolorbox.sty
+Package: tcolorbox 2022/01/07 version 5.0.2 text color boxes
+
+(/usr/share/texlive/texmf-dist/tex/latex/environ/environ.sty
+Package: environ 2014/05/04 v0.3 A new way to define environments
+
+(/usr/share/texlive/texmf-dist/tex/latex/trimspaces/trimspaces.sty
+Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
+))
+(/usr/share/texlive/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count368
+)
+\tcb@titlebox=\box71
+\tcb@upperbox=\box72
+\tcb@lowerbox=\box73
+\tcb@phantombox=\box74
+\c@tcbbreakpart=\count369
+\c@tcblayer=\count370
+\c@tcolorbox@number=\count371
+\tcb@temp=\box75
+\tcb@temp=\box76
+\tcb@temp=\box77
+\tcb@temp=\box78
+)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/multicol.sty
+Package: multicol 2021/10/28 v1.9b multicolumn formatting (FMi)
+\c@tracingmulticols=\count372
+\mult@box=\box79
+\multicol@leftmargin=\dimen321
+\c@unbalance=\count373
+\c@collectmore=\count374
+\doublecol@number=\count375
+\multicoltolerance=\count376
+\multicolpretolerance=\count377
+\full@width=\dimen322
+\page@free=\dimen323
+\premulticols=\dimen324
+\postmulticols=\dimen325
+\multicolsep=\skip265
+\multicolbaselineskip=\skip266
+\partial@page=\box80
+\last@line=\box81
+\maxbalancingoverflow=\dimen326
+\mult@rightbox=\box82
+\mult@grightbox=\box83
+\mult@firstbox=\box84
+\mult@gfirstbox=\box85
+\@tempa=\box86
+\@tempa=\box87
+\@tempa=\box88
+\@tempa=\box89
+\@tempa=\box90
+\@tempa=\box91
+\@tempa=\box92
+\@tempa=\box93
+\@tempa=\box94
+\@tempa=\box95
+\@tempa=\box96
+\@tempa=\box97
+\@tempa=\box98
+\@tempa=\box99
+\@tempa=\box100
+\@tempa=\box101
+\@tempa=\box102
+\@tempa=\box103
+\@tempa=\box104
+\@tempa=\box105
+\@tempa=\box106
+\@tempa=\box107
+\@tempa=\box108
+\@tempa=\box109
+\@tempa=\box110
+\@tempa=\box111
+\@tempa=\box112
+\@tempa=\box113
+\@tempa=\box114
+\@tempa=\box115
+\@tempa=\box116
+\@tempa=\box117
+\@tempa=\box118
+\@tempa=\box119
+\@tempa=\box120
+\@tempa=\box121
+\c@minrows=\count378
+\c@columnbadness=\count379
+\c@finalcolumnbadness=\count380
+\last@try=\dimen327
+\multicolovershoot=\dimen328
+\multicolundershoot=\dimen329
+\mult@nat@firstbox=\box122
+\colbreak@box=\box123
+\mc@col@check@num=\count381
+)
 (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2022-01-12 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count368
-\l__pdf_internal_box=\box71
+\l__color_backend_stack_int=\count382
+\l__pdf_internal_box=\box124
 )
 (./Thesis.aux)
 \openout1 = `Thesis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count369
-\scratchdimen=\dimen321
-\scratchbox=\box72
-\nofMPsegments=\count370
-\nofMParguments=\count371
+\scratchcounter=\count383
+\scratchdimen=\dimen330
+\scratchbox=\box125
+\nofMPsegments=\count384
+\nofMParguments=\count385
 \everyMPshowfont=\toks60
-\MPscratchCnt=\count372
-\MPscratchDim=\dimen322
-\MPnumerator=\count373
-\makeMPintoPDFobject=\count374
+\MPscratchCnt=\count386
+\MPscratchDim=\dimen331
+\MPnumerator=\count387
+\makeMPintoPDFobject=\count388
 \everyMPtoPDFconversion=\toks61
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -1162,7 +1256,7 @@ Package: lscape 2020/05/28 v3.02 Landscape Pages (DPC)
 )
 Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
 )
-Package hyperref Info: Link coloring ON on input line 32.
+Package hyperref Info: Link coloring ON on input line 37.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
@@ -1173,25 +1267,25 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 (/usr/share/texlive/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count375
+\c@section@level=\count389
 )
 Redoing nameref's sectioning
 Redoing nameref's label
-LaTeX Info: Redefining \nameref on input line 32.
-LaTeX Info: Redefining \ref on input line 32.
-LaTeX Info: Redefining \pageref on input line 32.
-LaTeX Info: Redefining \nameref on input line 32.
+LaTeX Info: Redefining \nameref on input line 37.
+LaTeX Info: Redefining \ref on input line 37.
+LaTeX Info: Redefining \pageref on input line 37.
+LaTeX Info: Redefining \nameref on input line 37.
 (./Thesis.out) (./Thesis.out)
 \@outlinefile=\write6
 \openout6 = `Thesis.out'.
 
-<Template/logo-en.pdf, id=99, 113.8112pt x 36.98878pt>
+<Template/logo-en.pdf, id=19, 113.8112pt x 36.98878pt>
 File: Template/logo-en.pdf Graphic file (type pdf)
 <use Template/logo-en.pdf>
-Package pdftex.def Info: Template/logo-en.pdf  used on input line 38.
+Package pdftex.def Info: Template/logo-en.pdf  used on input line 43.
 (pdftex.def)             Requested size: 113.81091pt x 36.98868pt.
-LaTeX Font Info:    Trying to load font information for OT1+phv on input line 3
-8.
+LaTeX Font Info:    Trying to load font information for OT1+phv on input line 4
+3.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1phv.fd
 File: ot1phv.fd 2020/03/25 scalable font definitions for OT1/phv.
@@ -1215,83 +1309,44 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )) [3
 
 ]
-(./Chapters/Chapter1.tex
+(./Chapters/Introduction.tex
 LaTeX Font Info:    Trying to load font information for T1+phv on input line 2.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1phv.fd
 File: t1phv.fd 2020/03/25 scalable font definitions for T1/phv.
-)
-LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 1
-6.
-
-(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1pcr.fd
-File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 ))
-(./Chapters/Chapter2.tex [1
+(./Chapters/ConstraintSatisfactionProblems.tex [1
 
 
-]
-Package hyperref Info: bookmark level for unknown todo defaults to 0 on input l
-ine 52.
-
-Overfull \hbox (27.72636pt too wide) in paragraph at lines 52--52
-[][][] 
- []
-
-
-Overfull \hbox (27.72636pt too wide) in paragraph at lines 52--52
-[][][] 
- []
-
-[2
+] [2
 
 ]
-<Figures//turingmachine.pdf, id=196, 671.50874pt x 167.62625pt>
-File: Figures//turingmachine.pdf Graphic file (type pdf)
-<use Figures//turingmachine.pdf>
-Package pdftex.def Info: Figures//turingmachine.pdf  used on input line 56.
-(pdftex.def)             Requested size: 358.19757pt x 89.41441pt.
-<Figures//block.pdf, id=197, 124.465pt x 95.35625pt>
-File: Figures//block.pdf Graphic file (type pdf)
-<use Figures//block.pdf>
-Package pdftex.def Info: Figures//block.pdf  used on input line 64.
-(pdftex.def)             Requested size: 79.59879pt x 60.98413pt.
-File: Figures//block.pdf Graphic file (type pdf)
-<use Figures//block.pdf>
-Package pdftex.def Info: Figures//block.pdf  used on input line 65.
-(pdftex.def)             Requested size: 79.59879pt x 60.98413pt.
-File: Figures//block.pdf Graphic file (type pdf)
-<use Figures//block.pdf>
-Package pdftex.def Info: Figures//block.pdf  used on input line 66.
-(pdftex.def)             Requested size: 79.59879pt x 60.98413pt.
-File: Figures//block.pdf Graphic file (type pdf)
-<use Figures//block.pdf>
-Package pdftex.def Info: Figures//block.pdf  used on input line 67.
-(pdftex.def)             Requested size: 79.59879pt x 60.98413pt.
-) (./Chapters/Chapter3.tex [3 <./Figures//turingmachine.pdf> <./Figures//block.
-pdf>]) (./Chapters/Chapter4.tex [4
 
-]) (./Chapters/Chapter5.tex [5
+Package natbib Warning: Citation `minizinc:2007' on page 3 undefined on input l
+ine 47.
+
+) (./Chapters/Implementation.tex [3]) (./Chapters/Results.tex [4
+
+])
+(./Chapters/Conclusion.tex [5
 
 ]) [6
 
-]
-(./Thesis.bbl) (./Back/AppendixA.tex [7
+] (./Thesis.bbl) (./Back/AppendixA.tex)
+[7
 
-
-]) [8
 
 ]
 
 pdfTeX warning: pdflatex (file ./Back/wissensch_Redlichkeit_E_09-2023.pdf): PDF
  inclusion: found PDF version <1.6>, but at most version <1.5> allowed
-<./Back/wissensch_Redlichkeit_E_09-2023.pdf, id=264, 597.55246pt x 845.07718pt>
+<./Back/wissensch_Redlichkeit_E_09-2023.pdf, id=129, 597.55246pt x 845.07718pt>
 
 File: ./Back/wissensch_Redlichkeit_E_09-2023.pdf Graphic file (type pdf)
 <use ./Back/wissensch_Redlichkeit_E_09-2023.pdf>
 Package pdftex.def Info: ./Back/wissensch_Redlichkeit_E_09-2023.pdf  used on in
-put line 66.
+put line 69.
 (pdftex.def)             Requested size: 597.551pt x 845.07512pt.
 
 
@@ -1300,7 +1355,7 @@ pdfTeX warning: pdflatex (file ./Back/wissensch_Redlichkeit_E_09-2023.pdf): PDF
 File: ./Back/wissensch_Redlichkeit_E_09-2023.pdf Graphic file (type pdf)
 <use ./Back/wissensch_Redlichkeit_E_09-2023.pdf>
 Package pdftex.def Info: ./Back/wissensch_Redlichkeit_E_09-2023.pdf  used on in
-put line 66.
+put line 69.
 (pdftex.def)             Requested size: 597.551pt x 845.07512pt.
 
 
@@ -1310,67 +1365,75 @@ pdfTeX warning: pdflatex (file ./Back/wissensch_Redlichkeit_E_09-2023.pdf): PDF
 
 pdfTeX warning: pdflatex (file ./Back/wissensch_Redlichkeit_E_09-2023.pdf): PDF
  inclusion: found PDF version <1.6>, but at most version <1.5> allowed
-<./Back/wissensch_Redlichkeit_E_09-2023.pdf, id=267, page=1, 597.55246pt x 845.
+<./Back/wissensch_Redlichkeit_E_09-2023.pdf, id=132, page=1, 597.55246pt x 845.
 07718pt>
 File: ./Back/wissensch_Redlichkeit_E_09-2023.pdf Graphic file (type pdf)
 <use ./Back/wissensch_Redlichkeit_E_09-2023.pdf, page 1>
 Package pdftex.def Info: ./Back/wissensch_Redlichkeit_E_09-2023.pdf , page1 use
-d on input line 66.
+d on input line 69.
 (pdftex.def)             Requested size: 597.551pt x 845.07512pt.
 File: ./Back/wissensch_Redlichkeit_E_09-2023.pdf Graphic file (type pdf)
 <use ./Back/wissensch_Redlichkeit_E_09-2023.pdf, page 1>
 Package pdftex.def Info: ./Back/wissensch_Redlichkeit_E_09-2023.pdf , page1 use
-d on input line 66.
+d on input line 69.
 (pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
 File: ./Back/wissensch_Redlichkeit_E_09-2023.pdf Graphic file (type pdf)
 <use ./Back/wissensch_Redlichkeit_E_09-2023.pdf, page 1>
 Package pdftex.def Info: ./Back/wissensch_Redlichkeit_E_09-2023.pdf , page1 use
-d on input line 66.
+d on input line 69.
 (pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
 File: ./Back/wissensch_Redlichkeit_E_09-2023.pdf Graphic file (type pdf)
 <use ./Back/wissensch_Redlichkeit_E_09-2023.pdf, page 1>
 Package pdftex.def Info: ./Back/wissensch_Redlichkeit_E_09-2023.pdf , page1 use
-d on input line 66.
+d on input line 69.
 (pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
 File: ./Back/wissensch_Redlichkeit_E_09-2023.pdf Graphic file (type pdf)
 <use ./Back/wissensch_Redlichkeit_E_09-2023.pdf, page 1>
 Package pdftex.def Info: ./Back/wissensch_Redlichkeit_E_09-2023.pdf , page1 use
-d on input line 66.
+d on input line 69.
 (pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
-[9
+[8
 
  <./Back/wissensch_Redlichkeit_E_09-2023.pdf>]
+
+Package natbib Warning: There were undefined citations.
+
 \tf@toc=\write7
 \openout7 = `Thesis.toc'.
 
- (./Thesis.aux)
-Package rerunfilecheck Info: File `Thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 537918E55CE77A0E2A8D1797D6CB0B18;2878.
+(./Thesis.aux)
+
+Package rerunfilecheck Warning: File `Thesis.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `Thesis.out':
+(rerunfilecheck)             Before: 6348BFE815E60FCA908DB2CB2B614373;330
+(rerunfilecheck)             After:  CCFB63B4061624F1EF4CB6AD818B3D37;2584.
  ) 
 Here is how much of TeX's memory you used:
- 29410 strings out of 478287
- 538786 string characters out of 5849289
- 876940 words of memory out of 5000000
- 47035 multiletter control sequences out of 15000+600000
- 490704 words of font info for 72 fonts, out of 8000000 for 9000
+ 31360 strings out of 478287
+ 586600 string characters out of 5849289
+ 926684 words of memory out of 5000000
+ 48999 multiletter control sequences out of 15000+600000
+ 486327 words of font info for 58 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 125i,17n,120p,473b,918s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
-e/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
-blic/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
-fonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
-/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti1
-0.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrb8a.pfb></usr/s
-hare/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/
-texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/f
-onts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on Thesis.pdf (12 pages, 654834 bytes).
+ 125i,17n,120p,605b,528s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/share/texmf/
+fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pf
+b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr
+/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texlive/texmf
+-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/urw/helvetic/uhvr8a.pfb>
+Output written on Thesis.pdf (11 pages, 595840 bytes).
 PDF statistics:
- 360 PDF objects out of 1000 (max. 8388607)
- 284 compressed objects within 3 object streams
- 53 named destinations out of 1000 (max. 500000)
- 232 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 213 PDF objects out of 1000 (max. 8388607)
+ 151 compressed objects within 2 object streams
+ 33 named destinations out of 1000 (max. 500000)
+ 62 words of extra memory for PDF output out of 10000 (max. 10000000)
 

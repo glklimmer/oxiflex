@@ -3,27 +3,22 @@
 \contentsline {chapter}{Abstract}{ii}{chapter*.1}%
 \vspace {2em}
 \contentsline {chapter}{\chapternumberline {1}Introduction}{1}{chapter.3}%
-\contentsline {chapter}{\chapternumberline {2}Rust}{2}{chapter.5}%
-\contentsline {section}{\numberline {2.1}Structure}{2}{section.6}%
-\contentsline {subsection}{\numberline {2.1.1}Sub-Section}{2}{subsection.7}%
-\contentsline {subsubsection}{\numberline {2.1.1.1}Sub-Sub-Section}{2}{subsubsection.8}%
-\contentsline {paragraph}{Paragraph}{2}{section*.9}%
-\contentsline {subparagraph}{Even Sub-Paragraph}{2}{section*.10}%
-\contentsline {section}{\numberline {2.2}Equations}{2}{section.11}%
-\contentsline {section}{\numberline {2.3}Tables}{2}{section.13}%
-\contentsline {section}{\numberline {2.4}Figures}{3}{section.16}%
-\contentsline {section}{\numberline {2.5}Packages}{3}{section.24}%
-\contentsline {chapter}{\chapternumberline {3}Constraint Satisfaction Problems}{4}{chapter.25}%
-\contentsline {section}{\numberline {3.1}MiniZinc}{4}{section.26}%
-\contentsline {subsection}{\numberline {3.1.1}FlatZinc}{4}{subsection.27}%
-\contentsline {chapter}{\chapternumberline {4}Oxiflex}{5}{chapter.28}%
-\contentsline {section}{\numberline {4.1}Dependecies}{5}{section.29}%
-\contentsline {subsection}{\numberline {4.1.1}flatzinc}{5}{subsection.30}%
-\contentsline {subsection}{\numberline {4.1.2}structopt}{5}{subsection.31}%
-\contentsline {section}{\numberline {4.2}Naive Backtracking}{5}{section.32}%
-\contentsline {section}{\numberline {4.3}Inference}{5}{section.33}%
-\contentsline {chapter}{\chapternumberline {5}Conclusion}{6}{chapter.34}%
+\contentsline {chapter}{\chapternumberline {2}Constraint Satisfaction Problems}{2}{chapter.4}%
+\contentsline {section}{\numberline {2.1}MiniZinc}{3}{section.5}%
+\contentsline {subsection}{\numberline {2.1.1}FlatZinc}{3}{subsection.6}%
+\contentsline {section}{\numberline {2.2}Queens Problem}{3}{section.7}%
+\contentsline {chapter}{\chapternumberline {3}Oxiflex}{4}{chapter.8}%
+\contentsline {section}{\numberline {3.1}Rust}{4}{section.9}%
+\contentsline {section}{\numberline {3.2}Dependecies}{4}{section.10}%
+\contentsline {subsection}{\numberline {3.2.1}flatzinc}{4}{subsection.11}%
+\contentsline {subsection}{\numberline {3.2.2}structopt}{4}{subsection.12}%
+\contentsline {section}{\numberline {3.3}Solver}{4}{section.13}%
+\contentsline {subsection}{\numberline {3.3.1}Naive Backtracking}{4}{subsection.14}%
+\contentsline {section}{\numberline {3.4}Inference}{4}{section.15}%
+\contentsline {subsection}{\numberline {3.4.1}Forward Checking}{4}{subsection.16}%
+\contentsline {subsection}{\numberline {3.4.2}Arc Consistency}{4}{subsection.17}%
+\contentsline {chapter}{\chapternumberline {4}Results}{5}{chapter.18}%
+\contentsline {chapter}{\chapternumberline {5}Conclusion}{6}{chapter.19}%
 \vspace {2em}
-\contentsline {chapter}{Bibliography}{7}{appendix*.35}%
-\contentsline {appendix}{\chapternumberline {A}Appendix}{8}{appendix.36}%
+\contentsline {appendix}{\chapternumberline {A}Appendix}{7}{appendix.20}%
 \vspace {2em}
