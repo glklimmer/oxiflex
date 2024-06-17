@@ -5,20 +5,21 @@
 \contentsline {chapter}{\chapternumberline {1}Introduction}{1}{chapter.3}%
 \contentsline {chapter}{\chapternumberline {2}Constraint Satisfaction Problems}{2}{chapter.4}%
 \contentsline {section}{\numberline {2.1}MiniZinc}{3}{section.5}%
-\contentsline {subsection}{\numberline {2.1.1}FlatZinc}{3}{subsection.6}%
-\contentsline {section}{\numberline {2.2}Queens Problem}{3}{section.7}%
-\contentsline {chapter}{\chapternumberline {3}Oxiflex}{4}{chapter.8}%
-\contentsline {section}{\numberline {3.1}Rust}{4}{section.9}%
-\contentsline {section}{\numberline {3.2}Dependecies}{4}{section.10}%
-\contentsline {subsection}{\numberline {3.2.1}flatzinc}{4}{subsection.11}%
-\contentsline {subsection}{\numberline {3.2.2}structopt}{4}{subsection.12}%
-\contentsline {section}{\numberline {3.3}Solver}{4}{section.13}%
-\contentsline {subsection}{\numberline {3.3.1}Naive Backtracking}{4}{subsection.14}%
-\contentsline {section}{\numberline {3.4}Inference}{4}{section.15}%
-\contentsline {subsection}{\numberline {3.4.1}Forward Checking}{4}{subsection.16}%
-\contentsline {subsection}{\numberline {3.4.2}Arc Consistency}{4}{subsection.17}%
-\contentsline {chapter}{\chapternumberline {4}Results}{5}{chapter.18}%
-\contentsline {chapter}{\chapternumberline {5}Conclusion}{6}{chapter.19}%
+\contentsline {subsection}{\numberline {2.1.1}FlatZinc}{4}{subsection.6}%
+\contentsline {section}{\numberline {2.2}Queens Problem}{5}{section.8}%
+\contentsline {chapter}{\chapternumberline {3}Oxiflex}{6}{chapter.9}%
+\contentsline {section}{\numberline {3.1}Rust}{6}{section.10}%
+\contentsline {section}{\numberline {3.2}Dependecies}{6}{section.11}%
+\contentsline {subsection}{\numberline {3.2.1}flatzinc}{6}{subsection.12}%
+\contentsline {subsection}{\numberline {3.2.2}structopt}{6}{subsection.13}%
+\contentsline {section}{\numberline {3.3}Solver}{6}{section.14}%
+\contentsline {subsection}{\numberline {3.3.1}Naive Backtracking}{6}{subsection.15}%
+\contentsline {section}{\numberline {3.4}Inference}{6}{section.16}%
+\contentsline {subsection}{\numberline {3.4.1}Forward Checking}{6}{subsection.17}%
+\contentsline {subsection}{\numberline {3.4.2}Arc Consistency}{6}{subsection.18}%
+\contentsline {chapter}{\chapternumberline {4}Results}{7}{chapter.19}%
+\contentsline {chapter}{\chapternumberline {5}Conclusion}{8}{chapter.20}%
 \vspace {2em}
-\contentsline {appendix}{\chapternumberline {A}Appendix}{7}{appendix.20}%
+\contentsline {chapter}{Bibliography}{9}{appendix*.21}%
+\contentsline {appendix}{\chapternumberline {A}Appendix}{10}{appendix.22}%
 \vspace {2em}
