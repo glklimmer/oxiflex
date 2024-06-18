@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.3.27)  18 JUN 2024 00:35
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.3.27)  18 JUN 2024 19:22
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1199,46 +1199,165 @@ Package: multicol 2021/10/28 v1.9b multicolumn formatting (FMi)
 \colbreak@box=\box123
 \mc@col@check@num=\count381
 )
+(/usr/share/texlive/texmf-dist/tex/latex/xskak/xskak.sty
+Package: xskak 2019/06/23 version v1.5 extended chess typesetting and parsing
+
+(/usr/share/texlive/texmf-dist/tex/latex/skak/skak.sty
+Package: skak 2018/01/08 v1.5.3 Chess typesetting
+
+(/usr/share/texlive/texmf-dist/tex/latex/chessfss/chessfss.sty
+Package: chessfss 2006/06/14 v1.2a chess font selection scheme
+
+(/usr/share/texlive/texmf-dist/tex/latex/chessfss/lsbenc.def
+File: lsbenc.def 2006/06/09 v1.2 Standard LaTeX file
+Now handling font encoding LSB ...
+... no UTF-8 mapping file for font encoding LSB
+)
+(/usr/share/texlive/texmf-dist/tex/latex/chessfss/lsfenc.def
+File: lsfenc.def 2006/06/09 v1.2 Standard LaTeX file
+Now handling font encoding LSF ...
+... no UTF-8 mapping file for font encoding LSF
+)
+(/usr/share/texlive/texmf-dist/tex/latex/chessfss/lsienc.def
+File: lsienc.def 2006/06/09 v1.2 Standard LaTeX file
+Now handling font encoding LSI ...
+... no UTF-8 mapping file for font encoding LSI
+)
+\len@cfss@squarewidth=\skip267
+\len@cfss@squaretotalheight=\skip268
+\len@cfss@squaredepth=\skip269
+
+
+Package chessfss Warning: \comment already defined 
+(chessfss)                I will not overwrite it on input line 590.
+
+) (/usr/share/texlive/texmf-dist/tex/plain/lambda-lists/lambda.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/base/textcomp.sty
+Package: textcomp 2020/02/02 v2.0n Standard LaTeX package
+)
+\c@fileFrom=\count382
+\c@rankFrom=\count383
+\c@fileTo=\count384
+\c@rankTo=\count385
+\c@ps@inverse=\count386
+\c@ps@knightangle=\count387
+\c@halfmove=\count388
+\c@move=\count389
+\c@helpgobble=\count390
+\c@helpnumber=\count391
+\c@helpnumberMove=\count392
+\squarelength=\skip270
+\square@multiplier=\count393
+\ranklift=\skip271
+LaTeX Font Info:    Trying to load font information for LSB+skaknew on input li
+ne 1774.
+
+(/usr/share/texlive/texmf-dist/tex/latex/chessfss/lsbskaknew.fd
+File: lsbskaknew.fd 2006/03/31 v1.0 Chess font definitions
+)
+LaTeX Font Info:    Trying to load font information for OT1+phv on input line 1
+774.
+
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1phv.fd
+File: ot1phv.fd 2020/03/25 scalable font definitions for OT1/phv.
+)
+
+LaTeX Font Warning: Font shape `OT1/phv/m/up' undefined
+(Font)              using `OT1/phv/m/n' instead on input line 1774.
+
+\store@toks=\toks60
+) (/usr/share/texlive/texmf-dist/tex/latex/xifthen/xifthen.sty
+Package: xifthen 2015/11/05 v1.4.0 Extended ifthen features
+)
+(/usr/share/texlive/texmf-dist/tex/latex/chessboard/chessboard.sty
+Package: chessboard 2020/11/01 version v1.9 print chessboards
+
+(/usr/share/texlive/texmf-dist/tex/generic/iftex/ifpdf.sty
+Package: ifpdf 2019/10/25 v3.4 ifpdf legacy package. Use iftex instead.
+)
+\len@board@tempx=\skip272
+\len@board@tempy=\skip273
+\c@cnt@board@file=\count394
+\c@cnt@board@rank=\count395
+\c@cnt@board=\count396
+\c@filelabel=\count397
+\c@ranklabel=\count398
+
+(/usr/share/texlive/texmf-dist/tex/latex/chessboard/chessboard-keys-main.sty
+File: chessboard-keys-main.sty 2020/11/01 version v1.9 key definitions for ches
+sboard.sty
+)
+(/usr/share/texlive/texmf-dist/tex/latex/chessboard/chessboard-keys-pgf.sty
+File: chessboard-keys-pgf.sty 2020/11/01 version v1.9 key definitions for chess
+board.sty
+)
+(/usr/share/texlive/texmf-dist/tex/latex/chessboard/chessboard-pgf.sty
+File: chessboard-pgf.sty 2020/11/01 version v1.9 pgf code for chessboard.sty
+))
+(/usr/share/texlive/texmf-dist/tex/latex/xskak/xskak-keys.sty
+File: xskak-keys.sty 2019/06/23 version v1.5 key definitions for xskak.sty
+)
+(/usr/share/texlive/texmf-dist/tex/latex/xskak/xskak-nagdef.sty
+File: xskak-nagdef.sty 2019/06/23 version v1.5 nag definitions for xskak.sty
+)
+LaTeX Info: Redefining \variation on input line 1473.
+)
 (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2022-01-12 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count382
+\l__color_backend_stack_int=\count399
 \l__pdf_internal_box=\box124
 )
 (./Thesis.aux)
 \openout1 = `Thesis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for LSB/skaknew/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for LSF/skaknew/m/n on input line 38.
+LaTeX Font Info:    Trying to load font information for LSF+skaknew on input li
+ne 38.
+ (/usr/share/texlive/texmf-dist/tex/latex/chessfss/lsfskaknew.fd
+File: lsfskaknew.fd 2006/03/31 v1.0 Chess font definitions
+)
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for LSI/skaknew/m/n on input line 38.
+LaTeX Font Info:    Trying to load font information for LSI+skaknew on input li
+ne 38.
+(/usr/share/texlive/texmf-dist/tex/latex/chessfss/lsiskaknew.fd
+File: lsiskaknew.fd 2006/03/31 v1.0 Chess font definitions
+)
+LaTeX Font Info:    ... okay on input line 38.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count383
+\scratchcounter=\count400
 \scratchdimen=\dimen330
 \scratchbox=\box125
-\nofMPsegments=\count384
-\nofMParguments=\count385
-\everyMPshowfont=\toks60
-\MPscratchCnt=\count386
+\nofMPsegments=\count401
+\nofMParguments=\count402
+\everyMPshowfont=\toks61
+\MPscratchCnt=\count403
 \MPscratchDim=\dimen331
-\MPnumerator=\count387
-\makeMPintoPDFobject=\count388
-\everyMPtoPDFconversion=\toks61
+\MPnumerator=\count404
+\makeMPintoPDFobject=\count405
+\everyMPtoPDFconversion=\toks62
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
@@ -1256,7 +1375,7 @@ Package: lscape 2020/05/28 v3.02 Landscape Pages (DPC)
 )
 Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
 )
-Package hyperref Info: Link coloring ON on input line 37.
+Package hyperref Info: Link coloring ON on input line 38.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
@@ -1267,14 +1386,14 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 (/usr/share/texlive/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count389
+\c@section@level=\count406
 )
 Redoing nameref's sectioning
 Redoing nameref's label
-LaTeX Info: Redefining \nameref on input line 37.
-LaTeX Info: Redefining \ref on input line 37.
-LaTeX Info: Redefining \pageref on input line 37.
-LaTeX Info: Redefining \nameref on input line 37.
+LaTeX Info: Redefining \nameref on input line 38.
+LaTeX Info: Redefining \ref on input line 38.
+LaTeX Info: Redefining \pageref on input line 38.
+LaTeX Info: Redefining \nameref on input line 38.
 (./Thesis.out) (./Thesis.out)
 \@outlinefile=\write6
 \openout6 = `Thesis.out'.
@@ -1282,15 +1401,9 @@ LaTeX Info: Redefining \nameref on input line 37.
 <Template/logo-en.pdf, id=91, 113.8112pt x 36.98878pt>
 File: Template/logo-en.pdf Graphic file (type pdf)
 <use Template/logo-en.pdf>
-Package pdftex.def Info: Template/logo-en.pdf  used on input line 43.
+Package pdftex.def Info: Template/logo-en.pdf  used on input line 44.
 (pdftex.def)             Requested size: 113.81091pt x 36.98868pt.
-LaTeX Font Info:    Trying to load font information for OT1+phv on input line 4
-3.
-
-(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1phv.fd
-File: ot1phv.fd 2020/03/25 scalable font definitions for OT1/phv.
-)
-(./Front/Abstract.tex [1
+ (./Front/Abstract.tex [1
 
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./Template/logo-en.pdf>]) 
@@ -1351,29 +1464,56 @@ Underfull \hbox (badness 10000) in paragraph at lines 104--105
 
  []
 
-[4]) (./Chapters/Implementation.tex [5]) (./Chapters/Results.tex [6
+[4] [5]
+Underfull \hbox (badness 10000) in paragraph at lines 134--135
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 136--137
+
+ []
+
+LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 1
+40.
+(/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 140.
+
+Underfull \hbox (badness 10000) in paragraph at lines 138--143
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 144--148
+
+ []
+
+) (./Chapters/Implementation.tex [6]) (./Chapters/Results.tex [7
 
 ])
-(./Chapters/Conclusion.tex [7
+(./Chapters/Conclusion.tex [8
 
-]) [8
+]) [9
 
 ] (./Thesis.bbl) (./Back/AppendixA.tex
-[9
+[10
 
 
-]) [10
+]) [11
 
 ]
 
 pdfTeX warning: pdflatex (file ./Back/wissensch_Redlichkeit_E_09-2023.pdf): PDF
  inclusion: found PDF version <1.6>, but at most version <1.5> allowed
-<./Back/wissensch_Redlichkeit_E_09-2023.pdf, id=206, 597.55246pt x 845.07718pt>
+<./Back/wissensch_Redlichkeit_E_09-2023.pdf, id=211, 597.55246pt x 845.07718pt>
 
 File: ./Back/wissensch_Redlichkeit_E_09-2023.pdf Graphic file (type pdf)
 <use ./Back/wissensch_Redlichkeit_E_09-2023.pdf>
 Package pdftex.def Info: ./Back/wissensch_Redlichkeit_E_09-2023.pdf  used on in
-put line 69.
+put line 70.
 (pdftex.def)             Requested size: 597.551pt x 845.07512pt.
 
 
@@ -1382,7 +1522,7 @@ pdfTeX warning: pdflatex (file ./Back/wissensch_Redlichkeit_E_09-2023.pdf): PDF
 File: ./Back/wissensch_Redlichkeit_E_09-2023.pdf Graphic file (type pdf)
 <use ./Back/wissensch_Redlichkeit_E_09-2023.pdf>
 Package pdftex.def Info: ./Back/wissensch_Redlichkeit_E_09-2023.pdf  used on in
-put line 69.
+put line 70.
 (pdftex.def)             Requested size: 597.551pt x 845.07512pt.
 
 
@@ -1392,69 +1532,73 @@ pdfTeX warning: pdflatex (file ./Back/wissensch_Redlichkeit_E_09-2023.pdf): PDF
 
 pdfTeX warning: pdflatex (file ./Back/wissensch_Redlichkeit_E_09-2023.pdf): PDF
  inclusion: found PDF version <1.6>, but at most version <1.5> allowed
-<./Back/wissensch_Redlichkeit_E_09-2023.pdf, id=209, page=1, 597.55246pt x 845.
+<./Back/wissensch_Redlichkeit_E_09-2023.pdf, id=214, page=1, 597.55246pt x 845.
 07718pt>
 File: ./Back/wissensch_Redlichkeit_E_09-2023.pdf Graphic file (type pdf)
 <use ./Back/wissensch_Redlichkeit_E_09-2023.pdf, page 1>
 Package pdftex.def Info: ./Back/wissensch_Redlichkeit_E_09-2023.pdf , page1 use
-d on input line 69.
+d on input line 70.
 (pdftex.def)             Requested size: 597.551pt x 845.07512pt.
 File: ./Back/wissensch_Redlichkeit_E_09-2023.pdf Graphic file (type pdf)
 <use ./Back/wissensch_Redlichkeit_E_09-2023.pdf, page 1>
 Package pdftex.def Info: ./Back/wissensch_Redlichkeit_E_09-2023.pdf , page1 use
-d on input line 69.
+d on input line 70.
 (pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
 File: ./Back/wissensch_Redlichkeit_E_09-2023.pdf Graphic file (type pdf)
 <use ./Back/wissensch_Redlichkeit_E_09-2023.pdf, page 1>
 Package pdftex.def Info: ./Back/wissensch_Redlichkeit_E_09-2023.pdf , page1 use
-d on input line 69.
+d on input line 70.
 (pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
 File: ./Back/wissensch_Redlichkeit_E_09-2023.pdf Graphic file (type pdf)
 <use ./Back/wissensch_Redlichkeit_E_09-2023.pdf, page 1>
 Package pdftex.def Info: ./Back/wissensch_Redlichkeit_E_09-2023.pdf , page1 use
-d on input line 69.
+d on input line 70.
 (pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
 File: ./Back/wissensch_Redlichkeit_E_09-2023.pdf Graphic file (type pdf)
 <use ./Back/wissensch_Redlichkeit_E_09-2023.pdf, page 1>
 Package pdftex.def Info: ./Back/wissensch_Redlichkeit_E_09-2023.pdf , page1 use
-d on input line 69.
+d on input line 70.
 (pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
-[11
+[12
 
  <./Back/wissensch_Redlichkeit_E_09-2023.pdf>]
 \tf@toc=\write7
 \openout7 = `Thesis.toc'.
 
  (./Thesis.aux)
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
 Package rerunfilecheck Info: File `Thesis.out' has not changed.
 (rerunfilecheck)             Checksum: 68587016B6EF6B57BE6C474FE5D7F64F;2692.
  ) 
 Here is how much of TeX's memory you used:
- 31442 strings out of 478287
- 587778 string characters out of 5849289
- 926871 words of memory out of 5000000
- 49069 multiletter control sequences out of 15000+600000
- 487188 words of font info for 61 fonts, out of 8000000 for 9000
+ 36280 strings out of 478287
+ 673736 string characters out of 5849289
+ 1025166 words of memory out of 5000000
+ 53840 multiletter control sequences out of 15000+600000
+ 488502 words of font info for 63 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 125i,17n,120p,661b,528s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 125i,17n,120p,719b,693s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/share/texmf/
 fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texlive/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/
-public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
-/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
-nts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
-cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pf
-b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share
-/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf
-/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texlive/texmf-dist/fonts/
-type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/hel
-vetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a
-.pfb>
-Output written on Thesis.pdf (14 pages, 638425 bytes).
+type1/public/skaknew/SkakNew-Diagram.pfb></usr/share/texlive/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb
+></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr
+/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/
+texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf/
+fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texlive/texmf-dist/fonts/t
+ype1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helv
+etic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.
+pfb>
+Output written on Thesis.pdf (15 pages, 649891 bytes).
 PDF statistics:
- 305 PDF objects out of 1000 (max. 8388607)
- 233 compressed objects within 3 object streams
- 39 named destinations out of 1000 (max. 500000)
+ 314 PDF objects out of 1000 (max. 8388607)
+ 239 compressed objects within 3 object streams
+ 40 named destinations out of 1000 (max. 500000)
  206 words of extra memory for PDF output out of 10000 (max. 10000000)
 
