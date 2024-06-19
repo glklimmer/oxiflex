@@ -1,26 +1,67 @@
 \chapter{Oxiflex}
 
-As part of this thesis we present oxiflex, a minimal constraint satisfaction problem solver from scratch for MiniZinc written in rust. Oxiflex is a FlatZinc solver that can be used as an backend to MiniZinc. This means oxiflex supports the minimal requirements for a solver to take advantage of the MiniZinc toolchain.
+As part of this thesis we present \textbf{oxiflex}, a minimal constraint satisfaction problem solver from scratch for MiniZinc written in Rust. Oxiflex is a FlatZinc solver that can be used as an backend to MiniZinc. This means oxiflex supports the minimal requirements for a solver to take advantage of the MiniZinc toolchain. The idea is to have a minimal solver and excatly measure the impact of various improvments on it like forward checking or arc consistency.
 
 Oxiflex is open-source and available under the MIT license under \url{https://github.com/glklimmer/oxiflex}.
 
 \section{Rust}
 
+Rust is a general purpose systems programming language focused on safety and performance. It achieves these goals without using a garbage collector by ensuring memory safety through a system of ownership with strict compile-time checks enforced by the borrow checker. This makes Rust particularly well-suited for creating performance-critical applications like CSP solvers where control over resources is crucial. This makes Rust an ideal choice for developing oxiflex.
+
 \section{Dependecies}
 
-\subsection{flatzinc}
+This work depends on previous work by others. This section highlights the components used by oxiflex.
 
-A FlatZinc parser for rust.
+\subsection{flatzinc} \label{flatzinc}
+
+The library flatzinc~\cite{flatzinc:2020} is a FlatZinc parser for Rust. It parses the FlatZinc format into Rust structures and variables.
 
 \subsection{structopt}
 
+The library structopt~\cite{structopt:2020} is utilized to parse command-line arguments in oxiflex. This library simplifies setting up custom commands and options for oxiflex.
+
 \subsection{hyperfine}
+
+The librabry hyperfine~\cite{hyperfine:2023} is a command-line benchmarking tool. We use hyperfine to measure and compare the performance of different solver strategies and optimizations.
+
+\section{Architecture}
+
+There are three main parts of oxiflex.
+
+\begin{itemize}
+	\item parser
+	\item model
+	\item solver
+\end{itemize}
+
+\subsection{parser}
+
+Using flatzinc \ref{flatzinc} oxiflex reads an FlatZinc \verb|.fzn| file and collects all parts needed to then construct a constraint satisfaction network. These include a list for parameters, variables and constraints. In order to also output the solution after solving the problem, MiniZinc makes use of annonations on FlatZinc elements. Variables that are needed for the output are annotated as \verb|output_var|. There are two possible output annotations in FlatZinc: \verb|output_var| and \verb|output_array|.
+
+\subsection{model}
+
+After parsing the FlatZinc file into Rust structures that can be used directly, oxiflex starts to build structures useful to solve the given problem. This is where oxiflex creates concepts like a model, a domain, a constraint or a partial assignment. A model uses HashMaps to keep track of its variables and their respective domains. This allow for fast access to domains to either read them or modify them after inference (\ref{inference}) for example. Constraints are saved by the model as a vec (In rust this is a pointer, capacity, length triplet). Usually when checking if constraints are violated we either want all constraints or all constraints related to a variable. For this reason an additional HashMap is created that uses variable ids as key and points to a list in the heap. In rust this is usually done by using reference counting.
+
+% TODO: THIS IS WHERE I LEFT OF
+
+% pub variables: HashMap<VarId, VarDeclItem>,
+% domains: HashMap<VarId, Domain>,
+% constraints: Vec<Rc<Builtin>>,
+% constraint_index: HashMap<VarId, Vec<Rc<Builtin>>>,
+
+\subsection{Limitations}
+
+There are some limitations due to time constraints that currently limit oxiflex as a universal MiniZinc solver. \\
+
+Only binary constrains are supported. The reason for this is that the theory used to implement oxiflex is based on binary constraints. Therefore it made sense to also just support them at first. \\
+
+Not all FlatZinc builtins are supported. The idea is to implemt just the needed builtins for any given insteresting problem domain.
 
 \section{Solver}
 
 \subsection{Naive Backtracking}
 
-\section{Inference}
+\section{Inference} \label{inference}
 
 \subsection{Forward Checking}
 
