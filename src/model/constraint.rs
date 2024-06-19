@@ -35,241 +35,101 @@ impl Builtin {
         parameters: &HashMap<String, ParDeclItem>,
     ) -> Result<Self, ConstraintConstruction> {
         match constraint.id.as_str() {
-            "int_lin_eq" => {
-                let par_identifier = constraint.exprs[0].to_owned();
-                let par_id = if let Expr::VarParIdentifier(id) = par_identifier {
-                    id
-                } else {
-                    panic!("Only VarParIdentifier supported for int_lin_eq")
-                };
-
-                let parameter = parameters
-                    .get(&par_id)
-                    .unwrap_or_else(|| panic!("Parameter {} not found", par_id));
-                let par_data = if let ParDeclItem::ArrayOfInt { v, .. } = parameter {
-                    v.to_owned()
-                } else {
-                    Vec::new()
-                };
-
-                let var_expr = constraint.exprs[1].to_owned();
-                let vars = if let Expr::ArrayOfBool(exprs) = var_expr {
-                    exprs
-                } else {
-                    Vec::new()
-                };
-                let var_ids = vars
-                    .iter()
-                    .map(|expr| {
-                        if let BoolExpr::VarParIdentifier(id) = expr {
-                            id.into()
-                        } else {
-                            todo!("Only Bool Expr supported");
-                        }
-                    })
-                    .collect();
-
-                let expr = constraint.exprs[2].to_owned();
-                let c = if let Expr::Int(i) = expr { i } else { 0 };
-
-                Ok(Builtin::IntLinEq(par_data, var_ids, c))
-            }
-            "int_lin_le" => {
-                let par_identifier = constraint.exprs[0].to_owned();
-                let par_id = if let Expr::VarParIdentifier(id) = par_identifier {
-                    id
-                } else {
-                    panic!("Only VarParIdentifier supported for int_lin_le")
-                };
-
-                let parameter = parameters
-                    .get(&par_id)
-                    .unwrap_or_else(|| panic!("Parameter {} not found", par_id));
-                let par_data = if let ParDeclItem::ArrayOfInt { v, .. } = parameter {
-                    v.to_owned()
-                } else {
-                    Vec::new()
-                };
-
-                let var_expr = constraint.exprs[1].to_owned();
-                let vars = if let Expr::ArrayOfBool(exprs) = var_expr {
-                    exprs
-                } else {
-                    Vec::new()
-                };
-                let var_ids = vars
-                    .iter()
-                    .map(|expr| {
-                        if let BoolExpr::VarParIdentifier(id) = expr {
-                            id.into()
-                        } else {
-                            todo!("Only Bool Expr supported");
-                        }
-                    })
-                    .collect();
-
-                let expr = constraint.exprs[2].to_owned();
-                let c = if let Expr::Int(i) = expr { i } else { 0 };
-
-                Ok(Builtin::IntLinLe(par_data, var_ids, c))
-            }
-            "int_lin_ne" => {
-                let par_identifier = constraint.exprs[0].to_owned();
-                let par_id = if let Expr::VarParIdentifier(id) = par_identifier {
-                    id
-                } else {
-                    panic!("Only VarParIdentifier supported for int_lin_ne")
-                };
-
-                let parameter = parameters
-                    .get(&par_id)
-                    .unwrap_or_else(|| panic!("Parameter {} not found", par_id));
-                let par_data = if let ParDeclItem::ArrayOfInt { v, .. } = parameter {
-                    v.to_owned()
-                } else {
-                    Vec::new()
-                };
-
-                let var_expr = constraint.exprs[1].to_owned();
-                let vars = if let Expr::ArrayOfBool(exprs) = var_expr {
-                    exprs
-                } else {
-                    Vec::new()
-                };
-                let var_ids = vars
-                    .iter()
-                    .map(|expr| {
-                        if let BoolExpr::VarParIdentifier(id) = expr {
-                            id.into()
-                        } else {
-                            todo!("Only Bool Expr supported");
-                        }
-                    })
-                    .collect();
-
-                let expr = constraint.exprs[2].to_owned();
-                let c = if let Expr::Int(i) = expr { i } else { 0 };
-
-                Ok(Builtin::IntLinNe(par_data, var_ids, c))
-            }
+            "int_lin_eq" => process_linear_constraint(constraint, parameters, Builtin::IntLinEq),
+            "int_lin_le" => process_linear_constraint(constraint, parameters, Builtin::IntLinLe),
+            "int_lin_ne" => process_linear_constraint(constraint, parameters, Builtin::IntLinNe),
             _ => Err(ConstraintConstruction),
         }
     }
 
-    // check (v, u, c, alpha)
     pub fn check(&self, alpha: &PartialAssignment) -> bool {
         match self {
             Builtin::IntLinEq(a_vec, b_vec, c) => {
-                assert!(a_vec.len() == 2, "Only binary constraints supported");
-                assert!(b_vec.len() == 2, "Only binary constraints supported");
-
-                let mut b_vec_iter = b_vec.iter();
-
-                let u_key = b_vec_iter.next().unwrap();
-                let u_assignment = alpha.get(u_key);
-                let u = if let Some(value) = u_assignment {
-                    value
-                } else {
-                    // println!("{u_key} not set, check: true");
-                    return true;
-                };
-
-                let v_key = b_vec_iter.next().unwrap();
-                let v_assignment = alpha.get(v_key);
-                let v = if let Some(value) = v_assignment {
-                    value
-                } else {
-                    // println!("{v_key} not set, check: true");
-                    return true;
-                };
-
-                // println!("----------");
-                // println!("checking: {u_key}, {v_key}, int_lin_eq");
-                // println!("{alpha}");
-                // println!("c == a_1 * u + a_2 * v");
-                let a_1 = a_vec[0];
-                let a_2 = a_vec[1];
-                let r = *c == a_1 * u + a_2 * v;
-                // println!("{c} == {a_1} * {u} + {a_2} * {v}, check: {r}");
-                if r {
-                    return true;
-                }
-                false
+                check_linear_constraint(a_vec, b_vec, c, alpha, |x, y| x == y)
             }
             Builtin::IntLinLe(a_vec, b_vec, c) => {
-                assert!(a_vec.len() == 2, "Only binary constraints supported");
-                assert!(b_vec.len() == 2, "Only binary constraints supported");
-
-                let mut b_vec_iter = b_vec.iter();
-
-                let u_key = b_vec_iter.next().unwrap();
-                let u_assignment = alpha.get(u_key);
-                let u = if let Some(value) = u_assignment {
-                    value
-                } else {
-                    // println!("{u_key} not set, check: true");
-                    return true;
-                };
-
-                let v_key = b_vec_iter.next().unwrap();
-                let v_assignment = alpha.get(v_key);
-                let v = if let Some(value) = v_assignment {
-                    value
-                } else {
-                    // println!("{v_key} not set, check: true");
-                    return true;
-                };
-
-                // println!("----------");
-                // println!("checking: {u_key}, {v_key}, int_lin_le");
-                // println!("{alpha}");
-                // println!("c >= a_1 * u + a_2 * v");
-                let a_1 = a_vec[0];
-                let a_2 = a_vec[1];
-                let r = *c >= a_1 * u + a_2 * v;
-                // println!("{c} >= {a_1} * {u} + {a_2} * {v}, check: {r}");
-                if r {
-                    return true;
-                }
-                false
+                check_linear_constraint(a_vec, b_vec, c, alpha, |x, y| x <= y)
             }
             Builtin::IntLinNe(a_vec, b_vec, c) => {
-                assert!(a_vec.len() == 2, "Only binary constraints supported");
-                assert!(b_vec.len() == 2, "Only binary constraints supported");
-
-                let mut b_vec_iter = b_vec.iter();
-
-                let u_key = b_vec_iter.next().unwrap();
-                let u_assignment = alpha.get(u_key);
-                let u = if let Some(value) = u_assignment {
-                    value
-                } else {
-                    // println!("{u_key} not set, check: true");
-                    return true;
-                };
-
-                let v_key = b_vec_iter.next().unwrap();
-                let v_assignment = alpha.get(v_key);
-                let v = if let Some(value) = v_assignment {
-                    value
-                } else {
-                    // println!("{v_key} not set, check: true");
-                    return true;
-                };
-
-                // println!("----------");
-                // println!("checking: {u_key}, {v_key}, int_lin_ne");
-                // println!("{alpha}");
-                // println!("c >= a_1 * u + a_2 * v");
-                let a_1 = a_vec[0];
-                let a_2 = a_vec[1];
-                let r = *c != a_1 * u + a_2 * v;
-                // println!("{c} != {a_1} * {u} + {a_2} * {v}, check: {r}");
-                if r {
-                    return true;
-                }
-                false
+                check_linear_constraint(a_vec, b_vec, c, alpha, |x, y| x != y)
             }
         }
     }
+}
+
+fn process_linear_constraint(
+    constraint: &ConstraintItem,
+    parameters: &HashMap<String, ParDeclItem>,
+    builtin_constructor: fn(Vec<i128>, Vec<VarId>, i128) -> Builtin,
+) -> Result<Builtin, ConstraintConstruction> {
+    let par_identifier = constraint.exprs[0].to_owned();
+    let par_id = match par_identifier {
+        Expr::VarParIdentifier(id) => id,
+        _ => panic!("Only VarParIdentifier supported for linear constraints"),
+    };
+
+    let parameter = parameters
+        .get(&par_id)
+        .unwrap_or_else(|| panic!("Parameter {} not found", par_id));
+    let par_data = match parameter {
+        ParDeclItem::ArrayOfInt { v, .. } => v.to_owned(),
+        _ => Vec::new(),
+    };
+
+    let var_expr = constraint.exprs[1].to_owned();
+    let vars = match var_expr {
+        Expr::ArrayOfBool(exprs) => exprs,
+        _ => Vec::new(),
+    };
+    let var_ids = vars
+        .iter()
+        .map(|expr| match expr {
+            BoolExpr::VarParIdentifier(id) => id.into(),
+            _ => todo!("Only Bool Expr supported"),
+        })
+        .collect();
+
+    let expr = constraint.exprs[2].to_owned();
+    let c = match expr {
+        Expr::Int(i) => i,
+        _ => 0,
+    };
+
+    Ok(builtin_constructor(par_data, var_ids, c))
+}
+
+fn check_linear_constraint<F>(
+    a_vec: &[i128],
+    b_vec: &[VarId],
+    c: &i128,
+    alpha: &PartialAssignment,
+    comparison: F,
+) -> bool
+where
+    F: Fn(i128, i128) -> bool,
+{
+    assert!(a_vec.len() == 2, "Only binary constraints supported");
+    assert!(b_vec.len() == 2, "Only binary constraints supported");
+
+    let mut b_vec_iter = b_vec.iter();
+
+    let u_key = b_vec_iter.next().unwrap();
+    let u_assignment = alpha.get(u_key);
+    let u = if let Some(value) = u_assignment {
+        value
+    } else {
+        return true;
+    };
+
+    let v_key = b_vec_iter.next().unwrap();
+    let v_assignment = alpha.get(v_key);
+    let v = if let Some(value) = v_assignment {
+        value
+    } else {
+        return true;
+    };
+
+    let a_1 = a_vec[0];
+    let a_2 = a_vec[1];
+    comparison(a_1 * u + a_2 * v, *c)
 }
