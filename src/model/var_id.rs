@@ -1,18 +1,21 @@
 use core::fmt;
-use std::fmt::{Display, Formatter};
+use std::{
+    fmt::{Display, Formatter},
+    rc::Rc,
+};
 
 #[derive(Eq, Hash, PartialEq, Debug, Clone)]
-pub struct VarId(String);
+pub struct VarId(Rc<str>);
 
 impl From<&String> for VarId {
     fn from(item: &String) -> Self {
-        VarId(item.clone())
+        VarId(item.clone().into())
     }
 }
 
 impl From<String> for VarId {
     fn from(item: String) -> Self {
-        VarId(item.clone())
+        VarId(item.clone().into())
     }
 }
 
