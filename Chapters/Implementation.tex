@@ -6,6 +6,7 @@ Oxiflex is open-source and available under the MIT license under \url{https://gi
 
 \section{Rust}
 
+% pointer for rust lang, maybe add rust book to references
 Rust is a general purpose systems programming language focused on safety and performance. It achieves these goals without using a garbage collector by ensuring memory safety through a system of ownership with strict compile-time checks enforced by the borrow checker. This makes Rust particularly well-suited for creating performance-critical applications like CSP solvers where control over resources is crucial. This makes Rust an ideal choice for developing oxiflex.
 
 \section{Dependecies}
@@ -54,10 +55,14 @@ After parsing the FlatZinc file into Rust structures that can be used directly, 
 There are some limitations due to time constraints that currently limit oxiflex as a universal MiniZinc solver. \\
 
 Only binary constrains are supported. The reason for this is that the theory used to implement oxiflex is based on binary constraints. Therefore it made sense to also just support them at first. \\
+% but why? maybe just add it instead.
 
 Not all FlatZinc builtins are supported. The idea is to implemt just the needed builtins for any given insteresting problem domain.
+% Maybe add roadmap?
 
 \section{Solver}
+
+% take aalgos from papers instead of lecture notes. Can modify algos for clarity.
 
 \subsection{Naive Backtracking}
 
