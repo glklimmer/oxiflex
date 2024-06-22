@@ -11,16 +11,20 @@
 \contentsline {section}{\numberline {3.1}Rust}{8}{section.10}%
 \contentsline {section}{\numberline {3.2}Dependecies}{8}{section.11}%
 \contentsline {subsection}{\numberline {3.2.1}flatzinc}{8}{subsection.12}%
-\contentsline {subsection}{\numberline {3.2.2}structopt}{8}{subsection.13}%
-\contentsline {subsection}{\numberline {3.2.3}hyperfine}{8}{subsection.14}%
-\contentsline {section}{\numberline {3.3}Solver}{8}{section.15}%
-\contentsline {subsection}{\numberline {3.3.1}Naive Backtracking}{8}{subsection.16}%
-\contentsline {section}{\numberline {3.4}Inference}{8}{section.17}%
-\contentsline {subsection}{\numberline {3.4.1}Forward Checking}{8}{subsection.18}%
-\contentsline {subsection}{\numberline {3.4.2}Arc Consistency}{8}{subsection.19}%
-\contentsline {chapter}{\chapternumberline {4}Results}{9}{chapter.20}%
-\contentsline {chapter}{\chapternumberline {5}Conclusion}{10}{chapter.21}%
+\contentsline {subsection}{\numberline {3.2.2}structopt}{9}{subsection.13}%
+\contentsline {subsection}{\numberline {3.2.3}hyperfine}{9}{subsection.14}%
+\contentsline {section}{\numberline {3.3}Architecture}{9}{section.15}%
+\contentsline {subsection}{\numberline {3.3.1}parser}{9}{subsection.16}%
+\contentsline {subsection}{\numberline {3.3.2}model}{9}{subsection.17}%
+\contentsline {subsection}{\numberline {3.3.3}Limitations}{9}{subsection.18}%
+\contentsline {section}{\numberline {3.4}Solver}{10}{section.19}%
+\contentsline {subsection}{\numberline {3.4.1}Naive Backtracking}{10}{subsection.20}%
+\contentsline {section}{\numberline {3.5}Inference}{10}{section.21}%
+\contentsline {subsection}{\numberline {3.5.1}Forward Checking}{10}{subsection.22}%
+\contentsline {subsection}{\numberline {3.5.2}Arc Consistency}{10}{subsection.23}%
+\contentsline {chapter}{\chapternumberline {4}Results}{11}{chapter.24}%
+\contentsline {chapter}{\chapternumberline {5}Conclusion}{12}{chapter.25}%
 \vspace {2em}
-\contentsline {chapter}{Bibliography}{11}{appendix*.22}%
-\contentsline {appendix}{\chapternumberline {A}Appendix}{12}{appendix.23}%
+\contentsline {chapter}{Bibliography}{13}{appendix*.26}%
+\contentsline {appendix}{\chapternumberline {A}Appendix}{14}{appendix.27}%
 \vspace {2em}

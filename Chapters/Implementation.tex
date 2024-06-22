@@ -41,14 +41,7 @@ Using flatzinc \ref{flatzinc} oxiflex reads an FlatZinc \verb|.fzn| file and col
 
 \subsection{model}
 
-After parsing the FlatZinc file into Rust structures that can be used directly, oxiflex starts to build structures useful to solve the given problem. This is where oxiflex creates concepts like a model, a domain, a constraint or a partial assignment. A model uses HashMaps to keep track of its variables and their respective domains. This allow for fast access to domains to either read them or modify them after inference (\ref{inference}) for example. Constraints are saved by the model as a vec (In rust this is a pointer, capacity, length triplet). Usually when checking if constraints are violated we either want all constraints or all constraints related to a variable. For this reason an additional HashMap is created that uses variable ids as key and points to a list in the heap. In rust this is usually done by using reference counting.
-
-% TODO: THIS IS WHERE I LEFT OF
-
-% pub variables: HashMap<VarId, VarDeclItem>,
-% domains: HashMap<VarId, Domain>,
-% constraints: Vec<Rc<Builtin>>,
-% constraint_index: HashMap<VarId, Vec<Rc<Builtin>>>,
+After parsing the FlatZinc file into Rust structures that can be used directly, oxiflex starts to build useful structures  to solve any given problem. This is where oxiflex creates a model containing variables with their respectice domains and constraints. Models use HashMaps to keep track of its variables and their respective domains. This allows for constant access time to domains to either read or modify them after inference (\ref{inference}) for example. Constraints are saved by the model as a list (In rust this is a pointer, capacity, length triplet). Usually when checking if constraints are violated we either want all constraints or all constraints related to a variable. For this reason an additional HashMap is created that uses variable ids as key and points to a list in the heap. In rust this can be done by using reference counting. This results in two ways to access constraints. One that is just a list to iterate over all constraint and a hashmap to get all constraints that use a specific variable.
 
 \subsection{Limitations}
 
@@ -57,16 +50,38 @@ There are some limitations due to time constraints that currently limit oxiflex 
 Only binary constrains are supported. The reason for this is that the theory used to implement oxiflex is based on binary constraints. Therefore it made sense to also just support them at first. \\
 % but why? maybe just add it instead.
 
-Not all FlatZinc builtins are supported. The idea is to implemt just the needed builtins for any given insteresting problem domain.
+Not all FlatZinc builtins are supported. The idea is to implement just the needed builtins for any given insteresting problem domain.
 % Maybe add roadmap?
 
 \section{Solver}
 
-% take aalgos from papers instead of lecture notes. Can modify algos for clarity.
+% take algos from papers instead of lecture notes. Can modify algos for clarity.
 
 \subsection{Naive Backtracking}
 
+\begin{tcolorbox}[title=function NaiveBacktracking)]
+	$\langle V, \text{dom}, (R_{uv})\rangle := C$ \\
+	\textbf{if} $\alpha$ is inconsistent with $C$: \\
+	\textbf{return inconsistent} \\
+	\textbf{if} $\alpha$ is a total assignment: \\
+	\textbf{return $\alpha$} \\
+	select some variable $v$ for which $\alpha$ is not defined \\
+	\textbf{for each} $d \in$ dom($v$) in some order: \\
+	$\alpha' := \alpha \cup \{v \mapsto d\}$ \\
+	$\alpha'' := $ NaiveBacktracking($C$, $\alpha'$) \\
+	\textbf{if} $\alpha'' \neq$ \textbf{inconsistent}: \\
+	\textbf{return} $\alpha''$ \\
+	\textbf{return inconsistent}
+\end{tcolorbox}
+
+Input: constraint network $C$ and partial assignment $\alpha$ for $C$. On first invocation of NaiveBacktracking we pass an empty assignment $\alpha = \emptyset$. \\
+Result: Total assignment (solution) of $C$ or \textbf{inconsistent}.
+
+This algorithm corresponds to Depth First Search (DFS). It assigns to any variable any value from its domain. Repeating this until either all variables are set and a solution is found or a constraint is violated. Then the algorithm goes back and tries an different value from the domain. This is the \textbf{search} part of an CSP solver. The other part is excluding values from variables based on assignments of other variables.
+
 \section{Inference} \label{inference}
+
+In our simple
 
 \subsection{Forward Checking}
 

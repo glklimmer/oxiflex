@@ -1,4 +1,4 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{4}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -12,5 +12,20 @@ N.~Nethercote, P.J. Stuckey, R.~Becket, S.~Brand, G.J. Duck, and G.~Tack.
 \newblock In C.~Bessiere, editor, \emph{Proceedings of the 13th International
   Conference on Principles and Practice of Constraint Programming}, volume 4741
   of \emph{LNCS}, pages 529--543. Springer, 2007.
+
+\bibitem[P.(2020)]{structopt:2020}
+Guillaume P.
+\newblock {structopt}, January 2020.
+\newblock URL \url{https://github.com/TeXitoi/structopt}.
+
+\bibitem[Peter(2023)]{hyperfine:2023}
+David Peter.
+\newblock {hyperfine}, March 2023.
+\newblock URL \url{https://github.com/sharkdp/hyperfine}.
+
+\bibitem[Thiele(2020)]{flatzinc:2020}
+Sven Thiele.
+\newblock {flatzinc}, April 2020.
+\newblock URL \url{https://github.com/potassco/flatzinc}.
 
 \end{thebibliography}
