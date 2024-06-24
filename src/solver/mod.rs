@@ -35,11 +35,12 @@ pub fn run(opt: Opt) -> Result<(), Box<dyn Error>> {
             .collect(),
     );
     let result = if opt.naive_backtracking {
-        naive_backtracking(&model, empty_assignment)
+        naive_backtracking(&model, empty_assignment, opt.random_variable_order)
     } else {
         backtracking_with_inference(
             &model,
             empty_assignment,
+            opt.random_variable_order,
             opt.forward_checking,
             opt.arc_consistency,
         )

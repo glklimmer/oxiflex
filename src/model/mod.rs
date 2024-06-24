@@ -81,4 +81,8 @@ impl Model {
     pub fn dom(&self, var_id: &VarId) -> &Domain {
         self.domains.get(var_id).unwrap()
     }
+
+    pub fn constraint_amount(&self, var_id: &VarId) -> usize {
+        self.constraint_index.get(var_id).unwrap().len()
+    }
 }

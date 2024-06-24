@@ -1,4 +1,4 @@
-use super::var_id::VarId;
+use super::{var_id::VarId, Model};
 use std::{
     collections::HashMap,
     fmt::{self, Display, Formatter},
@@ -47,6 +47,21 @@ impl PartialAssignment {
         self.0
             .iter()
             .find(|assignment_entry| assignment_entry.1.is_none())
+            .unwrap()
+            .0
+    }
+
+    pub fn find_resticting_unassigned(&self, model: &Model) -> &VarId {
+        self.0
+            .iter()
+            .filter(|assignment_entry| assignment_entry.1.is_none())
+            .map(|assignment_entry| {
+                (
+                    assignment_entry.0,
+                    model.constraint_amount(assignment_entry.0),
+                )
+            })
+            .max_by(|x, y| x.1.cmp(&y.1))
             .unwrap()
             .0
     }

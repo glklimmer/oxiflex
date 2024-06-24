@@ -6,6 +6,7 @@ use crate::model::{partial_assignment::PartialAssignment, Model};
 pub fn backtracking_with_inference(
     model: &Model,
     alpha: PartialAssignment,
+    random_variable_order: bool,
     use_forward_checking: bool,
     arc_consistency: u8,
 ) -> SearchResult {
@@ -38,7 +39,11 @@ pub fn backtracking_with_inference(
     // if dom′(v) ̸= ∅ for all variables v:
     if model_prime.domains_available() {
         // // select some variable v for which α is not defined
-        let v = alpha.find_any_unassigned();
+        let v = if random_variable_order {
+            alpha.find_any_unassigned()
+        } else {
+            alpha.find_resticting_unassigned(model)
+        };
 
         // // for each d ∈ dom(v ) in some order:
         for d in model_prime.dom(v) {
@@ -49,6 +54,7 @@ pub fn backtracking_with_inference(
             let alpha_prime_prime = backtracking_with_inference(
                 &model_prime,
                 alpha_prime,
+                random_variable_order,
                 use_forward_checking,
                 arc_consistency,
             );
