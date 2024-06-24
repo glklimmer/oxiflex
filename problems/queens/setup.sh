@@ -1,16 +1,21 @@
 #!/bin/bash
 
-numbers=(4 6 8 10 12 14 16 18 20)
+# List of numbers
+numbers=(4 6 8 10 12 14)
 
+# Loop through the list
 for num in "${numbers[@]}"; do
-	filename=$(printf "%03d.dzn" "$num")
+	# Format the filename without leading zeros
+	filename="${num}.dzn"
 
-	# create dzn file
+	# Create the file with the specified content
 	echo -e "\nn = $num;" >problems/queens/"$filename"
 
-	# compile fzn file
-	outputfile=$(printf "%03d.fzn" "$num")
+	# Format the output filename for the minizinc command
+	outputfile="${num}.fzn"
+
+	# Execute the minizinc command
 	minizinc -c problems/queens/queens.mzn -d "problems/queens/$filename" -o "problems/queens/$outputfile"
 done
 
-echo "Files created successfully."
+echo "Files created and compiled successfully."
