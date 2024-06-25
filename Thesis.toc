@@ -19,12 +19,12 @@
 \contentsline {subsection}{\numberline {3.3.3}Limitations}{9}{subsection.18}%
 \contentsline {section}{\numberline {3.4}Solver}{10}{section.19}%
 \contentsline {subsection}{\numberline {3.4.1}Naive Backtracking}{10}{subsection.20}%
-\contentsline {section}{\numberline {3.5}Inference}{10}{section.21}%
-\contentsline {subsection}{\numberline {3.5.1}Forward Checking}{10}{subsection.22}%
-\contentsline {subsection}{\numberline {3.5.2}Arc Consistency}{10}{subsection.23}%
-\contentsline {chapter}{\chapternumberline {4}Results}{11}{chapter.24}%
-\contentsline {chapter}{\chapternumberline {5}Conclusion}{12}{chapter.25}%
+\contentsline {section}{\numberline {3.5}Inference}{11}{section.21}%
+\contentsline {subsection}{\numberline {3.5.1}Forward Checking}{12}{subsection.22}%
+\contentsline {subsection}{\numberline {3.5.2}Arc Consistency}{12}{subsection.23}%
+\contentsline {chapter}{\chapternumberline {4}Results}{13}{chapter.24}%
+\contentsline {chapter}{\chapternumberline {5}Conclusion}{14}{chapter.25}%
 \vspace {2em}
-\contentsline {chapter}{Bibliography}{13}{appendix*.26}%
-\contentsline {appendix}{\chapternumberline {A}Appendix}{14}{appendix.27}%
+\contentsline {chapter}{Bibliography}{15}{appendix*.26}%
+\contentsline {appendix}{\chapternumberline {A}Appendix}{16}{appendix.27}%
 \vspace {2em}
