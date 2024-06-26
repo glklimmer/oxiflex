@@ -5,20 +5,19 @@ use crate::{
     model::{var_id::VarId, Model},
     Opt,
 };
-use flatzinc::*;
+use flatzinc::{Stmt, VarDeclItem};
+
 use std::{collections::HashMap, error::Error, fs};
 
 pub fn parse_and_print(opt: Opt) -> Result<(), Box<dyn Error>> {
     let buf = fs::read_to_string(opt.filename)?;
 
     for line in buf.lines() {
-        match statement::<VerboseError<&str>>(line) {
-            Ok((_, result)) => println!("{:#?}", result),
-            Err(Err::Error(e)) => {
-                let error = convert_error(buf.as_str(), e);
-                eprintln!("Failed to parse flatzinc!\n{}", error)
+        match <Stmt as std::str::FromStr>::from_str(line) {
+            Ok(result) => println!("{:#?}", result),
+            Err(e) => {
+                eprintln!("Failed to parse flatzinc statement:\n{}", e);
             }
-            Err(e) => eprintln!("Failed to parse flatzinc: {:?}", e),
         }
         println!()
     }
@@ -38,8 +37,8 @@ pub fn parse_to_model(opt: &Opt) -> Result<(Model, OutputAnnotations), Box<dyn E
     let mut output_arrays = HashMap::new();
 
     for line in buf.lines() {
-        match statement::<VerboseError<&str>>(line) {
-            Ok((_, result)) => match result {
+        match <Stmt as std::str::FromStr>::from_str(line) {
+            Ok(result) => match result {
                 Stmt::Comment(_) => (),
                 Stmt::Predicate(_) => (),
                 Stmt::Parameter(item) => {
@@ -60,10 +59,6 @@ pub fn parse_to_model(opt: &Opt) -> Result<(Model, OutputAnnotations), Box<dyn E
                 Stmt::Constraint(item) => constraints.push(item),
                 Stmt::SolveItem(_) => (),
             },
-            Err(Err::Error(e)) => {
-                let error = convert_error(buf.as_str(), e);
-                eprintln!("Failed to parse flatzinc!\n{}", error)
-            }
             Err(e) => eprintln!("Failed to parse flatzinc: {:?}", e),
         }
     }
