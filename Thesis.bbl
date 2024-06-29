@@ -1,9 +1,40 @@
-\begin{thebibliography}{4}
+\begin{thebibliography}{9}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Bitner and Reingold(1975)]{backtracking:1975}
+James~R. Bitner and Edward~M. Reingold.
+\newblock Backtrack programming techniques.
+\newblock \emph{Commun. ACM}, 18\penalty0 (11):\penalty0 651–656, nov 1975.
+\newblock ISSN 0001-0782.
+\newblock \doi{10.1145/361219.361224}.
+\newblock URL \url{https://doi.org/10.1145/361219.361224}.
+
+\bibitem[Haralick and Elliott(1980)]{forward_checking:1980}
+Robert~M. Haralick and Gordon~L. Elliott.
+\newblock Increasing tree search efficiency for constraint satisfaction
+  problems.
+\newblock \emph{Artificial Intelligence}, 14\penalty0 (3):\penalty0 263--313,
+  1980.
+\newblock ISSN 0004-3702.
+\newblock \doi{https://doi.org/10.1016/0004-3702(80)90051-X}.
+\newblock URL
+  \url{https://www.sciencedirect.com/science/article/pii/000437028090051X}.
+
+\bibitem[Mackworth(1987)]{csp:1987}
+Alan~K. Mackworth.
+\newblock Constraint satisfaction.
+\newblock In S.~Shapiro, editor, \emph{Encyclopedia of Artificial
+  Intelligence}, pages 205--211. J. Wiley and Sons, NY, March 1987.
+
+\bibitem[Matsakis and Klock~II(2014)]{rust:2014}
+Nicholas~D Matsakis and Felix~S Klock~II.
+\newblock The rust language.
+\newblock In \emph{ACM SIGAda Ada Letters}, volume~34, pages 103--104. ACM,
+  2014.
 
 \bibitem[Nethercote et~al.(2007)Nethercote, Stuckey, Becket, Brand, Duck, and
   Tack]{minizinc:2007}
@@ -22,6 +53,12 @@ Guillaume P.
 David Peter.
 \newblock {hyperfine}, March 2023.
 \newblock URL \url{https://github.com/sharkdp/hyperfine}.
+
+\bibitem[Reza~Rafeh(2006)]{minizinc_queens:2006}
+Peter~Stuckey Reza~Rafeh.
+\newblock N-queens problem, minizinc benchmarks, 2006.
+\newblock URL
+  \url{https://github.com/MiniZinc/minizinc-benchmarks/blob/master/queens/queens.mzn}.
 
 \bibitem[Thiele(2020)]{flatzinc:2020}
 Sven Thiele.

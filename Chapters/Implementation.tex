@@ -7,7 +7,7 @@ Oxiflex is open-source and available under the MIT license under \url{https://gi
 \section{Rust}
 
 % pointer for rust lang, maybe add rust book to references
-Rust is a general purpose systems programming language focused on safety and performance. It achieves these goals without using a garbage collector by ensuring memory safety through a system of ownership with strict compile-time checks enforced by the borrow checker. This makes Rust particularly well-suited for creating performance-critical applications like CSP solvers where control over resources is crucial. This makes Rust an ideal choice for developing oxiflex.
+Rust \cite{rust:2014} is a general purpose systems programming language focused on safety and performance. It achieves these goals without using a garbage collector by ensuring memory safety through a system of ownership with strict compile-time checks enforced by the borrow checker. This makes Rust particularly well-suited for creating performance-critical applications like CSP solvers where control over resources is crucial. This makes Rust an ideal choice for developing oxiflex.
 
 \section{Dependecies}
 
@@ -55,73 +55,11 @@ Not all FlatZinc builtins are supported. The idea is to implement just the neede
 
 \section{Solver}
 
-Constraints satisfaction problems on finite domains are typically solved using a form of search. For oxiflex we use backtracking.
-% take algos from papers instead of lecture notes. Can modify algos for clarity.
+\subsection{Value Ordering}
 
-\subsection{Naive Backtracking}
-
-\begin{tcolorbox}[title=function NaiveBacktracking)]
-	$\langle V, \text{dom}, (R_{uv})\rangle := C$ \\
-	\textbf{if} $\alpha$ is inconsistent with $C$: \\
-	\textbf{return inconsistent} \\
-
-	\textbf{if} $\alpha$ is a total assignment: \\
-	\textbf{return $\alpha$} \\
-
-	select some variable $v$ for which $\alpha$ is not defined \\
-	\textbf{for each} $d \in$ dom($v$) in some order: \\
-	$\alpha' := \alpha \cup \{v \mapsto d\}$ \\
-	$\alpha'' := $ NaiveBacktracking($C$, $\alpha'$) \\
-	\textbf{if} $\alpha'' \neq$ \textbf{inconsistent}: \\
-	\textbf{return} $\alpha''$ \\
-
-	\textbf{return inconsistent}
-\end{tcolorbox}
-
-Input: constraint network $C$ and partial assignment $\alpha$ for $C$. On first invocation of NaiveBacktracking we pass an empty assignment $\alpha = \emptyset$. \\
-Result: Total assignment (solution) of $C$ or \textbf{inconsistent}.
-
-This algorithm corresponds to Depth First Search (DFS). It assigns any value to any variable from its domain. Repeating this until either all variables are set and a solution is found or a constraint is violated. If a constraint is violated, the algorithm goes back and tries an different value from the domain until a solution is found. If all possible assignments violate a constraint, then there is no solution.
-
-\section{Inference} \label{inference}
-
-Inference allows us to modify our constraint network by thightening the constraint network. Thightening works by excluding values from domains of variables that we know are not possible anymore after an assignment. For example in the Queens Problem (See \ref{sec:queens}) if we place a Queen on $a1$, we can exclude the value $1$ from all other files (columns in chess-lingo). We can also exclude all diagonally positioned squares like $b2$, $c3$ an so forth because the queens is on $a1$. See \ref{chess:queenona1} for reference.
-
-\newchessgame
-\chessboard[
-	setfen=8/8/8/8/8/8/8/Q7 w - - 0 1,
-	color=blue!50,
-	pgfstyle=color,
-	markfields={b1,c1,d1,e1,f1,g1,h1, b2,c3,d4,e5,f6,g7,h8},
-	showmover=false
-]
-\label{chess:queenona1}
-
-\begin{tcolorbox}[title=function BacktrackingWithInference)]
-	$\langle V, \text{dom}, (R_{uv})\rangle := C$ \\
-	\textbf{if} $\alpha$ is inconsistent with $C$: \\
-	\textbf{return inconsistent} \\
-
-	\textbf{if} $\alpha$ is a total assignment: \\
-	\textbf{return $\alpha$} \\
-
-	$C' := \langle V, \text{dom}',(R'_{uv})\rangle :=$ copy of $C$ \\
-	apply inference to $C'$ \\
-	if dom$'(v) \neq \emptyset$ for all variables $v$: \\
-
-	select some variable $v$ for which $\alpha$ is not defined \\
-	\textbf{for each} $d \in$ copy of dom$'(v)$ in some order: \\
-	$\alpha' := \alpha \cup \{v \mapsto d\}$ \\
-	dom$'(v) := \{d\}$ \\
-	$\alpha'' := $ BacktrackingWithInference($C'$, $\alpha'$) \\
-	\textbf{if} $\alpha'' \neq$ \textbf{inconsistent}: \\
-	\textbf{return} $\alpha''$ \\
-
-	\textbf{return inconsistent}
-\end{tcolorbox}
+Oxiflex is able to use dynamic ordering of variables (not values) during search based on the number of constraints.
 
 \subsection{Forward Checking}
 
 \subsection{Arc Consistency}
-
 

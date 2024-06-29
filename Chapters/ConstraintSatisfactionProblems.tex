@@ -1,6 +1,6 @@
 \chapter{Constraint Satisfaction Problems}
 
-Constraint Satisfaction Problems (CSP) are mathematical questions defined as a finite set of variables whose value must satisfy a number of constraints or limitations. When solely talking about the problem without the algorithmic finding of a solution, these are called Constraint Networks.
+Constraint Satisfaction Problems (CSP) \cite{csp:1987} are mathematical questions defined as a finite set of variables whose value must satisfy a number of constraints or limitations. When solely talking about the problem without the algorithmic finding of a solution, these are called Constraint Networks. CSPs are typical NP-complete combinatorial problems in the field of AI.
 
 \begin{tcolorbox}[title=Example:]
 	\begin{multicols}{2}
@@ -127,7 +127,7 @@ Also called the Eight Queens Puzzle, the Queens Problem is an example of a class
 \newchessgame
 \chessboard[setfen=1Q6/3Q4/5Q2/7Q/2Q5/Q7/6Q1/4Q3 w - - 0 1, showmover=false]
 
-The Eigth Queens Puzzle is really good suited as an example problem domain for constraint satisfaction problems because it is easy to understand and can also easily be scaled up to increase complexity for a solver. By generalizing the problem from a fixed $8 \times 8$ grid size to an $n \times n$ grid with $n$ queens, the problem remains the same in principle, but gets way harder to solve.
+The Eigth Queens Puzzle is really good suited as an example problem domain for constraint satisfaction problems because it is easy to understand and can also easily be scaled up to increase complexity for a solver. By generalizing the problem from a fixed $8 \times 8$ grid size to an $n \times n$ grid with $n$ queens, the problem remains the same in principle, but gets way harder to solve. See the following example of the queens problem in minizinc \cite{minizinc_queens:2006}.
 
 \begin{tcolorbox}[title=MiniZinc Model for N-Queens Problem]
 	int: n; \\
@@ -149,7 +149,4 @@ The Eigth Queens Puzzle is really good suited as an example problem domain for c
 \end{tcolorbox}
 
 This MiniZinc model defines an array of variables $q$ where each index corresponds to a column on the chessboard and the value at each index represents the row position of the queen in that column. The constraints ensure that no two queens are on the same row, column or diagonal.
-
-% I think this should be some bib entry?
-This model is from a past MiniZinc challenge by Reza Rafeh July 2005 and Peter Stuckey September 30 2006. See \url{https://github.com/MiniZinc/minizinc-benchmarks/blob/master/queens/queens.mzn} for reference.
 

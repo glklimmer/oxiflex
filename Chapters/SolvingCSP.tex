@@ -1,0 +1,109 @@
+\chapter{Solving Constraint Satisfaction Problems}
+
+Constraints satisfaction problems on finite domains are typically solved using a form of search. For CSPs we search for a solution to the constraint network. That is, an valid assignment of all variables with a value of their respective domain.
+
+\section{Naive Backtracking}
+
+Backtracking is a technique \cite{backtracking:1975} to search a problem space for possible solutions. Backtracking is a way to organize a search by continually trying to extend a partial solution. At each stage of the search, if an extension of the current partial solutin is not possible, we "backtrack" to a shorter partial solutin and try again. We can apply backtracking to constraint satisfaction problem solving, see the following algorithm called NaiveBacktracking. \\
+
+\begin{tcolorbox}[title=function NaiveBacktracking)]
+	$\langle V, \text{dom}, (R_{uv})\rangle := C$ \\
+	\textbf{if} $\alpha$ is inconsistent with $C$: \\
+	\textbf{return inconsistent} \\
+
+	\textbf{if} $\alpha$ is a total assignment: \\
+	\textbf{return $\alpha$} \\
+
+	select some variable $v$ for which $\alpha$ is not defined \\
+	\textbf{for each} $d \in$ dom($v$) in some order: \\
+	$\alpha' := \alpha \cup \{v \mapsto d\}$ \\
+	$\alpha'' := $ NaiveBacktracking($C$, $\alpha'$) \\
+	\textbf{if} $\alpha'' \neq$ \textbf{inconsistent}: \\
+	\textbf{return} $\alpha''$ \\
+
+	\textbf{return inconsistent}
+\end{tcolorbox}
+
+Input: constraint network $C$ and partial assignment $\alpha$ for $C$. On first invocation of NaiveBacktracking we pass an empty assignment $\alpha = \emptyset$. \\
+Result: Total assignment (solution) of $C$ or \textbf{inconsistent}.
+
+This algorithm corresponds to Depth First Search (DFS). It assigns any value to any variable from its domain forming a partial assignment. Repeating this until either all variables are set and a solution is found or a constraint is violated. If a constraint is violated, the algorithm goes back and tries an different value from the domain until a solution is found. If all possible assignments violate a constraint, then there is no solution. Finding a total assignment, that is an partial assignment that gives each variable a valid value from its domain, is finding a solution.
+
+Backtracking is far from the best way to solve CSPs.
+
+\subsection{Variable Ordering}
+
+Backtracking in general does not specify in which order the search is done. For constraint satisfaction problems we want to assign critical variables early. Critical variables are variables that thighten the search space the most by their assignment. This can be done in multiple ways:
+\begin{itemize}
+	\item \textbf{static order} \\
+	      Fixed order prior to search
+	\item \textbf{dynamic order} \\
+	      Order depends on current search state
+\end{itemize}
+
+\section{Inference} \label{inference}
+
+Inference allows us to modify our constraint network by thightening the constraint network. Thightening works by excluding values from domains of variables that we know are not possible anymore after an assignment. For example in the Queens Problem (See \ref{sec:queens}) if we place a Queen on $d4$, we can exclude the value $4$ from all other files (chess term for column). We can also exclude all diagonally positioned squares like $a1$, $b2$, $c3$ and so forth. See \ref{chess:queeninference} for reference. Note that we do not need to do anything with the file the queen is on, because we modeled the file to be a variable to solve for and a variable can only how one value anyways.
+
+\newchessgame
+\chessboard[
+	setfen=8/8/8/8/3Q4/8/8/8 w - - 0 1,
+	color=blue!50,
+	pgfstyle=color,
+	markfields={a7,b6,c5,a4,b4,c4,a1,b2,c3,e5,f6,g7,h8,e4,f4,g4,h4,e3,f2,g1},
+	showmover=false
+]
+\label{chess:queeninference}
+
+By removing now impossible values from the remaining domains, we can thighten the resulting constraint network and have a smaller search space. We adjust out NaiveBacktracking by applying inference after each assignment of an variable.
+
+\begin{tcolorbox}[title={function BacktrackingWithInference($C, \alpha$)}]
+	$\langle V, \text{dom}, (R_{uv})\rangle := C$ \\
+	\textbf{if} $\alpha$ is inconsistent with $C$: \\
+	\textbf{return inconsistent} \\
+
+	\textbf{if} $\alpha$ is a total assignment: \\
+	\textbf{return $\alpha$} \\
+
+	$C' := \langle V, \text{dom}',(R'_{uv})\rangle :=$ copy of $C$ \\
+	apply inference to $C'$ \\
+	if dom$'(v) \neq \emptyset$ for all variables $v$: \\
+
+	select some variable $v$ for which $\alpha$ is not defined \\
+	\textbf{for each} $d \in$ copy of dom$'(v)$ in some order: \\
+	$\alpha' := \alpha \cup \{v \mapsto d\}$ \\
+	dom$'(v) := \{d\}$ \\
+	$\alpha'' := $ BacktrackingWithInference($C'$, $\alpha'$) \\
+	\textbf{if} $\alpha'' \neq$ \textbf{inconsistent}: \\
+	\textbf{return} $\alpha''$ \\
+
+	\textbf{return inconsistent}
+\end{tcolorbox}
+
+Note that we now have to copy the constraint network after each assignment which can introduce significant overhead for simple problems. Because we still have to backtrack if we find an inconsistent assignment we now also have to restore the domains for each variable when backtracking.
+
+\subsection{Forward Checking}
+
+We start with a simple inference method called Forward Checking \cite{forward_checking:1980}. See the following algorithm for forward checking.
+
+\begin{tcolorbox}[title={function ForwardChecking($C, \alpha$)}]
+	for each $v \in $ unassigned variables in $\alpha$:
+
+	for each constraint:
+
+	\textbf{if} any $d \in$ dom($v$) in conflict:
+	dom($v$) = dom($v$) $\setminus d$
+\end{tcolorbox}
+
+Forward checking is basically looking ahead in the future to see which values can be excluded from search. All constraints have to be checked either way for each value combination for each variable with or without forward checking. But by looking ahead we can ommit the backtracking part if we find a dead end.
+
+\subsection{Arc Consistency}
+
+% TODO: write stuff
+
+\begin{tcolorbox}[title=Definition: Arc Consistent]
+Let $C = \langle V$, dom, $(R_{uv})\rangle$ be a constraint network. \\
+\begin{\begin{itemize}
+		\item % TODO: write stuff
+	\end{itemize}}
+\end{tcolorbox}
