@@ -95,15 +95,55 @@ We start with a simple inference method called Forward Checking \cite{forward_ch
 	dom($v$) = dom($v$) $\setminus d$
 \end{tcolorbox}
 
-Forward checking is basically looking ahead in the future to see which values can be excluded from search. All constraints have to be checked either way for each value combination for each variable with or without forward checking. But by looking ahead we can ommit the backtracking part if we find a dead end.
+Forward checking is basically looking ahead in the future to see which values can be excluded from search after an assignment. By looking ahead we can ommit the backtracking part that would result by finding a dead end.
 
 \subsection{Arc Consistency}
 
-% TODO: write stuff
+Arc consistency excludes all impossible values from all domains of all variables in a given constraint network. Originally developed for vision problems \cite{original_arc:1988} arc consistency is the generalization of forward checking. Forward checking enforces arc consistency for all variables with respect to the just assigned variable. This makes forward checking a special case of arc consistency. See the following for formal definition.
 
 \begin{tcolorbox}[title=Definition: Arc Consistent]
-Let $C = \langle V$, dom, $(R_{uv})\rangle$ be a constraint network. \\
-\begin{\begin{itemize}
-		\item % TODO: write stuff
-	\end{itemize}}
+	Let $C = \langle V$, dom, $(R_{uv})\rangle$ be a constraint network.
+	\begin{itemize}
+		\item The variable $v \in V$ is arc consistent with respect to another variable $v'\in V$, if for every value $d \in$ dom($v$) there exists a value $d' \in$ dom($v'$) with $\langle d, d' \rangle \in R_{vv'}$.
+		\item The constraint network $C$ is arc consistent, if every variable $v \in V$ is arc consistent with respect to every other variable $v' \in V$.
+	\end{itemize}
 \end{tcolorbox}
+
+Note that for a variable pair the definition is not symmetrical. That means if $v$ is arc consistent with respect to $v'$, $v'$ does not have to be arc consistent with respect to $v'$.
+
+\subsubsection{Enforcing Arc Consistency}
+
+There are multiple algorithms to enforce arc consistency \cite{arc_studied:1977} \cite{arc_again:1994}. The simplest is called AC-1.
+
+\begin{tcolorbox}[title={\textbf{function} AC-1($C$):}]
+	$\langle V,$ dom, $(R_{uv})\rangle := C$ \\
+	\textbf{repeat} \\
+	\textbf{for each} nontrivial constraint $R_{uv}$: \\
+	revise($C, u, v$) \\
+	revise($C, v, u$) \\
+	\textbf{until} no domain has changed in this iteration
+\end{tcolorbox}
+
+
+\begin{tcolorbox}[title={\textbf{function} revise($C,v,v'$):}]
+	$\langle V,$ dom, $(R_{uv})\rangle := C$ \\
+	\textbf{for each} $d \in$ dom($v$): \\
+	\textbf{if} there is no $d' \in$ dom($v'$) with $\langle d, d' \rangle \in R_{vv'}$: \\
+	\textbf{remove} $d$ from dom($v$)
+\end{tcolorbox}
+
+\begin{tcolorbox}[title={\textbf{function} AC-3($C$):}]
+	$\langle V,$ dom, $(R_{uv})\rangle := C$ \\
+	queue $:= \emptyset$ \\
+	\textbf{for each} nontrivial constraint $R_{uv}$: \\
+	insert $\langle u, v \rangle$ into \textit{queue} \\
+	insert $\langle u, v \rangle$ into \textit{queue} \\
+
+	\textbf{while} \textit{queue} $\neq \emptyset$: \\
+	\\emove an arbitrary element $\langle u, v \rangle$ from \textit{queue} \\
+	revise($C, u, v$) \\
+	\textbf{if} dom($u$) changed in the call to revise: \\
+	\textbf{for each} $w \in V \setminus \{u,v\}$ where $R_{wu}$ is nontrivial: \\
+	insert $\langle w, u \rangle$ into \textit{queue}
+\end{tcolorbox}
+

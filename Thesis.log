@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.3.27)  29 JUN 2024 22:40
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.3.27)  30 JUN 2024 17:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1398,7 +1398,7 @@ LaTeX Info: Redefining \nameref on input line 38.
 \@outlinefile=\write6
 \openout6 = `Thesis.out'.
 
-<Template/logo-en.pdf, id=127, 113.8112pt x 36.98878pt>
+<Template/logo-en.pdf, id=135, 113.8112pt x 36.98878pt>
 File: Template/logo-en.pdf Graphic file (type pdf)
 <use Template/logo-en.pdf>
 Package pdftex.def Info: Template/logo-en.pdf  used on input line 44.
@@ -1432,21 +1432,12 @@ File: t1phv.fd 2020/03/25 scalable font definitions for T1/phv.
 (./Chapters/ConstraintSatisfactionProblems.tex [1
 
 
-]
-
-Package natbib Warning: Citation `csp:1987' on page 2 undefined on input line 3
-.
-
-[2
+] [2
 
 ]
 Underfull \hbox (badness 10000) in paragraph at lines 55--59
 
  []
-
-
-Package natbib Warning: Citation `minizinc:2007' on page 3 undefined on input l
-ine 66.
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 69--73
@@ -1479,11 +1470,6 @@ Underfull \hbox (badness 10000) in paragraph at lines 89--90
  []
 
 [4] [5]
-
-Package natbib Warning: Citation `minizinc_queens:2006' on page 6 undefined on 
-input line 130.
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 133--134
 
  []
@@ -1511,11 +1497,6 @@ Underfull \hbox (badness 10000) in paragraph at lines 143--147
  []
 
 ) (./Chapters/SolvingCSP.tex [6]
-
-Package natbib Warning: Citation `backtracking:1975' on page 7 undefined on inp
-ut line 7.
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 7--8
 
  []
@@ -1557,31 +1538,133 @@ Underfull \hbox (badness 10000) in paragraph at lines 72--79
 
  []
 
+[9] [10]
+Underfull \hbox (badness 10000) in paragraph at lines 136--141
 
-Package natbib Warning: Citation `forward_checking:1980' on page 9 undefined on
- input line 87.
+ []
 
-[9]
-! Missing \endcsname inserted.
-<to be read again> 
-                   \protect 
-l.108 	\end{itemize}}
-                     
-? 
-! Emergency stop.
-<to be read again> 
-                   \protect 
-l.108 	\end{itemize}}
-                     
-End of file on the terminal!
 
- 
+Underfull \hbox (badness 10000) in paragraph at lines 142--148
+
+ []
+
+) (./Chapters/Implementation.tex [11] [12
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 48--49
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 50--52
+
+ []
+
+[13]) (./Chapters/Results.tex [14]) (./Chapters/Conclusion.tex [15
+
+]) [16
+
+]
+(./Thesis.bbl) (./Back/AppendixA.tex [17
+
+
+]) [18
+
+]
+
+pdfTeX warning: pdflatex (file ./Back/wissensch_Redlichkeit_E_09-2023.pdf): PDF
+ inclusion: found PDF version <1.6>, but at most version <1.5> allowed
+<./Back/wissensch_Redlichkeit_E_09-2023.pdf, id=339, 597.55246pt x 845.07718pt>
+
+File: ./Back/wissensch_Redlichkeit_E_09-2023.pdf Graphic file (type pdf)
+<use ./Back/wissensch_Redlichkeit_E_09-2023.pdf>
+Package pdftex.def Info: ./Back/wissensch_Redlichkeit_E_09-2023.pdf  used on in
+put line 71.
+(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
+
+
+pdfTeX warning: pdflatex (file ./Back/wissensch_Redlichkeit_E_09-2023.pdf): PDF
+ inclusion: found PDF version <1.6>, but at most version <1.5> allowed
+File: ./Back/wissensch_Redlichkeit_E_09-2023.pdf Graphic file (type pdf)
+<use ./Back/wissensch_Redlichkeit_E_09-2023.pdf>
+Package pdftex.def Info: ./Back/wissensch_Redlichkeit_E_09-2023.pdf  used on in
+put line 71.
+(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
+
+
+pdfTeX warning: pdflatex (file ./Back/wissensch_Redlichkeit_E_09-2023.pdf): PDF
+ inclusion: found PDF version <1.6>, but at most version <1.5> allowed
+
+
+pdfTeX warning: pdflatex (file ./Back/wissensch_Redlichkeit_E_09-2023.pdf): PDF
+ inclusion: found PDF version <1.6>, but at most version <1.5> allowed
+<./Back/wissensch_Redlichkeit_E_09-2023.pdf, id=342, page=1, 597.55246pt x 845.
+07718pt>
+File: ./Back/wissensch_Redlichkeit_E_09-2023.pdf Graphic file (type pdf)
+<use ./Back/wissensch_Redlichkeit_E_09-2023.pdf, page 1>
+Package pdftex.def Info: ./Back/wissensch_Redlichkeit_E_09-2023.pdf , page1 use
+d on input line 71.
+(pdftex.def)             Requested size: 597.551pt x 845.07512pt.
+File: ./Back/wissensch_Redlichkeit_E_09-2023.pdf Graphic file (type pdf)
+<use ./Back/wissensch_Redlichkeit_E_09-2023.pdf, page 1>
+Package pdftex.def Info: ./Back/wissensch_Redlichkeit_E_09-2023.pdf , page1 use
+d on input line 71.
+(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
+File: ./Back/wissensch_Redlichkeit_E_09-2023.pdf Graphic file (type pdf)
+<use ./Back/wissensch_Redlichkeit_E_09-2023.pdf, page 1>
+Package pdftex.def Info: ./Back/wissensch_Redlichkeit_E_09-2023.pdf , page1 use
+d on input line 71.
+(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
+File: ./Back/wissensch_Redlichkeit_E_09-2023.pdf Graphic file (type pdf)
+<use ./Back/wissensch_Redlichkeit_E_09-2023.pdf, page 1>
+Package pdftex.def Info: ./Back/wissensch_Redlichkeit_E_09-2023.pdf , page1 use
+d on input line 71.
+(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
+File: ./Back/wissensch_Redlichkeit_E_09-2023.pdf Graphic file (type pdf)
+<use ./Back/wissensch_Redlichkeit_E_09-2023.pdf, page 1>
+Package pdftex.def Info: ./Back/wissensch_Redlichkeit_E_09-2023.pdf , page1 use
+d on input line 71.
+(pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
+[19
+
+ <./Back/wissensch_Redlichkeit_E_09-2023.pdf>]
+\tf@toc=\write7
+\openout7 = `Thesis.toc'.
+
+ (./Thesis.aux)
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+Package rerunfilecheck Info: File `Thesis.out' has not changed.
+(rerunfilecheck)             Checksum: 7B4F972E9EFD05E74E34A2209BA65C90;4529.
+ ) 
 Here is how much of TeX's memory you used:
- 36261 strings out of 478287
- 672843 string characters out of 5849289
- 1028136 words of memory out of 5000000
- 53833 multiletter control sequences out of 15000+600000
- 488156 words of font info for 62 fonts, out of 8000000 for 9000
+ 36379 strings out of 478287
+ 675513 string characters out of 5849289
+ 1028500 words of memory out of 5000000
+ 53906 multiletter control sequences out of 15000+600000
+ 488502 words of font info for 63 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 125i,12n,120p,760b,753s stack positions out of 5000i,500n,10000p,200000b,80000s
-!  ==> Fatal error occurred, no output PDF file produced!
+ 125i,17n,120p,1084b,753s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/share/texmf/
+fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texlive/texmf-dist/fonts/
+type1/public/skaknew/SkakNew-Diagram.pfb></usr/share/texlive/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb
+></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr
+/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/
+texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf/fonts/t
+ype1/public/cm-super/sfrm1000.pfb></usr/share/texlive/texmf-dist/fonts/type1/ur
+w/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uh
+vb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb>
+Output written on Thesis.pdf (23 pages, 686721 bytes).
+PDF statistics:
+ 451 PDF objects out of 1000 (max. 8388607)
+ 365 compressed objects within 4 object streams
+ 70 named destinations out of 1000 (max. 500000)
+ 294 words of extra memory for PDF output out of 10000 (max. 10000000)
+

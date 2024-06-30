@@ -6,51 +6,52 @@ Database file #1: thesis.bib
 Warning--entry type for "minizinc_queens:2006" isn't style-file defined
 --line 56 of file thesis.bib
 Warning--entry type for "flatzinc:2020" isn't style-file defined
---line 93 of file thesis.bib
+--line 128 of file thesis.bib
 Warning--entry type for "structopt:2020" isn't style-file defined
---line 103 of file thesis.bib
+--line 138 of file thesis.bib
 Warning--entry type for "hyperfine:2023" isn't style-file defined
---line 113 of file thesis.bib
+--line 148 of file thesis.bib
 Warning--can't use both volume and number fields in rust:2014
-You've used 9 entries,
+Warning--empty booktitle in original_arc:1988
+You've used 12 entries,
             2773 wiz_defined-function locations,
-            661 strings with 6260 characters,
-and the built_in function-call counts, 4200 in all, are:
-= -- 396
-> -- 178
-< -- 13
-+ -- 62
-- -- 53
-* -- 305
-:= -- 620
-add.period$ -- 36
-call.type$ -- 9
-change.case$ -- 44
-chr.to.int$ -- 9
-cite$ -- 19
-duplicate$ -- 199
-empty$ -- 374
-format.name$ -- 68
-if$ -- 916
+            683 strings with 6761 characters,
+and the built_in function-call counts, 5505 in all, are:
+= -- 530
+> -- 208
+< -- 17
++ -- 74
+- -- 62
+* -- 395
+:= -- 818
+add.period$ -- 52
+call.type$ -- 12
+change.case$ -- 56
+chr.to.int$ -- 12
+cite$ -- 26
+duplicate$ -- 269
+empty$ -- 501
+format.name$ -- 80
+if$ -- 1208
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 5
-newline$ -- 59
-num.names$ -- 40
-pop$ -- 99
+missing$ -- 8
+newline$ -- 80
+num.names$ -- 52
+pop$ -- 118
 preamble$ -- 1
-purify$ -- 35
+purify$ -- 44
 quote$ -- 0
-skip$ -- 166
+skip$ -- 214
 stack$ -- 0
-substring$ -- 162
-swap$ -- 47
-text.length$ -- 5
+substring$ -- 227
+swap$ -- 56
+text.length$ -- 6
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 99
-warning$ -- 1
-while$ -- 40
+type$ -- 132
+warning$ -- 2
+while$ -- 53
 width$ -- 0
-write$ -- 138
-(There were 5 warnings)
+write$ -- 190
+(There were 6 warnings)

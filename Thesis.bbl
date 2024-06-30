@@ -1,9 +1,19 @@
-\begin{thebibliography}{9}
+\begin{thebibliography}{12}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Bessière(1994)]{arc_again:1994}
+Christian Bessière.
+\newblock Arc-consistency and arc-consistency again.
+\newblock \emph{Artificial Intelligence}, 65\penalty0 (1):\penalty0 179--190,
+  1994.
+\newblock ISSN 0004-3702.
+\newblock \doi{https://doi.org/10.1016/0004-3702(94)90041-8}.
+\newblock URL
+  \url{https://www.sciencedirect.com/science/article/pii/0004370294900418}.
 
 \bibitem[Bitner and Reingold(1975)]{backtracking:1975}
 James~R. Bitner and Edward~M. Reingold.
@@ -23,6 +33,16 @@ Robert~M. Haralick and Gordon~L. Elliott.
 \newblock \doi{https://doi.org/10.1016/0004-3702(80)90051-X}.
 \newblock URL
   \url{https://www.sciencedirect.com/science/article/pii/000437028090051X}.
+
+\bibitem[Mackworth(1977)]{arc_studied:1977}
+Alan~K. Mackworth.
+\newblock Consistency in networks of relations.
+\newblock \emph{Artificial Intelligence}, 8\penalty0 (1):\penalty0 99--118,
+  1977.
+\newblock ISSN 0004-3702.
+\newblock \doi{https://doi.org/10.1016/0004-3702(77)90007-8}.
+\newblock URL
+  \url{https://www.sciencedirect.com/science/article/pii/0004370277900078}.
 
 \bibitem[Mackworth(1987)]{csp:1987}
 Alan~K. Mackworth.
@@ -64,5 +84,10 @@ Peter~Stuckey Reza~Rafeh.
 Sven Thiele.
 \newblock {flatzinc}, April 2020.
 \newblock URL \url{https://github.com/potassco/flatzinc}.
+
+\bibitem[Waltz(1972)]{original_arc:1988}
+David Waltz.
+\newblock Understanding line drawings of scene with shadows.
+\newblock The Psychology of Computer Vision, pages 19--91. MCGraw Hill, 1972.
 
 \end{thebibliography}
