@@ -1,10 +1,10 @@
 \chapter{Solving Constraint Satisfaction Problems}
 
-Constraints satisfaction problems on finite domains are typically solved using a form of search. For CSPs we search for a solution to the constraint network. That is, an valid assignment of all variables with a value of their respective domain.
+Constraints satisfaction problems on finite domains are typically solved using a form of search. We search for a solution to the constraint network by trying out all possible values until a solution is found. That is, a valid assignment of all variables with a value of their respective domain satisfing all constraints within the constraint network.
 
 \section{Naive Backtracking}
 
-Backtracking is a technique \cite{backtracking:1975} to search a problem space for possible solutions. Backtracking is a way to organize a search by continually trying to extend a partial solution. At each stage of the search, if an extension of the current partial solutin is not possible, we "backtrack" to a shorter partial solutin and try again. We can apply backtracking to constraint satisfaction problem solving, see the following algorithm called NaiveBacktracking. \\
+Backtracking is a technique used to search a problem space for potential solutions \cite{backtracking:1975}. It systematically organizes the search process by attempting to extend a partial solution step-by-step. If an extension of the current partial solution proves unfeasible at any stage, the algorithm "backtracks" to a previous, shorter partial solution and tries a different path. This method is particularly useful in solving constraint satisfaction problems, as demonstrated by the algorithm called NaiveBacktracking.
 
 \begin{tcolorbox}[title=function NaiveBacktracking)]
 	$\langle V, \text{dom}, (R_{uv})\rangle := C$ \\
@@ -27,7 +27,7 @@ Backtracking is a technique \cite{backtracking:1975} to search a problem space f
 Input: constraint network $C$ and partial assignment $\alpha$ for $C$. On first invocation of NaiveBacktracking we pass an empty assignment $\alpha = \emptyset$. \\
 Result: Total assignment (solution) of $C$ or \textbf{inconsistent}.
 
-This algorithm corresponds to Depth First Search (DFS). It assigns any value to any variable from its domain forming a partial assignment. Repeating this until either all variables are set and a solution is found or a constraint is violated. If a constraint is violated, the algorithm goes back and tries an different value from the domain until a solution is found. If all possible assignments violate a constraint, then there is no solution. Finding a total assignment, that is an partial assignment that gives each variable a valid value from its domain, is finding a solution.
+This algorithm corresponds to Depth First Search (DFS). It assigns values to variables from their domains to form a partial assignment. This process continues until either all variables are assigned and a solution is found, or a constraint is violated. If a constraint is violated, the algorithm backtracks and tries a different value from the domain until a solution is found. If all possible assignments violate constraints, there is no solution. Finding a total assignment, that is an partial assignment that gives each variable a valid value from its domain, is finding a solution.
 
 Backtracking is far from the best way to solve CSPs.
 
@@ -36,14 +36,14 @@ Backtracking is far from the best way to solve CSPs.
 Backtracking in general does not specify in which order the search is done. For constraint satisfaction problems we want to assign critical variables early. Critical variables are variables that thighten the search space the most by their assignment. This can be done in multiple ways:
 \begin{itemize}
 	\item \textbf{static order} \\
-	      Fixed order prior to search
+	      Fixed order defined prior to search
 	\item \textbf{dynamic order} \\
-	      Order depends on current search state
+	      Order depends on current search state and is calculated after each assignment
 \end{itemize}
 
 \section{Inference} \label{inference}
 
-Inference allows us to modify our constraint network by thightening the constraint network. Thightening works by excluding values from domains of variables that we know are not possible anymore after an assignment. For example in the Queens Problem (See \ref{sec:queens}) if we place a Queen on $d4$, we can exclude the value $4$ from all other files (chess term for column). We can also exclude all diagonally positioned squares like $a1$, $b2$, $c3$ and so forth. See \ref{chess:queeninference} for reference. Note that we do not need to do anything with the file the queen is on, because we modeled the file to be a variable to solve for and a variable can only how one value anyways.
+Inference allows us to modify our constraint network by thightening the constraint network. Thightening works by excluding values from domains of variables that we know are not possible. For example in the Queens Problem (See \ref{sec:queens}) if we place a Queen on $d4$, we can exclude the value $4$ from all other files (chess term for column). We can also exclude all diagonally positioned squares like $a1$, $b2$, $c3$ and so forth. See \ref{chess:queeninference} for reference. Note that we do not need to do anything with the file the queen is on because we modeled the file to be a variable to solve for and a variable can only how one value anyways.
 
 \newchessgame
 \chessboard[
@@ -55,7 +55,7 @@ Inference allows us to modify our constraint network by thightening the constrai
 ]
 \label{chess:queeninference}
 
-By removing now impossible values from the remaining domains, we can thighten the resulting constraint network and have a smaller search space. We adjust out NaiveBacktracking by applying inference after each assignment of an variable.
+By removing impossible values from the remaining domains, we can thighten the resulting constraint network and have a smaller search space. We adjust our NaiveBacktracking approach by applying inference after each assignment of an variable. See the following for the NaiveBacktracking algorithm.
 
 \begin{tcolorbox}[title={function BacktrackingWithInference($C, \alpha$)}]
 	$\langle V, \text{dom}, (R_{uv})\rangle := C$ \\
@@ -80,11 +80,11 @@ By removing now impossible values from the remaining domains, we can thighten th
 	\textbf{return inconsistent}
 \end{tcolorbox}
 
-Note that we now have to copy the constraint network after each assignment which can introduce significant overhead for simple problems. Because we still have to backtrack if we find an inconsistent assignment we now also have to restore the domains for each variable when backtracking.
+Note that we now have to copy the constraint network after each assignment which can introduce significant overhead for simple problems. The coping is needed because we still have to backtrack if we find an inconsistent assignment. When backtracking we have to restore the domain for each variable again because it is possible that the domain had values that are possible again after backtracking.
 
 \subsection{Forward Checking}
 
-We start with a simple inference method called Forward Checking \cite{forward_checking:1980}. See the following algorithm for forward checking.
+We start with a simple inference method called Forward Checking \cite{forward_checking:1980}. See the following algorithm.
 
 \begin{tcolorbox}[title={function ForwardChecking($C, \alpha$)}]
 	for each $v \in $ unassigned variables in $\alpha$:
@@ -95,11 +95,11 @@ We start with a simple inference method called Forward Checking \cite{forward_ch
 	dom($v$) = dom($v$) $\setminus d$
 \end{tcolorbox}
 
-Forward checking is basically looking ahead in the future to see which values can be excluded from search after an assignment. By looking ahead we can ommit the backtracking part that would result by finding a dead end.
+Forward checking is basically looking ahead in the future to see which values can be excluded from search after an assignment. By looking ahead we can ommit the backtracking part that would result by finding a dead end. We check each value for each variable with the new assignment and remove all values that are not possible anymore from their respective domain.
 
 \subsection{Arc Consistency}
 
-Arc consistency excludes all impossible values from all domains of all variables in a given constraint network. Originally developed for vision problems \cite{original_arc:1988} arc consistency is the generalization of forward checking. Forward checking enforces arc consistency for all variables with respect to the just assigned variable. This makes forward checking a special case of arc consistency. See the following for formal definition.
+Arc consistency excludes all impossible values from all domains of all variables in a given constraint network. Originally developed for vision problems \cite{original_arc:1988} arc consistency is the generalization of forward checking. Forward checking enforces arc consistency for all variables with respect to the just assigned variable. Arc consistency does this for all variables. This makes forward checking a special case of arc consistency. See the following for formal definition.
 
 \begin{tcolorbox}[title=Definition: Arc Consistent]
 	Let $C = \langle V$, dom, $(R_{uv})\rangle$ be a constraint network.
@@ -113,7 +113,7 @@ Note that for a variable pair the definition is not symmetrical. That means if $
 
 \subsubsection{Enforcing Arc Consistency}
 
-There are multiple algorithms to enforce arc consistency \cite{arc_studied:1977} \cite{arc_again:1994}. The simplest is called AC-1. It works by making use of a function called revise. The function revise ensures unsures arc consistency in one direction between two variables.
+There are multiple algorithms to enforce arc consistency \cite{arc_studied:1977} \cite{arc_again:1994}. The simplest is called AC-1. It works by making use of a function called revise. The following function revise ensures arc consistency in one direction between two variables.
 
 \begin{tcolorbox}[title={\textbf{function} revise($C,v,v'$):}]
 	$\langle V,$ dom, $(R_{uv})\rangle := C$ \\
@@ -122,7 +122,7 @@ There are multiple algorithms to enforce arc consistency \cite{arc_studied:1977}
 	\textbf{remove} $d$ from dom($v$)
 \end{tcolorbox}
 
-The algorithm AC-1 goes over each constraint and applies revise in both directions to each variable pair for each constraint until there was no change within its iteration of using revise.
+The following algorithm AC-1 goes over each constraint and applies revise in both directions to each variable pair for each constraint until there was no change within its iteration of using revise.
 
 \begin{tcolorbox}[title={\textbf{function} AC-1($C$):}]
 	$\langle V,$ dom, $(R_{uv})\rangle := C$ \\
@@ -133,7 +133,7 @@ The algorithm AC-1 goes over each constraint and applies revise in both directio
 	\textbf{until} no domain has changed in this iteration
 \end{tcolorbox}
 
-Building on AC-1, AC-3 tries to save redundant checks made by AC-1. Instead of just going over all constraint over and over, we go at least over all constraint once and revise variable pairs again only if needed. In AC-3 this can be achived by using a queue.
+Building on AC-1, AC-3 tries to save redundant checks made by AC-1. Instead of just going over all constraints over and over, we go at least over all constraint once and revise variable pairs again only if needed. In AC-3 this can be achived by using a queue. See the following for reference.
 
 \begin{tcolorbox}[title={\textbf{function} AC-3($C$):}]
 	$\langle V,$ dom, $(R_{uv})\rangle := C$ \\
