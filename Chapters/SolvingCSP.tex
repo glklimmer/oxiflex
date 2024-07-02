@@ -113,7 +113,16 @@ Note that for a variable pair the definition is not symmetrical. That means if $
 
 \subsubsection{Enforcing Arc Consistency}
 
-There are multiple algorithms to enforce arc consistency \cite{arc_studied:1977} \cite{arc_again:1994}. The simplest is called AC-1.
+There are multiple algorithms to enforce arc consistency \cite{arc_studied:1977} \cite{arc_again:1994}. The simplest is called AC-1. It works by making use of a function called revise. The function revise ensures unsures arc consistency in one direction between two variables.
+
+\begin{tcolorbox}[title={\textbf{function} revise($C,v,v'$):}]
+	$\langle V,$ dom, $(R_{uv})\rangle := C$ \\
+	\textbf{for each} $d \in$ dom($v$): \\
+	\textbf{if} there is no $d' \in$ dom($v'$) with $\langle d, d' \rangle \in R_{vv'}$: \\
+	\textbf{remove} $d$ from dom($v$)
+\end{tcolorbox}
+
+The algorithm AC-1 goes over each constraint and applies revise in both directions to each variable pair for each constraint until there was no change within its iteration of using revise.
 
 \begin{tcolorbox}[title={\textbf{function} AC-1($C$):}]
 	$\langle V,$ dom, $(R_{uv})\rangle := C$ \\
@@ -124,13 +133,7 @@ There are multiple algorithms to enforce arc consistency \cite{arc_studied:1977}
 	\textbf{until} no domain has changed in this iteration
 \end{tcolorbox}
 
-
-\begin{tcolorbox}[title={\textbf{function} revise($C,v,v'$):}]
-	$\langle V,$ dom, $(R_{uv})\rangle := C$ \\
-	\textbf{for each} $d \in$ dom($v$): \\
-	\textbf{if} there is no $d' \in$ dom($v'$) with $\langle d, d' \rangle \in R_{vv'}$: \\
-	\textbf{remove} $d$ from dom($v$)
-\end{tcolorbox}
+Building on AC-1, AC-3 tries to save redundant checks made by AC-1. Instead of just going over all constraint over and over, we go at least over all constraint once and revise variable pairs again only if needed. In AC-3 this can be achived by using a queue.
 
 \begin{tcolorbox}[title={\textbf{function} AC-3($C$):}]
 	$\langle V,$ dom, $(R_{uv})\rangle := C$ \\
@@ -140,7 +143,7 @@ There are multiple algorithms to enforce arc consistency \cite{arc_studied:1977}
 	insert $\langle u, v \rangle$ into \textit{queue} \\
 
 	\textbf{while} \textit{queue} $\neq \emptyset$: \\
-	\\emove an arbitrary element $\langle u, v \rangle$ from \textit{queue} \\
+	remove an arbitrary element $\langle u, v \rangle$ from \textit{queue} \\
 	revise($C, u, v$) \\
 	\textbf{if} dom($u$) changed in the call to revise: \\
 	\textbf{for each} $w \in V \setminus \{u,v\}$ where $R_{wu}$ is nontrivial: \\
