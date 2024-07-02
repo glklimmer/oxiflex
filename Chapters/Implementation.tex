@@ -1,12 +1,11 @@
 \chapter{Oxiflex}
 
-As part of this thesis we present \textbf{oxiflex}, a minimal constraint satisfaction problem solver from scratch for MiniZinc written in Rust. Oxiflex is a FlatZinc solver that can be used as an backend to MiniZinc. This means oxiflex supports the minimal requirements for a solver to take advantage of the MiniZinc toolchain. The idea is to have a minimal solver and excatly measure the impact of various improvments on it like forward checking or arc consistency.
+As part of this thesis we present \textbf{oxiflex}, a minimal constraint satisfaction problem solver from scratch for MiniZinc written in Rust. Oxiflex is a FlatZinc solver that can be used as an backend to MiniZinc. This means oxiflex minimally supports the requirements for a solver to take advantage of the MiniZinc toolchain. The goal is to have a minimal solver and be able measure the impact of various improvements like forward checking on constraint satisfaction problem solvers.
 
-Oxiflex is open-source and available under the MIT license under \url{https://github.com/glklimmer/oxiflex}.
+Oxiflex is open-source and licensed under the MIT license. It is available at Github \url{https://github.com/glklimmer/oxiflex}.
 
 \section{Rust}
 
-% pointer for rust lang, maybe add rust book to references
 Rust \cite{rust:2014} is a general purpose systems programming language focused on safety and performance. It achieves these goals without using a garbage collector by ensuring memory safety through a system of ownership with strict compile-time checks enforced by the borrow checker. This makes Rust particularly well-suited for creating performance-critical applications like CSP solvers where control over resources is crucial. This makes Rust an ideal choice for developing oxiflex.
 
 \section{Dependecies}
@@ -37,7 +36,7 @@ There are three main parts of oxiflex.
 
 \subsection{parser}
 
-Using flatzinc \ref{flatzinc} oxiflex reads an FlatZinc \verb|.fzn| file and collects all parts needed to then construct a constraint satisfaction network. These include a list for parameters, variables and constraints. In order to also output the solution after solving the problem, MiniZinc makes use of annonations on FlatZinc elements. Variables that are needed for the output are annotated as \verb|output_var|. There are two possible output annotations in FlatZinc: \verb|output_var| and \verb|output_array|.
+Using the library flatzinc \ref{flatzinc} oxiflex reads an FlatZinc \verb|.fzn| file and collects all parts needed to then construct a constraint satisfaction network. These include a list for parameters, variables and constraints. In order to also output the solution after solving the problem, MiniZinc makes use of annonations on FlatZinc elements. Variables that are needed for the output are annotated as \verb|output_var|. There are two possible output annotations in FlatZinc: \verb|output_var| and \verb|output_array|.
 
 \subsection{model}
 
@@ -46,9 +45,6 @@ After parsing the FlatZinc file into Rust structures that can be used directly, 
 \subsection{Limitations}
 
 There are some limitations due to time constraints that currently limit oxiflex as a universal MiniZinc solver. \\
-
-Only binary constrains are supported. The reason for this is that the theory used to implement oxiflex is based on binary constraints. Therefore it made sense to also just support them at first. \\
-% but why? maybe just add it instead.
 
 Not all FlatZinc builtins are supported. The idea is to implement just the needed builtins for any given insteresting problem domain.
 % Maybe add roadmap?
