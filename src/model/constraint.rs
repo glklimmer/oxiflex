@@ -108,28 +108,19 @@ fn check_linear_constraint<F>(
 where
     F: Fn(i128, i128) -> bool,
 {
-    assert!(a_vec.len() == 2, "Only binary constraints supported");
-    assert!(b_vec.len() == 2, "Only binary constraints supported");
+    assert!(
+        a_vec.len() == b_vec.len(),
+        "Vectors a_vec and b_vec must be of equal length"
+    );
 
-    let mut b_vec_iter = b_vec.iter();
+    let mut sum = 0i128;
+    for (a, b_key) in a_vec.iter().zip(b_vec.iter()) {
+        if let Some(b_value) = alpha.get(b_key) {
+            sum += a * b_value;
+        } else {
+            return true;
+        }
+    }
 
-    let u_key = b_vec_iter.next().unwrap();
-    let u_assignment = alpha.get(u_key);
-    let u = if let Some(value) = u_assignment {
-        value
-    } else {
-        return true;
-    };
-
-    let v_key = b_vec_iter.next().unwrap();
-    let v_assignment = alpha.get(v_key);
-    let v = if let Some(value) = v_assignment {
-        value
-    } else {
-        return true;
-    };
-
-    let a_1 = a_vec[0];
-    let a_2 = a_vec[1];
-    comparison(a_1 * u + a_2 * v, *c)
+    comparison(sum, *c)
 }
