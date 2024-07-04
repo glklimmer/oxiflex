@@ -116,6 +116,7 @@ if args.log_x:
     plt.xscale("log")
 
 plt.legend()
+plt.grid(True)
 if args.output:
     plt.savefig(args.output)
 else:
