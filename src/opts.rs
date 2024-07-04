@@ -13,7 +13,7 @@ pub struct Opt {
     #[structopt(short, long)]
     pub parse: bool,
 
-    /// Use random order for variable assignments. Usually the goal is to fail early and assign
+    /// Use random order for variable ordering. Usually the goal is to fail early and choose
     /// variables that have the most constraints.
     #[structopt(short, long)]
     pub random_variable_order: bool,
