@@ -55,6 +55,73 @@ impl Builtin {
             }
         }
     }
+
+    pub fn check_pair(&self, pair: Pair) -> bool {
+        match self {
+            Builtin::IntLinEq(a_vec, b_vec, c) => {
+                check_linear_constraint_pair(a_vec, b_vec, c, pair, |x, y| x == y)
+            }
+            Builtin::IntLinLe(a_vec, b_vec, c) => {
+                check_linear_constraint_pair(a_vec, b_vec, c, pair, |x, y| x <= y)
+            }
+            Builtin::IntLinNe(a_vec, b_vec, c) => {
+                check_linear_constraint_pair(a_vec, b_vec, c, pair, |x, y| x != y)
+            }
+        }
+    }
+}
+
+#[derive(Debug)]
+pub struct Pair {
+    pub v: VarId,
+    pub v_value: i128,
+    pub u: VarId,
+    pub u_value: i128,
+}
+
+fn check_linear_constraint_pair<F>(
+    a_vec: &[i128],
+    b_vec: &[VarId],
+    c: &i128,
+    pair: Pair,
+    comparison: F,
+) -> bool
+where
+    F: Fn(i128, i128) -> bool,
+{
+    if a_vec.len() > 2 {
+        return true;
+    }
+
+    if !(b_vec[0].eq(&pair.u) && b_vec[1].eq(&pair.v)
+        || b_vec[0].eq(&pair.v) && b_vec[1].eq(&pair.u))
+    {
+        return true;
+    }
+
+    // println!("{:?}", pair);
+    // println!("a_vec: {:?}", a_vec);
+    // println!("b_vec: {:?}", b_vec);
+    // println!("c: {:?}", c);
+
+    let mut sum = 0i128;
+    if b_vec[0].eq(&pair.u) {
+        sum += a_vec[0] * pair.u_value;
+        // println!("{} += {} * {}", sum, a_vec[0], pair.u_value);
+        sum += a_vec[1] * pair.v_value;
+        // println!("{} += {} * {}", sum, a_vec[1], pair.v_value);
+    } else {
+        sum += a_vec[0] * pair.v_value;
+        // println!("{} += {} * {}", sum, a_vec[0], pair.v_value);
+        sum += a_vec[1] * pair.u_value;
+        // println!("{} += {} * {}", sum, a_vec[1], pair.u_value);
+    }
+
+    // println!("{} {} {}", sum, comp, c);
+    // println!("{}", r);
+    // println!("---------------------");
+
+    comparison(sum, *c)
 }
 
 fn process_linear_constraint(

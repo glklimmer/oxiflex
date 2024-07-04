@@ -2,7 +2,7 @@ use std::collections::{HashMap, VecDeque};
 
 use crate::model::Model;
 
-use super::{partial_assignment::PartialAssignment, var_id::VarId};
+use super::{constraint::Pair, partial_assignment::PartialAssignment, var_id::VarId};
 
 impl Model {
     pub fn forward_checking(&mut self, alpha: &PartialAssignment) {
@@ -85,10 +85,18 @@ impl Model {
                             .unwrap()
                             .into_iter()
                             .any(|&d_prime| {
-                                let mut variables = HashMap::new();
-                                variables.insert(v.clone(), Some(d));
-                                variables.insert(v_prime.clone(), Some(d_prime));
-                                constraint.check(&PartialAssignment::new(variables))
+                                // let mut variables = HashMap::new();
+                                // variables.insert(v.clone(), Some(d));
+                                // variables.insert(v_prime.clone(), Some(d_prime));
+
+                                let pair = Pair {
+                                    u: v.clone(),
+                                    u_value: d,
+                                    v: v_prime.clone(),
+                                    v_value: d_prime,
+                                };
+
+                                constraint.check_pair(pair)
                                 // println!(
                                 //     "checking: {} = {}, {} = {}, {:?} = {}",
                                 //     v, d, v_prime, d_prime, constraint, check_result
