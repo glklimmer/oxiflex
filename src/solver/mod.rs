@@ -34,8 +34,14 @@ pub fn run(opt: Opt) -> Result<(), Box<dyn Error>> {
             .map(|variable| (extract_var_id(variable), None))
             .collect(),
     );
+    let mut counter = 0;
     let result = if opt.naive_backtracking {
-        naive_backtracking(&model, empty_assignment, opt.random_variable_order)
+        naive_backtracking(
+            &model,
+            empty_assignment,
+            opt.random_variable_order,
+            &mut counter,
+        )
     } else {
         backtracking_with_inference(
             &model,
@@ -43,11 +49,14 @@ pub fn run(opt: Opt) -> Result<(), Box<dyn Error>> {
             opt.random_variable_order,
             opt.forward_checking,
             opt.arc_consistency,
+            &mut counter,
         )
     };
 
     // output
-    output_as_minizinc(result, &model, output, &output_arrays);
+    // output_as_minizinc(result, &model, output, &output_arrays);
+
+    println!("{}", counter);
 
     Ok(())
 }

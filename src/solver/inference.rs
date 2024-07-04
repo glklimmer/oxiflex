@@ -9,7 +9,11 @@ pub fn backtracking_with_inference(
     random_variable_order: bool,
     use_forward_checking: bool,
     arc_consistency: u8,
+    counter: &mut i128,
 ) -> SearchResult {
+    // Increment the counter each time the function is called
+    *counter += 1;
+
     // if α is inconsistent with C:
     // // return inconsistent
     if model.is_inconsistent(&alpha) {
@@ -57,6 +61,7 @@ pub fn backtracking_with_inference(
                 random_variable_order,
                 use_forward_checking,
                 arc_consistency,
+                counter,
             );
 
             // // // if α′′ ̸= inconsistent:

@@ -5,7 +5,11 @@ pub fn naive_backtracking(
     model: &Model,
     alpha: PartialAssignment,
     random_variable_order: bool,
+    counter: &mut i128,
 ) -> SearchResult {
+    // Increment the counter each time the function is called
+    *counter += 1;
+
     // if α is inconsistent with C:
     // // return inconsistent
     if model.is_inconsistent(&alpha) {
@@ -31,7 +35,8 @@ pub fn naive_backtracking(
         // // α′ := α ∪ {v 7→ d}
         let alpha_prime = alpha.union(v, *d);
         // // α′′ := NaiveBacktracking(C, α′ )
-        let alpha_prime_prime = naive_backtracking(model, alpha_prime, random_variable_order);
+        let alpha_prime_prime =
+            naive_backtracking(model, alpha_prime, random_variable_order, counter);
 
         // // if α′′ ̸= inconsistent:
         if alpha_prime_prime != SearchResult::Unsatisfiable {
