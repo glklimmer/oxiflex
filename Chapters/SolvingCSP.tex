@@ -33,13 +33,25 @@ Backtracking is far from the best way to solve CSPs.
 
 \subsection{Variable Ordering}
 
-Backtracking in general does not specify in which order the search is done. For constraint satisfaction problems we want to assign critical variables early. Critical variables are variables that thighten the search space the most by their assignment. This can be done in multiple ways:
+Backtracking in general does not specify in which order the search is done. For constraint satisfaction problems we want to assign critical variables early. Critical variables are variables that tighten the search space the most by their assignment. This can be done in multiple ways:
+
 \begin{itemize}
 	\item \textbf{static order} \\
 	      Fixed order defined prior to search
 	\item \textbf{dynamic order} \\
 	      Order depends on current search state and is calculated after each assignment
 \end{itemize}
+
+Dynamic ordering is more powerful but also requires computational overhead during search for each iteration. The following are two commonly used variable ordering criteria:
+
+\begin{itemize}
+	\item \textbf{minimum remaining values:} \\
+	      prefer variables that have small domains
+	\item \textbf{most constraining variable:} \\
+	      prefer variables contained in many constraints
+\end{itemize}
+
+Dynamic variable ordering is usually more effective combined with inference.
 
 \section{Inference} \label{inference}
 
