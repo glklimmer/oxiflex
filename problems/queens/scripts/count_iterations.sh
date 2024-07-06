@@ -5,7 +5,7 @@ PROGRAM_PATH='./target/release/oxiflex'
 
 # Define the problem file pattern
 PROBLEM_DIR='problems/queens/minizinc/datafiles'
-OUTPUT_FILE='problems/queens/data/count_logging.json'
+OUTPUT_FILE='problems/queens/data/iterations.json'
 
 # Start the JSON file
 echo "{" >$OUTPUT_FILE
