@@ -2,7 +2,7 @@ import json
 import matplotlib.pyplot as plt
 
 # Load the JSON data from the specified file path
-with open('problems/slow_convergence/data/iterations_small.json', 'r') as file:
+with open('Problems/slow_convergence/data/iterations_small.json', 'r') as file:
     data = json.load(file)
 
 # Prepare plot data
@@ -22,10 +22,10 @@ for opt, results in plot_data.items():
     label = opt if opt else "no flags"  # Adjusting label for "no flags" option
     plt.plot(n_values_int, results, label=label.replace("_", " ").strip())
 
-plt.title("Slow Convergence Problem Iterations (Averaged over 5 Runs)")
+plt.title("Slow Convergence (Averaged, 5 Runs)")
 plt.xlabel("n")
 plt.ylabel("Iterations")
 plt.xticks(n_values_int)  # Set x-axis ticks to the correct problem sizes
 plt.legend()
 plt.grid(True)
-plt.savefig("problems/slow_convergence/plots/iterations_small.png")
+plt.savefig("Problems/slow_convergence/plots/iterations_small.png")
