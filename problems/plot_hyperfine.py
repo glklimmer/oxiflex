@@ -23,6 +23,9 @@ parser.add_argument(
 parser.add_argument(
     "-o", "--output", help="Save image to the given filename."
 )
+parser.add_argument(
+    "-t", "--title", help="Title of the plot"
+)
 
 args = parser.parse_args()
 
@@ -60,7 +63,7 @@ def extract_flags(command):
     """Extract flags from the command or provide a default label for no flags."""
     flags = re.findall(r"-\w+\s*[\w\d]*", command)
     flag_string = " ".join(sorted(flags)).strip()
-    return flag_string if flag_string else "No Flags"
+    return flag_string if flag_string else "no flags"
 
 groups = {}  # Dictionary to hold data grouped by flags
 parameter_name = None
@@ -116,6 +119,7 @@ if args.log_x:
     plt.xscale("log")
 
 plt.legend()
+plt.title(args.title)
 plt.grid(True)
 if args.output:
     plt.savefig(args.output)
