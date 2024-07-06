@@ -5,13 +5,13 @@ PROGRAM_PATH='./target/release/oxiflex'
 
 # Define the problem file pattern
 PROBLEM_DIR='problems/slow_convergence/minizinc/datafiles'
-OUTPUT_FILE='problems/slow_convergence/data/count_iterations.json'
+OUTPUT_FILE='problems/slow_convergence/data/iterations.json'
 
 # Start the JSON file
 echo "{" >$OUTPUT_FILE
 
 # Loop over each problem size from 4 to 14
-for n in {10..20..10}; do
+for n in {10..60..10}; do
   PROBLEM_FILE="$PROBLEM_DIR/${n}.fzn"
 
   # Print the problem file number in JSON
@@ -22,14 +22,8 @@ for n in {10..20..10}; do
 
   # Define an array of options
   declare -a options=(
-    "-n -r"
     "-n"
-    "-f -r"
     "-f"
-    "-a 1 -r"
-    "-a 1"
-    "-r"
-    ""
   )
 
   # Initialize counter for options
@@ -48,7 +42,7 @@ for n in {10..20..10}; do
     if [ $opt_count -ne 0 ]; then
       echo "," >>$OUTPUT_FILE
     fi
-    echo "\"$key\": " >>$OUTPUT_FILE
+    echo "\"$opt\": " >>$OUTPUT_FILE
 
     # Run the program with the current options
     echo "Running ${PROBLEM_FILE} ${opt}"
@@ -69,7 +63,10 @@ for n in {10..20..10}; do
     echo "\"$average\"" >>$OUTPUT_FILE
 
     ((opt_count++))
-  done
+  done # Close the current problem file bracket
+
+  echo "}" >>$OUTPUT_FILE
+done
 
 # Close the JSON file
 echo "}" >>$OUTPUT_FILE
