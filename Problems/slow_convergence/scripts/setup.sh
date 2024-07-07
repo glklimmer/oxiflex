@@ -2,9 +2,10 @@
 
 # List of numbers
 numbers=(10 20)
+numbers=(100 200 300 400 500 600)
 
 # Define the directory path
-datafiles="problems/slow_convergence/minizinc/datafiles"
+datafiles="Problems/slow_convergence/minizinc/datafiles"
 
 # Check if the directory exists
 if [ ! -d "$datafiles" ]; then
@@ -24,7 +25,7 @@ for num in "${numbers[@]}"; do
   outputfile="${num}.fzn"
 
   # Execute the minizinc command
-  minizinc -c problems/slow_convergence/minizinc/slow_convergence.mzn -d "$datafiles/$filename" -o "$datafiles/$outputfile"
+  minizinc -c Problems/slow_convergence/minizinc/slow_convergence.mzn -d "$datafiles/$filename" -o "$datafiles/$outputfile"
 done
 
 echo "Files created and compiled successfully."

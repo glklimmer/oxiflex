@@ -63,6 +63,8 @@ def extract_flags(command):
     """Extract flags from the command or provide a default label for no flags."""
     flags = re.findall(r"-\w+\s*[\w\d]*", command)
     flag_string = " ".join(sorted(flags)).strip()
+    if "gecode" in flag_string:
+        flag_string = "gecode"
     return flag_string if flag_string else "no flags"
 
 groups = {}  # Dictionary to hold data grouped by flags

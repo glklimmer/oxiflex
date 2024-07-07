@@ -1,0 +1,6 @@
+output ["x = ",show(x),"\n","y = ",show(y),"\n"];
+int: n = 600;
+array [1..601] of int: X_INTRODUCED_0_;
+array [0..n] of int: y = array1d(0..600,X_INTRODUCED_0_);
+array [1..601] of int: X_INTRODUCED_602_;
+array [0..n] of int: x = array1d(0..600,X_INTRODUCED_602_);
