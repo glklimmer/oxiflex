@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.3.27)  7 JUL 2024 19:27
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.3.27)  7 JUL 2024 22:05
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1642,45 +1642,45 @@ T1/cmr/m/n/10 dif-fer-ently. Within [][]\OT1/pcr/m/n/10 revise []\OT1/cmr/m/n/1
  []
 
 [16]
-<./Problems/queens/plots/time.png, id=325, 462.528pt x 346.896pt>
+<./Problems/queens/plots/time.png, id=327, 462.528pt x 346.896pt>
 File: ./Problems/queens/plots/time.png Graphic file (type png)
 <use ./Problems/queens/plots/time.png>
 Package pdftex.def Info: ./Problems/queens/plots/time.png  used on input line 8
 .
 (pdftex.def)             Requested size: 318.40121pt x 238.8133pt.
-<./Problems/queens/plots/time_no_arc.png, id=327, 462.528pt x 346.896pt>
+<./Problems/queens/plots/time_no_arc.png, id=329, 462.528pt x 346.896pt>
 File: ./Problems/queens/plots/time_no_arc.png Graphic file (type png)
 <use ./Problems/queens/plots/time_no_arc.png>
 Package pdftex.def Info: ./Problems/queens/plots/time_no_arc.png  used on input
  line 16.
 (pdftex.def)             Requested size: 318.40121pt x 238.8133pt.
-<./Problems/queens/plots/iterations.png, id=328, 462.528pt x 346.896pt>
+<./Problems/queens/plots/iterations.png, id=330, 462.528pt x 346.896pt>
 File: ./Problems/queens/plots/iterations.png Graphic file (type png)
 <use ./Problems/queens/plots/iterations.png>
 Package pdftex.def Info: ./Problems/queens/plots/iterations.png  used on input 
 line 25.
 (pdftex.def)             Requested size: 318.40121pt x 238.8133pt.
-<./Problems/slow_convergence/plots/time.png, id=329, 462.528pt x 346.896pt>
+<./Problems/slow_convergence/plots/time.png, id=331, 462.528pt x 346.896pt>
 File: ./Problems/slow_convergence/plots/time.png Graphic file (type png)
 <use ./Problems/slow_convergence/plots/time.png>
 Package pdftex.def Info: ./Problems/slow_convergence/plots/time.png  used on in
 put line 34.
 (pdftex.def)             Requested size: 318.40121pt x 238.8133pt.
-<./Problems/slow_convergence/plots/iterations.png, id=330, 462.528pt x 346.896p
+<./Problems/slow_convergence/plots/iterations.png, id=332, 462.528pt x 346.896p
 t>
 File: ./Problems/slow_convergence/plots/iterations.png Graphic file (type png)
 <use ./Problems/slow_convergence/plots/iterations.png>
 Package pdftex.def Info: ./Problems/slow_convergence/plots/iterations.png  used
  on input line 41.
 (pdftex.def)             Requested size: 318.40121pt x 238.8133pt.
-<./Problems/slow_convergence/plots/time_small.png, id=331, 462.528pt x 346.896p
+<./Problems/slow_convergence/plots/time_small.png, id=333, 462.528pt x 346.896p
 t>
 File: ./Problems/slow_convergence/plots/time_small.png Graphic file (type png)
 <use ./Problems/slow_convergence/plots/time_small.png>
 Package pdftex.def Info: ./Problems/slow_convergence/plots/time_small.png  used
  on input line 49.
 (pdftex.def)             Requested size: 318.40121pt x 238.8133pt.
-<./Problems/slow_convergence/plots/iterations_small.png, id=332, 462.528pt x 34
+<./Problems/slow_convergence/plots/iterations_small.png, id=334, 462.528pt x 34
 6.896pt>
 File: ./Problems/slow_convergence/plots/iterations_small.png Graphic file (type
  png)
@@ -1718,7 +1718,7 @@ lots/iterations.png>] [20 <./Problems/slow_convergence/plots/time_small.png> <.
 
 pdfTeX warning: pdflatex (file ./Back/wissensch_Redlichkeit_E_09-2023.pdf): PDF
  inclusion: found PDF version <1.6>, but at most version <1.5> allowed
-<./Back/wissensch_Redlichkeit_E_09-2023.pdf, id=393, 597.55246pt x 845.07718pt>
+<./Back/wissensch_Redlichkeit_E_09-2023.pdf, id=395, 597.55246pt x 845.07718pt>
 
 File: ./Back/wissensch_Redlichkeit_E_09-2023.pdf Graphic file (type pdf)
 <use ./Back/wissensch_Redlichkeit_E_09-2023.pdf>
@@ -1742,7 +1742,7 @@ pdfTeX warning: pdflatex (file ./Back/wissensch_Redlichkeit_E_09-2023.pdf): PDF
 
 pdfTeX warning: pdflatex (file ./Back/wissensch_Redlichkeit_E_09-2023.pdf): PDF
  inclusion: found PDF version <1.6>, but at most version <1.5> allowed
-<./Back/wissensch_Redlichkeit_E_09-2023.pdf, id=396, page=1, 597.55246pt x 845.
+<./Back/wissensch_Redlichkeit_E_09-2023.pdf, id=398, page=1, 597.55246pt x 845.
 07718pt>
 File: ./Back/wissensch_Redlichkeit_E_09-2023.pdf Graphic file (type pdf)
 <use ./Back/wissensch_Redlichkeit_E_09-2023.pdf, page 1>
@@ -1805,10 +1805,10 @@ texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive
 ype1/public/cm-super/sfrm1000.pfb></usr/share/texlive/texmf-dist/fonts/type1/ur
 w/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uh
 vb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on Thesis.pdf (29 pages, 891651 bytes).
+Output written on Thesis.pdf (29 pages, 891898 bytes).
 PDF statistics:
- 510 PDF objects out of 1000 (max. 8388607)
- 403 compressed objects within 5 object streams
+ 512 PDF objects out of 1000 (max. 8388607)
+ 405 compressed objects within 5 object streams
  86 named destinations out of 1000 (max. 500000)
  329 words of extra memory for PDF output out of 10000 (max. 10000000)
 

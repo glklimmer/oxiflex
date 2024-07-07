@@ -4,7 +4,7 @@
 numbers=(4 6 8 10 12 14)
 
 # Define the directory path
-datafiles="problems/queens/minizinc/datafiles"
+datafiles="Problems/queens/minizinc/datafiles"
 
 # Check if the directory exists
 if [ ! -d "$datafiles" ]; then
@@ -24,7 +24,7 @@ for num in "${numbers[@]}"; do
   flatzinc_file="${num}.fzn"
 
   # Execute the minizinc command
-  minizinc -c problems/queens/minizinc/queens.mzn -d "$datafiles/$data_file" -o "$datafiles/$flatzinc_file"
+  minizinc -c Problems/queens/minizinc/queens.mzn -d "$datafiles/$data_file" -o "$datafiles/$flatzinc_file"
 done
 
 echo "Files created and compiled successfully."

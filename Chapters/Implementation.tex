@@ -109,13 +109,14 @@ FLAGS:
 
 \subsection{Value Ordering}
 
-Oxiflex is able to use dynamic ordering of variables during search based on the number of constraints. Enabled by default, oxiflex orders variables from most constraints involvment to least for assignment. This fail early approach to ordering can be used both for NaiveBacktracking and Inference based algorithms.
+Oxiflex is able to use dynamic ordering of variables during search based on the number of constraints. Enabled by default, oxiflex orders variables from most constraints involvement to least for assignment. So variables that are involved with the most constraints are chosen first to be assigned. This fail early approach to ordering can be used both for NaiveBacktracking and Inference based algorithms. The calculation for which variable has the most constraints we use the HashMap called \verb|constraint_index| (See \ref{model}: \nameref{model}) mentioned in section \ref{model}: \nameref{model}.
 
 \subsection{Forward Checking}
 
-Forward checking in oxiflex works by removing impossible values inplace of their domains. Doing forward checking in an immutable manner, that is copying each domain, making changes to it and then saving it back to the model, is was more inefficient.
+Forward checking in oxiflex works by removing values of domains that are no longer valid for some constraints. Domains in oxiflex are of type \verb|Vec|, which are pointer, capacity and length triplets. When oxiflex was started, the removal of values in domains was done in a immutable manner. That is, before removing values the whole domain was copied. After copying, the values where removed from the copied domain. Finally the old domain was replaced with the new one in the model. This was easier to implement, but more inefficient. Forward checking also uses \verb|constraint_index| (See \ref{model}: \nameref{model}) to only get the constraints that are needed instead of checking all constraints.
 
 \subsection{Arc Consistency}
 
-Both AC-1 and AC-3 use the function \verb|revise| which ensures arc consistency in one direction for two variables. The main computational work happens within this function. AC-1 and AC-3 only arrange the calls to \verb|revise| differently. Within \verb|revise| the \verb|constraint_index| (See \ref{model}: \nameref{model}) is used to get all constraints that are involved with a specific variable.
-% TODO: write stuff
+Both AC-1 and AC-3 use the function \verb|revise| which ensures arc consistency in one direction for two variables. The main computational work to ensure arc consistency happens within this function. The role of AC-1 and AC-3 is to arrange the calls to \verb|revise|. Within \verb|revise| we also use the \verb|constraint_index| (See \ref{model}: \nameref{model}) to get only constraints that are involved with the given variable for \verb|revise|.
+
+Checking constraints works by checking a \verb|PartialAssignment|. The actual type for \verb|PartialAssignment| is a HashMap with variable id for keys and assignments of variables as value. Therefore within \verb|revise| in order to values for two variables, \verb|PartialAssignment| is created for each combination of values. That means for each value pair within the two domains a new HashMap is created with two elements. The first element is an assignment of the firt variable and the second an assignment of the second variable.
