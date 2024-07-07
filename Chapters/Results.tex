@@ -36,7 +36,6 @@ Results, Graphs and stuff.
 	\label{fig:slow:time}
 \end{figure}
 
-
 \begin{figure}[ht]
 	\centering
 	\includegraphics[width=0.8\textwidth]{./Problems/slow_convergence/plots/iterations.png}
@@ -58,3 +57,80 @@ Results, Graphs and stuff.
 	\caption{a nice plot}
 	\label{fig:slow:iterations_small}
 \end{figure}
+
+
+
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{| c | c | c | c | c | c | c | c | c |}
+		\hline
+		\multicolumn{9}{|c|}{N-Queens Time}                                  \\ \hline
+		n  & -n -r & -n   & -f -r & -f   & -a 1 -r & -a 1 & -r    & no flags \\ \hline
+		4  & 0     & 0    & 0     & 0    & 0       & 0    & 0     & 0        \\ \hline
+		6  & 0     & 0    & 0     & 0    & 0.04    & 0.04 & 0.04  & 0.04     \\ \hline
+		8  & 0     & 0    & 0     & 0    & 0.17    & 0.15 & 0.15  & 0.1      \\ \hline
+		10 & 0     & 0    & 0     & 0    & 1.1     & 1.11 & 0.59  & 1.45     \\ \hline
+		12 & 0.01  & 0.01 & 0.01  & 0.01 & 2.35    & 3.13 & 4.67  & 3.21     \\ \hline
+		14 & 0.03  & 0.07 & 0.03  & 0.03 & 16.23   & 26.9 & 15.45 & 13.53    \\ \hline
+	\end{tabular}
+	\caption{Table to test captions and labels.}
+	\label{tab:queens:time}
+\end{table}
+
+
+
+
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{| c | c | c | c | c | c | c | c | c |}
+		\hline
+		\multicolumn{9}{|c|}{N-Queens Iterations}                          \\ \hline
+		n  & -n -r & -n   & -f -r & -f  & -a 1 -r & -a 1 & -r   & no flags \\ \hline
+		4  & 24    & 20   & 8     & 8   & 23      & 20   & 14   & 18       \\ \hline
+		6  & 181   & 119  & 24    & 19  & 181     & 211  & 212  & 131      \\ \hline
+		8  & 253   & 512  & 26    & 31  & 357     & 168  & 137  & 118      \\ \hline
+		10 & 628   & 1846 & 126   & 79  & 788     & 758  & 546  & 740      \\ \hline
+		12 & 1423  & 1065 & 61    & 149 & 1483    & 2613 & 671  & 1355     \\ \hline
+		14 & 2015  & 3720 & 377   & 194 & 10194   & 3191 & 6943 & 3541     \\ \hline
+	\end{tabular}
+	\caption{Table to test captions and labels.}
+	\label{tab:queens:iterations}
+\end{table}
+
+
+
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{c c}
+		\begin{minipage}{.5\textwidth}
+			\centering
+			\begin{tabular}{| c | c | c |}
+				\hline
+				\multicolumn{3}{|c|}{Slow Convergence Time} \\ \hline
+				n  & -n   & -f                              \\ \hline
+				10 & 0    & 0.02                            \\ \hline
+				20 & 0    & 0.16                            \\ \hline
+				30 & 0.01 & 0.68                            \\ \hline
+				40 & 0.01 & 1.79                            \\ \hline
+				50 & 0.02 & 4.43                            \\ \hline
+				60 & 0.03 & 9.21                            \\ \hline
+			\end{tabular}
+		\end{minipage} &
+		\begin{minipage}{.5\textwidth}
+			\centering
+			\begin{tabular}{| c | c | c |}
+				\hline
+				\multicolumn{3}{|c|}{Slow Convergence Iterations} \\ \hline
+				n  & -n   & -f                                    \\ \hline
+				10 & 77   & 23                                    \\ \hline
+				20 & 252  & 43                                    \\ \hline
+				30 & 527  & 63                                    \\ \hline
+				40 & 902  & 83                                    \\ \hline
+				50 & 1377 & 103                                   \\ \hline
+				60 & 1952 & 123                                   \\ \hline
+			\end{tabular}
+		\end{minipage}
+	\end{tabular}
+	\caption{Comparative data for Slow Convergence: Time and Iterations.}
+	\label{tab:slow}
+\end{table}

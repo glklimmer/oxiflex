@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.3.27)  6 JUL 2024 21:39
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.3.27)  7 JUL 2024 19:27
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1377,62 +1377,68 @@ File: pgflibraryarrows.meta.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 \pgfarrowlength=\dimen331
 \pgfarrowwidth=\dimen332
 \pgfarrowlinewidth=\dimen333
+) (/usr/share/texlive/texmf-dist/tex/latex/multirow/multirow.sty
+Package: multirow 2021/03/15 v2.8 Span multiple rows of a table
+\multirow@colwidth=\skip274
+\multirow@cntb=\count399
+\multirow@dima=\skip275
+\bigstrutjot=\dimen334
 )
 (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2022-01-12 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count399
+\l__color_backend_stack_int=\count400
 \l__pdf_internal_box=\box144
 )
 (./Thesis.aux)
 \openout1 = `Thesis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for LSB/skaknew/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for LSF/skaknew/m/n on input line 40.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for LSB/skaknew/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for LSF/skaknew/m/n on input line 41.
 LaTeX Font Info:    Trying to load font information for LSF+skaknew on input li
-ne 40.
+ne 41.
  (/usr/share/texlive/texmf-dist/tex/latex/chessfss/lsfskaknew.fd
 File: lsfskaknew.fd 2006/03/31 v1.0 Chess font definitions
 )
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for LSI/skaknew/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for LSI/skaknew/m/n on input line 41.
 LaTeX Font Info:    Trying to load font information for LSI+skaknew on input li
-ne 40.
+ne 41.
 (/usr/share/texlive/texmf-dist/tex/latex/chessfss/lsiskaknew.fd
 File: lsiskaknew.fd 2006/03/31 v1.0 Chess font definitions
 )
-LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    ... okay on input line 41.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count400
-\scratchdimen=\dimen334
+\scratchcounter=\count401
+\scratchdimen=\dimen335
 \scratchbox=\box145
-\nofMPsegments=\count401
-\nofMParguments=\count402
+\nofMPsegments=\count402
+\nofMParguments=\count403
 \everyMPshowfont=\toks61
-\MPscratchCnt=\count403
-\MPscratchDim=\dimen335
-\MPnumerator=\count404
-\makeMPintoPDFobject=\count405
+\MPscratchCnt=\count404
+\MPscratchDim=\dimen336
+\MPnumerator=\count405
+\makeMPintoPDFobject=\count406
 \everyMPtoPDFconversion=\toks62
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -1451,7 +1457,7 @@ Package: lscape 2020/05/28 v3.02 Landscape Pages (DPC)
 )
 Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
 )
-Package hyperref Info: Link coloring ON on input line 40.
+Package hyperref Info: Link coloring ON on input line 41.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
@@ -1462,14 +1468,14 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 (/usr/share/texlive/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count406
+\c@section@level=\count407
 )
 Redoing nameref's sectioning
 Redoing nameref's label
-LaTeX Info: Redefining \nameref on input line 40.
-LaTeX Info: Redefining \ref on input line 40.
-LaTeX Info: Redefining \pageref on input line 40.
-LaTeX Info: Redefining \nameref on input line 40.
+LaTeX Info: Redefining \nameref on input line 41.
+LaTeX Info: Redefining \ref on input line 41.
+LaTeX Info: Redefining \pageref on input line 41.
+LaTeX Info: Redefining \nameref on input line 41.
 (./Thesis.out) (./Thesis.out)
 \@outlinefile=\write6
 \openout6 = `Thesis.out'.
@@ -1477,7 +1483,7 @@ LaTeX Info: Redefining \nameref on input line 40.
 <Template/logo-en.pdf, id=135, 113.8112pt x 36.98878pt>
 File: Template/logo-en.pdf Graphic file (type pdf)
 <use Template/logo-en.pdf>
-Package pdftex.def Info: Template/logo-en.pdf  used on input line 46.
+Package pdftex.def Info: Template/logo-en.pdf  used on input line 47.
 (pdftex.def)             Requested size: 113.81091pt x 36.98868pt.
  (./Front/Abstract.tex [1
 
@@ -1665,14 +1671,14 @@ t>
 File: ./Problems/slow_convergence/plots/iterations.png Graphic file (type png)
 <use ./Problems/slow_convergence/plots/iterations.png>
 Package pdftex.def Info: ./Problems/slow_convergence/plots/iterations.png  used
- on input line 42.
+ on input line 41.
 (pdftex.def)             Requested size: 318.40121pt x 238.8133pt.
 <./Problems/slow_convergence/plots/time_small.png, id=331, 462.528pt x 346.896p
 t>
 File: ./Problems/slow_convergence/plots/time_small.png Graphic file (type png)
 <use ./Problems/slow_convergence/plots/time_small.png>
 Package pdftex.def Info: ./Problems/slow_convergence/plots/time_small.png  used
- on input line 50.
+ on input line 49.
 (pdftex.def)             Requested size: 318.40121pt x 238.8133pt.
 <./Problems/slow_convergence/plots/iterations_small.png, id=332, 462.528pt x 34
 6.896pt>
@@ -1680,32 +1686,44 @@ File: ./Problems/slow_convergence/plots/iterations_small.png Graphic file (type
  png)
 <use ./Problems/slow_convergence/plots/iterations_small.png>
 Package pdftex.def Info: ./Problems/slow_convergence/plots/iterations_small.png
-  used on input line 57.
+  used on input line 56.
 (pdftex.def)             Requested size: 318.40121pt x 238.8133pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Overfull \hbox (24.00003pt too wide) in paragraph at lines 104--134
+ [][] 
+ []
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
 ) (./Chapters/Conclusion.tex [17
 
- <./Problems/queens/plots/time.png>]
-[18 <./Problems/queens/plots/time_no_arc.png> <./Problems/queens/plots/iteratio
-ns.png>] [19 <./Problems/slow_convergence/plots/time.png> <./Problems/slow_conv
-ergence/plots/iterations.png>] [20 <./Problems/slow_convergence/plots/time_smal
-l.png> <./Problems/slow_convergence/plots/iterations_small.png>]) [21
+ <./Problems/queens/plots/time.png>] [18 <./Problems/queens/plots/time_no_arc.p
+ng> <./Problems/queens/plots/iterations.png>]
+[19 <./Problems/slow_convergence/plots/time.png> <./Problems/slow_convergence/p
+lots/iterations.png>] [20 <./Problems/slow_convergence/plots/time_small.png> <.
+/Problems/slow_convergence/plots/iterations_small.png>] [21]) [22
 
 ]
-(./Thesis.bbl) (./Back/AppendixA.tex [22
+(./Thesis.bbl) (./Back/AppendixA.tex [23
 
 
-]) [23
+]) [24
 
 ]
 
 pdfTeX warning: pdflatex (file ./Back/wissensch_Redlichkeit_E_09-2023.pdf): PDF
  inclusion: found PDF version <1.6>, but at most version <1.5> allowed
-<./Back/wissensch_Redlichkeit_E_09-2023.pdf, id=386, 597.55246pt x 845.07718pt>
+<./Back/wissensch_Redlichkeit_E_09-2023.pdf, id=393, 597.55246pt x 845.07718pt>
 
 File: ./Back/wissensch_Redlichkeit_E_09-2023.pdf Graphic file (type pdf)
 <use ./Back/wissensch_Redlichkeit_E_09-2023.pdf>
 Package pdftex.def Info: ./Back/wissensch_Redlichkeit_E_09-2023.pdf  used on in
-put line 73.
+put line 74.
 (pdftex.def)             Requested size: 597.551pt x 845.07512pt.
 
 
@@ -1714,7 +1732,7 @@ pdfTeX warning: pdflatex (file ./Back/wissensch_Redlichkeit_E_09-2023.pdf): PDF
 File: ./Back/wissensch_Redlichkeit_E_09-2023.pdf Graphic file (type pdf)
 <use ./Back/wissensch_Redlichkeit_E_09-2023.pdf>
 Package pdftex.def Info: ./Back/wissensch_Redlichkeit_E_09-2023.pdf  used on in
-put line 73.
+put line 74.
 (pdftex.def)             Requested size: 597.551pt x 845.07512pt.
 
 
@@ -1724,34 +1742,34 @@ pdfTeX warning: pdflatex (file ./Back/wissensch_Redlichkeit_E_09-2023.pdf): PDF
 
 pdfTeX warning: pdflatex (file ./Back/wissensch_Redlichkeit_E_09-2023.pdf): PDF
  inclusion: found PDF version <1.6>, but at most version <1.5> allowed
-<./Back/wissensch_Redlichkeit_E_09-2023.pdf, id=389, page=1, 597.55246pt x 845.
+<./Back/wissensch_Redlichkeit_E_09-2023.pdf, id=396, page=1, 597.55246pt x 845.
 07718pt>
 File: ./Back/wissensch_Redlichkeit_E_09-2023.pdf Graphic file (type pdf)
 <use ./Back/wissensch_Redlichkeit_E_09-2023.pdf, page 1>
 Package pdftex.def Info: ./Back/wissensch_Redlichkeit_E_09-2023.pdf , page1 use
-d on input line 73.
+d on input line 74.
 (pdftex.def)             Requested size: 597.551pt x 845.07512pt.
 File: ./Back/wissensch_Redlichkeit_E_09-2023.pdf Graphic file (type pdf)
 <use ./Back/wissensch_Redlichkeit_E_09-2023.pdf, page 1>
 Package pdftex.def Info: ./Back/wissensch_Redlichkeit_E_09-2023.pdf , page1 use
-d on input line 73.
+d on input line 74.
 (pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
 File: ./Back/wissensch_Redlichkeit_E_09-2023.pdf Graphic file (type pdf)
 <use ./Back/wissensch_Redlichkeit_E_09-2023.pdf, page 1>
 Package pdftex.def Info: ./Back/wissensch_Redlichkeit_E_09-2023.pdf , page1 use
-d on input line 73.
+d on input line 74.
 (pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
 File: ./Back/wissensch_Redlichkeit_E_09-2023.pdf Graphic file (type pdf)
 <use ./Back/wissensch_Redlichkeit_E_09-2023.pdf, page 1>
 Package pdftex.def Info: ./Back/wissensch_Redlichkeit_E_09-2023.pdf , page1 use
-d on input line 73.
+d on input line 74.
 (pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
 File: ./Back/wissensch_Redlichkeit_E_09-2023.pdf Graphic file (type pdf)
 <use ./Back/wissensch_Redlichkeit_E_09-2023.pdf, page 1>
 Package pdftex.def Info: ./Back/wissensch_Redlichkeit_E_09-2023.pdf , page1 use
-d on input line 73.
+d on input line 74.
 (pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
-[24
+[25
 
  <./Back/wissensch_Redlichkeit_E_09-2023.pdf>]
 \tf@toc=\write7
@@ -1762,13 +1780,13 @@ d on input line 73.
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `Thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 87CC2CDBA59E4D25B9891FE3C12A27C3;4529.
+(rerunfilecheck)             Checksum: 0AD299ACDB6DFE96DD77F2CB632D8348;4529.
  ) 
 Here is how much of TeX's memory you used:
- 38734 strings out of 478287
- 743395 string characters out of 5849289
- 1122144 words of memory out of 5000000
- 56198 multiletter control sequences out of 15000+600000
+ 38814 strings out of 478287
+ 744864 string characters out of 5849289
+ 1123129 words of memory out of 5000000
+ 56270 multiletter control sequences out of 15000+600000
  488502 words of font info for 63 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  125i,17n,120p,1162b,753s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1787,10 +1805,10 @@ texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive
 ype1/public/cm-super/sfrm1000.pfb></usr/share/texlive/texmf-dist/fonts/type1/ur
 w/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uh
 vb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on Thesis.pdf (28 pages, 888223 bytes).
+Output written on Thesis.pdf (29 pages, 891651 bytes).
 PDF statistics:
- 501 PDF objects out of 1000 (max. 8388607)
- 396 compressed objects within 4 object streams
- 82 named destinations out of 1000 (max. 500000)
+ 510 PDF objects out of 1000 (max. 8388607)
+ 403 compressed objects within 5 object streams
+ 86 named destinations out of 1000 (max. 500000)
  329 words of extra memory for PDF output out of 10000 (max. 10000000)
 
