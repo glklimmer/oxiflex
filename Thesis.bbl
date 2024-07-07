@@ -1,4 +1,4 @@
-\begin{thebibliography}{12}
+\begin{thebibliography}{14}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -22,6 +22,11 @@ James~R. Bitner and Edward~M. Reingold.
 \newblock ISSN 0001-0782.
 \newblock \doi{10.1145/361219.361224}.
 \newblock URL \url{https://doi.org/10.1145/361219.361224}.
+
+\bibitem[{Gecode Team}(2006)]{gecode}
+{Gecode Team}.
+\newblock Gecode: Generic constraint development environment, 2006.
+\newblock Available from \texttt{http://www.gecode.org}.
 
 \bibitem[Haralick and Elliott(1980)]{forward_checking:1980}
 Robert~M. Haralick and Gordon~L. Elliott.
@@ -55,6 +60,12 @@ Nicholas~D Matsakis and Felix~S Klock~II.
 \newblock The rust language.
 \newblock In \emph{ACM SIGAda Ada Letters}, volume~34, pages 103--104. ACM,
   2014.
+
+\bibitem[MiniZinc(2018)]{minizinc_slow:2018}
+MiniZinc.
+\newblock Slow convergence problem, minizinc benchmarks, 2018.
+\newblock URL
+  \url{https://github.com/MiniZinc/minizinc-benchmarks/tree/master/slow_convergence}.
 
 \bibitem[Nethercote et~al.(2007)Nethercote, Stuckey, Becket, Brand, Duck, and
   Tack]{minizinc:2007}

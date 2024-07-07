@@ -1,64 +1,82 @@
 
 \chapter{Results}
 
-Results, Graphs and stuff.
+\section{Method}
+
+For benchmarking two metrics where measured:
+
+\begin{itemize}
+	\item Time \\
+	      Time until a solution is found.
+	\item Iterations \\
+	      How many times the recursive algorithm was called.
+\end{itemize}
+
+For time measurments hyperfine is used. Each benchmark includes 3 warmup runs and is averaged. The longer the solver takes, the fewer runs are done. This is default behaviour of hyperfine. At least 10 runs made were made for each benchmark. Time is usually given in seconds. More time is worse. Iterations were measured by doing 5 runs and averaging the number of iterations used. More iterations is worse.
+
+A benchmark is a pair of problem size with a combination of algorithmic modifications to the solver. As oxiflex allows to enable each optimization we can create 8 optimization combinations. Note that by default the all optimizations are enabled and by passing flags to oxiflex we disable them.
+
+\begin{itemize}
+	\item \verb|-n -r| \\
+	      NaiveBacktracking
+	\item \verb|-n| \\
+	      NaiveBacktracking with variable ordering
+	\item \verb|-f -r| \\
+	      Inference with forward checking
+	\item \verb|-f| \\
+	      Inference with forward checking and variable ordering
+	\item \verb|-a 1 -r| \\
+	      Inference with AC-1
+	\item \verb|-a 1| \\
+	      Inference with AC-1 and variable ordering
+	\item \verb|-r| \\
+	      Inference with AC-3
+	\item \verb|no flags| \\
+	      Inference with AC-3 and variable ordering
+\end{itemize}
+
+The following Problem Domains where measured:
+
+\begin{itemize}
+	\item N-Queens
+	\item Slow Convergence
+\end{itemize}
+
+All benchmark were performed on the same machine. \\
+
+\begin{tabular}{>{\hspace{1em}}l l}
+	CPU:    & Intel i7-6700K (8) @ 4.200GHz \\
+	Memory: & 6051MiB / 32021MiB            \\
+\end{tabular}
+
+\section{N-Queens}
+
+Figure~\ref{fig:queens:time} shows the N-Queens Problem (See~\ref{sec:queens}:~\nameref{sec:queens}) with $n = 4..14$. Figure~\ref{fig:queens:iterations} shows benchmarks with the same parameters for measurements of iterations.
 
 \begin{figure}[ht]
 	\centering
 	\includegraphics[width=0.8\textwidth]{./Problems/queens/plots/time.png}
-	\caption{a nice plot}
+	\caption{Time measurements with all possible flag combinations}
 	\label{fig:queens:time}
 \end{figure}
-
-
-\begin{figure}[ht]
-	\centering
-	\includegraphics[width=0.8\textwidth]{./Problems/queens/plots/time_no_arc.png}
-	\caption{a nice plot}
-	\label{fig:queens:time_no_arc}
-\end{figure}
-
-
 
 \begin{figure}[ht]
 	\centering
 	\includegraphics[width=0.8\textwidth]{./Problems/queens/plots/iterations.png}
-	\caption{a nice plot}
+	\caption{Iteration measurements with all possible flag combinations}
 	\label{fig:queens:iterations}
 \end{figure}
 
-
-
-\begin{figure}[ht]
-	\centering
-	\includegraphics[width=0.8\textwidth]{./Problems/slow_convergence/plots/time.png}
-	\caption{a nice plot}
-	\label{fig:slow:time}
-\end{figure}
+It appears that the time measuments in Figure~\ref{fig:queens:time} for runs that do not enforce arc consistency grow linearly. Figure~\ref{fig:queens:time_no_arc} shows benchmarks only for runs that do not enfore arc consistency using the same steps for $n$.
 
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=0.8\textwidth]{./Problems/slow_convergence/plots/iterations.png}
-	\caption{a nice plot}
-	\label{fig:slow:iterations}
+	\includegraphics[width=0.8\textwidth]{./Problems/queens/plots/time_no_arc.png}
+	\caption{Time measurements without arc consistency enforcing flags}
+	\label{fig:queens:time_no_arc}
 \end{figure}
 
-
-\begin{figure}[ht]
-	\centering
-	\includegraphics[width=0.8\textwidth]{./Problems/slow_convergence/plots/time_small.png}
-	\caption{a nice plot}
-	\label{fig:slow:time_small}
-\end{figure}
-
-\begin{figure}[ht]
-	\centering
-	\includegraphics[width=0.8\textwidth]{./Problems/slow_convergence/plots/iterations_small.png}
-	\caption{a nice plot}
-	\label{fig:slow:iterations_small}
-\end{figure}
-
-
+Table~\ref{tab:queens:time} and table~\ref{tab:queens:iterations} contains results for time and iterations. Time values are rounded to 2 decimal places.
 
 \begin{table}[h!]
 	\centering
@@ -77,9 +95,6 @@ Results, Graphs and stuff.
 	\label{tab:queens:time}
 \end{table}
 
-
-
-
 \begin{table}[h!]
 	\centering
 	\begin{tabular}{| c | c | c | c | c | c | c | c | c |}
@@ -97,7 +112,44 @@ Results, Graphs and stuff.
 	\label{tab:queens:iterations}
 \end{table}
 
+\section{Slow Convergence}
 
+The Slow Convergence Problem is from the minizinc benchmarks repository~\cite{minizinc_slow:2018}. Benchmarks without variable ordering took way to long and are therefore omitted. Figure~\ref{fig:slow:time_small} therefore only shows benchmarks with variable ordering enabled for $n=1..10$, as higher values for $n$ took way to long to measure. Note that the benchmark repo suggests \verb|dzn| files for $n$ values from $100$ up to $1000$.
+
+Figure~\ref{fig:slow:iterations_small} shows benchmarks with the same parameters for measurments of iterations. Note the huge spike in iterations at $n = 3$. This spike is not a measurement error. The benchmarks were run multiple times and provided the same results.
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.8\textwidth]{./Problems/slow_convergence/plots/time_small.png}
+	\caption{Time measurements only with varaible ordering combinations}
+	\label{fig:slow:time_small}
+\end{figure}
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.8\textwidth]{./Problems/slow_convergence/plots/iterations_small.png}
+	\caption{Iteration measurements only with varaible ordering combinations}
+	\label{fig:slow:iterations_small}
+\end{figure}
+
+Next increasing $n$ for non arc consistency enforcing benchmarks. Figure~\ref{fig:slow:sidebyside} shows time measurements on the left and iteration measurements on the right. Note the inverse correlation between iterations and time for the two options. Altough naive backtracking (\verb|-n|) takes more iterations, it is still faster than forward checking (\verb|-f|).
+
+\begin{figure}[ht]
+	\centering
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{./Problems/slow_convergence/plots/time.png}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{./Problems/slow_convergence/plots/iterations.png}
+	\end{minipage}
+	\caption{Comparison for higher $n = 10..60$. Left: time, right: iterations.}
+	\label{fig:slow:sidebyside}
+\end{figure}
+
+Table~\ref{tab:slow} contains results for time and iterations for the $n = 10..60$ range. Time values are rounded to 2 decimal places.
 
 \begin{table}[h!]
 	\centering
@@ -134,3 +186,12 @@ Results, Graphs and stuff.
 	\caption{Comparative data for Slow Convergence: Time and Iterations.}
 	\label{tab:slow}
 \end{table}
+
+For comparison figure~\ref{fig:slow:gecode} shows oxiflex compared to Gecode. Gecode is a constraint satisfaction problem solver compatible with MiniZinc with state-of-the art performance~\cite{gecode}. Note the steep increase in $n = 100..600$.
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.8\textwidth]{./Problems/slow_convergence/plots/gecode.png}
+	\caption{oxiflex vs gecode}
+	\label{fig:slow:gecode}
+\end{figure}
