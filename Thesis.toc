@@ -34,6 +34,6 @@
 \contentsline {section}{\numberline {5.3}Slow Convergence}{20}{section.38}%
 \contentsline {chapter}{\chapternumberline {6}Conclusion}{23}{chapter.44}%
 \vspace {2em}
-\contentsline {chapter}{Bibliography}{24}{appendix*.45}%
-\contentsline {appendix}{\chapternumberline {A}Appendix}{26}{appendix.46}%
+\contentsline {chapter}{Bibliography}{25}{appendix*.45}%
+\contentsline {appendix}{\chapternumberline {A}Appendix}{27}{appendix.46}%
 \vspace {2em}
