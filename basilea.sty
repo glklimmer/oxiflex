@@ -76,7 +76,7 @@
 % definition of fonts (phv is Helvetica, pcr is Courrier)
 \renewcommand{\sfdefault}{phv}
 \renewcommand{\ttdefault}{pcr}
-  
+
 % definition of colors
 \usepackage{color,graphicx}
 \definecolor{chaptercolor}{rgb}{.7,.7,.7}
@@ -92,8 +92,8 @@
 \setcounter{tocdepth}{3}
 \newcounter{dummy}
 \newcommand\addtotoc[1]{
-\refstepcounter{dummy}
-\addcontentsline{toc}{chapter}{#1}}
+	\refstepcounter{dummy}
+	\addcontentsline{toc}{chapter}{#1}}
 
 % definition of chapter style (i.e. large number and text)
 \setlength{\beforechapskip}{50pt}
@@ -144,7 +144,7 @@
 \setlength{\skip\footins}{20pt}
 \usepackage[hang]{footmisc}
 \setlength{\footnotemargin}{10pt}
-\usepackage{chngcntr} 
+\usepackage{chngcntr}
 \counterwithout{footnote}{chapter}
 
 % add highlighting possibilities
@@ -172,7 +172,13 @@
 \renewcommand*{\cftappendixname}{\iflanguage{english}{Appendix}{Anhang}\space}
 
 % definition of bibliography
-\newcommand*{\thesisbib}{\cleardoublepage\renewcommand*{\contentsname}{\iflanguage{english}{Bibliography}{Literaturverzeichnis}} \createplainmark{bib}{both}{\iflanguage{english}{Bibliography}{Literaturverzeichnis}}\bibliographystyle{\basileaBibStyle}\bibliography{thesis}}
+\newcommand*{\thesisbib}{
+	\cleardoublepage
+	\renewcommand*{\contentsname}{\iflanguage{english}{Bibliography}{Literaturverzeichnis}}
+	\createplainmark{bib}{both}{\iflanguage{english}{Bibliography}{Literaturverzeichnis}}
+	\bibliographystyle{alpha} % Use the alpha style for alphanumeric citations
+	\bibliography{thesis}
+}
 \usepackage[square, numbers, comma, sort&compress]{natbib}
 
 % document structure
@@ -184,29 +190,29 @@
 
 % title page
 \renewcommand\maketitle{
-  \hypersetup{pdftitle={\@title}}
-  \hypersetup{pdfauthor=\authorsint}
-  \thispagestyle{empty}
-  {\raggedright\includegraphics{\universitylogoint}}\par
-    \begin{center}
-      \vspace{3cm}
-      {\Huge \sffamily \bfseries \@title \par}
-      \vspace{0.5cm}
-      {\thesistypeint \par}
-      \vspace{3cm} 	  
-      {\facultyint \par}
-      {\departmentint \par}
-      {\researchgroupint \par}
-      \vspace{1.5cm}
-      {\iflanguage{english}{Examiner}{Beurteiler}: \examinerint \par}
-      {\iflanguage{english}{Supervisor}{Zweitbeurteiler}: \supervisorint \par}
-      \vspace{1.5cm}
-      {\authorsint \par}
-      {\emailint \par}
-      {\immatriculnrint \par}      
-      \vfill
-      {\@date \par}
-   \end{center}
+	\hypersetup{pdftitle={\@title}}
+\hypersetup{pdfauthor=\authorsint}
+\thispagestyle{empty}
+{\raggedright\includegraphics{\universitylogoint}}\par
+\begin{center}
+	\vspace{3cm}
+	{\Huge \sffamily \bfseries \@title \par}
+	\vspace{0.5cm}
+	{\thesistypeint \par}
+	\vspace{3cm}
+	{\facultyint \par}
+	{\departmentint \par}
+	{\researchgroupint \par}
+	\vspace{1.5cm}
+	{\iflanguage{english}{Examiner}{Beurteiler}: \examinerint \par}
+	{\iflanguage{english}{Supervisor}{Zweitbeurteiler}: \supervisorint \par}
+	\vspace{1.5cm}
+	{\authorsint \par}
+	{\emailint \par}
+	{\immatriculnrint \par}
+	\vfill
+	{\@date \par}
+\end{center}
 }
 
 % declaration
@@ -227,9 +233,9 @@
 
 % reference settings
 \usepackage[pdfpagemode={UseOutlines},bookmarks=true,bookmarksopen=true,
-   bookmarksopenlevel=0,bookmarksnumbered=true,hypertexnames=false,
-   colorlinks,linkcolor={black},citecolor={black},urlcolor={black}, filecolor={black},
-   pdfstartview={FitV}, breaklinks=true, unicode]{hyperref}
+	bookmarksopenlevel=0,bookmarksnumbered=true,hypertexnames=false,
+	colorlinks,linkcolor={black},citecolor={black},urlcolor={black}, filecolor={black},
+	pdfstartview={FitV}, breaklinks=true, unicode]{hyperref}
 \usepackage[capitalize]{cleveref}
 % rename here, e.g. \crefname{listing}{Algorithm}{Algorithm}  
 

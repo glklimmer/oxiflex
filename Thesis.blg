@@ -1,7 +1,7 @@
 This is BibTeX, Version 0.99d (TeX Live 2022/dev/Debian)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: Thesis.aux
-The style file: plainnat.bst
+The style file: alpha.bst
 Database file #1: thesis.bib
 Warning--entry type for "minizinc_queens:2006" isn't style-file defined
 --line 56 of file thesis.bib
@@ -18,44 +18,44 @@ Warning--entry type for "gecode" isn't style-file defined
 Warning--can't use both volume and number fields in rust:2014
 Warning--empty booktitle in original_arc:1988
 You've used 14 entries,
-            2773 wiz_defined-function locations,
-            692 strings with 7026 characters,
-and the built_in function-call counts, 6094 in all, are:
-= -- 581
-> -- 228
-< -- 19
-+ -- 82
-- -- 68
-* -- 423
-:= -- 907
-add.period$ -- 58
+            2543 wiz_defined-function locations,
+            643 strings with 5966 characters,
+and the built_in function-call counts, 5325 in all, are:
+= -- 527
+> -- 185
+< -- 16
++ -- 56
+- -- 55
+* -- 347
+:= -- 821
+add.period$ -- 41
 call.type$ -- 14
-change.case$ -- 64
+change.case$ -- 78
 chr.to.int$ -- 14
-cite$ -- 30
-duplicate$ -- 299
-empty$ -- 565
-format.name$ -- 88
-if$ -- 1335
+cite$ -- 16
+duplicate$ -- 230
+empty$ -- 446
+format.name$ -- 77
+if$ -- 1140
 int.to.chr$ -- 1
-int.to.str$ -- 1
+int.to.str$ -- 0
 missing$ -- 8
-newline$ -- 90
-num.names$ -- 60
-pop$ -- 143
+newline$ -- 69
+num.names$ -- 46
+pop$ -- 101
 preamble$ -- 1
-purify$ -- 50
+purify$ -- 92
 quote$ -- 0
-skip$ -- 241
+skip$ -- 209
 stack$ -- 0
-substring$ -- 231
-swap$ -- 58
-text.length$ -- 6
-text.prefix$ -- 0
+substring$ -- 302
+swap$ -- 53
+text.length$ -- 16
+text.prefix$ -- 9
 top$ -- 0
-type$ -- 154
+type$ -- 112
 warning$ -- 2
-while$ -- 59
-width$ -- 0
-write$ -- 214
+while$ -- 49
+width$ -- 16
+write$ -- 176
 (There were 8 warnings)
