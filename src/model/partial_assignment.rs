@@ -1,5 +1,6 @@
 use super::{var_id::VarId, Model};
 use std::{
+    cmp::Ordering::{Equal, Greater, Less},
     collections::HashMap,
     fmt::{self, Display, Formatter},
 };
@@ -61,7 +62,11 @@ impl PartialAssignment {
                     model.constraint_amount(assignment_entry.0),
                 )
             })
-            .max_by(|x, y| x.1.cmp(&y.1))
+            .max_by(|x, y| match x.1.cmp(&y.1) {
+                Less => Less,
+                Greater => Greater,
+                Equal => x.0.cmp(y.0),
+            })
             .unwrap()
             .0
     }

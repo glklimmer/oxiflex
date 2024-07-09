@@ -4,7 +4,7 @@ use std::{
     rc::Rc,
 };
 
-#[derive(Eq, Hash, PartialEq, Debug, Clone)]
+#[derive(Eq, Hash, PartialOrd, Ord, PartialEq, Debug, Clone)]
 pub struct VarId(Rc<str>);
 
 impl From<&String> for VarId {
