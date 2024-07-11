@@ -19,7 +19,7 @@ impl Model {
         }
     }
 
-    pub fn arc_consistency_1(&mut self) {
+    pub fn arc_consistency_1(&mut self, alpha: &PartialAssignment) {
         let mut domain_changed = false;
         loop {
             for constraint in self.constraints.clone() {
@@ -27,9 +27,9 @@ impl Model {
                 let v = var_ids.pop().unwrap();
                 let u = var_ids.pop().unwrap();
                 // println!("revise: {u}, {v}");
-                let first_changed = self.revise(&u, &v);
+                let first_changed = self.revise(&u, &v, alpha);
                 // println!("revise: {v}, {u}");
-                let second_changed = self.revise(&v, &u);
+                let second_changed = self.revise(&v, &u, alpha);
                 domain_changed = first_changed || second_changed;
                 // println!("any changed: {domain_changed}");
                 // println!("==========");
@@ -39,11 +39,13 @@ impl Model {
             if !domain_changed {
                 // println!("stopping arc consistency");
                 return;
+            } else {
+                println!("domain was changed")
             }
         }
     }
 
-    pub fn arc_consistency_3(&mut self) {
+    pub fn arc_consistency_3(&mut self, alpha: &PartialAssignment) {
         let mut queue = VecDeque::new();
         for constraint in self.constraints.clone() {
             let mut var_ids = constraint.involved_var_ids();
@@ -55,7 +57,7 @@ impl Model {
         }
         while !queue.is_empty() {
             let (u, v) = queue.pop_back().unwrap();
-            let changed = self.revise(&u, &v);
+            let changed = self.revise(&u, &v, alpha);
             if changed {
                 for constraint in self.constraint_index.get(&u).unwrap() {
                     let mut var_ids = constraint.involved_var_ids();
@@ -71,7 +73,7 @@ impl Model {
         }
     }
 
-    fn revise(&mut self, v: &VarId, v_prime: &VarId) -> bool {
+    fn revise(&mut self, v: &VarId, v_prime: &VarId, alpha: &PartialAssignment) -> bool {
         let mut domain = self.domains.remove(v).unwrap();
         let domain_len = domain.len();
 
@@ -85,14 +87,19 @@ impl Model {
                             .unwrap()
                             .into_iter()
                             .any(|&d_prime| {
-                                let mut variables = HashMap::new();
-                                variables.insert(v.clone(), Some(d));
-                                variables.insert(v_prime.clone(), Some(d_prime));
-                                constraint.check(&PartialAssignment::new(variables))
+                                let alpha = alpha.union(v, d);
+                                let alpha = alpha.union(v_prime, d_prime);
+                                let check_result = constraint.check(&alpha);
                                 // println!(
                                 //     "checking: {} = {}, {} = {}, {:?} = {}",
                                 //     v, d, v_prime, d_prime, constraint, check_result
                                 // );
+                                // println!("{}", alpha);
+                                // println!("----------");
+                                if !check_result {
+                                    println!("FOUND ONE")
+                                }
+                                check_result
                             })
                     });
                     // println!("new {:?}", domain);

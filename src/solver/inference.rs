@@ -30,8 +30,8 @@ pub fn backtracking_with_inference(
         model_prime.forward_checking(&alpha);
     } else {
         match arc_consistency {
-            1 => model_prime.arc_consistency_1(),
-            3 => model_prime.arc_consistency_3(),
+            1 => model_prime.arc_consistency_1(&alpha),
+            3 => model_prime.arc_consistency_3(&alpha),
             _ => panic!("No such arc consistency implemented."),
         };
     };
