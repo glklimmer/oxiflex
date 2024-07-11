@@ -1,11 +1,11 @@
 #!/bin/bash
 
 # Define the path to your program
-PROGRAM_PATH='./target/release/oxiflex'
+PROGRAM_PATH='oxiflex'
 
 # Define the problem file pattern
-PROBLEM_DIR='problems/slow_convergence/minizinc/datafiles'
-OUTPUT_FILE='problems/slow_convergence/data/iterations_small.json'
+PROBLEM_DIR='Problems/slow_convergence/minizinc/datafiles'
+OUTPUT_FILE='Problems/slow_convergence/data/iterations_small.json'
 
 # Start the JSON file
 echo "{" >$OUTPUT_FILE
@@ -34,7 +34,7 @@ for n in {2..10..1}; do
   # Loop through each option set
   for opt in "${options[@]}"; do
     # Remove leading/trailing spaces and replace internal spaces with underscores for key names
-    key=$(echo "$opt" | sed 's/^\s\+//;s/\s\+$//;s/\s\+/_/g')
+    key=$(echo " $opt" | sed 's/^ //;s/ /_/g')
 
     # Special case for an empty option string to ensure uniqueness in JSON keys
     if [ -z "$key" ]; then
@@ -44,28 +44,22 @@ for n in {2..10..1}; do
     if [ $opt_count -ne 0 ]; then
       echo "," >>$OUTPUT_FILE
     fi
-    echo "\"$key\": " >>$OUTPUT_FILE
 
     # Run the program with the current options
-    echo "Running ${PROBLEM_FILE} ${opt}"
+    echo "Running n=${n} ${opt}"
 
     # Initialize a variable to accumulate results
-    total=0
-    # Run the benchmark 5 times
-    for i in {1..5}; do
-      # Run the program with the current options
-      result=$($PROGRAM_PATH $PROBLEM_FILE $opt)
-      total=$(($total + $result))
-    done
+    results=0
 
-    # Calculate average result
-    average=$(($total / 5))
+    # Run the program with the current options
+    result=$($PROGRAM_PATH $PROBLEM_FILE $opt)
+    echo "${result}"
 
-    # Append the average result to the JSON
-    echo "\"$average\"" >>$OUTPUT_FILE
+    # Append the average result along with standard error to the JSON
+    echo "\"$key\": \"$result\"" >>$OUTPUT_FILE
 
     ((opt_count++))
-  done # Close the current problem file bracket
+  done
 
   echo "}" >>$OUTPUT_FILE
 done
