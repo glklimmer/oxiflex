@@ -1,4 +1,4 @@
-use std::collections::{HashMap, VecDeque};
+use std::collections::VecDeque;
 
 use crate::model::Model;
 
@@ -39,8 +39,6 @@ impl Model {
             if !domain_changed {
                 // println!("stopping arc consistency");
                 return;
-            } else {
-                println!("domain was changed")
             }
         }
     }
@@ -89,17 +87,13 @@ impl Model {
                             .any(|&d_prime| {
                                 let alpha = alpha.union(v, d);
                                 let alpha = alpha.union(v_prime, d_prime);
-                                let check_result = constraint.check(&alpha);
                                 // println!(
                                 //     "checking: {} = {}, {} = {}, {:?} = {}",
                                 //     v, d, v_prime, d_prime, constraint, check_result
                                 // );
                                 // println!("{}", alpha);
                                 // println!("----------");
-                                if !check_result {
-                                    println!("FOUND ONE")
-                                }
-                                check_result
+                                constraint.check(&alpha)
                             })
                     });
                     // println!("new {:?}", domain);
