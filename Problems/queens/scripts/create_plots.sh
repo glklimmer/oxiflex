@@ -18,3 +18,5 @@ python3 Problems/plot_hyperfine.py \
   Problems/queens/data/queens_forward_checking.json
 
 python3 Problems/queens/scripts/plot_iterations.py
+
+python3 Problems/queens/scripts/plot_iterations_inference.py
