@@ -13,8 +13,9 @@ options = set(opt for values in data.values() for opt in values)  # Gather all u
 plot_data = {opt: [] for opt in options}
 for n in n_values:
     for opt in options:
-        # Append the result to the appropriate option, converting to integer for plotting
-        plot_data[opt].append(int(data[n].get(opt, 0)))  # Using 0 as default if option is missing
+        # Extract the number before '±' and convert to integer for plotting
+        result = data[n].get(opt, "0 ± 0").split("±")[0].strip()  # Using "0 ± 0" as default
+        plot_data[opt].append(int(result))  # Append the integer result
 
 # Generate the plot
 n_values_int = list(map(int, n_values))  # Convert n values from string to integers
@@ -22,7 +23,7 @@ for opt, results in plot_data.items():
     label = opt if opt else "no flags"  # Adjusting label for "no flags" option
     plt.plot(n_values_int, results, label=label.replace("_", " ").strip())
 
-plt.title("N-Queens (Averaged, 5 Runs)")
+# plt.title("N-Queens (Averaged, 5 Runs)")
 plt.xlabel("n")
 plt.ylabel("Iterations")
 plt.xticks(n_values_int)  # Set x-axis ticks to the correct problem sizes
