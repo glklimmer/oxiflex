@@ -82,14 +82,14 @@ Table~\ref{tab:queens:time} and table~\ref{tab:queens:iterations} contains resul
 	\centering
 	\begin{tabular}{| c | c | c | c | c | c | c | c | c |}
 		\hline
-		\multicolumn{9}{|c|}{N-Queens Time}                                  \\ \hline
-		n  & -n -r & -n   & -f -r & -f   & -a 1 -r & -a 1 & -r    & no flags \\ \hline
-		4  & 0     & 0    & 0     & 0    & 0       & 0    & 0     & 0        \\ \hline
-		6  & 0     & 0    & 0     & 0    & 0.04    & 0.04 & 0.04  & 0.04     \\ \hline
-		8  & 0     & 0    & 0     & 0    & 0.17    & 0.15 & 0.15  & 0.1      \\ \hline
-		10 & 0     & 0    & 0     & 0    & 1.1     & 1.11 & 0.59  & 1.45     \\ \hline
-		12 & 0.01  & 0.01 & 0.01  & 0.01 & 2.35    & 3.13 & 4.67  & 3.21     \\ \hline
-		14 & 0.03  & 0.07 & 0.03  & 0.03 & 16.23   & 26.9 & 15.45 & 13.53    \\ \hline
+		\multicolumn{9}{|c|}{N-Queens Time}                                                                                               \\ \hline
+		n  & -n -r           & -n   & -f -r           & -f   & -a 1 -r          & -a 1             & -r                & no flags         \\ \hline
+		4  & 0.00            & 0.00 & 0.00            & 0.00 & 0.00             & 0.00             & 0.00              & 0.00             \\
+		6  & 0.00            & 0.00 & 0.00            & 0.00 & 0.05 $\pm$ 0.03  & 0.05             & 0.04 $\pm$ 0.02   & 0.05             \\
+		8  & 0.00            & 0.00 & 0.00            & 0.00 & 0.16 $\pm$ 0.14  & 0.54 $\pm$ 0.02  & 0.18 $\pm$ 0.13   & 0.54 $\pm$ 0.02  \\
+		10 & 0.01 $\pm$ 0.01 & 0.00 & 0.01            & 0.01 & 0.87 $\pm$ 0.81  & 1.25 $\pm$ 0.04  & 1.08 $\pm$ 1.30   & 1.24 $\pm$ 0.04  \\
+		12 & 0.02 $\pm$ 0.02 & 0.00 & 0.01 $\pm$ 0.01 & 0.01 & 9.26 $\pm$ 11.91 & 1.00 $\pm$ 0.04  & 3.27 $\pm$ 3.83   & 1.07 $\pm$ 0.13  \\
+		14 & 0.04 $\pm$ 0.07 & 0.03 & 0.03 $\pm$ 0.04 & 0.02 & 8.84 $\pm$ 6.22  & 12.55 $\pm$ 0.19 & 33.31 $\pm$ 44.64 & 12.51 $\pm$ 0.17 \\ \hline
 	\end{tabular}
 	\caption{Table to test captions and labels.}
 	\label{tab:queens:time}
@@ -99,18 +99,19 @@ Table~\ref{tab:queens:time} and table~\ref{tab:queens:iterations} contains resul
 	\centering
 	\begin{tabular}{| c | c | c | c | c | c | c | c | c |}
 		\hline
-		\multicolumn{9}{|c|}{N-Queens Iterations}                          \\ \hline
-		n  & -n -r & -n   & -f -r & -f  & -a 1 -r & -a 1 & -r   & no flags \\ \hline
-		4  & 24    & 20   & 8     & 8   & 23      & 20   & 14   & 18       \\ \hline
-		6  & 181   & 119  & 24    & 19  & 181     & 211  & 212  & 131      \\ \hline
-		8  & 253   & 512  & 26    & 31  & 357     & 168  & 137  & 118      \\ \hline
-		10 & 628   & 1846 & 126   & 79  & 788     & 758  & 546  & 740      \\ \hline
-		12 & 1423  & 1065 & 61    & 149 & 1483    & 2613 & 671  & 1355     \\ \hline
-		14 & 2015  & 3720 & 377   & 194 & 10194   & 3191 & 6943 & 3541     \\ \hline
+		\multicolumn{9}{|c|}{N-Queens Iterations}                                                                 \\ \hline
+		n  & -n -r           & -n   & -f -r         & -f  & -a 1 -r           & -a 1 & -r              & no flags \\ \hline
+		4  & 24 $\pm$ 4      & 27   & 7 $\pm$ 1     & 9   & 31 $\pm$ 5        & 27   & 23 $\pm$ 3      & 27       \\ \hline
+		6  & 265 $\pm$ 57    & 172  & 16 $\pm$ 4    & 28  & 150 $\pm$ 38      & 172  & 163 $\pm$ 37    & 172      \\ \hline
+		8  & 401 $\pm$ 251   & 877  & 28 $\pm$ 5    & 89  & 235 $\pm$ 92      & 877  & 201 $\pm$ 62    & 877      \\ \hline
+		10 & 1274 $\pm$ 441  & 976  & 63 $\pm$ 30   & 84  & 946 $\pm$ 478     & 976  & 1212 $\pm$ 565  & 976      \\ \hline
+		12 & 1387 $\pm$ 996  & 403  & 154 $\pm$ 116 & 31  & 1886 $\pm$ 1008   & 403  & 6527 $\pm$ 2522 & 403      \\ \hline
+		14 & 3160 $\pm$ 2321 & 3536 & 424 $\pm$ 177 & 112 & 25653 $\pm$ 20496 & 3536 & 2578 $\pm$ 717  & 3536     \\ \hline
 	\end{tabular}
 	\caption{Table to test captions and labels.}
 	\label{tab:queens:iterations}
 \end{table}
+% TODO: Notice how -n -a1 and noflags all have same
 
 \section{Slow Convergence}
 
