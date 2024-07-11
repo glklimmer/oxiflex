@@ -32,8 +32,8 @@
 \contentsline {section}{\numberline {5.1}Method}{17}{section.31}%
 \contentsline {section}{\numberline {5.2}N-Queens}{18}{section.32}%
 \contentsline {section}{\numberline {5.3}Slow Convergence}{20}{section.39}%
-\contentsline {chapter}{\chapternumberline {6}Conclusion}{24}{chapter.45}%
+\contentsline {chapter}{\chapternumberline {6}Conclusion}{24}{chapter.46}%
 \vspace {2em}
-\contentsline {chapter}{Bibliography}{26}{appendix*.46}%
-\contentsline {appendix}{\chapternumberline {A}Appendix}{27}{appendix.47}%
+\contentsline {chapter}{Bibliography}{26}{appendix*.47}%
+\contentsline {appendix}{\chapternumberline {A}Appendix}{27}{appendix.48}%
 \vspace {2em}

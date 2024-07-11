@@ -159,7 +159,7 @@ Next increasing $n$ for non arc consistency enforcing benchmarks. Figure~\ref{fi
 	\label{fig:slow:sidebyside}
 \end{figure}
 
-Table~\ref{tab:slow} contains results for time and iterations for the $n = 10..60$ range. Time values are rounded to 2 decimal places.
+~\cref{tab:slow:time} and ~\cref{tab:slow:iterations} contain results for time and iterations for the $n = 10..60$ range. Time values are rounded to 2 decimal places.
 
 \begin{table}[h!]
 	\centering
@@ -168,33 +168,33 @@ Table~\ref{tab:slow} contains results for time and iterations for the $n = 10..6
 			\centering
 			\begin{tabular}{| c | c | c |}
 				\hline
-				\multicolumn{3}{|c|}{Slow Convergence Time} \\ \hline
-				n  & -n   & -f                              \\ \hline
-				10 & 0    & 0.02                            \\ \hline
-				20 & 0    & 0.16                            \\ \hline
-				30 & 0.01 & 0.68                            \\ \hline
-				40 & 0.01 & 1.79                            \\ \hline
-				50 & 0.02 & 4.43                            \\ \hline
-				60 & 0.03 & 9.21                            \\ \hline
+				n  & Naive w/ VO & FC w/ VO        \\ \hline
+				10 & 0.00        & 0.01            \\ \hline
+				20 & 0.00        & 0.13            \\ \hline
+				30 & 0.01        & 0.54 $\pm$ 0.01 \\ \hline
+				40 & 0.01        & 1.58 $\pm$ 0.08 \\ \hline
+				50 & 0.02        & 5.29 $\pm$ 0.14 \\ \hline
+				60 & 0.04        & 21.94 $\pm$ 0.5 \\ \hline
 			\end{tabular}
+			\caption{Slow Convergence Time}
+			\label{tab:slow:time}
 		\end{minipage} &
 		\begin{minipage}{.5\textwidth}
 			\centering
 			\begin{tabular}{| c | c | c |}
 				\hline
-				\multicolumn{3}{|c|}{Slow Convergence Iterations} \\ \hline
-				n  & -n   & -f                                    \\ \hline
-				10 & 77   & 23                                    \\ \hline
-				20 & 252  & 43                                    \\ \hline
-				30 & 527  & 63                                    \\ \hline
-				40 & 902  & 83                                    \\ \hline
-				50 & 1377 & 103                                   \\ \hline
-				60 & 1952 & 123                                   \\ \hline
+				n  & Naive w/ VO & FC w/ VO \\ \hline
+				10 & 77          & 23       \\ \hline
+				20 & 252         & 43       \\ \hline
+				30 & 527         & 63       \\ \hline
+				40 & 902         & 83       \\ \hline
+				50 & 1377        & 103      \\ \hline
+				60 & 1952        & 123      \\ \hline
 			\end{tabular}
+			\caption{Slow Convergence Iterations}
+			\label{tab:slow:iterations}
 		\end{minipage}
 	\end{tabular}
-	\caption{Comparative data for Slow Convergence: Time and Iterations.}
-	\label{tab:slow}
 \end{table}
 
 For comparison figure~\ref{fig:slow:gecode} shows oxiflex compared to Gecode. Gecode is a constraint satisfaction problem solver compatible with MiniZinc with state-of-the art performance~\cite{gecode}. Note the steep increase in $n = 100..600$.
