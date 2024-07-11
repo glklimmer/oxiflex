@@ -11,7 +11,7 @@ OUTPUT_FILE='Problems/queens/data/iterations.json'
 echo "{" >$OUTPUT_FILE
 
 # Loop over each problem size from 4 to 14
-for n in {4..14..2}; do
+for n in {8..20..2}; do
   PROBLEM_FILE="$PROBLEM_DIR/${n}.fzn"
 
   # Print the problem file number in JSON

@@ -15,7 +15,6 @@ hyperfine --warmup 3 \
   "$PROGRAM_PATH $PROBLEM_FILE -a 1" \
   "$PROGRAM_PATH $PROBLEM_FILE -r" \
   "$PROGRAM_PATH $PROBLEM_FILE" \
-  --parameter-scan n 4 14 \
+  --parameter-scan n 8 20 \
   --parameter-step-size 2 \
-  --export-json linked_list.json
-# --export-json problems/queens/data/queens.json
+  --export-json Problems/queens/data/queens.json

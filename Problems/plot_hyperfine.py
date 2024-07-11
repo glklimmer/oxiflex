@@ -117,10 +117,9 @@ plt.ylabel("Time [s]")
 if args.log_time:
     plt.yscale("log")
 
-if args.log_x:
-    plt.xscale("log")
+if args.titles:
+    plt.legend(args.titles.split(","))
 
-plt.legend()
 plt.title(args.title)
 plt.grid(True)
 if args.output:

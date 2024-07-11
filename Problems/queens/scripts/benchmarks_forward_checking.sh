@@ -11,6 +11,6 @@ hyperfine --warmup 3 \
   "$PROGRAM_PATH $PROBLEM_FILE -n" \
   "$PROGRAM_PATH $PROBLEM_FILE -f -r" \
   "$PROGRAM_PATH $PROBLEM_FILE -f" \
-  --parameter-scan n 4 14 \
+  --parameter-scan n 8 20 \
   --parameter-step-size 2 \
   --export-json Problems/queens/data/queens_forward_checking.json

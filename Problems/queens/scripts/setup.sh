@@ -2,6 +2,7 @@
 
 # List of numbers
 numbers=(4 6 8 10 12 14)
+numbers=(20 22 24 26 28 30)
 
 # Define the directory path
 datafiles="Problems/queens/minizinc/datafiles"
