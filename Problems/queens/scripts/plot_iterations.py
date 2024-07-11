@@ -31,11 +31,12 @@ flag_labels = {
 
 # Generate the plot
 n_values_int = list(map(int, n_values))  # Convert n values from string to integers
-for opt, results in plot_data.items():
-    label = flag_labels.get(opt, "AC-3 w/ VO")  # Use the mapping to get descriptive labels
-    plt.plot(n_values_int, results, label=label.replace("_", " ").strip())
+for opt in flag_labels.keys():  # Iterate in the order defined in flag_labels
+    results = plot_data.get(opt, [])
+    if results:  # Check if there are results to plot for this option
+        label = flag_labels[opt]  # Use the descriptive label from flag_labels
+        plt.plot(n_values_int, results, label=label.replace("_", " ").strip())
 
-# plt.title("N-Queens (Averaged, 5 Runs)")
 plt.xlabel("n")
 plt.ylabel("Iterations")
 plt.xticks(n_values_int)  # Set x-axis ticks to the correct problem sizes
