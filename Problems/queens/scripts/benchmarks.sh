@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Define the path to your program
-PROGRAM_PATH='oxiflex'
+PROGRAM_PATH='Oxiflex'
 
 # Define the problem file pattern
 PROBLEM_FILE='Problems/queens/minizinc/datafiles/{n}.fzn'

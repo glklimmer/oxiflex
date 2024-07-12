@@ -1,7 +1,7 @@
 {
   "results": [
     {
-      "command": "oxiflex Problems/slow_convergence/minizinc/datafiles/100.fzn -n",
+      "command": "Oxiflex Problems/slow_convergence/minizinc/datafiles/100.fzn -n",
       "mean": 0.12179358465826089,
       "stddev": 0.0033496553085006022,
       "median": 0.12161120018,
@@ -27,7 +27,7 @@
       }
     },
     {
-      "command": "oxiflex Problems/slow_convergence/minizinc/datafiles/200.fzn -n",
+      "command": "Oxiflex Problems/slow_convergence/minizinc/datafiles/200.fzn -n",
       "mean": 0.90434793488,
       "stddev": 0.01706965445046913,
       "median": 0.90063134618,
@@ -53,7 +53,7 @@
       }
     },
     {
-      "command": "oxiflex Problems/slow_convergence/minizinc/datafiles/300.fzn -n",
+      "command": "Oxiflex Problems/slow_convergence/minizinc/datafiles/300.fzn -n",
       "mean": 3.10556720448,
       "stddev": 0.03215638570566288,
       "median": 3.09782262968,
@@ -79,7 +79,7 @@
       }
     },
     {
-      "command": "oxiflex Problems/slow_convergence/minizinc/datafiles/400.fzn -n",
+      "command": "Oxiflex Problems/slow_convergence/minizinc/datafiles/400.fzn -n",
       "mean": 8.00803726478,
       "stddev": 0.2323267153008773,
       "median": 8.07783721218,
@@ -105,7 +105,7 @@
       }
     },
     {
-      "command": "oxiflex Problems/slow_convergence/minizinc/datafiles/500.fzn -n",
+      "command": "Oxiflex Problems/slow_convergence/minizinc/datafiles/500.fzn -n",
       "mean": 15.03480039418,
       "stddev": 0.6628118178531798,
       "median": 14.98316380268,
@@ -131,7 +131,7 @@
       }
     },
     {
-      "command": "oxiflex Problems/slow_convergence/minizinc/datafiles/600.fzn -n",
+      "command": "Oxiflex Problems/slow_convergence/minizinc/datafiles/600.fzn -n",
       "mean": 28.570293488280004,
       "stddev": 1.0101621282839017,
       "median": 28.25336293518,

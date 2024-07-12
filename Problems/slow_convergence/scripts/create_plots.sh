@@ -19,7 +19,7 @@ python3 Problems/plot_hyperfine.py \
 
 python3 Problems/plot_hyperfine.py \
   -o Problems/slow_convergence/plots/gecode.png \
-  --titles "oxiflex,gecode" \
+  --titles "Oxiflex,gecode" \
   Problems/slow_convergence/data/gecode.json
 
 python3 Problems/slow_convergence/scripts/plot_iterations.py

@@ -1,7 +1,7 @@
 {
   "results": [
     {
-      "command": "oxiflex Problems/queens/minizinc/datafiles/8.fzn -n -r",
+      "command": "Oxiflex Problems/queens/minizinc/datafiles/8.fzn -n -r",
       "mean": 0.001883931980649822,
       "stddev": 0.0006936349580994369,
       "median": 0.0017104201200000002,
@@ -14,7 +14,7 @@
       }
     },
     {
-      "command": "oxiflex Problems/queens/minizinc/datafiles/8.fzn -n",
+      "command": "Oxiflex Problems/queens/minizinc/datafiles/8.fzn -n",
       "mean": 0.002872363828641976,
       "stddev": 0.000496773836591933,
       "median": 0.00266669112,
@@ -27,7 +27,7 @@
       }
     },
     {
-      "command": "oxiflex Problems/queens/minizinc/datafiles/8.fzn -f -r",
+      "command": "Oxiflex Problems/queens/minizinc/datafiles/8.fzn -f -r",
       "mean": 0.002236015796540285,
       "stddev": 0.0006614524616966338,
       "median": 0.0020431546200000003,
@@ -40,7 +40,7 @@
       }
     },
     {
-      "command": "oxiflex Problems/queens/minizinc/datafiles/8.fzn -f",
+      "command": "Oxiflex Problems/queens/minizinc/datafiles/8.fzn -f",
       "mean": 0.0041744870175155335,
       "stddev": 0.0006970638444029982,
       "median": 0.0038746386200000003,
@@ -53,7 +53,7 @@
       }
     },
     {
-      "command": "oxiflex Problems/queens/minizinc/datafiles/10.fzn -n -r",
+      "command": "Oxiflex Problems/queens/minizinc/datafiles/10.fzn -n -r",
       "mean": 0.005753368569230768,
       "stddev": 0.00514130752421718,
       "median": 0.003926361120000001,
@@ -66,7 +66,7 @@
       }
     },
     {
-      "command": "oxiflex Problems/queens/minizinc/datafiles/10.fzn -n",
+      "command": "Oxiflex Problems/queens/minizinc/datafiles/10.fzn -n",
       "mean": 0.004467193281061949,
       "stddev": 0.0007002382623283912,
       "median": 0.00419950612,
@@ -79,7 +79,7 @@
       }
     },
     {
-      "command": "oxiflex Problems/queens/minizinc/datafiles/10.fzn -f -r",
+      "command": "Oxiflex Problems/queens/minizinc/datafiles/10.fzn -f -r",
       "mean": 0.00518898950582677,
       "stddev": 0.0031378881217643466,
       "median": 0.004142538120000001,
@@ -92,7 +92,7 @@
       }
     },
     {
-      "command": "oxiflex Problems/queens/minizinc/datafiles/10.fzn -f",
+      "command": "Oxiflex Problems/queens/minizinc/datafiles/10.fzn -f",
       "mean": 0.00631613293501341,
       "stddev": 0.0008176465994244071,
       "median": 0.00592810012,
@@ -105,7 +105,7 @@
       }
     },
     {
-      "command": "oxiflex Problems/queens/minizinc/datafiles/12.fzn -n -r",
+      "command": "Oxiflex Problems/queens/minizinc/datafiles/12.fzn -n -r",
       "mean": 0.013839876430704973,
       "stddev": 0.01743161275701126,
       "median": 0.00774342012,
@@ -118,7 +118,7 @@
       }
     },
     {
-      "command": "oxiflex Problems/queens/minizinc/datafiles/12.fzn -n",
+      "command": "Oxiflex Problems/queens/minizinc/datafiles/12.fzn -n",
       "mean": 0.0034471565810303834,
       "stddev": 0.0006074217796119511,
       "median": 0.00319998612,
@@ -131,7 +131,7 @@
       }
     },
     {
-      "command": "oxiflex Problems/queens/minizinc/datafiles/12.fzn -f -r",
+      "command": "Oxiflex Problems/queens/minizinc/datafiles/12.fzn -f -r",
       "mean": 0.010676790863538762,
       "stddev": 0.00897888808891693,
       "median": 0.007585398120000001,
@@ -144,7 +144,7 @@
       }
     },
     {
-      "command": "oxiflex Problems/queens/minizinc/datafiles/12.fzn -f",
+      "command": "Oxiflex Problems/queens/minizinc/datafiles/12.fzn -f",
       "mean": 0.00594117821690722,
       "stddev": 0.0009069770274227684,
       "median": 0.005507686120000001,
@@ -157,7 +157,7 @@
       }
     },
     {
-      "command": "oxiflex Problems/queens/minizinc/datafiles/14.fzn -n -r",
+      "command": "Oxiflex Problems/queens/minizinc/datafiles/14.fzn -n -r",
       "mean": 0.03839102237278809,
       "stddev": 0.06134380107335769,
       "median": 0.01839533712,
@@ -170,7 +170,7 @@
       }
     },
     {
-      "command": "oxiflex Problems/queens/minizinc/datafiles/14.fzn -n",
+      "command": "Oxiflex Problems/queens/minizinc/datafiles/14.fzn -n",
       "mean": 0.03066652172638299,
       "stddev": 0.003013746977782392,
       "median": 0.029855988120000003,
@@ -183,7 +183,7 @@
       }
     },
     {
-      "command": "oxiflex Problems/queens/minizinc/datafiles/14.fzn -f -r",
+      "command": "Oxiflex Problems/queens/minizinc/datafiles/14.fzn -f -r",
       "mean": 0.02646245325513513,
       "stddev": 0.022100278333767178,
       "median": 0.019127425120000003,
@@ -196,7 +196,7 @@
       }
     },
     {
-      "command": "oxiflex Problems/queens/minizinc/datafiles/14.fzn -f",
+      "command": "Oxiflex Problems/queens/minizinc/datafiles/14.fzn -f",
       "mean": 0.021907518176338035,
       "stddev": 0.0019821743843136414,
       "median": 0.02158357912,
@@ -209,7 +209,7 @@
       }
     },
     {
-      "command": "oxiflex Problems/queens/minizinc/datafiles/16.fzn -n -r",
+      "command": "Oxiflex Problems/queens/minizinc/datafiles/16.fzn -n -r",
       "mean": 0.08863043505537413,
       "stddev": 0.18497170941441501,
       "median": 0.030400486620000004,
@@ -222,7 +222,7 @@
       }
     },
     {
-      "command": "oxiflex Problems/queens/minizinc/datafiles/16.fzn -n",
+      "command": "Oxiflex Problems/queens/minizinc/datafiles/16.fzn -n",
       "mean": 0.004036190460909089,
       "stddev": 0.0006675559771943256,
       "median": 0.0037536391200000004,
@@ -235,7 +235,7 @@
       }
     },
     {
-      "command": "oxiflex Problems/queens/minizinc/datafiles/16.fzn -f -r",
+      "command": "Oxiflex Problems/queens/minizinc/datafiles/16.fzn -f -r",
       "mean": 0.04694839441090909,
       "stddev": 0.10046631278381873,
       "median": 0.021468568120000003,
@@ -248,7 +248,7 @@
       }
     },
     {
-      "command": "oxiflex Problems/queens/minizinc/datafiles/16.fzn -f",
+      "command": "Oxiflex Problems/queens/minizinc/datafiles/16.fzn -f",
       "mean": 0.013370739832041886,
       "stddev": 0.0014601889485555799,
       "median": 0.013001381120000002,
@@ -261,7 +261,7 @@
       }
     },
     {
-      "command": "oxiflex Problems/queens/minizinc/datafiles/18.fzn -n -r",
+      "command": "Oxiflex Problems/queens/minizinc/datafiles/18.fzn -n -r",
       "mean": 0.839299345360741,
       "stddev": 4.906215034069344,
       "median": 0.061689524120000006,
@@ -274,7 +274,7 @@
       }
     },
     {
-      "command": "oxiflex Problems/queens/minizinc/datafiles/18.fzn -n",
+      "command": "Oxiflex Problems/queens/minizinc/datafiles/18.fzn -n",
       "mean": 0.017828866324081635,
       "stddev": 0.0021464651134834854,
       "median": 0.017230223120000002,
@@ -287,7 +287,7 @@
       }
     },
     {
-      "command": "oxiflex Problems/queens/minizinc/datafiles/18.fzn -f -r",
+      "command": "Oxiflex Problems/queens/minizinc/datafiles/18.fzn -f -r",
       "mean": 0.07769908202265487,
       "stddev": 0.10731212832825134,
       "median": 0.04163958712,
@@ -300,7 +300,7 @@
       }
     },
     {
-      "command": "oxiflex Problems/queens/minizinc/datafiles/18.fzn -f",
+      "command": "Oxiflex Problems/queens/minizinc/datafiles/18.fzn -f",
       "mean": 0.024487402016825383,
       "stddev": 0.0019739899387603206,
       "median": 0.024260452120000005,
@@ -313,7 +313,7 @@
       }
     },
     {
-      "command": "oxiflex Problems/queens/minizinc/datafiles/20.fzn -n -r",
+      "command": "Oxiflex Problems/queens/minizinc/datafiles/20.fzn -n -r",
       "mean": 0.7572564872191375,
       "stddev": 3.3775016668441635,
       "median": 0.12930321911999998,
@@ -326,7 +326,7 @@
       }
     },
     {
-      "command": "oxiflex Problems/queens/minizinc/datafiles/20.fzn -n",
+      "command": "Oxiflex Problems/queens/minizinc/datafiles/20.fzn -n",
       "mean": 0.020976488986197177,
       "stddev": 0.002192935196038655,
       "median": 0.02058490962,
@@ -339,7 +339,7 @@
       }
     },
     {
-      "command": "oxiflex Problems/queens/minizinc/datafiles/20.fzn -f -r",
+      "command": "Oxiflex Problems/queens/minizinc/datafiles/20.fzn -f -r",
       "mean": 0.19748856892882352,
       "stddev": 0.6639665726724492,
       "median": 0.055253834120000005,
@@ -352,7 +352,7 @@
       }
     },
     {
-      "command": "oxiflex Problems/queens/minizinc/datafiles/20.fzn -f",
+      "command": "Oxiflex Problems/queens/minizinc/datafiles/20.fzn -f",
       "mean": 0.03571716393707318,
       "stddev": 0.0022021485716872346,
       "median": 0.035536377120000004,

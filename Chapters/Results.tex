@@ -1,5 +1,5 @@
 
-\chapter{Results}
+\chapter{Results} \label{chap:result}
 
 \section{Method}
 
@@ -14,7 +14,7 @@ For benchmarking two metrics where measured:
 
 For time measurments hyperfine is used. Each benchmark includes 3 warmup runs and is averaged. The longer the solver takes, the fewer runs are done. This is default behaviour of hyperfine. At least 10 runs made were made for each benchmark. Time is usually given in seconds. More time is worse. Iterations were measured by doing 5 runs and averaging the number of iterations used. More iterations is worse.
 
-A benchmark is a pair of problem size with a combination of algorithmic modifications to the solver. As oxiflex allows to enable each optimization we can create 8 optimization combinations. Note that by default the all optimizations are enabled and by passing flags to oxiflex we disable them.
+A benchmark is a pair of problem size with a combination of algorithmic modifications to the solver. As Oxiflex allows to enable each optimization we can create 8 optimization combinations. Note that by default the all optimizations are enabled and by passing flags to Oxiflex we disable them.
 
 \begin{itemize}
 	\item \verb|-n -r| \\
@@ -197,11 +197,11 @@ Next increasing $n$ for non arc consistency enforcing benchmarks. Figure~\ref{fi
 	\end{tabular}
 \end{table}
 
-For comparison figure~\ref{fig:slow:gecode} shows oxiflex compared to Gecode. Gecode is a constraint satisfaction problem solver compatible with MiniZinc with state-of-the art performance~\cite{gecode}. Note the steep increase in $n = 100..600$.
+For comparison figure~\ref{fig:slow:gecode} shows Oxiflex compared to Gecode. Gecode is a constraint satisfaction problem solver compatible with MiniZinc with state-of-the art performance~\cite{gecode}. Note the steep increase in $n = 100..600$.
 
 \begin{figure}[ht]
 	\centering
 	\includegraphics[width=0.8\textwidth]{./Problems/slow_convergence/plots/gecode.png}
-	\caption{oxiflex vs gecode}
+	\caption{Oxiflex vs gecode}
 	\label{fig:slow:gecode}
 \end{figure}

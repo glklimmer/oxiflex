@@ -34,7 +34,7 @@ function process_directory() {
 
   if [[ -n "$mzn_file" && -n "$dzn_file" ]]; then
     echo "Running minizinc in $dir"
-    minizinc --solver oxiflex "$mzn_file" "$dzn_file"
+    minizinc --solver Oxiflex "$mzn_file" "$dzn_file"
   else
     echo "No .mzn or .dzn file found in $dir"
   fi
