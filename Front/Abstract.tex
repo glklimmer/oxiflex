@@ -1,5 +1,5 @@
 
-\chapter{Abstract}
+\chapter*{Abstract}
 
 Constraint Satisfaction Problems (CSPs) are typical NP-complete combinatorial problems in the field of Artificial Intelligence. As part of this thesis we introduce Oxiflex, a CSP solver written from scratch in rust. Oxiflex is built on the MiniZinc toolchain and supports a subset of FlatZinc constraint builtins. Starting with a naive backtracking approach, we enhance Oxiflex by appling variable ordering and inference. Both forward checking and arc consistency enforcing algorithms using AC-1 and AC-3 are used for inference. Results show that variable ordering and forward checking have a positive impact on time measurments but AC-1 and AC-3 do not. However by measuring number of iterations results show that AC-1 and AC-3 can significantly reduce the number of iterations needed for backtracking. This work shows that inference works, but careful implementation is needed to make it fast.
 

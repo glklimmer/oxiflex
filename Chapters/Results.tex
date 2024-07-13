@@ -12,7 +12,7 @@ For benchmarking two metrics where measured:
 	      How many times the recursive algorithm was called.
 \end{itemize}
 
-For time measurments hyperfine is used. Each benchmark includes 3 warmup runs and is averaged. The longer the solver takes, the fewer runs are done. This is default behaviour of hyperfine. At least 10 runs made were made for each benchmark. Time is usually given in seconds. More time is worse. Iterations were measured by doing 5 runs and averaging the number of iterations used. More iterations is worse.
+For time measurments hyperfine~\cite{hyperfine:2023} is used. Each benchmark includes 3 warmup runs and is averaged. The longer the solver takes, the fewer runs are done. This is default behaviour of hyperfine. At least 10 runs made were made for each benchmark. Time is usually given in seconds. More time is worse. Iterations were measured by doing 5 runs and averaging the number of iterations used. More iterations is worse.
 
 A benchmark is a pair of problem size with a combination of algorithmic modifications to the solver. As Oxiflex allows to enable each optimization we can create 8 optimization combinations. Note that by default the all optimizations are enabled and by passing flags to Oxiflex we disable them.
 
@@ -45,8 +45,11 @@ The following Problem Domains where measured:
 All benchmark were performed on the same machine. \\
 
 \begin{tabular}{>{\hspace{1em}}l l}
-	CPU:    & Intel i7-6700K (8) @ 4.200GHz \\
-	Memory: & 6051MiB / 32021MiB            \\
+	CPU:               & Intel i7-6700K (8) @ 4.200GHz \\
+	Memory:            & 6051MiB / 32021MiB            \\
+	hyperfine version: & 1.16.1                        \\
+	Rust version:      & 1.76.0                        \\
+	Operating System:  & Pop!\_OS 22.04 LTS
 \end{tabular}
 
 \section{N-Queens}

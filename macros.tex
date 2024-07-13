@@ -1,0 +1,97 @@
+%% Macros to align the width of things.
+\newlength{\mywidth}
+\newcommand{\setmywidth}[1]{\settowidth{\mywidth}{#1}}
+\newcommand{\usemywidth}[1]{\makebox[\mywidth][l]{#1}}
+\newcommand{\usemywidthmath}[1]{\usemywidth{\ensuremath{#1}}}
+
+%% Indentation and other things for algorithms
+\newcommand{\comment}[1]{\hspace*{\fill}\hilite{[#1]}}
+%% for pseudo-code comments
+\newcommand{\keyword}[1]{\ensuremath{\textup{\textbf{#1}}}}
+\newcommand{\func}[1]{\ensuremath{\textup{#1}}}
+%% for pseudo-code
+\newcommand{\var}[1]{\ensuremath{\textit{#1}}}
+\newcommand{\variable}[1]{\ensuremath{\textit{#1}}}
+%% for pseudo-code and math variables
+\newcommand{\val}[1]{\ensuremath{\textup{#1}}}
+%% for values in a finite-domain variable's domain
+\newcommand{\op}[1]{\ensuremath{\textit{#1}}}
+%% for actions in action sequences in plans etc. (note that \action is
+%% already used by LaTeX or some package)
+
+\newcommand{\ind}{{}\qquad}
+\newcommand{\indtwo}{\ind\qquad}
+\newcommand{\indthree}{\indtwo\qquad}
+\newcommand{\indfour}{\indthree\qquad}
+\newcommand{\indfive}{\indfour\qquad}
+
+
+%% Math environments
+\newenvironment{tightalign}[1][c]{\par\(\begin{array}[#1]{@{}r@{}l}}
+               {\end{array}\)\par}
+\newenvironment{tightalignnopar}[1][c]{\(\begin{array}[#1]{@{}r@{}l}}
+               {\end{array}\)}
+
+%% Don't use proof environment for start of proof since that
+%% automatically adds a qed symbol at the end.
+\newenvironment{proofstart}{\begin{block}{Proof.}}{\hspace*{\fill}\dots\end{block}}
+\newenvironment{proofmiddle}{\begin{block}{Proof (continued).}}{\hspace*{\fill}\dots\end{block}}
+\newenvironment{proofend}{\begin{proof}[Proof (continued).]}{\end{proof}}
+\newenvironment{proofsketch}{\begin{block}{Proof sketch.}}{\end{block}}
+\newenvironment{proofsketchstart}{\begin{block}{Proof sketch.}}{\hspace*{\fill}\dots\end{block}}
+\newenvironment{proofsketchmiddle}{\begin{block}{Proof sketch (continued).}}{\hspace*{\fill}\dots\end{block}}
+\newenvironment{proofsketchend}{\begin{proof}[Proof sketch (continued).]}{\end{proof}}
+\newcommand{\tbc}{\hspace*{\fill}\dots}
+
+\newtheorem{proposition}{Proposition}
+
+%% Basic text stuff
+
+\newcommand<>{\hilite}[1]{\textcolor#2{structure.fg}{#1}}
+
+\newcommand{\ie}{i.e.}
+\newcommand{\eg}{e.g.}
+
+\newcommand{\grey}[1]{\textcolor{lightgray}{#1}}
+
+%% Algorithms, mathematical notation etc.
+\newcommand{\tuple}[1]{\ensuremath{\langle #1 \rangle}}
+
+\newcommand{\statespace}{\ensuremath{\mathcal S}}
+\newcommand{\states}{\ensuremath{S}}
+\newcommand{\actions}{\ensuremath{A}}
+\newcommand{\transitions}{\ensuremath{T}}
+\newcommand{\initstate}{\ensuremath{s_{\textup{I}}}}
+\newcommand{\goalstates}{\ensuremath{\states_{\textup{G}}}}
+\newcommand{\cost}{\ensuremath{\textit{cost}}}
+
+\newcommand{\hstar}{\ensuremath{h^*}}
+\newcommand{\astar}{\ensuremath{\textup{A}^*}}
+\newcommand{\idastar}{\ensuremath{\textup{IDA}^*}}
+\newcommand{\dom}{\textup{dom}}
+\newcommand{\sasplus}{\ensuremath{\textup{SAS}^+}}
+
+\newcommand{\true}{\ensuremath{\mathbf{T}}}
+\newcommand{\false}{\ensuremath{\mathbf{F}}}
+
+%% TODO: Use \trans in all parts of the lecture? We currently often
+%% use \xrightarrow directly.
+%%
+%% We use two different macros here because we really want to have the
+%% reduced size for \withcost (not least to fit things on the slides),
+%% but we don't want to use this style for all transitions, not least
+%% since as of this writing we often use \xrightarrow directly for
+%% transitions in earlier parts of the lecture. I'm defining \trans
+%% here as a synonym for \xrightarrow so that it is clear that in the
+%% lecture chapters that mix \trans and \withcost, this is intentional
+%% and not an accident. If we used \xrightarrow and \withcost, it
+%% might look more like we meant to use \withcost everywhere.
+\newcommand{\trans}[1]{\xrightarrow{#1}}
+\newcommand{\withcost}[1]{\xrightarrow{\raisebox{-1.5pt}[0pt][0pt]{\tiny\ensuremath{#1}}}}
+
+%% Macro for a big red cross overlay.
+\newcommand{\bigredcross}[2]{%
+  \begin{tikzpicture}[overlay]
+    \draw[line width=0.3cm,red] (0,#1) -- (\textwidth,#2);
+    \draw[line width=0.3cm,red] (0,#2) -- (\textwidth,#1);
+  \end{tikzpicture}}

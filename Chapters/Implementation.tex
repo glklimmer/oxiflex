@@ -1,5 +1,7 @@
 \chapter{Implementation} \label{chap:impl}
 
+% TODO: Add MiniZinc connection part
+
 \section{Oxiflex}
 
 As part of this thesis we present \textbf{Oxiflex}, a minimal constraint satisfaction problem solver from scratch for MiniZinc written in Rust. Oxiflex is a FlatZinc solver that can be used as an backend to MiniZinc. This means Oxiflex minimally supports the requirements for a solver to take advantage of the MiniZinc toolchain. The goal is to have a minimal solver and be able measure the impact of various improvements like forward checking on constraint satisfaction problem solvers.
@@ -10,31 +12,23 @@ Oxiflex is open-source and licensed under the MIT license. It is available at Gi
 
 Rust \cite{rust:2014} is a general purpose systems programming language focused on safety and performance. It achieves these goals without using a garbage collector by ensuring memory safety through a system of ownership with strict compile-time checks enforced by the borrow checker. This makes Rust particularly well-suited for creating performance-critical applications like CSP solvers where control over resources is crucial. This makes Rust an ideal choice for developing Oxiflex.
 
-\section{Dependecies}
+\subsection{Limitations}
 
-This work depends on previous work by others. This section highlights the components used by Oxiflex.
+Not all FlatZinc builtins are supported in Oxiflex. The idea is to implement just the needed builtins for any given interesting problem domain. Further are only \verb|int|s supported, no floating point values. With that there are no optimization solving structures available in Oxiflex to be able to search for an optimal solution instead of just any solution.
+
+\section{Dependecies}
 
 \subsection{flatzinc} \label{flatzinc}
 
-The library flatzinc~\cite{flatzinc:2020} is a FlatZinc parser for Rust. It parses the FlatZinc format into Rust structures and variables.
+The library flatzinc~\cite{flatzinc:2020} is a FlatZinc parser for Rust. It parses the FlatZinc format into Rust structures and variables. Oxiflex uses version \verb|0.3.20| of flatzinc.
 
 \subsection{structopt}
 
-The library structopt~\cite{structopt:2020} is utilized to parse command-line arguments in Oxiflex. This library simplifies setting up custom commands and options for Oxiflex.
-
-\subsection{hyperfine}
-
-The librabry hyperfine~\cite{hyperfine:2023} is a command-line benchmarking tool. We use hyperfine to measure and compare the performance of different solver strategies and optimizations.
+The library structopt~\cite{structopt:2020} is utilized to parse command-line arguments in Oxiflex. This library simplifies setting up custom commands and flags for Oxiflex. Oxiflex uses version \verb|0.3.26| of structopt.
 
 \section{Architecture}
 
-There are three main parts of Oxiflex.
-
-\begin{itemize}
-	\item parser
-	\item model
-	\item solver
-\end{itemize}
+Oxiflex is made up from three parts: parser, model and solver. The solver part can be fine tuned from outside by using command line flags that enable different solving strategies. The output is printed to standard output in a format given by the MiniZinc toolchain.
 
 \subsection{parser}
 
@@ -46,20 +40,9 @@ After parsing the FlatZinc file into Rust structures that can be used directly, 
 
 Variables all have an id. All variable ids are strings. Oxiflex also uses reference counting to store variable ids. As it is often also needed to pass variable ids around, we can mitigate the cost of calling \verb|clone| on variable ids by using reference counting. Instead of actually cloning variable ids, we just pass a pointer to the variable id needed. With reference counting we can ensure the actual memory for the variable id is freed after all pointers to it have been deleted.
 
-\subsection{Limitations}
-
-There are some limitations due to time constraints that currently limit Oxiflex as a universal MiniZinc solver. \\
-
-Not all FlatZinc builtins are supported. The idea is to implement just the needed builtins for any given insteresting problem domain.
-% Maybe add roadmap?
-
-% TODO: Only ints are available
-
-% TODO: Only solving, no optimization
-
 \section{Solver}
 
-The solver is the core part of Oxiflex. By allowing control over what optimization is turned on or off we can measure the impact of each optimization individually. As discussed in \cref{chap:solveCSP}: \nameref{solving_csp}, there are various optimizations for solving CSPs. See the following diagram to see all optimizations implemented in Oxiflex. \\
+The solver is the core part of Oxiflex. By allowing control over what optimization is turned on or off we can measure the impact of each optimization individually. As discussed in \cref{chap:solveCSP} there are various optimizations for solving CSPs. See the following diagram to see all optimizations implemented in Oxiflex. \\
 
 \begin{tikzpicture}[node distance=2cm and 3cm, auto]
 	% Styles

@@ -14,6 +14,17 @@
 \usepackage{tikz}
 \usetikzlibrary{shapes, arrows.meta, positioning}
 \usepackage{multirow}
+\usepackage{algpseudocodex}
+
+\tcbuselibrary{theorems} % Load theorems library
+
+% Define a new tcolorbox environment
+\newtcbtheorem[number within=section]{example}{Example}{
+    colback=green!5,
+    colframe=green!35!black,
+    fonttitle=\bfseries,
+}{ex}
+
 
 %% ----------------------------------------------------------------
 
@@ -62,11 +73,11 @@
 \input{./Chapters/Results}
 \input{./Chapters/Conclusion}
 %% ----------------------------------------------------------------
-\thesisappendix
+% \thesisappendix
 \thesisbib
-\begin{appendices}
-	\input{./Back/AppendixA}
-\end{appendices}
+% \begin{appendices}
+% 	\input{./Back/AppendixA}
+% \end{appendices}
 %% ----------------------------------------------------------------
 \thesisback
 \iflanguage{english}

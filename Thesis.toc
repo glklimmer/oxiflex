@@ -1,41 +1,39 @@
 \babel@toc {english}{}\relax 
 \babel@toc {english}{}\relax 
-\contentsline {chapter}{Abstract}{ii}{chapter*.1}%
 \vspace {2em}
 \contentsline {chapter}{\chapternumberline {1}Introduction}{1}{chapter.3}%
 \contentsline {chapter}{\chapternumberline {2}Constraint Satisfaction Problems}{3}{chapter.4}%
-\contentsline {section}{\numberline {2.1}Constraint Satisfaction Problems}{3}{section.5}%
-\contentsline {section}{\numberline {2.2}MiniZinc}{4}{section.6}%
-\contentsline {subsection}{\numberline {2.2.1}FlatZinc}{5}{subsection.7}%
-\contentsline {section}{\numberline {2.3}Queens Problem}{7}{section.9}%
-\contentsline {chapter}{\chapternumberline {3}Solving Constraint Satisfaction Problems}{9}{chapter.10}%
-\contentsline {section}{\numberline {3.1}Naive Backtracking}{9}{section.11}%
-\contentsline {subsection}{\numberline {3.1.1}Variable Ordering}{10}{subsection.12}%
-\contentsline {section}{\numberline {3.2}Inference}{10}{section.13}%
-\contentsline {subsection}{\numberline {3.2.1}Forward Checking}{12}{subsection.14}%
-\contentsline {subsection}{\numberline {3.2.2}Arc Consistency}{12}{subsection.15}%
-\contentsline {subsubsection}{\numberline {3.2.2.1}Enforcing Arc Consistency}{12}{subsubsection.16}%
-\contentsline {chapter}{\chapternumberline {4}Implementation}{14}{chapter.17}%
-\contentsline {section}{\numberline {4.1}Oxiflex}{14}{section.18}%
-\contentsline {section}{\numberline {4.2}Rust}{14}{section.19}%
-\contentsline {section}{\numberline {4.3}Dependecies}{14}{section.20}%
-\contentsline {subsection}{\numberline {4.3.1}flatzinc}{14}{subsection.21}%
-\contentsline {subsection}{\numberline {4.3.2}structopt}{15}{subsection.22}%
-\contentsline {subsection}{\numberline {4.3.3}hyperfine}{15}{subsection.23}%
-\contentsline {section}{\numberline {4.4}Architecture}{15}{section.24}%
-\contentsline {subsection}{\numberline {4.4.1}parser}{15}{subsection.25}%
-\contentsline {subsection}{\numberline {4.4.2}model}{15}{subsection.26}%
-\contentsline {subsection}{\numberline {4.4.3}Limitations}{16}{subsection.27}%
-\contentsline {section}{\numberline {4.5}Solver}{16}{section.28}%
-\contentsline {subsection}{\numberline {4.5.1}Value Ordering}{17}{subsection.29}%
-\contentsline {subsection}{\numberline {4.5.2}Forward Checking}{17}{subsection.30}%
-\contentsline {subsection}{\numberline {4.5.3}Arc Consistency}{17}{subsection.31}%
-\contentsline {chapter}{\chapternumberline {5}Results}{18}{chapter.32}%
-\contentsline {section}{\numberline {5.1}Method}{18}{section.33}%
-\contentsline {section}{\numberline {5.2}N-Queens}{19}{section.34}%
-\contentsline {section}{\numberline {5.3}Slow Convergence}{21}{section.41}%
-\contentsline {chapter}{\chapternumberline {6}Conclusion}{25}{chapter.48}%
-\vspace {2em}
-\contentsline {chapter}{Bibliography}{27}{appendix*.49}%
-\contentsline {appendix}{\chapternumberline {A}Appendix}{28}{appendix.50}%
+\contentsline {section}{\numberline {2.1}Overview}{3}{section.5}%
+\contentsline {section}{\numberline {2.2}MiniZinc}{4}{section.7}%
+\contentsline {subsection}{\numberline {2.2.1}FlatZinc}{5}{subsection.9}%
+\contentsline {section}{\numberline {2.3}Queens Problem}{7}{section.13}%
+\contentsline {chapter}{\chapternumberline {3}Solving Constraint Satisfaction Problems}{9}{chapter.16}%
+\contentsline {section}{\numberline {3.1}Naive Backtracking}{9}{section.17}%
+\contentsline {subsection}{\numberline {3.1.1}Variable Ordering}{10}{subsection.18}%
+\contentsline {section}{\numberline {3.2}Inference}{10}{section.19}%
+\contentsline {subsection}{\numberline {3.2.1}Forward Checking}{12}{subsection.20}%
+\contentsline {subsection}{\numberline {3.2.2}Arc Consistency}{12}{subsection.21}%
+\contentsline {subsubsection}{\numberline {3.2.2.1}Enforcing Arc Consistency}{12}{subsubsection.22}%
+\contentsline {chapter}{\chapternumberline {4}Implementation}{14}{chapter.23}%
+\contentsline {section}{\numberline {4.1}Oxiflex}{14}{section.24}%
+\contentsline {section}{\numberline {4.2}Rust}{14}{section.25}%
+\contentsline {subsection}{\numberline {4.2.1}Limitations}{14}{subsection.26}%
+\contentsline {section}{\numberline {4.3}Dependecies}{15}{section.27}%
+\contentsline {subsection}{\numberline {4.3.1}flatzinc}{15}{subsection.28}%
+\contentsline {subsection}{\numberline {4.3.2}structopt}{15}{subsection.29}%
+\contentsline {section}{\numberline {4.4}Architecture}{15}{section.30}%
+\contentsline {subsection}{\numberline {4.4.1}parser}{15}{subsection.31}%
+\contentsline {subsection}{\numberline {4.4.2}model}{15}{subsection.32}%
+\contentsline {section}{\numberline {4.5}Solver}{16}{section.33}%
+\contentsline {subsection}{\numberline {4.5.1}Value Ordering}{16}{subsection.34}%
+\contentsline {subsection}{\numberline {4.5.2}Forward Checking}{17}{subsection.35}%
+\contentsline {subsection}{\numberline {4.5.3}Arc Consistency}{17}{subsection.36}%
+\contentsline {chapter}{\chapternumberline {5}Results}{18}{chapter.37}%
+\contentsline {section}{\numberline {5.1}Method}{18}{section.38}%
+\contentsline {section}{\numberline {5.2}N-Queens}{19}{section.39}%
+\contentsline {section}{\numberline {5.3}Slow Convergence}{21}{section.46}%
+\contentsline {chapter}{\chapternumberline {6}Conclusion}{25}{chapter.53}%
+\contentsline {section}{\numberline {6.1}Discussion}{25}{section.54}%
+\contentsline {section}{\numberline {6.2}Future work}{26}{section.55}%
+\contentsline {chapter}{Bibliography}{27}{chapter*.56}%
 \vspace {2em}

@@ -1,39 +1,34 @@
 \chapter{Constraint Satisfaction Problems} \label{chap:CSP}
 
-\section{Constraint Satisfaction Problems}
+\section{Overview}
 
-Constraint Satisfaction Problems (CSP) \cite{csp:1987} are mathematical questions defined as a finite set of variables whose value must satisfy a number of constraints or limitations. When solely talking about the problem without the algorithmic finding of a solution, these are called Constraint Networks. CSPs are typical NP-complete combinatorial problems in the field of AI.
+Constraint Satisfaction Problems (CSP) \cite{csp:1987} are mathematical questions defined as a finite set of variables whose value must satisfy a number of constraints or limitations. When solely talking about the problem without the algorithmic finding of a solution, these are called Constraint Networks. CSPs are typical NP-complete combinatorial problems in the field of Artificial Intelligence. See Example \ref{ex:simple-network} for an simple constraint network. \\
 
-\begin{tcolorbox}[title=Example:]
+\begin{example}{Simple Constraint Network}{simple-network}
 	\begin{multicols}{2}
-		\begin{equation*}
-			\begin{aligned}
-				w & = \{1, 2, 3, 4\} \\
-				y & = \{1, 2, 3, 4\} \\
-				x & = \{1, 2, 3\}    \\
-				z & = \{1, 2, 3\}    \\
-			\end{aligned}
-		\end{equation*}
+		$\begin{aligned}
+				 & w = \{1, 2, 3, 4\} \\
+				 & y = \{1, 2, 3, 4\} \\
+				 & x = \{1, 2, 3\}    \\
+				 & z = \{1, 2, 3\}    \\
+			\end{aligned}$
 
 		\columnbreak
 
-		\noindent
-		\begin{equation*}
-			\begin{aligned}
-				\textbf{where:} \\
-				w = 2 \cdot x   \\
-				w < z           \\
-				y > z           \\
-			\end{aligned}
-		\end{equation*}
+		$\begin{aligned}
+				\text{\textbf{where:}} &               \\
+				                       & w = 2 \cdot x \\
+				                       & w < z         \\
+				                       & y > z         \\
+			\end{aligned}$
 	\end{multicols}
-\end{tcolorbox}
+\end{example}
 
-We define variables $w$, $y$, $x$ and $z$. Variables $w$ and $y$ can both have one value from $\{1, 2, 3, 4\}$ and variables $x$ and $z$ can have a value from $\{1, 2, 3\}$. The constraints then restrict which values are valid from their respective domains. Here $w = 2 \cdot x$ restrict the value of $x$ to be double of $w$ for example. If there are no constraints for variables, the constraints are still there but they allow every assignment. These constraints are called trivial constraints and are usually omitted.
+We define variables $w$, $y$, $x$ and $z$. Variables $w$ and $y$ can both have one value from $\{1, 2, 3, 4\}$ and variables $x$ and $z$ can have one value from $\{1, 2, 3\}$. The constraints then restrict which values are valid from their respective domains. Here $w = 2 \cdot x$ restrict the value of $x$ to be double of $w$ for example. If there are no constraints for variables, the constraints are still there but they allow every assignment. These constraints are called trivial constraints and are usually omitted.
 
-In this example we define constraints in a mathmatical notation. There are no formal restrictions on stating constraints neither by their complexity nor by the number of variables involved. To make it easier to reason about within this text, we model constraints as binary constraint sets. This is only for simplification. Constraints are then sets of valid value pairs for two specific variables. Instead of stating the desired relation between any variables, we list all valid value pair tuples in a set. Constraint $w < z$ then becomes $(R_{wz} = \{(1, 2), (1, 3), (2, 3)\}$ which contains all possible value pairs for the two varaibles $w$ and $z$.
+In this example we define constraints in a mathmatical notation. There are no formal restrictions on stating constraints neither by their complexity nor by the number of variables involved. To make it easier to reason about and easier to understand, we model constraints as binary constraint sets within this explanation. This is not needed when implementing the constraints later. Constraints are then sets of valid value pairs for two specific variables. Instead of stating the desired relation between any variables, we list all valid value pair tuples in a set. Constraint $w < z$ then becomes $(R_{wz} = \{(1, 2), (1, 3), (2, 3)\}$ which contains all possible value pairs for the two varaibles $w$ and $z$. \\ \\
 
-We define Constraint Networks formally:
+We define constraint networks formally:
 
 \begin{tcolorbox}
 	A (binary) constraint network is a 3-tuple $C = <V, \text{dom}, (R_{uv})>$ such that:
@@ -61,13 +56,13 @@ And we define our example formally:
 	\end{itemize}
 \end{tcolorbox}
 
-The goal in CSP is then to find a Assignment that satisfies all constraints. For this simple example a possible assignment would be $(w \mapsto 2), (x \mapsto 1), (y \mapsto 4), (z \mapsto 3)$.
+The goal in CSP is then to find a assignment that satisfies all constraints. For this simple example a possible assignment would be $(w \mapsto 2), (x \mapsto 1), (y \mapsto 4), (z \mapsto 3)$.
 
 \section{MiniZinc}
 
-MiniZinc~\cite{minizinc:2007} is a free and open-source constraint modeling language developed at and by Monash University in Australia. It allows us to express Constraint Satisfaction Problems in a mathmatical notation-like way.
+MiniZinc~\cite{minizinc:2007} is a free and open-source constraint modeling language developed at and by Monash University in Australia. It allows us to express Constraint Satisfaction Problems in a mathmatical notation-like way. MiniZinc also holds an annual competition of constraint programming solvers on a variety of benchmarks. Here we will be talking about the modeling language. See our simple example \ref{ex:simple-network} written in the MiniZinc language with example \ref{ex:simple-minizinc}.
 
-\begin{tcolorbox}[title=MiniZinc example]
+\begin{example}{MiniZinc Translation}{simple-minizinc}
 	var 1..4: w; \\
 	var 1..4: y; \\
 	var 1..3: x; \\
@@ -78,19 +73,19 @@ MiniZinc~\cite{minizinc:2007} is a free and open-source constraint modeling lang
 	constraint y $>$ z; \\
 
 	solve satisfy;
-\end{tcolorbox}
+\end{example}
 
-MiniZinc is only the language to express a problem domain. Once a problem domain is specified in MiniZinc we can give the problem to multiple solvers to solve them. In this way we can compare the performance of various solvers on the same problem domain. MiniZinc Domain files have the file extension \verb|.mzn|.
+MiniZinc is only the language to express a problem domain. Once a problem domain is specified in MiniZinc we can give the problem to multiple solvers to solve them. In this way we can compare the performance of various solvers on the same problem domain. Note that in MiniZinc we also specify how we want the problem to be solved. With \verb|solve satisfy;| we can tell the solver to give us any solution that satisfies the constraints. MiniZinc also supports \verb|solve maximize| and \verb|solve minimize| for optimization problems. We will be focusing on finding any solution.
 
-MiniZinc also provides a way to parametrize a problem domain. This is a great way to scale a problem space up and see how increasing the problem size affects the solving speed. A great example for this is the Queens Problem (See Section~\ref{sec:queens}). We define the Queens Problem domain once and can then run specific problem instances for different $n$. This makes it really easy to compare the solving speed for the queens problem when $n = 8$, $n = 16$ or $n = 32$. Files where we specify parameters for MiniZinc files are called data files and have the extension \verb|.dzn|. We can than combine \verb|.mzn| files with \verb|.dzn| files to created FlatZinc files.
+MiniZinc also provides a way to parametrize a problem domain. This is a great way to scale a problem size up and see how increasing the problem size affects the solving speed. A great example for this is the Queens Problem (See Section~\ref{sec:queens}). We define the Queens Problem domain once and can then run specific problem instances for different $n$. This makes it really easy to compare the solving speed for the queens problem when $n = 8$, $n = 16$ or $n = 32$. Those files where we specify parameters for MiniZinc files are called data files and have the extension \verb|dzn|. Files where we define the problem domain like in Example \ref{ex:simple-minizinc} are called MiniZinc files and have the file extension \verb|mzn|. We can combine \verb|mzn| files with \verb|dzn| files to created FlatZinc files that a solver is able to read and solve.
 
 \subsection{FlatZinc}
 
-FlatZinc is a simpler problem specification language provided by the MiniZinc package. It is designed to be used by solvers directly. MiniZinc files are translated to FlatZinc files in a pre-solving step. FlatZinc files have the file extension \verb|.fzn|.
+FlatZinc is a simpler problem specification language provided by the MiniZinc toolchain. It is designed to be used by solvers directly. MiniZinc files in combination with data files are translated to FlatZinc files in a pre-solving step. FlatZinc files have the file extension \verb|fzn| and can directly be read by solvers.
 
-Translating from MiniZinc to FlatZinc maps more advanced instructions from MiniZinc to primitives supported in FlatZinc. An analogy to this translation is compiling a C program to Assembly where MiniZinc is C and FlatZinc is Assembly. FlatZinc therefore requires solvers to support a set of standard contraints called FlatZinc builtins. Builtins need to be implemented to be a fully compatible FlatZinc solver. See the following for an FlatZinc translation using our simple example.
+Translating from MiniZinc to FlatZinc maps more advanced instructions from MiniZinc to primitives supported in FlatZinc. An analogy to this translation is compiling a C program to Assembly where MiniZinc is C and FlatZinc is Assembly. FlatZinc therefore requires solvers to support a set of standard contraints called FlatZinc builtins. Builtins need to be implemented to be a fully compatible FlatZinc solver. See Example \ref{ex:simple-flatzinc} for an FlatZinc translation using our Simple Example \ref{ex:simple-minizinc}.
 
-\begin{tcolorbox}[title=Simple example translated to FlatZinc (Simplified)]
+\begin{example}{FlatZinc Translation (Simplified)}{simple-flatzinc}
 	array [1..2] of int: x\_introduced\_2\_ = [1,-2]; \\
 	array [1..2] of int: x\_introduced\_3\_ = [1,-1]; \\
 	array [1..2] of int: x\_introduced\_4\_ = [-1,1]; \\
@@ -102,59 +97,62 @@ Translating from MiniZinc to FlatZinc maps more advanced instructions from MiniZ
 	constraint int\_lin\_le(x\_introduced\_3\_,[w,z],-1); \\
 	constraint int\_lin\_le(x\_introduced\_4\_,[y,z],-1); \\
 	solve  satisfy;
-\end{tcolorbox}
+\end{example}
 
-The translation of the variable declations is straight forward. For the constraints, MiniZinc translated all constraints into FlatZinc builtin constraints. For our simple example MiniZinc used two builtins: \verb|int_lin_eq| and \verb|int_lin_le|. See the lines that start with \verb|constraint|. We will look at \verb|int_lin_eq| further to see how FlatZinc builtins work. The following is the signature of the builtin \verb|int_lin_eq| that was used for the constraint $w = 2 \cdot x$.
+The translation of the variable declations is straight forward. For the constraints, MiniZinc translated all constraints into FlatZinc builtin constraints. For our simple example MiniZinc used two builtins: \verb|int_lin_eq| and \verb|int_lin_le|. See the lines that start with \verb|constraint|. We will look at \verb|int_lin_eq| further to see how FlatZinc builtins work. Example \ref{ex:builtin} shows the signature of the builtin \verb|int_lin_eq| that was used for the constraint $w = 2 \cdot x$. \\
 
-\begin{tcolorbox}[title=int\_lin\_eq builtin signature]
+\begin{example}{FlatZinc builtin: int\_lin\_eq}{builtin}
 	predicate int\_lin\_eq(array [int] of int: as,\\
-	array [int] of var int: bs,\\
-	int: c)
-\end{tcolorbox}
+	\null \hspace*{2.95cm} array [int] of var int: bs,\\
+	\null \hspace*{2.95cm} int: c)
+\end{example}
 
 Note that the builtin \verb|int_lin_eq| expects 3 parameters. The first \verb|as| is an array of \verb|int| constants. This is what the example FlatZinc translation named \verb|x_introduced_2|. This array is called a parameter, because it has concrete values assigned to it. Here \verb|x_introduced_2| has the value \verb|[1,-2]| assigned. The second parameter \verb|bs| is an array of \verb|int| variables, that is an array of variables that we want to solve for. Here the variables $w$ and $x$ are passed in also as an array \verb|[w,x]|. The third parameter \verb|c| is also a parameter because it is also a constant value that needs to be passed. Here the value for \verb|c| is $0$.
 
-Every FlatZinc builtin also has a description for when the constraint is valid or violated respectively. For \verb|int_lin_eq| the description is as follows.
+Every FlatZinc builtin also has a description for when the constraint is valid or violated respectively. For \verb|int_lin_eq| the description is given with \cref{eq:int_lin_eq}.
 
-\begin{tcolorbox}[title=int\_lin\_eq builtin constraint]
-	\begin{equation}
-		c = \sum_{i} \text{as}[i] \cdot \text{bs}[i]
-	\end{equation}
-\end{tcolorbox}
+\begin{equation} \label{eq:int_lin_eq}
+	c = \sum_{i} \text{as}[i] \cdot \text{bs}[i]
+\end{equation}
 
-For this builtin MiniZinc translated our constraint into a linear combination. With our example we can fill in the passed parameters to the constraint and we get $0 = w - 2x$ which can be rearranged to $w = 2 \cdot x$.
+For this builtin, MiniZinc translated our constraint into a linear combination. With our example we can fill in the passed parameters to the constraint and we get $0 = w - 2x$ which can be rearranged to $w = 2 \cdot x$.
 
-Note that FlatZinc created these parameter arrays by itself. The \verb|x| within \verb|x_introduced_2_| is not the same as our variable $x$ that we defined within MiniZinc.
+Note that MiniZinc created these parameter arrays by itself. The \verb|x| within \verb|x_introduced_2_| is not the same as our variable $x$ that we defined within MiniZinc. Also does the $2$ in the name have nothing to do with our model but is instead defined by the MiniZinc translation.
 
 Also note that for the translation MiniZinc already does some basic level of inference. The FlatZinc variable $w$ can only have values between $2$ and $4$ in the translated FlatZinc. Whereas in the MiniZinc version we defined $w$ with the domain $\{1, 2, 3, 4\}$. This means MiniZinc infers that $w$ can not be value $1$ and removes it from its domain declaration. Due to the constraint $w = 2 \times x$, the variable $w$ has to be double of $x$ and $x$ must have at least value $1$. Therefore excluding $1$ as possible value for $w$.
 
 \section{Queens Problem} \label{sec:queens}
 
-Also called the Eight Queens Puzzle, the Queens Problem is an example of a classic constraint satisfaction problem that involves placing eight queens on an 8x8 chessboard in such a way that no two queens threaten each other. That is, no two queens can share the same row, column, or diagonal. See the following for an example solution to the 8-Queens Problem.
+Also called the Eight Queens Puzzle, the Queens Problem is an example of a classic constraint satisfaction problem that involves placing eight queens on an 8x8 chessboard in such a way that no two queens threaten each other. That is, no two queens can share the same row, column, or diagonal. See \cref{fig:queens-solved} for an example solution to the 8-Queens Problem.
 
-\newchessgame
-\chessboard[setfen=1Q6/3Q4/5Q2/7Q/2Q5/Q7/6Q1/4Q3 w - - 0 1, showmover=false] \\
+\begin{figure}[ht]
+	\centering
+	\newchessgame
+	\chessboard[setfen=1Q6/3Q4/5Q2/7Q/2Q5/Q7/6Q1/4Q3 w - - 0 1, showmover=false]
+	\caption{Possible solution to the 8-Queens problems.}
+	\label{fig:queens-solved}
+\end{figure}
 
-The Eigth Queens Puzzle is really good suited as an example problem domain for constraint satisfaction problems because it is easy to understand and can also easily be scaled up to increase complexity for a solver. By generalizing the problem from a fixed $8 \times 8$ grid size to an $n \times n$ grid with $n$ queens, the problem remains the same in principle, but gets way harder to solve. See the following example of the queens problem modeled in MinZinc \cite{minizinc_queens:2006}.
+The Eigth Queens Puzzle is really good suited as an example problem domain for constraint satisfaction problems because it is easy to understand and can also easily be scaled up to increase complexity for a solver. By generalizing the problem from a fixed $8 \times 8$ grid size to an $n \times n$ grid with $n$ queens, the problem remains the same in principle, but gets way harder to solve. See Example \ref{ex:queens-minizinc} \cite{minizinc_queens:2006} for the N-Queens Problem modeled in MinZinc.
 
-\begin{tcolorbox}[title=MiniZinc Model for N-Queens Problem]
+\begin{example}{N-Queens Problem MiniZinc Model}{queens-minizinc}
 	int: n; \\
 
 	array [1..n] of var 1..n: q; \\
 
 	predicate \\
-	noattack(int: i, int: j, var int: qi, var int: qj) = \\
-	qi     != qj     /\textbackslash \\
-	qi + i != qj + j /\textbackslash \\
-	qi - i != qj - j; \\
+	\null \qquad noattack(int: i, int: j, var int: qi, var int: qj) = \\
+	\null \qquad \qquad  qi     != qj     /\textbackslash \\
+	\null \qquad \qquad  qi + i != qj + j /\textbackslash \\
+	\null \qquad \qquad  qi - i != qj - j; \\
 
 	constraint \\
-	forall (i in 1..n, j in i+1..n) ( \\
-	noattack(i, j, q[i], q[j]) \\
-	); \\
-
+	\null \qquad forall (i in 1..n, j in i+1..n) ( \\
+	\null \qquad \qquad noattack(i, j, q[i], q[j]) \\
+	\null \qquad ); \\
+	\\
 	solve satisfy;
-\end{tcolorbox}
+\end{example}
 
-This MiniZinc model defines an array of variables $q$ where each index corresponds to a column on the chessboard and the value at each index represents the row position of the queen in that column. The constraints ensure that no two queens are on the same row, column or diagonal.
+This MiniZinc model defines an array of variables $q$ where each index corresponds to a column on the chessboard and the value at each index represents the row position of the queen in that column. The constraints ensure that no two queens are on the same row, column or diagonal. Note that this model recieves a parameter $n$ and is therefore not specific to $8$ queens.
 

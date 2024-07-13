@@ -8,54 +8,54 @@ Warning--entry type for "minizinc_queens:2006" isn't style-file defined
 Warning--entry type for "minizinc_slow:2018" isn't style-file defined
 --line 65 of file thesis.bib
 Warning--entry type for "flatzinc:2020" isn't style-file defined
---line 137 of file thesis.bib
+--line 149 of file thesis.bib
 Warning--entry type for "structopt:2020" isn't style-file defined
---line 147 of file thesis.bib
+--line 159 of file thesis.bib
 Warning--entry type for "hyperfine:2023" isn't style-file defined
---line 157 of file thesis.bib
+--line 169 of file thesis.bib
 Warning--entry type for "gecode" isn't style-file defined
---line 167 of file thesis.bib
+--line 179 of file thesis.bib
 Warning--can't use both volume and number fields in rust:2014
 Warning--empty booktitle in original_arc:1988
-You've used 14 entries,
+You've used 15 entries,
             2543 wiz_defined-function locations,
-            643 strings with 5966 characters,
-and the built_in function-call counts, 5325 in all, are:
-= -- 527
-> -- 185
-< -- 16
-+ -- 56
-- -- 55
-* -- 347
-:= -- 821
-add.period$ -- 41
-call.type$ -- 14
-change.case$ -- 78
-chr.to.int$ -- 14
-cite$ -- 16
-duplicate$ -- 230
-empty$ -- 446
-format.name$ -- 77
-if$ -- 1140
+            652 strings with 6202 characters,
+and the built_in function-call counts, 5912 in all, are:
+= -- 590
+> -- 212
+< -- 17
++ -- 64
+- -- 63
+* -- 385
+:= -- 909
+add.period$ -- 45
+call.type$ -- 15
+change.case$ -- 84
+chr.to.int$ -- 15
+cite$ -- 17
+duplicate$ -- 256
+empty$ -- 489
+format.name$ -- 86
+if$ -- 1272
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 8
-newline$ -- 69
-num.names$ -- 46
-pop$ -- 101
+missing$ -- 9
+newline$ -- 74
+num.names$ -- 51
+pop$ -- 108
 preamble$ -- 1
-purify$ -- 92
+purify$ -- 99
 quote$ -- 0
-skip$ -- 209
+skip$ -- 234
 stack$ -- 0
-substring$ -- 302
-swap$ -- 53
-text.length$ -- 16
+substring$ -- 341
+swap$ -- 63
+text.length$ -- 17
 text.prefix$ -- 9
 top$ -- 0
-type$ -- 112
+type$ -- 120
 warning$ -- 2
-while$ -- 49
-width$ -- 16
-write$ -- 176
+while$ -- 56
+width$ -- 17
+write$ -- 191
 (There were 8 warnings)

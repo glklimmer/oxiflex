@@ -6,6 +6,13 @@ Christian Bessière.
 \newblock Arc-consistency and arc-consistency again.
 \newblock {\em Artificial Intelligence}, 65(1):179--190, 1994.
 
+\bibitem[BG95]{forward_checking:1995}
+Fahiem Bacchus and Adam Grove.
+\newblock On the forward checking algorithm.
+\newblock In Ugo Montanari and Francesca Rossi, editors, {\em Principles and
+  Practice of Constraint Programming --- CP '95}, pages 292--309, Berlin,
+  Heidelberg, 1995. Springer Berlin Heidelberg.
+
 \bibitem[BR75]{backtracking:1975}
 James~R. Bitner and Edward~M. Reingold.
 \newblock Backtrack programming techniques.

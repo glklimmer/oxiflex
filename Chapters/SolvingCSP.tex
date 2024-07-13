@@ -29,7 +29,7 @@ Result: Total assignment (solution) of $C$ or \textbf{inconsistent}.
 
 This algorithm corresponds to Depth First Search (DFS). It assigns values to variables from their domains to form a partial assignment. This process continues until either all variables are assigned and a solution is found, or a constraint is violated. If a constraint is violated, the algorithm backtracks and tries a different value from the domain until a solution is found. If all possible assignments violate constraints, there is no solution. Finding a total assignment, that is an partial assignment that gives each variable a valid value from its domain, is finding a solution.
 
-Backtracking is far from the best way to solve CSPs.
+Backtracking is far from the best way to solve CSPs \cite{forward_checking:1995}.
 
 \subsection{Variable Ordering}
 
