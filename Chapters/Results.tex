@@ -12,9 +12,9 @@ For benchmarking two metrics where measured:
 	      How many times the recursive algorithm was called.
 \end{itemize}
 
-For time measurments hyperfine~\cite{hyperfine:2023} is used. Each benchmark includes 3 warmup runs and is averaged. The longer the solver takes, the fewer runs are done. This is default behaviour of hyperfine. At least 10 runs made were made for each benchmark. Time is usually given in seconds. More time is worse. Iterations were measured by doing 5 runs and averaging the number of iterations used. More iterations is worse.
+For time measurments hyperfine~\cite{hyperfine:2023} is used. Each time benchmark includes 3 warmup runs and is averaged. The longer the solver takes, the fewer runs are done. This is default behaviour of hyperfine. At least 10 runs made were made for each benchmark. Time is given in seconds. Iterations were measured by doing 5 runs and averaging the number of iterations used.
 
-A benchmark is a pair of problem size with a combination of algorithmic modifications to the solver. As Oxiflex allows to enable each optimization we can create 8 optimization combinations. Note that by default the all optimizations are enabled and by passing flags to Oxiflex we disable them.
+A benchmark is a pair of problem size and a combination of algorithmic modifications to the solver. As Oxiflex allows to enable each optimization we can create 8 optimization combinations.
 
 \begin{itemize}
 	\item \verb|-n -r| \\
@@ -54,7 +54,7 @@ All benchmark were performed on the same machine. \\
 
 \section{N-Queens}
 
-Figure~\ref{fig:queens:time} shows the N-Queens Problem (See~\ref{sec:queens}:~\nameref{sec:queens}) with $n = 4..14$. Figure~\ref{fig:queens:iterations} shows benchmarks with the same parameters for measurements of iterations.
+~\cref{fig:queens:time} shows the runtime comparison for the N-Queens Problem (See~\ref{sec:queens}:~\nameref{sec:queens}) with $n = 8..20$. ~\cref{fig:queens:iterations} shows benchmarks with the same parameters for measurements of iterations.
 
 \begin{figure}[ht]
 	\centering

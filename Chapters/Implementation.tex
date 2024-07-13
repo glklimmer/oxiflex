@@ -4,9 +4,9 @@
 
 \section{Oxiflex}
 
-As part of this thesis we present \textbf{Oxiflex}, a minimal constraint satisfaction problem solver from scratch for MiniZinc written in Rust. Oxiflex is a FlatZinc solver that can be used as an backend to MiniZinc. This means Oxiflex minimally supports the requirements for a solver to take advantage of the MiniZinc toolchain. The goal is to have a minimal solver and be able measure the impact of various improvements like forward checking on constraint satisfaction problem solvers.
+As part of this thesis we present \textbf{Oxiflex}, a minimal constraint satisfaction problem solver from scratch for MiniZinc written in Rust. Oxiflex is a FlatZinc solver that can be used as an backend to MiniZinc. This means Oxiflex minimally supports the requirements for a solver to take advantage of the MiniZinc toolchain. The goal is to have a minimal solver that is able to measure the impact of our improvements like forward checking and enforcing arc consistency on constraint satisfaction problem solvers.
 
-Oxiflex is open-source and licensed under the MIT license. It is available at Github \url{https://github.com/glklimmer/Oxiflex}.
+Oxiflex is open-source, licensed under the MIT license and available on Github\footnote{\url{https://github.com/glklimmer/oxiflex}}.
 
 \section{Rust}
 
@@ -36,7 +36,7 @@ Using the library flatzinc \ref{flatzinc} Oxiflex reads an FlatZinc \verb|.fzn| 
 
 \subsection{model} \label{model}
 
-After parsing the FlatZinc file into Rust structures that can be used directly, Oxiflex starts to build useful structures  to solve any given problem. This is where Oxiflex creates a model containing variables with their respectice domains and constraints. Models use HashMaps to keep track of its variables and their respective domains. This allows for constant access time to domains to either read or modify them after inference (\ref{inference}) for example. Constraints are saved by the model as a list (In rust this is a pointer, capacity, length triplet). Usually when checking if constraints are violated we either want all constraints or all constraints related to a variable. For this reason an additional HashMap is created called \verb|constraint_index|, that uses variable ids as key and points to a list of constraints on the heap. In rust this can be done by using reference counting. This results in two ways to access constraints. One that is just a list to iterate over all constraints and one where a hashmap is used to get all constraints involved by a specific variable.
+After parsing a FlatZinc file into Rust structures that can be used directly, Oxiflex starts to build useful structures to solve a given CSP. This is where Oxiflex creates a model containing variables with their respectice domains and constraints. Models use HashMaps to keep track of its variables and their respective domains. This allows for constant access time to domains to either read or modify them after inference (\ref{inference}) for example. Constraints are saved by the model as a list (In rust this is a pointer, capacity, length triplet). Usually when checking if constraints are violated we either want all constraints or all constraints related to a variable. For this reason an additional HashMap is created called \verb|constraint_index|, that uses variable ids as key and points to a list of constraints on the heap. In Rust this can be done by using reference counting. This results in two ways to access constraints. One that is just a list to iterate over all constraints and one where a HashMap is used to get all constraints involved by a specific variable.
 
 Variables all have an id. All variable ids are strings. Oxiflex also uses reference counting to store variable ids. As it is often also needed to pass variable ids around, we can mitigate the cost of calling \verb|clone| on variable ids by using reference counting. Instead of actually cloning variable ids, we just pass a pointer to the variable id needed. With reference counting we can ensure the actual memory for the variable id is freed after all pointers to it have been deleted.
 

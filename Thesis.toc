@@ -16,24 +16,24 @@
 \contentsline {subsubsection}{\numberline {3.2.2.1}Enforcing Arc Consistency}{13}{subsubsection.26}%
 \contentsline {chapter}{\chapternumberline {4}Implementation}{15}{chapter.30}%
 \contentsline {section}{\numberline {4.1}Oxiflex}{15}{section.31}%
-\contentsline {section}{\numberline {4.2}Rust}{15}{section.32}%
-\contentsline {subsection}{\numberline {4.2.1}Limitations}{15}{subsection.33}%
-\contentsline {section}{\numberline {4.3}Dependecies}{16}{section.34}%
-\contentsline {subsection}{\numberline {4.3.1}flatzinc}{16}{subsection.35}%
-\contentsline {subsection}{\numberline {4.3.2}structopt}{16}{subsection.36}%
-\contentsline {section}{\numberline {4.4}Architecture}{16}{section.37}%
-\contentsline {subsection}{\numberline {4.4.1}parser}{16}{subsection.38}%
-\contentsline {subsection}{\numberline {4.4.2}model}{16}{subsection.39}%
-\contentsline {section}{\numberline {4.5}Solver}{17}{section.40}%
-\contentsline {subsection}{\numberline {4.5.1}Value Ordering}{17}{subsection.41}%
-\contentsline {subsection}{\numberline {4.5.2}Forward Checking}{18}{subsection.42}%
-\contentsline {subsection}{\numberline {4.5.3}Arc Consistency}{18}{subsection.43}%
-\contentsline {chapter}{\chapternumberline {5}Results}{19}{chapter.44}%
-\contentsline {section}{\numberline {5.1}Method}{19}{section.45}%
-\contentsline {section}{\numberline {5.2}N-Queens}{20}{section.46}%
-\contentsline {section}{\numberline {5.3}Slow Convergence}{22}{section.53}%
-\contentsline {chapter}{\chapternumberline {6}Conclusion}{26}{chapter.60}%
-\contentsline {section}{\numberline {6.1}Discussion}{26}{section.61}%
-\contentsline {section}{\numberline {6.2}Future work}{27}{section.62}%
-\contentsline {chapter}{Bibliography}{28}{chapter*.63}%
+\contentsline {section}{\numberline {4.2}Rust}{15}{section.33}%
+\contentsline {subsection}{\numberline {4.2.1}Limitations}{15}{subsection.34}%
+\contentsline {section}{\numberline {4.3}Dependecies}{16}{section.35}%
+\contentsline {subsection}{\numberline {4.3.1}flatzinc}{16}{subsection.36}%
+\contentsline {subsection}{\numberline {4.3.2}structopt}{16}{subsection.37}%
+\contentsline {section}{\numberline {4.4}Architecture}{16}{section.38}%
+\contentsline {subsection}{\numberline {4.4.1}parser}{16}{subsection.39}%
+\contentsline {subsection}{\numberline {4.4.2}model}{16}{subsection.40}%
+\contentsline {section}{\numberline {4.5}Solver}{17}{section.41}%
+\contentsline {subsection}{\numberline {4.5.1}Value Ordering}{17}{subsection.42}%
+\contentsline {subsection}{\numberline {4.5.2}Forward Checking}{18}{subsection.43}%
+\contentsline {subsection}{\numberline {4.5.3}Arc Consistency}{18}{subsection.44}%
+\contentsline {chapter}{\chapternumberline {5}Results}{19}{chapter.45}%
+\contentsline {section}{\numberline {5.1}Method}{19}{section.46}%
+\contentsline {section}{\numberline {5.2}N-Queens}{20}{section.47}%
+\contentsline {section}{\numberline {5.3}Slow Convergence}{21}{section.54}%
+\contentsline {chapter}{\chapternumberline {6}Conclusion}{26}{chapter.61}%
+\contentsline {section}{\numberline {6.1}Discussion}{26}{section.62}%
+\contentsline {section}{\numberline {6.2}Future work}{27}{section.63}%
+\contentsline {chapter}{Bibliography}{28}{chapter*.64}%
 \vspace {2em}
