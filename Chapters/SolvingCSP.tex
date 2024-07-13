@@ -1,35 +1,35 @@
 \chapter{Solving Constraint Satisfaction Problems} \label{chap:solveCSP}
 
-Constraints satisfaction problems on finite domains are typically solved using a form of search. We search for a solution to the constraint network by trying out all possible values until a solution is found. That is, a valid assignment of all variables with a value of their respective domain satisfing all constraints within the constraint network.
+Constraints satisfaction problems on finite domains are typically solved using a form of search. We search for a solution to the constraint network by trying out possible values until a solution is found or we find that there is no solution. A solution is a valid assignment of all variables with a value of their respective domain satisfing all constraints within the constraint network.
 
-\section{Naive Backtracking}
+\section{Backtracking}
 
-Backtracking is a technique used to search a problem space for potential solutions \cite{backtracking:1975}. It systematically organizes the search process by attempting to extend a partial solution step-by-step. If an extension of the current partial solution proves unfeasible at any stage, the algorithm "backtracks" to a previous, shorter partial solution and tries a different path. This method is particularly useful in solving constraint satisfaction problems, as demonstrated by the algorithm called NaiveBacktracking.
+Backtracking is a technique used to search a problem space for potential solutions \cite{backtracking:1975}. It systematically organizes the search process by attempting to extend a partial solution step-by-step. If an extension of the current partial solution proves to be leading to no solution, the algorithm "backtracks" to a previous, shorter partial solution and tries a different path. This method is particularly useful in solving constraint satisfaction problems, as we can do partial assignments of variables and expand them step by step by assigning more variables. We can start by using backtracking without any enhancements. See function \ref{fn:naive} for reference with the following notes:
 
-\begin{tcolorbox}[title=function NaiveBacktracking)]
+\textbf{Input:} constraint network $C$ and partial assignment $\alpha$ for $C$. On first invocation of NaiveBacktracking we pass an empty assignment $\alpha = \emptyset$. \\
+\textbf{Result:} Total assignment (solution) of $C$ or \textbf{inconsistent}.\\
+
+\begin{function}{NaiveBacktracking($C, \alpha$)}{naive}
 	$\langle V, \text{dom}, (R_{uv})\rangle := C$ \\
 	\textbf{if} $\alpha$ is inconsistent with $C$: \\
-	\textbf{return inconsistent} \\
+	\null \qquad \textbf{return inconsistent} \\
 
 	\textbf{if} $\alpha$ is a total assignment: \\
-	\textbf{return $\alpha$} \\
+	\null \qquad \textbf{return $\alpha$} \\
 
 	select some variable $v$ for which $\alpha$ is not defined \\
 	\textbf{for each} $d \in$ dom($v$) in some order: \\
-	$\alpha' := \alpha \cup \{v \mapsto d\}$ \\
-	$\alpha'' := $ NaiveBacktracking($C$, $\alpha'$) \\
-	\textbf{if} $\alpha'' \neq$ \textbf{inconsistent}: \\
-	\textbf{return} $\alpha''$ \\
+	\null \qquad  $\alpha' := \alpha \cup \{v \mapsto d\}$ \\
+	\null \qquad  $\alpha'' := $ NaiveBacktracking($C$, $\alpha'$) \\
+	\null \qquad  \textbf{if} $\alpha'' \neq$ \textbf{inconsistent}: \\
+	\null \qquad \qquad  \textbf{return} $\alpha''$ \\
 
 	\textbf{return inconsistent}
-\end{tcolorbox}
-
-Input: constraint network $C$ and partial assignment $\alpha$ for $C$. On first invocation of NaiveBacktracking we pass an empty assignment $\alpha = \emptyset$. \\
-Result: Total assignment (solution) of $C$ or \textbf{inconsistent}.
+\end{function}
 
 This algorithm corresponds to Depth First Search (DFS). It assigns values to variables from their domains to form a partial assignment. This process continues until either all variables are assigned and a solution is found, or a constraint is violated. If a constraint is violated, the algorithm backtracks and tries a different value from the domain until a solution is found. If all possible assignments violate constraints, there is no solution. Finding a total assignment, that is an partial assignment that gives each variable a valid value from its domain, is finding a solution.
 
-Backtracking is far from the best way to solve CSPs \cite{forward_checking:1995}.
+Backtracking is great as an easy to understand solving technique, but is far from the best way to solve CSPs \cite{forward_checking:1995}.
 
 \subsection{Variable Ordering}
 
@@ -37,9 +37,9 @@ Backtracking in general does not specify in which order the search is done. For 
 
 \begin{itemize}
 	\item \textbf{static order} \\
-	      Fixed order defined prior to search
+	      Fixed order defined prior to search.
 	\item \textbf{dynamic order} \\
-	      Order depends on current search state and is calculated after each assignment
+	      Order depends on current search state and is calculated after each assignment.
 \end{itemize}
 
 Dynamic ordering is more powerful but also requires computational overhead during search for each iteration. The following are two commonly used variable ordering criteria:
@@ -55,65 +55,67 @@ Dynamic variable ordering is usually more effective combined with inference.
 
 \section{Inference} \label{inference}
 
-Inference allows us to modify our constraint network by thightening the constraint network. Thightening works by excluding values from domains of variables that we know are not possible. For example in the Queens Problem (See \ref{sec:queens}) if we place a Queen on $d4$, we can exclude the value $4$ from all other files (chess term for column). We can also exclude all diagonally positioned squares like $a1$, $b2$, $c3$ and so forth. See \ref{chess:queeninference} for reference. Note that we do not need to do anything with the file the queen is on because we modeled the file to be a variable to solve for and a variable can only how one value anyways.
+Inference allows us to modify our constraint network by thightening the constraint network. Thightening works by excluding values from domains of variables that we know are not possible. For example in the Queens Problem (See \ref{sec:queens}) if we place a Queen on $d4$, we can exclude the value $4$ from all other files (chess term for column). We can also exclude all diagonally positioned squares like $a1$, $b2$, $c3$ and so forth. See \cref{chess:queeninference} for reference. Note that we do not need to do anything with the file the queen is on because we modeled the file to be a variable to solve for and a variable can only be one value anyways.
 
-\newchessgame
-\chessboard[
-	setfen=8/8/8/8/3Q4/8/8/8 w - - 0 1,
-	color=blue!50,
-	pgfstyle=color,
-	markfields={a7,b6,c5,a4,b4,c4,a1,b2,c3,e5,f6,g7,h8,e4,f4,g4,h4,e3,f2,g1},
-	showmover=false
-]
-\label{chess:queeninference}
+\begin{figure}[ht]
+	\centering
+	\newchessgame
+	\chessboard[
+		setfen=8/8/8/8/3Q4/8/8/8 w - - 0 1,
+		color=blue!50,
+		pgfstyle=color,
+		markfields={a7,b6,c5,a4,b4,c4,a1,b2,c3,e5,f6,g7,h8,e4,f4,g4,h4,e3,f2,g1},
+		showmover=false
+	]
+	\caption{Possible solution to the 8-Queens problems.}
+	\label{chess:queeninference}
+\end{figure}
 
-By removing impossible values from the remaining domains, we can thighten the resulting constraint network and have a smaller search space. We adjust our NaiveBacktracking approach by applying inference after each assignment of an variable. See the following for the NaiveBacktracking algorithm.
+By removing impossible values from the remaining domains, we can thighten the resulting constraint network and have a smaller search space. We adjust our NaiveBacktracking approach by applying inference after each assignment of a variable. See function \ref{fn:inference} for the adjusted algorithm.
 
-\begin{tcolorbox}[title={function BacktrackingWithInference($C, \alpha$)}]
+\begin{function}{BacktrackingWithInference($C, \alpha$)}{inference}
 	$\langle V, \text{dom}, (R_{uv})\rangle := C$ \\
 	\textbf{if} $\alpha$ is inconsistent with $C$: \\
-	\textbf{return inconsistent} \\
+	\null \qquad\textbf{return inconsistent} \\
 
 	\textbf{if} $\alpha$ is a total assignment: \\
-	\textbf{return $\alpha$} \\
+	\null \qquad\textbf{return $\alpha$} \\
 
 	$C' := \langle V, \text{dom}',(R'_{uv})\rangle :=$ copy of $C$ \\
 	apply inference to $C'$ \\
-	if dom$'(v) \neq \emptyset$ for all variables $v$: \\
-
-	select some variable $v$ for which $\alpha$ is not defined \\
-	\textbf{for each} $d \in$ copy of dom$'(v)$ in some order: \\
-	$\alpha' := \alpha \cup \{v \mapsto d\}$ \\
-	dom$'(v) := \{d\}$ \\
-	$\alpha'' := $ BacktrackingWithInference($C'$, $\alpha'$) \\
-	\textbf{if} $\alpha'' \neq$ \textbf{inconsistent}: \\
-	\textbf{return} $\alpha''$ \\
+	\textbf{if} dom$'(v) \neq \emptyset$ for all variables $v$: \\
+	\null \qquad select some variable $v$ for which $\alpha$ is not defined \\
+	\null \qquad \textbf{for each} $d \in$ copy of dom$'(v)$ in some order: \\
+	\null \qquad \qquad $\alpha' := \alpha \cup \{v \mapsto d\}$ \\
+	\null \qquad \qquad dom$'(v) := \{d\}$ \\
+	\null \qquad \qquad $\alpha'' := $ BacktrackingWithInference($C'$, $\alpha'$) \\
+	\null \qquad \qquad \textbf{if} $\alpha'' \neq$ \textbf{inconsistent}: \\
+	\null \qquad \qquad \qquad \textbf{return} $\alpha''$ \\
 
 	\textbf{return inconsistent}
-\end{tcolorbox}
+\end{function}
 
-Note that we now have to copy the constraint network after each assignment which can introduce significant overhead for simple problems. The coping is needed because we still have to backtrack if we find an inconsistent assignment. When backtracking we have to restore the domain for each variable again because it is possible that the domain had values that are possible again after backtracking.
+Note that we now have to copy the constraint network after each assignment which can introduce significant overhead for large problems. The coping is needed because we still have to backtrack if we find an inconsistent assignment. When backtracking we have to restore the domain for each variable again because it is possible that the domain had values that are possible again after backtracking.
 
 \subsection{Forward Checking}
 
-We start with a simple inference method called Forward Checking \cite{forward_checking:1980}. See the following algorithm.
+We start with a simple inference method called Forward Checking \cite{forward_checking:1980}. See function \ref{fn:forward-checking} for reference. \\
 
-\begin{tcolorbox}[title={function ForwardChecking($C, \alpha$)}]
-	for each $v \in $ unassigned variables in $\alpha$:
-
-	for each constraint:
-
-	\textbf{if} any $d \in$ dom($v$) in conflict:
-	dom($v$) = dom($v$) $\setminus d$
-\end{tcolorbox}
+\begin{function}{ForwardChecking($C, \alpha$)}{forward-checking}
+	$\langle V,$ dom, $(R_{uv})\rangle := C$ \\
+	\textbf{for each} $v \in $ unassigned variable in $\alpha$: \\
+	\null \qquad \textbf{for each} $R_{vx}$ and $R_{xv}$ in $C$, any $x$: \\
+	\null \qquad \qquad \textbf{if} any $d \in$ dom($v$) and any $d' \in$ dom($x$): $(d, d') \notin R_{vx}$ or $(d', d) \notin R_{xv}$ \\
+	\null \qquad \qquad \qquad dom($v$) = dom($v$) $\setminus d$
+\end{function}
 
 Forward checking is basically looking ahead in the future to see which values can be excluded from search after an assignment. By looking ahead we can ommit the backtracking part that would result by finding a dead end. We check each value for each variable with the new assignment and remove all values that are not possible anymore from their respective domain.
 
 \subsection{Arc Consistency}
 
-Arc consistency excludes all impossible values from all domains of all variables in a given constraint network. Originally developed for vision problems \cite{original_arc:1988} arc consistency is the generalization of forward checking. Forward checking enforces arc consistency for all variables with respect to the just assigned variable. Arc consistency does this for all variables. This makes forward checking a special case of arc consistency. See the following for formal definition.
+Originally developed to address vision problems, arc consistency represents a generalization of forward checking \cite{original_arc:1988}. Forward checking enforces arc consistency for all variables with respect to the just assigned variable. Arc consistency does this for all variables. This makes forward checking a special case of arc consistency. We can define arc consistency formally:
 
-\begin{tcolorbox}[title=Definition: Arc Consistent]
+\begin{tcolorbox}
 	Let $C = \langle V$, dom, $(R_{uv})\rangle$ be a constraint network.
 	\begin{itemize}
 		\item The variable $v \in V$ is arc consistent with respect to another variable $v'\in V$, if for every value $d \in$ dom($v$) there exists a value $d' \in$ dom($v'$) with $\langle d, d' \rangle \in R_{vv'}$.
@@ -125,40 +127,40 @@ Note that for a variable pair the definition is not symmetrical. That means if $
 
 \subsubsection{Enforcing Arc Consistency}
 
-There are multiple algorithms to enforce arc consistency \cite{arc_studied:1977} \cite{arc_again:1994}. The simplest is called AC-1. It works by making use of a function called revise. The following function revise ensures arc consistency in one direction between two variables.
+There are multiple algorithms to enforce arc consistency \cite{arc_studied:1977} \cite{arc_again:1994}. The simplest is called AC-1. It works by making use of a function called revise. The function \ref{fn:revise} revise ensures arc consistency in one direction between two variables. \\
 
-\begin{tcolorbox}[title={\textbf{function} revise($C,v,v'$):}]
+\begin{function}{revise($C,v,v'$)}{revise}
 	$\langle V,$ dom, $(R_{uv})\rangle := C$ \\
 	\textbf{for each} $d \in$ dom($v$): \\
-	\textbf{if} there is no $d' \in$ dom($v'$) with $\langle d, d' \rangle \in R_{vv'}$: \\
-	\textbf{remove} $d$ from dom($v$)
-\end{tcolorbox}
+	\null \qquad \textbf{if} there is no $d' \in$ dom($v'$) with $\langle d, d' \rangle \in R_{vv'}$: \\
+	\null \qquad \qquad \textbf{remove} $d$ from dom($v$)
+\end{function}
 
-The following algorithm AC-1 goes over each constraint and applies revise in both directions to each variable pair for each constraint until there was no change within its iteration of using revise.
+The function \ref{fn:ac1} called AC-1 iterates over each constraint and applies \verb|revise| in both directions to each variable pair for each constraint until there was no change within its iteration of using revise. \\
 
-\begin{tcolorbox}[title={\textbf{function} AC-1($C$):}]
+\begin{function}{AC-1($C$)}{ac1}
 	$\langle V,$ dom, $(R_{uv})\rangle := C$ \\
 	\textbf{repeat} \\
-	\textbf{for each} nontrivial constraint $R_{uv}$: \\
-	revise($C, u, v$) \\
-	revise($C, v, u$) \\
+	\null \qquad \textbf{for each} nontrivial constraint $R_{uv}$: \\
+	\null \qquad \qquad revise($C, u, v$) \\
+	\null \qquad \qquad revise($C, v, u$) \\
 	\textbf{until} no domain has changed in this iteration
-\end{tcolorbox}
+\end{function}
 
-Building on AC-1, AC-3 tries to save redundant checks made by AC-1. Instead of just going over all constraints over and over, we go at least over all constraint once and revise variable pairs again only if needed. In AC-3 this can be achived by using a queue. See the following for reference.
+Building on AC-1, AC-3 tries to save redundant checks made by AC-1. Instead of repeatedly going over all constraints, AC-3 iterates over all constraint once and revises variable pairs again only if needed. We can achive this by using a queue. See function \ref{fn:ac3} for reference. \\
 
-\begin{tcolorbox}[title={\textbf{function} AC-3($C$):}]
+\begin{function}{AC-3($C$)}{ac3}
 	$\langle V,$ dom, $(R_{uv})\rangle := C$ \\
 	queue $:= \emptyset$ \\
 	\textbf{for each} nontrivial constraint $R_{uv}$: \\
-	insert $\langle u, v \rangle$ into \textit{queue} \\
-	insert $\langle u, v \rangle$ into \textit{queue} \\
+	\null \qquad  insert $\langle u, v \rangle$ into \textit{queue} \\
+	\null \qquad  insert $\langle u, v \rangle$ into \textit{queue} \\
 
 	\textbf{while} \textit{queue} $\neq \emptyset$: \\
-	remove an arbitrary element $\langle u, v \rangle$ from \textit{queue} \\
-	revise($C, u, v$) \\
-	\textbf{if} dom($u$) changed in the call to revise: \\
-	\textbf{for each} $w \in V \setminus \{u,v\}$ where $R_{wu}$ is nontrivial: \\
-	insert $\langle w, u \rangle$ into \textit{queue}
-\end{tcolorbox}
+	\null \qquad  remove an arbitrary element $\langle u, v \rangle$ from \textit{queue} \\
+	\null \qquad  revise($C, u, v$) \\
+	\null \qquad  \textbf{if} dom($u$) changed in the call to revise: \\
+	\null \qquad \qquad  \textbf{for each} $w \in V \setminus \{u,v\}$ where $R_{wu}$ is nontrivial: \\
+	\null \qquad \qquad \qquad  insert $\langle w, u \rangle$ into \textit{queue}
+\end{function}
 

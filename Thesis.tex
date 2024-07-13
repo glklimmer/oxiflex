@@ -14,16 +14,22 @@
 \usepackage{tikz}
 \usetikzlibrary{shapes, arrows.meta, positioning}
 \usepackage{multirow}
-\usepackage{algpseudocodex}
 
 \tcbuselibrary{theorems} % Load theorems library
 
-% Define a new tcolorbox environment
+% Define example box
 \newtcbtheorem[number within=section]{example}{Example}{
     colback=green!5,
     colframe=green!35!black,
     fonttitle=\bfseries,
 }{ex}
+
+% Define function box
+\newtcbtheorem[number within=section]{function}{function}{
+    colback=blue!5,
+    colframe=blue!35!black,
+    fonttitle=\bfseries,
+}{fn}
 
 
 %% ----------------------------------------------------------------
