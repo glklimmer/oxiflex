@@ -35,6 +35,5 @@
 \contentsline {section}{\numberline {5.4}Gecode}{23}{section.60}%
 \contentsline {chapter}{\chapternumberline {6}Conclusion}{26}{chapter.62}%
 \contentsline {section}{\numberline {6.1}Discussion}{26}{section.63}%
-\contentsline {section}{\numberline {6.2}Future work}{27}{section.64}%
-\contentsline {chapter}{Bibliography}{28}{chapter*.65}%
+\contentsline {chapter}{Bibliography}{27}{chapter*.64}%
 \vspace {2em}

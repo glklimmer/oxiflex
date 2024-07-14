@@ -4,31 +4,31 @@ The top-level auxiliary file: Thesis.aux
 The style file: alpha.bst
 Database file #1: thesis.bib
 Warning--entry type for "minizinc_queens:2006" isn't style-file defined
---line 56 of file thesis.bib
+--line 43 of file thesis.bib
 Warning--entry type for "minizinc_slow:2018" isn't style-file defined
---line 65 of file thesis.bib
+--line 52 of file thesis.bib
 Warning--entry type for "flatzinc:2020" isn't style-file defined
---line 149 of file thesis.bib
+--line 136 of file thesis.bib
 Warning--entry type for "structopt:2020" isn't style-file defined
---line 159 of file thesis.bib
+--line 145 of file thesis.bib
 Warning--entry type for "hyperfine:2023" isn't style-file defined
---line 169 of file thesis.bib
+--line 154 of file thesis.bib
 Warning--entry type for "gecode" isn't style-file defined
---line 179 of file thesis.bib
+--line 163 of file thesis.bib
 Warning--can't use both volume and number fields in rust:2014
 Warning--empty booktitle in original_arc:1988
 You've used 15 entries,
             2543 wiz_defined-function locations,
-            652 strings with 6202 characters,
-and the built_in function-call counts, 5912 in all, are:
-= -- 590
+            657 strings with 6481 characters,
+and the built_in function-call counts, 5957 in all, are:
+= -- 603
 > -- 212
 < -- 17
 + -- 64
 - -- 63
-* -- 385
-:= -- 909
-add.period$ -- 45
+* -- 376
+:= -- 920
+add.period$ -- 50
 call.type$ -- 15
 change.case$ -- 84
 chr.to.int$ -- 15
@@ -36,26 +36,26 @@ cite$ -- 17
 duplicate$ -- 256
 empty$ -- 489
 format.name$ -- 86
-if$ -- 1272
+if$ -- 1282
 int.to.chr$ -- 1
 int.to.str$ -- 0
 missing$ -- 9
-newline$ -- 74
+newline$ -- 79
 num.names$ -- 51
 pop$ -- 108
 preamble$ -- 1
 purify$ -- 99
 quote$ -- 0
-skip$ -- 234
+skip$ -- 229
 stack$ -- 0
-substring$ -- 341
+substring$ -- 345
 swap$ -- 63
 text.length$ -- 17
 text.prefix$ -- 9
 top$ -- 0
 type$ -- 120
 warning$ -- 2
-while$ -- 56
+while$ -- 57
 width$ -- 17
-write$ -- 191
+write$ -- 201
 (There were 8 warnings)

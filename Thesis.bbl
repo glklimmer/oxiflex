@@ -16,12 +16,12 @@ Fahiem Bacchus and Adam Grove.
 \bibitem[BR75]{backtracking:1975}
 James~R. Bitner and Edward~M. Reingold.
 \newblock Backtrack programming techniques.
-\newblock {\em Commun. ACM}, 18(11):651–656, nov 1975.
+\newblock {\em Commun. ACM}, 18(11):651–656, 1975.
 
 \bibitem[{Gec}06]{gecode}
 {Gecode Team}.
 \newblock Gecode: Generic constraint development environment, 2006.
-\newblock Available from \texttt{http://www.gecode.org}.
+\newblock \url{http://www.gecode.org}.
 
 \bibitem[HE80]{forward_checking:1980}
 Robert~M. Haralick and Gordon~L. Elliott.
@@ -38,17 +38,20 @@ Alan~K. Mackworth.
 Alan~K. Mackworth.
 \newblock Constraint satisfaction.
 \newblock In S.~Shapiro, editor, {\em Encyclopedia of Artificial Intelligence},
-  pages 205--211. J. Wiley and Sons, NY, March 1987.
+  pages 205--211. J. Wiley and Sons, NY, 1987.
+
+\bibitem[MI14]{rust:2014}
+Nicholas~D. Matsakis and Felix S.~Klock II.
+\newblock The rust language.
+\newblock In {\em ACM SIGAda Ada Letters}, volume~34, pages 103--104. ACM,
+  2014.
 
 \bibitem[Min18]{minizinc_slow:2018}
 MiniZinc.
 \newblock Slow convergence problem, minizinc benchmarks, 2018.
-
-\bibitem[MKI14]{rust:2014}
-Nicholas~D Matsakis and Felix~S Klock~II.
-\newblock The rust language.
-\newblock In {\em ACM SIGAda Ada Letters}, volume~34, pages 103--104. ACM,
-  2014.
+\newblock \url{
+  https://github.com/MiniZinc/minizinc-benchmarks/tree/master/slow_convergence
+  }.
 
 \bibitem[NSB{\etalchar{+}}07]{minizinc:2007}
 N.~Nethercote, P.J. Stuckey, R.~Becket, S.~Brand, G.J. Duck, and G.~Tack.
@@ -57,21 +60,27 @@ N.~Nethercote, P.J. Stuckey, R.~Becket, S.~Brand, G.J. Duck, and G.~Tack.
   Conference on Principles and Practice of Constraint Programming}, volume 4741
   of {\em LNCS}, pages 529--543. Springer, 2007.
 
-\bibitem[P.20]{structopt:2020}
-Guillaume P.
-\newblock {structopt}, January 2020.
-
 \bibitem[Pet23]{hyperfine:2023}
 David Peter.
-\newblock {hyperfine}, March 2023.
+\newblock {hyperfine}, 2023.
+\newblock \url{https://github.com/sharkdp/hyperfine}.
+
+\bibitem[Pin20]{structopt:2020}
+Guillaume Pinot.
+\newblock {structopt}, 2020.
+\newblock \url{https://github.com/TeXitoi/structopt}.
 
 \bibitem[RR06]{minizinc_queens:2006}
 Peter~Stuckey Reza~Rafeh.
 \newblock N-queens problem, minizinc benchmarks, 2006.
+\newblock \url{
+  https://github.com/MiniZinc/minizinc-benchmarks/blob/master/queens/queens.mzn
+  }.
 
 \bibitem[Thi20]{flatzinc:2020}
 Sven Thiele.
-\newblock {flatzinc}, April 2020.
+\newblock {flatzinc}, 2020.
+\newblock \url{https://github.com/potassco/flatzinc}.
 
 \bibitem[Wal72]{original_arc:1988}
 David Waltz.
