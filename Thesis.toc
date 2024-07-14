@@ -32,8 +32,9 @@
 \contentsline {section}{\numberline {5.1}Method}{19}{section.46}%
 \contentsline {section}{\numberline {5.2}N-Queens}{20}{section.47}%
 \contentsline {section}{\numberline {5.3}Slow Convergence}{21}{section.54}%
-\contentsline {chapter}{\chapternumberline {6}Conclusion}{26}{chapter.61}%
-\contentsline {section}{\numberline {6.1}Discussion}{26}{section.62}%
-\contentsline {section}{\numberline {6.2}Future work}{27}{section.63}%
-\contentsline {chapter}{Bibliography}{28}{chapter*.64}%
+\contentsline {section}{\numberline {5.4}Gecode}{23}{section.60}%
+\contentsline {chapter}{\chapternumberline {6}Conclusion}{26}{chapter.62}%
+\contentsline {section}{\numberline {6.1}Discussion}{26}{section.63}%
+\contentsline {section}{\numberline {6.2}Future work}{27}{section.64}%
+\contentsline {chapter}{Bibliography}{28}{chapter*.65}%
 \vspace {2em}
