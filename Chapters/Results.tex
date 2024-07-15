@@ -12,7 +12,7 @@ For benchmarking two metrics where measured:
 	      How many times the recursive algorithm was called.
 \end{itemize}
 
-For time measurments hyperfine~\cite{hyperfine:2023} is used. Each time benchmark includes 3 warmup runs and is averaged. The longer the solver takes, the fewer runs are done. This is default behaviour of hyperfine. At least 10 runs made were made for each benchmark. Time is given in seconds. Iterations were measured by doing 5 runs and averaging the number of iterations used.
+For time measurements hyperfine~\cite{hyperfine:2023} is used. Each time benchmark includes 3 warm up runs and is averaged. The longer the solver takes, the fewer runs are done. This is default behavior of hyperfine. At least 10 runs made were made for each benchmark. Time is given in seconds. Iterations were measured by doing 5 runs and averaging the number of iterations used.
 
 A benchmark is a pair of problem size and a combination of algorithmic modifications to the solver. As Oxiflex allows to enable each optimization we can create 8 optimization combinations.
 
@@ -54,7 +54,7 @@ All benchmark were performed on the same machine. \\
 
 \section{N-Queens}
 
-\cref{fig:queens:time}\footnote{ChatGPT 4 was used to help write scripts that create the plots. \url{https://chatgpt.com}} shows the runtime comparison for the N-Queens Problem (See~\cref{sec:queens}:~\nameref{sec:queens}) with $n = 8..20$ for all combinations. It shows that arc consistency enforcing methods AC-1 and AC-3 in Oxiflex take much more time then the naive and forwarch checking approach. We can also see that variable ordering seems to improve all approaches significantly.
+\cref{fig:queens:time}\footnote{ChatGPT 4 was used to help write scripts that create the plots. \url{https://chatgpt.com}} shows the runtime comparison for the N-Queens Problem (See~\cref{sec:queens}:~\nameref{sec:queens}) with $n = 8..20$ for all combinations. It shows that arc consistency enforcing methods AC-1 and AC-3 in Oxiflex take much more time then the naive and forward checking approach. We can also see that variable ordering seems to improve all approaches significantly.
 
 \begin{figure}[ht]
 	\centering
@@ -63,7 +63,7 @@ All benchmark were performed on the same machine. \\
 	\label{fig:queens:time}
 \end{figure}
 
-\cref{fig:queens:time-no-arc} does not inlude arc consistency enforcing methods making it clear to see the impact of forward checking on time measurements for the N-Queens Problem. This shows that altough the naive approach without variable ordering performs much worse then forward checking without variable ordering, it outperforms forward checking with variable ordering.
+\cref{fig:queens:time-no-arc} does not include arc consistency enforcing methods making it clear to see the impact of forward checking on time measurements for the N-Queens Problem. This shows that although the naive approach without variable ordering performs much worse then forward checking without variable ordering, it outperforms forward checking with variable ordering.
 
 \begin{figure}[ht]
 	\centering
@@ -90,7 +90,7 @@ In \cref{fig:queens:iterations-inference} we provide benchmarks for iterations w
 	\label{fig:queens:iterations-inference}
 \end{figure}
 
-Table~\ref{tab:queens:time} and table~\ref{tab:queens:iterations} contain results for time and iterations. Time values are rounded to 2 decimal places. If there is a standard deviation for the measurements it is given after the $\pm$ symbol. If there is no variable ordering the measurments can vary greatly because variables are chosen randomly to be assigned a value.
+Table~\ref{tab:queens:time} and table~\ref{tab:queens:iterations} contain results for time and iterations. Time values are rounded to 2 decimal places. If there is a standard deviation for the measurements it is given after the $\pm$ symbol. If there is no variable ordering the measurements can vary greatly because variables are chosen randomly to be assigned a value.
 
 \begin{table}[h!]
 	\centering
@@ -130,9 +130,9 @@ Table~\ref{tab:queens:time} and table~\ref{tab:queens:iterations} contain result
 
 \section{Slow Convergence}
 
-The Slow Convergence Problem is from the minizinc benchmarks repository~\cite{minizinc_slow:2018}. Benchmarks for this problem without variable ordering took over 300 seconds and are therefore omitted. \cref{fig:slow:time-small} shows benchmarks for $n=2..10$ with combinations using variable ordering. We can see that time measurments for AC-1 and AC-3 grow exponentially and it seems that the naive and forward checking approach grow linearly.
+The Slow Convergence Problem is from the MiniZinc benchmarks repository~\cite{minizinc_slow:2018}. Benchmarks for this problem without variable ordering took over 300 seconds and are therefore omitted. \cref{fig:slow:time-small} shows benchmarks for $n=2..10$ with combinations using variable ordering. We can see that time measurements for AC-1 and AC-3 grow exponentially and it seems that the naive and forward checking approach grow linearly.
 
-\cref{fig:slow:iterations-small} shows benchmarks with the same parameters for measurments of iterations. Note the huge spike in iterations at $n = 3$. This spike is not a measurement error. The benchmarks were run multiple times and provided the same results. We can see that when measuring iterations, inference methods help reducing the number of iterations.
+\cref{fig:slow:iterations-small} shows benchmarks with the same parameters for measurements of iterations. Note the huge spike in iterations at $n = 3$. This spike is not a measurement error. The benchmarks were run multiple times and provided the same results. We can see that when measuring iterations, inference methods help reducing the number of iterations.
 
 \begin{figure}[ht]
 	\centering
@@ -148,7 +148,7 @@ The Slow Convergence Problem is from the minizinc benchmarks repository~\cite{mi
 	\label{fig:slow:iterations-small}
 \end{figure}
 
-Next, increasing $n$ for non arc consistency enforcing benchmarks. \cref{fig:slow:sidebyside} shows time measurements on the left and iteration measurements on the right. Note the inverse correlation between iterations and time for the two options. Altough naive backtracking (\verb|-n|) takes more iterations, it is still faster than forward checking (\verb|-f|). We can also observe that it looked like forward checking was growing linearly in \cref{fig:slow:time-small}, and \cref{fig:slow:sidebyside} on the left clearly show also exponential growth. Further we can again observe that the naive approach seems to be growing linearly, but as we will see, it also grows exponentially.
+Next, increasing $n$ for non arc consistency enforcing benchmarks. \cref{fig:slow:sidebyside} shows time measurements on the left and iteration measurements on the right. Note the inverse correlation between iterations and time for the two options. Although naive backtracking (\verb|-n|) takes more iterations, it is still faster than forward checking (\verb|-f|). We can also observe that it looked like forward checking was growing linearly in \cref{fig:slow:time-small}, and \cref{fig:slow:sidebyside} on the left clearly show also exponential growth. Further we can again observe that the naive approach seems to be growing linearly, but as we will see, it also grows exponentially.
 
 \begin{figure}[ht]
 	\centering
@@ -210,6 +210,6 @@ For comparison \cref{fig:slow:gecode} shows Oxiflex compared to Gecode~\cite{gec
 \begin{figure}[ht]
 	\centering
 	\includegraphics[width=0.8\textwidth]{./Problems/slow_convergence/plots/gecode.png}
-	\caption{Slow Convergence time measurments averaged over mutliple runs.}
+	\caption{Slow Convergence time measurements averaged over multiple runs.}
 	\label{fig:slow:gecode}
 \end{figure}

@@ -18,7 +18,7 @@
 \contentsline {section}{\numberline {4.1}Oxiflex}{15}{section.31}%
 \contentsline {section}{\numberline {4.2}Rust}{15}{section.33}%
 \contentsline {subsection}{\numberline {4.2.1}Limitations}{15}{subsection.34}%
-\contentsline {section}{\numberline {4.3}Dependecies}{16}{section.35}%
+\contentsline {section}{\numberline {4.3}Dependencies}{16}{section.35}%
 \contentsline {subsection}{\numberline {4.3.1}flatzinc}{16}{subsection.36}%
 \contentsline {subsection}{\numberline {4.3.2}structopt}{16}{subsection.37}%
 \contentsline {section}{\numberline {4.4}Architecture}{16}{section.38}%

@@ -2,7 +2,7 @@
 
 \section{Oxiflex}
 
-As part of this thesis we present \textbf{Oxiflex}, a minimal constraint satisfaction problem solver from scratch for MiniZinc written in Rust. Oxiflex is a FlatZinc solver that can be used as an backend to MiniZinc. This means Oxiflex minimally supports the requirements for a solver to take advantage of the MiniZinc toolchain. The goal is to have a minimal solver that is able to measure the impact of our improvements like forward checking and enforcing arc consistency on constraint satisfaction problem solvers.
+As part of this thesis we present \textbf{Oxiflex}, a minimal constraint satisfaction problem solver from scratch for MiniZinc written in Rust. Oxiflex is a FlatZinc solver that can be used as an backend to MiniZinc. This means Oxiflex minimally supports the requirements for a solver to take advantage of the MiniZinc tool chain. The goal is to have a minimal solver that is able to measure the impact of our improvements like forward checking and enforcing arc consistency on constraint satisfaction problem solvers.
 
 Oxiflex is open-source, licensed under the MIT license and available on Github\footnote{\url{https://github.com/glklimmer/oxiflex}}.
 
@@ -14,7 +14,7 @@ Rust \cite{rust:2014} is a general purpose systems programming language focused 
 
 Not all FlatZinc builtins are supported in Oxiflex. The idea is to implement just the needed builtins for any given interesting problem domain. Further are only \verb|int|s supported, no floating point values. With that there are no optimization solving structures available in Oxiflex to be able to search for an optimal solution instead of just any solution.
 
-\section{Dependecies}
+\section{Dependencies}
 
 \subsection{flatzinc} \label{flatzinc}
 
@@ -26,15 +26,15 @@ The library structopt~\cite{structopt:2020} is utilized to parse command-line ar
 
 \section{Architecture}
 
-Oxiflex is made up from three parts: parser, model and solver. The solver part can be fine tuned from outside by using command line flags that enable different solving strategies. The output is printed to standard output in a format given by the MiniZinc toolchain.
+Oxiflex is made up from three parts: parser, model and solver. The solver part can be fine tuned from outside by using command line flags that enable different solving strategies. The output is printed to standard output in a format given by the MiniZinc tool chain.
 
 \subsection{parser}
 
-Using the library flatzinc \ref{flatzinc} Oxiflex reads an FlatZinc \verb|.fzn| file and collects all parts needed to then construct a constraint satisfaction network. These include a list for parameters, variables and constraints. In order to also output the solution after solving the problem, MiniZinc makes use of annonations on FlatZinc elements. Variables that are needed for the output are annotated as \verb|output_var|. There are two possible output annotations in FlatZinc: \verb|output_var| and \verb|output_array|.
+Using the library flatzinc \ref{flatzinc} Oxiflex reads an FlatZinc \verb|.fzn| file and collects all parts needed to then construct a constraint satisfaction network. These include a list for parameters, variables and constraints. In order to also output the solution after solving the problem, MiniZinc makes use of annotations on FlatZinc elements. Variables that are needed for the output are annotated as \verb|output_var|. There are two possible output annotations in FlatZinc: \verb|output_var| and \verb|output_array|.
 
 \subsection{model} \label{model}
 
-After parsing a FlatZinc file into Rust structures that can be used directly, Oxiflex starts to build useful structures to solve a given CSP. This is where Oxiflex creates a model containing variables with their respectice domains and constraints. Models use HashMaps to keep track of its variables and their respective domains. This allows for constant access time to domains to either read or modify them after inference (\ref{inference}) for example. Constraints are saved by the model as a list (In rust this is a pointer, capacity, length triplet). Usually when checking if constraints are violated we either want all constraints or all constraints related to a variable. For this reason an additional HashMap is created called \verb|constraint_index|, that uses variable ids as key and points to a list of constraints on the heap. In Rust this can be done by using reference counting. This results in two ways to access constraints. One that is just a list to iterate over all constraints and one where a HashMap is used to get all constraints involved by a specific variable.
+After parsing a FlatZinc file into Rust structures that can be used directly, Oxiflex starts to build useful structures to solve a given CSP. This is where Oxiflex creates a model containing variables with their respective domains and constraints. Models use HashMaps to keep track of its variables and their respective domains. This allows for constant access time to domains to either read or modify them after inference (\ref{inference}) for example. Constraints are saved by the model as a list (In rust this is a pointer, capacity, length triplet). Usually when checking if constraints are violated we either want all constraints or all constraints related to a variable. For this reason an additional HashMap is created called \verb|constraint_index|, that uses variable ids as key and points to a list of constraints on the heap. In Rust this can be done by using reference counting. This results in two ways to access constraints. One that is just a list to iterate over all constraints and one where a HashMap is used to get all constraints involved by a specific variable.
 
 Variables all have an id. All variable ids are strings. Oxiflex also uses reference counting to store variable ids. As it is often also needed to pass variable ids around, we can mitigate the cost of calling \verb|clone| on variable ids by using reference counting. Instead of actually cloning variable ids, we just pass a pointer to the variable id needed. With reference counting we can ensure the actual memory for the variable id is freed after all pointers to it have been deleted.
 
@@ -108,4 +108,4 @@ Forward checking in Oxiflex works by removing values of domains that are no long
 
 Both AC-1 and AC-3 use the function \verb|revise| which ensures arc consistency in one direction for two variables. The main computational work to ensure arc consistency happens within this function. The role of AC-1 and AC-3 is to arrange the calls to \verb|revise|. Within \verb|revise| we also use the \verb|constraint_index| (See \ref{model}: \nameref{model}) to get only constraints that are involved with the given variable for \verb|revise|.
 
-Checking constraints works by checking a \verb|PartialAssignment|. The actual type for \verb|PartialAssignment| is a HashMap with variable id for keys and assignments of variables as value. Therefore within \verb|revise| in order to values for two variables, \verb|PartialAssignment| is created for each combination of values. That means for each value pair within the two domains a new HashMap is created with two elements. The first element is an assignment of the firt variable and the second an assignment of the second variable.
+Checking constraints works by checking a \verb|PartialAssignment|. The actual type for \verb|PartialAssignment| is a HashMap with variable id for keys and assignments of variables as value. Therefore within \verb|revise| in order to values for two variables, \verb|PartialAssignment| is created for each combination of values. That means for each value pair within the two domains a new HashMap is created with two elements. The first element is an assignment of the first variable and the second an assignment of the second variable.
