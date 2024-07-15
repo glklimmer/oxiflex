@@ -31,9 +31,9 @@
 \contentsline {chapter}{\chapternumberline {5}Results}{19}{chapter.46}%
 \contentsline {section}{\numberline {5.1}Method}{19}{section.47}%
 \contentsline {section}{\numberline {5.2}N-Queens}{20}{section.48}%
-\contentsline {section}{\numberline {5.3}Slow Convergence}{21}{section.55}%
-\contentsline {section}{\numberline {5.4}Gecode}{23}{section.61}%
-\contentsline {chapter}{\chapternumberline {6}Conclusion}{26}{chapter.63}%
-\contentsline {section}{\numberline {6.1}Discussion}{26}{section.64}%
-\contentsline {chapter}{Bibliography}{27}{chapter*.65}%
+\contentsline {section}{\numberline {5.3}Slow Convergence}{21}{section.56}%
+\contentsline {section}{\numberline {5.4}Gecode}{23}{section.62}%
+\contentsline {chapter}{\chapternumberline {6}Conclusion}{26}{chapter.64}%
+\contentsline {section}{\numberline {6.1}Discussion}{26}{section.65}%
+\contentsline {chapter}{Bibliography}{27}{chapter*.66}%
 \vspace {2em}
