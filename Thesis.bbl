@@ -4,7 +4,7 @@
 \bibitem[Bes94]{arc_again:1994}
 Christian Bessière.
 \newblock Arc-consistency and arc-consistency again.
-\newblock {\em Artificial Intelligence}, pages 179--190, 1994.
+\newblock {\em Artificial Intelligence}, 65(1):179--190, 1994.
 
 \bibitem[BG95]{forward_checking:1995}
 Fahiem Bacchus and Adam Grove.
@@ -16,23 +16,18 @@ Fahiem Bacchus and Adam Grove.
 \bibitem[BR75]{backtracking:1975}
 James~R. Bitner and Edward~M. Reingold.
 \newblock Backtrack programming techniques.
-\newblock {\em Commun. ACM}, pages 651--–656, 1975.
-
-\bibitem[{Gec}06]{gecode}
-{Gecode Team}.
-\newblock Gecode: Generic constraint development environment, 2006.
-\newblock \url{http://www.gecode.org}.
+\newblock {\em Commun. ACM}, 18(11):651--656, 1975.
 
 \bibitem[HE80]{forward_checking:1980}
 Robert~M. Haralick and Gordon~L. Elliott.
 \newblock Increasing tree search efficiency for constraint satisfaction
   problems.
-\newblock {\em Artificial Intelligence}, pages 263--313, 1980.
+\newblock {\em Artificial Intelligence}, 14(3):263--313, 1980.
 
 \bibitem[Mac77]{arc_studied:1977}
 Alan~K. Mackworth.
 \newblock Consistency in networks of relations.
-\newblock {\em Artificial Intelligence}, pages 99--118, 1977.
+\newblock {\em Artificial Intelligence}, 8(1):99--118, 1977.
 
 \bibitem[Mac87]{csp:1987}
 Alan~K. Mackworth.
@@ -43,7 +38,8 @@ Alan~K. Mackworth.
 \bibitem[MI14]{rust:2014}
 Nicholas~D. Matsakis and Felix S.~Klock II.
 \newblock The rust language.
-\newblock In {\em ACM SIGAda Ada Letters}, pages 103--104. ACM, 2014.
+\newblock In {\em ACM SIGAda Ada Letters}, volume~34, pages 103--104. ACM,
+  2014.
 
 \bibitem[Min18]{minizinc_slow:2018}
 MiniZinc.
@@ -61,12 +57,12 @@ N.~Nethercote, P.J. Stuckey, R.~Becket, S.~Brand, G.J. Duck, and G.~Tack.
 
 \bibitem[Pet23]{hyperfine:2023}
 David Peter.
-\newblock {hyperfine}, 2023.
+\newblock hyperfine, 2023.
 \newblock \url{https://github.com/sharkdp/hyperfine}.
 
 \bibitem[Pin20]{structopt:2020}
 Guillaume Pinot.
-\newblock {structopt}, 2020.
+\newblock structopt, 2020.
 \newblock \url{https://github.com/TeXitoi/structopt}.
 
 \bibitem[RR06]{minizinc_queens:2006}
@@ -76,9 +72,14 @@ Peter~Stuckey Reza~Rafeh.
   https://github.com/MiniZinc/minizinc-benchmarks/blob/master/queens/queens.mzn
   }.
 
+\bibitem[Tea06]{gecode}
+Gecode Team.
+\newblock Gecode: Generic constraint development environment, 2006.
+\newblock \url{http://www.gecode.org}.
+
 \bibitem[Thi20]{flatzinc:2020}
 Sven Thiele.
-\newblock {flatzinc}, 2020.
+\newblock flatzinc, 2020.
 \newblock \url{https://github.com/potassco/flatzinc}.
 
 \bibitem[Wal72]{original_arc:1988}

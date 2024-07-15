@@ -4,57 +4,58 @@ The top-level auxiliary file: Thesis.aux
 The style file: alpha.bst
 Database file #1: thesis.bib
 Warning--entry type for "minizinc_queens:2006" isn't style-file defined
---line 39 of file thesis.bib
+--line 41 of file thesis.bib
 Warning--entry type for "minizinc_slow:2018" isn't style-file defined
---line 48 of file thesis.bib
+--line 50 of file thesis.bib
 Warning--entry type for "flatzinc:2020" isn't style-file defined
---line 126 of file thesis.bib
+--line 134 of file thesis.bib
 Warning--entry type for "structopt:2020" isn't style-file defined
---line 135 of file thesis.bib
+--line 143 of file thesis.bib
 Warning--entry type for "hyperfine:2023" isn't style-file defined
---line 144 of file thesis.bib
+--line 152 of file thesis.bib
 Warning--entry type for "gecode" isn't style-file defined
---line 153 of file thesis.bib
+--line 161 of file thesis.bib
+Warning--can't use both volume and number fields in rust:2014
 Warning--empty booktitle in original_arc:1988
 You've used 15 entries,
             2543 wiz_defined-function locations,
-            651 strings with 6474 characters,
-and the built_in function-call counts, 6327 in all, are:
-= -- 658
+            657 strings with 6474 characters,
+and the built_in function-call counts, 5972 in all, are:
+= -- 611
 > -- 212
-< -- 20
+< -- 17
 + -- 64
 - -- 63
-* -- 362
-:= -- 946
+* -- 377
+:= -- 921
 add.period$ -- 50
 call.type$ -- 15
 change.case$ -- 84
 chr.to.int$ -- 15
-cite$ -- 16
-duplicate$ -- 290
-empty$ -- 509
+cite$ -- 17
+duplicate$ -- 256
+empty$ -- 487
 format.name$ -- 86
-if$ -- 1394
+if$ -- 1280
 int.to.chr$ -- 1
 int.to.str$ -- 0
 missing$ -- 9
 newline$ -- 79
 num.names$ -- 51
-pop$ -- 118
+pop$ -- 108
 preamble$ -- 1
 purify$ -- 99
 quote$ -- 0
-skip$ -- 273
+skip$ -- 229
 stack$ -- 0
-substring$ -- 386
-swap$ -- 95
-text.length$ -- 20
+substring$ -- 351
+swap$ -- 63
+text.length$ -- 17
 text.prefix$ -- 9
 top$ -- 0
 type$ -- 120
-warning$ -- 1
-while$ -- 64
+warning$ -- 2
+while$ -- 60
 width$ -- 17
-write$ -- 200
-(There were 7 warnings)
+write$ -- 201
+(There were 8 warnings)
