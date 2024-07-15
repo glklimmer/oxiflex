@@ -59,7 +59,7 @@ All benchmark were performed on the same machine. \\
 \begin{figure}[ht]
 	\centering
 	\includegraphics[width=0.8\textwidth]{./Problems/queens/plots/time.png}
-	\caption{N-Queen time measurements averaged over multiple runs.}
+	\caption{N-Queen time measurements averaged over multiple runs (at least 10).}
 	\label{fig:queens:time}
 \end{figure}
 
@@ -68,7 +68,7 @@ All benchmark were performed on the same machine. \\
 \begin{figure}[ht]
 	\centering
 	\includegraphics[width=0.8\textwidth]{./Problems/queens/plots/time_no_arc.png}
-	\caption{N-Queens time measurements without arc consistency averaged over multiple runs.}
+	\caption{N-Queens time measurements without arc consistency averaged over multiple runs (at least 10).}
 	\label{fig:queens:time-no-arc}
 \end{figure}
 
@@ -106,7 +106,7 @@ Table~\ref{tab:queens:time} and table~\ref{tab:queens:iterations} contain result
 		AC1 w/ VO   & 1.09 $\pm$ 0.02 & 1.08 $\pm$ 0.03 & 2.23 $\pm$ 0.04 & 4.39 $\pm$ 0.06   \\ \hline
 		AC3 w/ VO   & 2.02 $\pm$ 0.04 & 1.84 $\pm$ 0.05 & 3.69 $\pm$ 0.06 & 7.15 $\pm$ 0.05   \\ \hline
 	\end{tabular}
-	\caption{N-Queens time in seconds over multiple runs, Mean$\pm$SD, w/ VO: with variable ordering.}
+	\caption{N-Queens time in seconds over multiple runs (at least 10), Mean$\pm$SD, w/ VO: with variable ordering.}
 	\label{tab:queens:time}
 \end{table}
 
@@ -137,7 +137,7 @@ The Slow Convergence Problem is from the minizinc benchmarks repository~\cite{mi
 \begin{figure}[ht]
 	\centering
 	\includegraphics[width=0.8\textwidth]{./Problems/slow_convergence/plots/time_small.png}
-	\caption{Slow Convergence time measurements averaged over multiple runs.}
+	\caption{Slow Convergence time measurements averaged over multiple runs (at least 10).}
 	\label{fig:slow:time-small}
 \end{figure}
 
@@ -182,7 +182,7 @@ Next, increasing $n$ for non arc consistency enforcing benchmarks. \cref{fig:slo
 				50 & 0.02        & 5.29 $\pm$ 0.14 \\ \hline
 				60 & 0.04        & 21.94 $\pm$ 0.5 \\ \hline
 			\end{tabular}
-			\caption{Slow Convergence time in seconds over multiple runs, Mean$\pm$SD, w/ VO: with variable ordering.}
+			\caption{Slow Convergence time in seconds over multiple runs (at least 10), Mean$\pm$SD, w/ VO: with variable ordering.}
 			\label{tab:slow:time}
 		\end{minipage} &
 		\begin{minipage}{.5\textwidth}
