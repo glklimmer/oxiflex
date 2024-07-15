@@ -104,9 +104,10 @@ We start with a simple inference method called Forward Checking \cite{forward_ch
 \begin{function}{ForwardChecking($C, \alpha$)}{forward-checking}
 	$\langle V,$ dom, $(R_{uv})\rangle := C$ \\
 	\textbf{for each} $v \in $ unassigned variable in $\alpha$: \\
-	\null \qquad \textbf{for each} $R_{vx}$ and $R_{xv}$ in $C$, any $x$: \\
-	\null \qquad \qquad \textbf{if} any $d \in$ dom($v$) and any $d' \in$ dom($x$): $(d, d') \notin R_{vx}$ or $(d', d) \notin R_{xv}$ \\
-	\null \qquad \qquad \qquad dom($v$) = dom($v$) $\setminus d$
+	\null \qquad \textbf{for each} $R_{vx}$ in $(R_{uv})$: \\
+	\null \qquad \qquad \textbf{for each} $d \in$ dom($v$): \\
+	\null \qquad \qquad \qquad \textbf{if} $\exists$ \textbf{conflict} in $\alpha \cup (v \mapsto d)$ \\
+	\null \qquad \qquad \qquad \qquad dom($v$) = dom($v$) $\setminus d$
 \end{function}
 
 Forward checking is basically looking ahead in the future to see which values can be excluded from search after an assignment. By looking ahead we can ommit the backtracking part that would result by finding a dead end. We check each value for each variable with the new assignment and remove all values that are not possible anymore from their respective domain.

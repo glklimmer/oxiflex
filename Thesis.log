@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.3.27)  15 JUL 2024 10:21
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.3.27)  15 JUL 2024 17:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1485,7 +1485,7 @@ LaTeX Info: Redefining \nameref on input line 58.
 \@outlinefile=\write6
 \openout6 = `Thesis.out'.
 
-<Template/logo-en.pdf, id=151, 113.8112pt x 36.98878pt>
+<Template/logo-en.pdf, id=147, 113.8112pt x 36.98878pt>
 File: Template/logo-en.pdf Graphic file (type pdf)
 <use Template/logo-en.pdf>
 Package pdftex.def Info: Template/logo-en.pdf  used on input line 64.
@@ -1515,11 +1515,29 @@ LaTeX Font Info:    Trying to load font information for T1+phv on input line 2.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1phv.fd
 File: t1phv.fd 2020/03/25 scalable font definitions for T1/phv.
-) [1
+)
+
+Package natbib Warning: Citation `minizinc:2007' on page 1 undefined on input l
+ine 6.
 
 
-])
-(./Chapters/ConstraintSatisfactionProblems.tex [2]
+Package natbib Warning: Citation `rust:2014' on page 1 undefined on input line 
+10.
+
+[1
+
+
+]
+
+Package natbib Warning: Citation `minizinc_slow:2018' on page 2 undefined on in
+put line 12.
+
+) (./Chapters/ConstraintSatisfactionProblems.tex [2]
+
+Package natbib Warning: Citation `csp:1987' on page 3 undefined on input line 5
+.
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 5--6
 
  []
@@ -1540,6 +1558,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 29--30
 Underfull \hbox (badness 10000) in paragraph at lines 52--56
 
  []
+
+
+Package natbib Warning: Citation `minizinc:2007' on page 4 undefined on input l
+ine 63.
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 66--70
@@ -1569,6 +1591,11 @@ _introduced_2_
  []
 
 [6]
+
+Package natbib Warning: Citation `minizinc_queens:2006' on page 7 undefined on 
+input line 136.
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 139--140
 
  []
@@ -1596,6 +1623,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 149--155
  []
 
 [7]) (./Chapters/SolvingCSP.tex [8]
+
+Package natbib Warning: Citation `backtracking:1975' on page 9 undefined on inp
+ut line 7.
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 9--11
 
  []
@@ -1617,7 +1649,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 20--26
 
 [9
 
-] [10]
+]
+
+Package natbib Warning: Citation `forward_checking:1995' on page 10 undefined o
+n input line 32.
+
+[10]
 Underfull \hbox (badness 10000) in paragraph at lines 77--80
 
  []
@@ -1633,33 +1670,65 @@ Underfull \hbox (badness 10000) in paragraph at lines 84--94
  []
 
 [11]
+
+Package natbib Warning: Citation `forward_checking:1980' on page 12 undefined o
+n input line 102.
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 102--103
 
  []
 
 [12]
-Underfull \hbox (badness 10000) in paragraph at lines 130--131
+
+Package natbib Warning: Citation `original_arc:1988' on page 13 undefined on in
+put line 117.
+
+
+Package natbib Warning: Citation `arc_studied:1977' on page 13 undefined on inp
+ut line 131.
+
+
+Package natbib Warning: Citation `arc_again:1994' on page 13 undefined on input
+ line 131.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 131--132
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 139--140
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 150--151
+Underfull \hbox (badness 10000) in paragraph at lines 140--141
 
  []
 
 [13]
-Underfull \hbox (badness 10000) in paragraph at lines 153--158
+Underfull \hbox (badness 10000) in paragraph at lines 151--152
 
  []
 
-) (./Chapters/Implementation.tex [14] [15
 
-] [16]
+Underfull \hbox (badness 10000) in paragraph at lines 154--159
+
+ []
+
+) (./Chapters/Implementation.tex [14]
+
+Package natbib Warning: Citation `rust:2014' on page 15 undefined on input line
+ 11.
+
+
+Package natbib Warning: Citation `flatzinc:2020' on page 15 undefined on input 
+line 21.
+
+[15
+
+]
+
+Package natbib Warning: Citation `structopt:2020' on page 16 undefined on input
+ line 25.
+
+[16]
 Underfull \hbox (badness 10000) in paragraph at lines 43--44
 
  []
@@ -1676,32 +1745,37 @@ mr/m/n/10 in or-der to val-ues for two vari-ables, [][]\OT1/pcr/m/n/10 PartialA
 ssignment
  []
 
-[18] [19
+[18]
+
+Package natbib Warning: Citation `hyperfine:2023' on page 19 undefined on input
+ line 15.
+
+[19
 
 ]
 Underfull \hbox (badness 10000) in paragraph at lines 45--46
 
  []
 
-<./Problems/queens/plots/time.png, id=411, 462.528pt x 346.896pt>
+<./Problems/queens/plots/time.png, id=376, 462.528pt x 346.896pt>
 File: ./Problems/queens/plots/time.png Graphic file (type png)
 <use ./Problems/queens/plots/time.png>
 Package pdftex.def Info: ./Problems/queens/plots/time.png  used on input line 6
 1.
 (pdftex.def)             Requested size: 318.40121pt x 238.8133pt.
-<./Problems/queens/plots/time_no_arc.png, id=414, 462.528pt x 346.896pt>
+<./Problems/queens/plots/time_no_arc.png, id=379, 462.528pt x 346.896pt>
 File: ./Problems/queens/plots/time_no_arc.png Graphic file (type png)
 <use ./Problems/queens/plots/time_no_arc.png>
 Package pdftex.def Info: ./Problems/queens/plots/time_no_arc.png  used on input
  line 70.
 (pdftex.def)             Requested size: 318.40121pt x 238.8133pt.
-<./Problems/queens/plots/iterations.png, id=416, 462.528pt x 346.896pt>
+<./Problems/queens/plots/iterations.png, id=381, 462.528pt x 346.896pt>
 File: ./Problems/queens/plots/iterations.png Graphic file (type png)
 <use ./Problems/queens/plots/iterations.png>
 Package pdftex.def Info: ./Problems/queens/plots/iterations.png  used on input 
 line 79.
 (pdftex.def)             Requested size: 318.40121pt x 238.8133pt.
-<./Problems/queens/plots/iterations_inference.png, id=418, 462.528pt x 346.896p
+<./Problems/queens/plots/iterations_inference.png, id=383, 462.528pt x 346.896p
 t>
 File: ./Problems/queens/plots/iterations_inference.png Graphic file (type png)
 <use ./Problems/queens/plots/iterations_inference.png>
@@ -1714,15 +1788,19 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
+
+Package natbib Warning: Citation `minizinc_slow:2018' on page 20 undefined on i
+nput line 133.
+
 [20] [21 <./Problems/queens/plots/time.png>]
-<./Problems/slow_convergence/plots/time_small.png, id=443, 462.528pt x 346.896p
+<./Problems/slow_convergence/plots/time_small.png, id=406, 462.528pt x 346.896p
 t>
 File: ./Problems/slow_convergence/plots/time_small.png Graphic file (type png)
 <use ./Problems/slow_convergence/plots/time_small.png>
 Package pdftex.def Info: ./Problems/slow_convergence/plots/time_small.png  used
  on input line 139.
 (pdftex.def)             Requested size: 318.40121pt x 238.8133pt.
-<./Problems/slow_convergence/plots/iterations_small.png, id=444, 462.528pt x 34
+<./Problems/slow_convergence/plots/iterations_small.png, id=407, 462.528pt x 34
 6.896pt>
 File: ./Problems/slow_convergence/plots/iterations_small.png Graphic file (type
  png)
@@ -1730,13 +1808,13 @@ File: ./Problems/slow_convergence/plots/iterations_small.png Graphic file (type
 Package pdftex.def Info: ./Problems/slow_convergence/plots/iterations_small.png
   used on input line 146.
 (pdftex.def)             Requested size: 318.40121pt x 238.8133pt.
-<./Problems/slow_convergence/plots/time.png, id=448, 462.528pt x 346.896pt>
+<./Problems/slow_convergence/plots/time.png, id=411, 462.528pt x 346.896pt>
 File: ./Problems/slow_convergence/plots/time.png Graphic file (type png)
 <use ./Problems/slow_convergence/plots/time.png>
 Package pdftex.def Info: ./Problems/slow_convergence/plots/time.png  used on in
 put line 157.
 (pdftex.def)             Requested size: 195.02219pt x 146.26698pt.
-<./Problems/slow_convergence/plots/iterations.png, id=449, 462.528pt x 346.896p
+<./Problems/slow_convergence/plots/iterations.png, id=412, 462.528pt x 346.896p
 t>
 File: ./Problems/slow_convergence/plots/iterations.png Graphic file (type png)
 <use ./Problems/slow_convergence/plots/iterations.png>
@@ -1748,8 +1826,12 @@ Overfull \hbox (24.00003pt too wide) in paragraph at lines 172--204
  [][] 
  []
 
+
+Package natbib Warning: Citation `gecode' on page 22 undefined on input line 20
+8.
+
 [22 <./Problems/queens/plots/time_no_arc.png>]
-<./Problems/slow_convergence/plots/gecode.png, id=463, 462.528pt x 346.896pt>
+<./Problems/slow_convergence/plots/gecode.png, id=426, 462.528pt x 346.896pt>
 File: ./Problems/slow_convergence/plots/gecode.png Graphic file (type png)
 <use ./Problems/slow_convergence/plots/gecode.png>
 Package pdftex.def Info: ./Problems/slow_convergence/plots/gecode.png  used on 
@@ -1762,20 +1844,11 @@ blems/slow_convergence/plots/iterations_small.png>] [25 <./Problems/slow_conver
 gence/plots/time.png> <./Problems/slow_convergence/plots/iterations.png> <./Pro
 blems/slow_convergence/plots/gecode.png>]) [26
 
-] (./Thesis.bbl
-Underfull \hbox (badness 3386) in paragraph at lines 74--79
-[]\OT1/cmr/m/n/10 Peter Stuckey Reza Rafeh.  N-queens prob-lem, miniz-inc bench
--marks,
- []
-
-[27
-
-
-]) [28]
+] (./Thesis.bbl)
 
 pdfTeX warning: pdflatex (file ./Back/wissensch_Redlichkeit_E_09-2023.pdf): PDF
  inclusion: found PDF version <1.6>, but at most version <1.5> allowed
-<./Back/wissensch_Redlichkeit_E_09-2023.pdf, id=508, 597.55246pt x 845.07718pt>
+<./Back/wissensch_Redlichkeit_E_09-2023.pdf, id=452, 597.55246pt x 845.07718pt>
 
 File: ./Back/wissensch_Redlichkeit_E_09-2023.pdf Graphic file (type pdf)
 <use ./Back/wissensch_Redlichkeit_E_09-2023.pdf>
@@ -1799,7 +1872,7 @@ pdfTeX warning: pdflatex (file ./Back/wissensch_Redlichkeit_E_09-2023.pdf): PDF
 
 pdfTeX warning: pdflatex (file ./Back/wissensch_Redlichkeit_E_09-2023.pdf): PDF
  inclusion: found PDF version <1.6>, but at most version <1.5> allowed
-<./Back/wissensch_Redlichkeit_E_09-2023.pdf, id=511, page=1, 597.55246pt x 845.
+<./Back/wissensch_Redlichkeit_E_09-2023.pdf, id=455, page=1, 597.55246pt x 845.
 07718pt>
 File: ./Back/wissensch_Redlichkeit_E_09-2023.pdf Graphic file (type pdf)
 <use ./Back/wissensch_Redlichkeit_E_09-2023.pdf, page 1>
@@ -1826,29 +1899,28 @@ File: ./Back/wissensch_Redlichkeit_E_09-2023.pdf Graphic file (type pdf)
 Package pdftex.def Info: ./Back/wissensch_Redlichkeit_E_09-2023.pdf , page1 use
 d on input line 91.
 (pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
-[29
+[27
+
 
  <./Back/wissensch_Redlichkeit_E_09-2023.pdf>]
+
+Package natbib Warning: There were undefined citations.
+
 \tf@toc=\write7
 \openout7 = `Thesis.toc'.
 
- (./Thesis.aux
-
-Package natbib Warning: Citation(s) may have changed.
-(natbib)                Rerun to get citations correct.
-
-)
+(./Thesis.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `Thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 397DDB62E260E6B9B72A30168453E4CC;5066.
+(rerunfilecheck)             Checksum: 110A49B8381BD4A4FDD597C5AA452DED;4960.
  ) 
 Here is how much of TeX's memory you used:
- 39141 strings out of 478287
- 753638 string characters out of 5849289
- 1133746 words of memory out of 5000000
- 56561 multiletter control sequences out of 15000+600000
+ 39074 strings out of 478287
+ 752246 string characters out of 5849289
+ 1133483 words of memory out of 5000000
+ 56512 multiletter control sequences out of 15000+600000
  491303 words of font info for 74 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  125i,17n,120p,1153b,996s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1869,10 +1941,10 @@ s/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf/fonts/type1/public/cm-s
 uper/sfrm1000.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a
 .pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/s
 hare/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on Thesis.pdf (33 pages, 975642 bytes).
+Output written on Thesis.pdf (31 pages, 962230 bytes).
 PDF statistics:
- 638 PDF objects out of 1000 (max. 8388607)
- 518 compressed objects within 6 object streams
- 114 named destinations out of 1000 (max. 500000)
- 371 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 578 PDF objects out of 1000 (max. 8388607)
+ 461 compressed objects within 5 object streams
+ 96 named destinations out of 1000 (max. 500000)
+ 363 words of extra memory for PDF output out of 10000 (max. 10000000)
 
