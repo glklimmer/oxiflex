@@ -1,47 +1,60 @@
 This is BibTeX, Version 0.99d (TeX Live 2022/dev/Debian)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: Thesis.aux
-I found no \bibdata command---while reading file Thesis.aux
-I found no \bibstyle command---while reading file Thesis.aux
-You've used 8 entries,
-            0 wiz_defined-function locations,
-            91 strings with 613 characters,
-and the built_in function-call counts, 0 in all, are:
-= -- 0
-> -- 0
-< -- 0
-+ -- 0
-- -- 0
-* -- 0
-:= -- 0
-add.period$ -- 0
-call.type$ -- 0
-change.case$ -- 0
-chr.to.int$ -- 0
-cite$ -- 0
-duplicate$ -- 0
-empty$ -- 0
-format.name$ -- 0
-if$ -- 0
-int.to.chr$ -- 0
+The style file: alpha.bst
+Database file #1: thesis.bib
+Warning--entry type for "minizinc_queens:2006" isn't style-file defined
+--line 39 of file thesis.bib
+Warning--entry type for "minizinc_slow:2018" isn't style-file defined
+--line 48 of file thesis.bib
+Warning--entry type for "flatzinc:2020" isn't style-file defined
+--line 126 of file thesis.bib
+Warning--entry type for "structopt:2020" isn't style-file defined
+--line 135 of file thesis.bib
+Warning--entry type for "hyperfine:2023" isn't style-file defined
+--line 144 of file thesis.bib
+Warning--entry type for "gecode" isn't style-file defined
+--line 153 of file thesis.bib
+Warning--empty booktitle in original_arc:1988
+You've used 15 entries,
+            2543 wiz_defined-function locations,
+            651 strings with 6474 characters,
+and the built_in function-call counts, 6327 in all, are:
+= -- 658
+> -- 212
+< -- 20
++ -- 64
+- -- 63
+* -- 362
+:= -- 946
+add.period$ -- 50
+call.type$ -- 15
+change.case$ -- 84
+chr.to.int$ -- 15
+cite$ -- 16
+duplicate$ -- 290
+empty$ -- 509
+format.name$ -- 86
+if$ -- 1394
+int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 0
-newline$ -- 0
-num.names$ -- 0
-pop$ -- 0
-preamble$ -- 0
-purify$ -- 0
+missing$ -- 9
+newline$ -- 79
+num.names$ -- 51
+pop$ -- 118
+preamble$ -- 1
+purify$ -- 99
 quote$ -- 0
-skip$ -- 0
+skip$ -- 273
 stack$ -- 0
-substring$ -- 0
-swap$ -- 0
-text.length$ -- 0
-text.prefix$ -- 0
+substring$ -- 386
+swap$ -- 95
+text.length$ -- 20
+text.prefix$ -- 9
 top$ -- 0
-type$ -- 0
-warning$ -- 0
-while$ -- 0
-width$ -- 0
-write$ -- 0
-(There were 2 error messages)
+type$ -- 120
+warning$ -- 1
+while$ -- 64
+width$ -- 17
+write$ -- 200
+(There were 7 warnings)

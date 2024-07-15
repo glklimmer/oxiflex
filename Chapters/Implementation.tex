@@ -40,38 +40,44 @@ Variables all have an id. All variable ids are strings. Oxiflex also uses refere
 
 \section{Solver}
 
-The solver is the core part of Oxiflex. By allowing control over what optimization is turned on or off we can measure the impact of each optimization individually. As discussed in \cref{chap:solveCSP} there are various optimizations for solving CSPs. See the following diagram to see all optimizations implemented in Oxiflex. \\
+The solver is the core part of Oxiflex. By allowing control over what optimization is turned on or off we can measure the impact of each optimization individually. As discussed in \cref{chap:solveCSP} there are various optimizations for solving CSPs. See \cref{fig:solver} for an overview of how the optimizations can turned on. \\
 
-\begin{tikzpicture}[node distance=2cm and 3cm, auto]
-	% Styles
-	\tikzset{
-		abstraction/.style={draw, rectangle, fill=red!20, text width=10em, text centered, minimum height=2.5em},
-		file/.style={draw, rectangle, fill=blue!20, text width=10em, text centered, minimum height=2.5em},
-		method/.style={draw, ellipse, fill=green!20, text width=5em, text centered, minimum height=3em},
-		line/.style={draw, -Latex}
-	}
+\begin{figure}
+	\centering
+	\begin{tikzpicture}[node distance=2cm and 3cm, auto]
+		% Styles
+		\tikzset{
+			abstraction/.style={draw, rectangle, fill=red!20, text width=10em, text centered, minimum height=2.5em},
+			file/.style={draw, rectangle, fill=blue!20, text width=10em, text centered, minimum height=2.5em},
+			method/.style={draw, ellipse, fill=green!20, text width=5em, text centered, minimum height=3em},
+			addition/.style={draw, ellipse, fill=yellow!20, text width=5em, text centered, minimum height=3em},
+			line/.style={draw, -Latex}
+		}
 
-	% Nodes
-	\node[abstraction] (solver) {Solver};
+		% Nodes
+		\node[abstraction] (solver) {Solver};
 
-	\node[file, below left of=solver, node distance=3cm] (naiveBT) {naive\_backtracking.rs};
-	\node[file, below right of=solver, node distance=3cm, xshift=2cm] (inferenceSolver) {inference.rs};
+		\node[file, below left of=solver, node distance=3cm] (naiveBT) {Naive Backtracking};
+		\node[file, below right of=solver, node distance=3cm, xshift=2cm] (inferenceSolver) {Inference};
 
-	\node[method, below=1cm of naiveBT, xshift=0.5cm] (varOrder1) {Variable Ordering};
-	\node[method, below=1cm of inferenceSolver, xshift=-2cm] (forwardCheck) {Forward Checking};
-	\node[method, below=1cm of inferenceSolver, xshift=1cm] (arc1) {AC-1};
-	\node[method, right=0cm of arc1, yshift=0.7cm] (arc3) {AC-3};
+		\node[addition, below=1cm of naiveBT, xshift=0.5cm] (varOrder1) {Variable Ordering};
+		\node[method, below=1cm of inferenceSolver, xshift=-2cm] (forwardCheck) {Forward Checking};
+		\node[method, below=1cm of inferenceSolver, xshift=1cm] (arc1) {AC-1};
+		\node[method, right=0cm of arc1, yshift=0.7cm] (arc3) {AC-3};
 
-	% Lines
-	\path[line] (solver) -- (naiveBT);
-	\path[line] (solver) -- (inferenceSolver);
-	\path[line] (naiveBT) -- (varOrder1);
-	\path[line] (inferenceSolver) -- (varOrder1);
-	\path[line] (inferenceSolver) -- (forwardCheck);
-	\path[line] (inferenceSolver) -- (arc1);
-	\path[line] (inferenceSolver) -- (arc3);
+		% Lines
+		\path[line] (solver) -- (naiveBT);
+		\path[line] (solver) -- (inferenceSolver);
+		\path[line, dash pattern=on 4pt off 4pt] (naiveBT) -- (varOrder1);
+		\path[line, dash pattern=on 4pt off 4pt] (inferenceSolver) -- (varOrder1);
+		\path[line] (inferenceSolver) -- (forwardCheck);
+		\path[line] (inferenceSolver) -- (arc1);
+		\path[line] (inferenceSolver) -- (arc3);
 
-\end{tikzpicture} \\
+	\end{tikzpicture}
+	\caption{Architecture of the Solver options. Blue: choose one of general solver plans, Yellow: turn on or off, Green: choose one.}
+	\label{fig:solver}
+\end{figure}
 
 By default each optimization in Oxiflex is turned on. By passing flags named after each optimization we can disable the respective optimization. The help menu can be printed using \verb|Oxiflex --help| from the console.
 

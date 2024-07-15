@@ -25,14 +25,15 @@
 \contentsline {subsection}{\numberline {4.4.1}parser}{16}{subsection.39}%
 \contentsline {subsection}{\numberline {4.4.2}model}{16}{subsection.40}%
 \contentsline {section}{\numberline {4.5}Solver}{17}{section.41}%
-\contentsline {subsection}{\numberline {4.5.1}Value Ordering}{17}{subsection.42}%
-\contentsline {subsection}{\numberline {4.5.2}Forward Checking}{18}{subsection.43}%
-\contentsline {subsection}{\numberline {4.5.3}Arc Consistency}{18}{subsection.44}%
-\contentsline {chapter}{\chapternumberline {5}Results}{19}{chapter.45}%
-\contentsline {section}{\numberline {5.1}Method}{19}{section.46}%
-\contentsline {section}{\numberline {5.2}N-Queens}{20}{section.47}%
-\contentsline {section}{\numberline {5.3}Slow Convergence}{21}{section.54}%
-\contentsline {section}{\numberline {5.4}Gecode}{23}{section.60}%
-\contentsline {chapter}{\chapternumberline {6}Conclusion}{26}{chapter.62}%
-\contentsline {section}{\numberline {6.1}Discussion}{26}{section.63}%
+\contentsline {subsection}{\numberline {4.5.1}Value Ordering}{18}{subsection.43}%
+\contentsline {subsection}{\numberline {4.5.2}Forward Checking}{18}{subsection.44}%
+\contentsline {subsection}{\numberline {4.5.3}Arc Consistency}{18}{subsection.45}%
+\contentsline {chapter}{\chapternumberline {5}Results}{19}{chapter.46}%
+\contentsline {section}{\numberline {5.1}Method}{19}{section.47}%
+\contentsline {section}{\numberline {5.2}N-Queens}{20}{section.48}%
+\contentsline {section}{\numberline {5.3}Slow Convergence}{21}{section.55}%
+\contentsline {section}{\numberline {5.4}Gecode}{23}{section.61}%
+\contentsline {chapter}{\chapternumberline {6}Conclusion}{26}{chapter.63}%
+\contentsline {section}{\numberline {6.1}Discussion}{26}{section.64}%
+\contentsline {chapter}{Bibliography}{27}{chapter*.65}%
 \vspace {2em}

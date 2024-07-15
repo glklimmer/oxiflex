@@ -130,7 +130,7 @@ Table~\ref{tab:queens:time} and table~\ref{tab:queens:iterations} contain result
 
 \section{Slow Convergence}
 
-The Slow Convergence Problem is from the minizinc benchmarks repository~\cite{minizinc_slow:2018}. Benchmarks for this problem without variable ordering took over 300 seconds and are therefore omitted. \cref{fig:slow:time-small} shows benchmarks for $n=2..10$ with combinations using variable ordering. We can see that time measurments for AC-1 and AC-3 grow exponentially and it seems that the naive and forward checking approach are growing linearly.
+The Slow Convergence Problem is from the minizinc benchmarks repository~\cite{minizinc_slow:2018}. Benchmarks for this problem without variable ordering took over 300 seconds and are therefore omitted. \cref{fig:slow:time-small} shows benchmarks for $n=2..10$ with combinations using variable ordering. We can see that time measurments for AC-1 and AC-3 grow exponentially and it seems that the naive and forward checking approach grow linearly.
 
 \cref{fig:slow:iterations-small} shows benchmarks with the same parameters for measurments of iterations. Note the huge spike in iterations at $n = 3$. This spike is not a measurement error. The benchmarks were run multiple times and provided the same results. We can see that when measuring iterations, inference methods help reducing the number of iterations.
 
