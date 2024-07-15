@@ -1,13 +1,13 @@
 \chapter{Solving Constraint Satisfaction Problems} \label{chap:solveCSP}
 
-Constraints satisfaction problems on finite domains are typically solved using a form of search. We search for a solution to the constraint network by trying out possible values until a solution is found or we find that there is no solution. A solution is a valid assignment of all variables with a value of their respective domain satisfying all constraints within the constraint network.
+Constraints Satisfaction Problems on finite domains are typically solved using a form of search. We search for a solution to the constraint network by trying out possible values until a solution is found or we find that there is no solution. A solution is a valid assignment of all variables with a value of their respective domain satisfying all constraints within the constraint network.
 
 \section{Backtracking}
 
-Backtracking is a technique used to search a problem space for potential solutions \cite{backtracking:1975}. It systematically organizes the search process by attempting to extend a partial solution step-by-step. If an extension of the current partial solution proves to be leading to no solution, the algorithm "backtracks" to a previous, shorter partial solution and tries a different path. This method is particularly useful in solving constraint satisfaction problems, as we can do partial assignments of variables and expand them step by step by assigning more variables. We can start by using backtracking without any enhancements. See function \ref{fn:naive} for reference with the following notes:
+Backtracking is a technique used to search a problem space for potential solutions \cite{backtracking:1975}. It systematically organizes the search process by attempting to extend a partial solution step-by-step. If an extension of the current partial solution proves to be leading to no solution, the algorithm "backtracks" to a previous, shorter partial solution and tries a different path. This method is particularly useful in solving CSPs, as we can do partial assignments of variables and expand them step by step by assigning more variables. We can start by using backtracking without any enhancements. See function \ref{fn:naive} for reference with the following notes:
 
 \textbf{Input:} constraint network $C$ and partial assignment $\alpha$ for $C$. On first invocation of NaiveBacktracking we pass an empty assignment $\alpha = \emptyset$. \\
-\textbf{Result:} Total assignment (solution) of $C$ or \textbf{inconsistent}.\\
+\textbf{Result:} Total assignment (solution) of $C$ or \textbf{inconsistent} no solution is found.\\
 
 \begin{function}{NaiveBacktracking($C, \alpha$)}{naive}
 	$\langle V, \text{dom}, (R_{uv})\rangle := C$ \\
@@ -27,13 +27,13 @@ Backtracking is a technique used to search a problem space for potential solutio
 	\textbf{return inconsistent}
 \end{function}
 
-This algorithm corresponds to Depth First Search (DFS). It assigns values to variables from their domains to form a partial assignment. This process continues until either all variables are assigned and a solution is found, or a constraint is violated. If a constraint is violated, the algorithm backtracks and tries a different value from the domain until a solution is found. If all possible assignments violate constraints, there is no solution. Finding a total assignment, that is an partial assignment that gives each variable a valid value from its domain, is finding a solution.
+This algorithm corresponds to Depth First Search. It assigns values to variables from their domains to form a partial assignment. This process continues until either all variables are assigned and a solution is found, or a constraint is violated. If a constraint is violated, the algorithm backtracks and tries a different value from the domain until a solution is found. If all possible assignments violate constraints, there is no solution and \textbf{inconsistent} is returned. Finding a total assignment, that is, an partial assignment that gives all variables a valid value from their domain, is finding a solution.
 
 Backtracking is great as an easy to understand solving technique, but is far from the best way to solve CSPs \cite{forward_checking:1995}.
 
 \subsection{Variable Ordering}
 
-Backtracking in general does not specify in which order the search is done. For constraint satisfaction problems we want to assign critical variables early. Critical variables are variables that tighten the search space the most by their assignment. This can be done in multiple ways:
+Backtracking in general does not specify in which order the search is done. For CSPs we want to assign critical variables early. Critical variables are variables that tighten the search size the most by their assignment. This can be done in multiple ways:
 
 \begin{itemize}
 	\item \textbf{static order} \\
@@ -46,16 +46,16 @@ Dynamic ordering is more powerful but also requires computational overhead durin
 
 \begin{itemize}
 	\item \textbf{minimum remaining values:} \\
-	      prefer variables that have small domains
+	      Prefer variables that have small domains.
 	\item \textbf{most constraining variable:} \\
-	      prefer variables contained in many constraints
+	      Prefer variables involved in many constraints.
 \end{itemize}
 
 Dynamic variable ordering is usually more effective combined with inference.
 
 \section{Inference} \label{inference}
 
-Inference allows us to modify our constraint network by tightening the constraint network. Tightening works by excluding values from domains of variables that we know are not possible. For example in the Queens Problem (See \ref{sec:queens}) if we place a Queen on $d4$, we can exclude the value $4$ from all other files (chess term for column). We can also exclude all diagonally positioned squares like $a1$, $b2$, $c3$ and so forth. See \cref{chess:queeninference} for reference. Note that we do not need to do anything with the file the queen is on because we modeled the file to be a variable to solve for and a variable can only be one value anyways.
+Inference allows us to modify our constraint network by tightening the constraint network. Tightening works by excluding values from domains of variables that we know are not possible. For example in the Queens Problem (See \cref{sec:queens}) if we place a Queen on $d4$, we can exclude the value $4$ from all other columns. We can also exclude all diagonally positioned squares like $a1$, $b2$, $c3$ and so forth. See \cref{chess:queeninference} for reference. Note that we do not need to do anything with the column the queen is on because we modeled the column to be a variable to solve for and a variable can only be one value anyways. The Queen can not be in multiple rows of the same column.
 
 \begin{figure}[ht]
 	\centering
@@ -67,11 +67,11 @@ Inference allows us to modify our constraint network by tightening the constrain
 		markfields={a7,b6,c5,a4,b4,c4,a1,b2,c3,e5,f6,g7,h8,e4,f4,g4,h4,e3,f2,g1},
 		showmover=false
 	]
-	\caption{Possible solution to the 8-Queens problems.}
+	\caption{We apply inference after placing Queen on $d4$ tightening the problem size.}
 	\label{chess:queeninference}
 \end{figure}
 
-By removing impossible values from the remaining domains, we can tighten the resulting constraint network and have a smaller search space. We adjust our NaiveBacktracking approach by applying inference after each assignment of a variable. See function \ref{fn:inference} for the adjusted algorithm.
+By removing values from the remaining domains we can tighten the resulting constraint network and have a smaller search space. We adjust our NaiveBacktracking approach by applying inference after each assignment of a variable. See function \ref{fn:inference} for the adjusted algorithm.
 
 \begin{function}{BacktrackingWithInference($C, \alpha$)}{inference}
 	$\langle V, \text{dom}, (R_{uv})\rangle := C$ \\
@@ -95,7 +95,7 @@ By removing impossible values from the remaining domains, we can tighten the res
 	\textbf{return inconsistent}
 \end{function}
 
-Note that we now have to copy the constraint network after each assignment which can introduce significant overhead for large problems. The coping is needed because we still have to backtrack if we find an inconsistent assignment. When backtracking we have to restore the domain for each variable again because it is possible that the domain had values that are possible again after backtracking.
+Note that we now have to copy the constraint network after each assignment which can introduce significant overhead for large problems. The copying is needed because we still have to backtrack if we find an inconsistent assignment. When backtracking we have to restore the domain for each variable again because it is possible that the domain had values that are valid again after backtracking.
 
 \subsection{Forward Checking}
 
@@ -110,7 +110,7 @@ We start with a simple inference method called Forward Checking \cite{forward_ch
 	\null \qquad \qquad \qquad \qquad dom($v$) = dom($v$) $\setminus d$
 \end{function}
 
-Forward checking is basically looking ahead in the future to see which values can be excluded from search after an assignment. By looking ahead we can omit the backtracking part that would result by finding a dead end. We check each value for each variable with the new assignment and remove all values that are not possible anymore from their respective domain.
+Forward checking is basically looking ahead in the future to see which values can be excluded from search after an assignment. By looking ahead we can omit the backtracking part that would result by finding a dead end. We check each value for each variable with the new assignment and remove all values that are not valid anymore from their respective domain.
 
 \subsection{Arc Consistency}
 
