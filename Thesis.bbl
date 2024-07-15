@@ -10,8 +10,8 @@ Christian Bessière.
 Fahiem Bacchus and Adam Grove.
 \newblock On the forward checking algorithm.
 \newblock In Ugo Montanari and Francesca Rossi, editors, {\em Principles and
-  Practice of Constraint Programming --- CP '95}, pages 292--309, Berlin,
-  Heidelberg, 1995. Springer Berlin Heidelberg.
+  Practice of Constraint Programming --- CP '95}, pages 292--309. Springer
+  Berlin Heidelberg, 1995.
 
 \bibitem[BR75]{backtracking:1975}
 James~R. Bitner and Edward~M. Reingold.
