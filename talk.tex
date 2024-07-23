@@ -1,0 +1,79 @@
+% Option "table" is needed for xcolor package.
+\documentclass[mathserif,table]{gkibeamer-aaai}
+
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+\usepackage{booktabs}
+\usepackage{colortbl}
+\usepackage{etex}  % Prevents "No room for a new \dimen" error.
+\usepackage[utf8]{inputenc}
+\usepackage{mathtools}
+\usepackage[mode=buildnew]{standalone}
+\usepackage{stmaryrd}
+
+\usepackage{pgfplots}
+\usetikzlibrary{plotmarks}
+\pgfplotsset{compat=1.9}
+
+\usepackage {tikz}
+\usepackage{pgfplots}
+\usetikzlibrary {positioning}
+\usepackage{tikz-cd}
+\usetikzlibrary{arrows.meta,
+chains,
+positioning,
+shapes.geometric, 
+automata
+}
+
+\usepackage{todonotes}
+
+\input{commands}
+
+% Default itemize.
+\setbeamertemplate{itemize items}[circle]
+
+\setbeamertemplate{footline}
+{
+  \leavevmode%
+  \hbox{%
+  \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+    \usebeamerfont{author in head/foot}\insertshortauthor{~~(\insertshortinstitute)}
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+    \usebeamerfont{title in head/foot}\insertshorttitle
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+
+\title[Oxiflex - Constraint Programming Solver for MiniZinc]{Oxiflex - A Constraint Programming Solver for MiniZinc written in Rust}
+\author[G.\ Klimmer]{Gianluca Klimmer}
+\institute[Basel]{University of Basel}
+\date{15.07.2024}
+\subject{AI Planning}
+
+% Needed for table overlays. See also
+% http://www.math-linux.com/latex-26/article/how-to-make-a-presentation-with-latex-introduction-to-beamer
+\setbeamercovered{invisible}
+
+
+\usepackage{animate}
+\usepackage{adjustbox}
+\usetikzlibrary{positioning}
+
+
+\begin{document}
+
+\section{Background}
+\begin{frame}{Planning}
+	SAS$^+$ Planning Task $\Pi=\langle V,I,O,\gamma \rangle$
+	\begin{itemize}
+		\item state variables $V$ with finite domain
+		\item initial state $I$
+		\item operators $O$
+		\item goal $\gamma$
+	\end{itemize}
+	Satisficing planning ignores plan cost.
+\end{frame}
+
+\end{document}

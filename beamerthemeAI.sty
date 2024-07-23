@@ -1,0 +1,32 @@
+% This file may be distributed and/or modified
+%
+% 1. under the LaTeX Project Public License and/or
+% 2. under the GNU Public License.
+
+\ProvidesPackageRCS $Header: beamerthemeAI.sty,v 1.0 2012/02/27 roeger Exp $
+
+\mode<presentation>
+{
+\usecolortheme{AI}
+\useoutertheme[subsection=false]{AI}
+
+\setbeamerfont{block title}{size={}}
+\setbeamercovered{
+  still covered={\opaqueness<1->{0}},
+  again covered={\opaqueness<1->{0}}}
+}
+
+\mode<beamer>
+{
+\useinnertheme[shadow=true]{rounded}
+}
+
+\mode<handout>
+{
+\useinnertheme[shadow=false]{rounded}
+
+\setbeamertemplate{itemize items}[triangle]
+}
+
+\mode
+<all>

@@ -1,0 +1,72 @@
+% This file may be distributed and/or modified
+%
+% 1. under the LaTeX Project Public License and/or
+% 2. under the GNU Public License.
+
+\ProvidesPackageRCS $Header: beamercolorthemeAI.sty,v 1.0 2012/02/27 roeger Exp $
+
+\ProcessOptions
+
+\mode<presentation>
+
+\definecolor{blue@AI}{RGB}{35,87,164}
+\definecolor{slategray@AI}{RGB}{153,169,192}
+
+%% from orchid (inner theme)
+\setbeamercolor{block title}{use=structure,fg=white,bg=structure.fg!75!black}
+\setbeamercolor{block title alerted}{use=alerted text,fg=white,bg=alerted text.fg!75!black}
+\setbeamercolor{block title example}{use=example text,fg=white,bg=example text.fg!75!black}
+
+\setbeamercolor{block body}{parent=normal text,use=block title,bg=block title.bg!10!bg}
+\setbeamercolor{block body alerted}{parent=normal text,use=block title alerted,bg=block title alerted.bg!10!bg}
+\setbeamercolor{block body example}{parent=normal text,use=block title example,bg=block title example.bg!10!bg}
+
+%% from whale (outer theme)
+\setbeamercolor*{sidebar}{use=structure,bg=structure.fg}
+\setbeamercolor*{palette sidebar primary}{use=structure,fg=structure.fg!10}
+\setbeamercolor*{palette sidebar secondary}{fg=white}
+\setbeamercolor*{palette sidebar tertiary}{use=structure,fg=structure.fg!50}
+\setbeamercolor*{palette sidebar quaternary}{fg=white}
+
+\setbeamercolor*{titlelike}{parent=palette primary}
+
+% my
+\setbeamercolor{structure}{fg=blue@AI!90!white}
+
+\setbeamercolor*{palette primary}{use=structure,fg=white,bg=structure.fg!75!black!60!white}
+\setbeamercolor*{palette secondary}{use=structure,fg=white,bg=structure.fg!75!black}
+\setbeamercolor*{palette tertiary}{use=structure,fg=white,bg=structure.fg!50!black}
+\setbeamercolor*{palette quaternary}{use=structure,fg=white,bg=structure.fg!75!black}
+
+\setbeamercolor{normal text}{fg=black,bg=white}
+\setbeamercolor*{item projected}{use=item,fg=white,bg=blue@AI}
+\setbeamercolor*{title}{use=structure,fg=white,bg=structure.fg!75!black}
+
+\setbeamercolor*{separation line}{}
+\setbeamercolor*{fine separation line}{}
+
+\setbeamercolor{subsection in head/foot}{parent=palette secondary}
+\setbeamercolor{section in head/foot}{parent=palette quaternary}
+\setbeamercolor{author in head/foot}{parent=palette quaternary}
+\setbeamercolor{frametitle}{parent=palette primary}
+\setbeamercolor{frametitle right}{parent=section in head/foot}
+
+\mode<handout>
+
+\setbeamercolor*{palette primary}{use=structure,fg=structure.fg,bg=white}
+\setbeamercolor*{palette secondary}{use=structure,fg=gray,bg=white}
+\setbeamercolor*{palette tertiary}{parent=palette secondary}
+\setbeamercolor*{palette quaternary}{parent=palette secondary}
+
+\setbeamercolor{title}{use=structure,fg=structure.fg,bg=white}
+
+\setbeamercolor{block title}{use=structure,fg=structure.fg,bg=white}
+\setbeamercolor{block title alerted}{use=alerted text,fg=alerted text.fg,bg=white}
+\setbeamercolor{block title example}{use=example text,fg=example text.fg,bg=white}
+
+\setbeamercolor{block body}{parent=normal text,bg=white}
+\setbeamercolor{block body alerted}{parent=normal text,bg=white}
+\setbeamercolor{block body example}{parent=normal text,bg=white}
+
+\mode
+<all>

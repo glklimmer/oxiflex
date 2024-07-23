@@ -1,0 +1,102 @@
+\frametitle{Conclusion}
+\begin{minipage}{\textwidth}
+		\begin{flushleft}
+			\begin{itemize}
+				\item In theory planning tasks with arbitrary correlation complexity exist.
+				\item With the folded macro criterion we detect that the Termes tasks of the IPC have a correlation complexity of at least $3$.
+			\end{itemize}
+		\end{flushleft}
+		\vspace{1cm} % Space between the top and bottom sections
+		
+		\begin{minipage}{0.45\textwidth}
+			\vspace{-1.0cm}
+			\begin {tikzpicture}[ node distance =0cm and 0cm ,on grid ,
+semithick ,
+state/.style ={ ellipse ,top color =white , bottom color = white!20 ,
+	draw , text=black , minimum width =0.15 cm, minimum height =0.08 cm}
+]
+
+% Calculate midpoints of the edges
+\coordinate (AB) at (2,0,0);
+\coordinate (BC) at (4,2,0);
+\coordinate (CD) at (2,4,0);
+\coordinate (DA) at (0,2,0);
+\coordinate (AE) at (0,0,2);
+\coordinate (BF) at (4,0,2);
+\coordinate (CG) at (4,4,2);
+\coordinate (DH) at (0,4,2);
+\coordinate (EH) at (0,2,4);
+\coordinate (FG) at (4,2,4);
+\coordinate (GH) at (2,0,4);
+\coordinate (EF) at (2,4,4);
+
+\coordinate (AB') at (2,-1,-1);
+\coordinate (BC') at (5,2,-1);
+\coordinate (CD') at (2,5,-1);
+\coordinate (AD') at (-1,2,-1);
+\coordinate (AE') at (0,0,2);
+\coordinate (BF') at (4,0,2);
+\coordinate (CG') at (4,4,2);
+\coordinate (DH') at (0,4,2);
+\coordinate (EH') at (-1,2,5);
+\coordinate (FG') at (5,2,5);
+\coordinate (GH') at (2,-1,5);
+\coordinate (EF') at (2,5,5);
+\coordinate (EHF') at (1.5,2,5);
+\coordinate (ADB') at (1.5,2,-1);
+\coordinate (FGE') at (2.5,2,5);
+\coordinate (BCA') at (2.5,2,-1);
+
+
+
+
+\node[initial,state] at (0,1,0)(0000) {$0R_113$};
+\node[state] at (0,1,4)(0001) {$R_0113$};
+\node[state] at(0,4,4)(0011) {$R'_0113$};
+\node[state] at(0,4,0)(0010) {$0R'_113$};
+
+% Draw a plane to separate two sets of corners
+%\draw[fill=blue, opacity=0.4] (CD') -- (AB') -- (GH') -- (EF') -- cycle;
+
+%\draw[blue] (CD) --(EF) -- (GH) -- (AB);
+
+
+%\draw[fill=yellow, opacity=0.4] (AD') -- (EH') -- (EHF') -- (ADB') -- cycle;
+%\draw[fill=yellow, opacity=0.4] (BCA') -- (FGE') -- (FG') -- (BC') -- cycle;
+
+%\draw[orange] (BC) --(FG);
+%\draw[orange] (EH) --(DA);
+
+\node[state] at(3,4,0)(0110) {$0R'_122$};
+\node[state] at(3,4,4)(0111) {$R'_0122$};
+\node[state] at(3,1,4)(0101) {$R_0122$};
+\node[state] at(3,1,0)(0100) {$0R_122$};
+\path[->,blue] (0000) edge[] (0001);
+\path[<-,green!60!black] (0011) edge[] (0001);
+\path[->,blue] (0011) edge[] (0010);
+\path[->,red] (0010) edge[] (0110);
+\path[->,blue] (0110) edge[] (0111);
+\path[->,green!60!black] (0111) edge[] (0101);
+\path[->,blue] (0101) edge[] (0100);
+
+\end{tikzpicture}
+		\end{minipage}
+		\hfill % Horizontal fill to push the next minipage to the right
+		\hspace{1.5cm}
+		\begin{minipage}{0.55\textwidth}
+			%\begin{flushleft}
+					\footnotesize			
+						\hspace*{.5cm}\textcolor{blue}{move-down pos-2 n1 pos-1 n0}\\
+						\hspace*{0.25cm}\textcolor{green!60!black}{create-block pos-1}\\
+						\hspace*{.5cm}\textcolor{blue}{move-up pos-1 n0 pos-2 n1}\\
+			\textcolor{red}{place-block pos-2 pos-3 n1 n2}\\
+			\textcolor{red}{move-up pos-2 n1 pos-3 n2}\\
+			\textcolor{red}{remove-block pos-3 pos-4 n3 n2}\\
+			\textcolor{red}{move-down pos-3 n2 pos-2 n1}\\
+						\hspace*{.5cm}\textcolor{blue}{move-down pos-2 n1 pos-1 n0}\\
+						\hspace*{0.25cm}\textcolor{green!60!black}{destroy-block pos-1}\\
+						\hspace*{.5cm}\textcolor{blue}{move-up pos-1 n0 pos-2 n1}
+					
+			%\end{flushleft}
+		\end{minipage}
+	\end{minipage}

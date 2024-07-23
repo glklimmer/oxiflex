@@ -1,0 +1,189 @@
+\ProvidesPackageRCS $Header: beamerouterthemeAI.sty,v 1.0 2012/02/27 roeger Exp $
+
+% This program can be redistributed and/or modified under the terms
+% of the GNU Public License, version 2.
+
+\newif\ifbeamer@sb@subsection
+
+\DeclareOptionBeamer{subsection}[true]{\csname beamer@sb@subsection#1\endcsname}
+\ExecuteOptionsBeamer{subsection=true}
+\ProcessOptionsBeamer
+
+\mode<presentation>
+{
+
+\pgfdeclarehorizontalshading[frametitle.bg,frametitle right.bg]{beamer@frametitleshade}{\paperheight}{%
+  color(0pt)=(frametitle.bg);
+  color(\paperwidth)=(frametitle right.bg)}
+
+\beamer@compresstrue
+
+\AtBeginDocument{
+  {
+    \usebeamerfont*{headline}
+    \colorlet{global.bg}{bg}
+    \usebeamercolor{subsection in head/foot}
+    \usebeamercolor{section in head/foot}
+    \usebeamercolor{frametitle}
+
+  \pgfdeclareverticalshading{beamer@topshade}{\paperwidth}{%
+    color(0pt)=(bg);
+    color(4pt)=(black!50!bg)}
+    \ifbeamer@sb@subsection
+      \pgfdeclareverticalshading{beamer@barshade}{\the\paperwidth}{%
+         color(0ex)=(global.bg);%
+         color(1ex)=(subsection in head/foot.bg);%
+         color(3.25ex)=(subsection in head/foot.bg);%
+         color(4.25ex)=(section in head/foot.bg);%
+         color(9.75ex)=(section in head/foot.bg)%
+       }
+       \pgfdeclareverticalshading{beamer@aboveframetitle}{\the\paperwidth}{%
+         color(0ex)=(frametitle.bg);%
+         color(1ex)=(frametitle.bg);%
+         color(2ex)=(subsection in head/foot.bg)
+       }
+    \else
+      \pgfdeclareverticalshading{beamer@barshade}{\the\paperwidth}{%
+         color(0ex)=(global.bg);%
+         color(1ex)=(section in head/foot.bg);%
+         color(7ex)=(section in head/foot.bg)%
+       }
+     \pgfdeclareverticalshading{beamer@aboveframetitle}{\the\paperwidth}{%
+         color(0ex)=(frametitle.bg);%
+         color(1ex)=(frametitle.bg);%
+         color(2ex)=(section in head/foot.bg)
+       }
+    \fi  
+
+    \pgfdeclareverticalshading{beamer@belowframetitle}{\the\paperwidth}{%
+      color(0ex)=(global.bg);%
+      color(1ex)=(frametitle.bg)
+    }
+  }
+}
+
+
+\defbeamertemplate*{frametitle}{gabi theme}
+{%
+  \nointerlineskip%
+  %\vskip-2pt%
+  \hbox{\leavevmode
+    \advance\beamer@leftmargin by -12bp%
+    \advance\beamer@rightmargin by -12bp%
+    \beamer@tempdim=\textwidth%
+    \advance\beamer@tempdim by \beamer@leftmargin%
+    \advance\beamer@tempdim by \beamer@rightmargin%
+    \hskip-\Gm@lmargin\hbox{%
+      \setbox\beamer@tempbox=\hbox{\begin{minipage}[b]{\paperwidth}%
+          \vbox{}\vskip-.75ex%
+          \leftskip0.3cm%
+          \rightskip0.3cm plus1fil\leavevmode
+          \usebeamerfont*{frametitle}{\usebeamercolor[fg]{frametitle}\insertframetitle}%
+          \ifx\insertframesubtitle\@empty%
+            \strut\par%
+          \else
+            \par{\usebeamerfont*{framesubtitle}{\usebeamercolor[fg]{framesubtitle}\insertframesubtitle}\strut\par}%
+          \fi%
+          \nointerlineskip
+          \vbox{}%
+          \end{minipage}}%
+      \beamer@tempdim=\ht\beamer@tempbox%
+      \advance\beamer@tempdim by 4pt%
+      \begin{pgfpicture}{0pt}{0pt}{\paperwidth}{\beamer@tempdim}
+        \usebeamercolor{frametitle right}
+        \pgfpathrectangle{\pgfpointorigin}{\pgfpoint{\paperwidth}{\beamer@tempdim}}
+        \pgfusepath{clip}
+        \pgftext[left,base]{\pgfuseshading{beamer@frametitleshade}}
+      \end{pgfpicture}
+      \hskip-\paperwidth%
+      \box\beamer@tempbox%
+    }%
+    \hskip-\Gm@rmargin%
+  }%
+  \nointerlineskip
+  \begin{beamercolorbox}[wd=\paperwidth,ht=.4ex,dp=0ex]{empty}
+    \pgfuseshading{beamer@belowframetitle}%
+  \end{beamercolorbox}%
+}
+
+\setbeamertemplate{navigation symbols}{}
+}
+
+\mode<beamer>
+{
+\defbeamertemplate*{headline}{gabi theme}
+{%
+  \pgfuseshading{beamer@barshade}%
+  \ifbeamer@sb@subsection%
+    \vskip-9.75ex%
+  \else%
+    \vskip-7ex%
+  \fi%
+  \begin{beamercolorbox}[ignorebg,ht=2.25ex,dp=3.75ex]{section in head/foot}
+    \insertnavigation{\paperwidth}
+  \end{beamercolorbox}%
+  \ifbeamer@sb@subsection%
+    \begin{beamercolorbox}[ignorebg,ht=2.125ex,dp=1.125ex,%
+      leftskip=.3cm,rightskip=.3cm plus1fil]{subsection in head/foot}
+      \usebeamerfont{subsection in head/foot}\insertsubsectionhead
+    \end{beamercolorbox}%
+  \fi%
+}%
+
+\setbeamertemplate{footline}[text line]{ }
+}
+
+\mode<handout>
+{
+  \newcommand{\insertsubtitleifsectionnonempty}{%
+    \ifx\insertsection\empty
+    \relax
+    \else
+    \insertsubtitle
+    \fi}
+\defbeamertemplate*{headline}{gabi theme}
+{%
+  \pgfuseshading{beamer@barshade}%
+  \ifbeamer@sb@subsection%
+    \vskip-9.75ex%
+  \else%
+    \vskip-7ex%
+  \fi%
+  \hbox{%
+  \begin{beamercolorbox}[ignorebg,wd=0.5\paperwidth,ht=2.25ex,dp=0.75ex]{section in head/foot}
+    \usebeamerfont{section in head/foot}\hspace*{2ex}\insertsubtitleifsectionnonempty
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[ignorebg,wd=0.5\paperwidth,ht=2.25ex,dp=0.75ex, right]{section in head/foot}
+    \usebeamerfont{section in head/foot}\insertsection\hspace*{2ex}
+  \end{beamercolorbox}}%
+  \ifbeamer@sb@subsection%
+    \begin{beamercolorbox}[ignorebg,ht=2.125ex,dp=1.125ex,%
+      leftskip=.3cm,rightskip=.3cm plus1fil]{subsection in head/foot}
+      \usebeamerfont{subsection in head/foot}\insertsubsectionhead
+    \end{beamercolorbox}%
+  \fi%
+}%
+  \newcommand{\insertshortinstituteifnonempty}{%
+    \ifthenelse{\equal{\beamer@shortinstitute}{}}{}{~~(\insertshortinstitute)}}
+  \setbeamertemplate{footline}{
+
+    \leavevmode%
+    \hbox{%
+      \begin{beamercolorbox}[wd=.25\paperwidth,ht=2.25ex,dp=0.75ex,center]{author in head/foot}%
+        \usebeamerfont{author in head/foot}\insertshortauthor\insertshortinstituteifnonempty
+      \end{beamercolorbox}%
+      \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.25ex,dp=0.75ex,center]{title in head/foot}%
+        \usebeamerfont{title in head/foot}\insertshorttitle
+      \end{beamercolorbox}%
+      \begin{beamercolorbox}[wd=.25\paperwidth,ht=2.25ex,dp=0.75ex,right]{date in head/foot}%
+        %% Commented out date for AAAI tutorial because it's all on
+        %% one day anyway (and that date is on the title slides).
+        %% \usebeamerfont{date in head/foot}\insertshortdate{}\hspace*{2em}
+        \insertpagenumber{} / \insertpresentationendpage\hspace*{2ex}
+    \end{beamercolorbox}}%
+    \vskip0pt%
+  }
+}
+
+\mode
+<all>
