@@ -1,0 +1,35 @@
+meta
+  slide numbers
+  logo
+
+DEMO oxiflex using minizinc queens output
+- backup screenshots
+
+simple of csp: simple
+translation to minizinc
+show translation to flatzinc
+
+do not show queens for minizinc (only short mention)
+
+show solving chapter visually, no code
+use tree for backtracking
+use blue inference queens for FC
+use domain bubbles for arc
+
+Oxiflex
+- rust
+- limitations bullet points
+- no dependencies
+- model uses hashmaps datastructures
+- solver with img
+
+results
+
+conclusion
+- lessons learned
+- presay what audiance will tell others, takeaway message
+
+
+Answer slides
+ - maybe boxes of algos
+ - code of inference
