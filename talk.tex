@@ -10,6 +10,8 @@
 \usepackage{mathtools}
 \usepackage[mode=buildnew]{standalone}
 \usepackage{stmaryrd}
+\usepackage{multicol}
+\usepackage{xskak} % chessboard
 
 \usepackage{pgfplots}
 \usetikzlibrary{plotmarks}
@@ -48,7 +50,7 @@ automata
 
 \title[Oxiflex - Constraint Programming Solver for MiniZinc]{Oxiflex - A Constraint Programming Solver for MiniZinc written in Rust}
 \author[G.\ Klimmer]{Gianluca Klimmer}
-\institute[Basel]{University of Basel}
+\institute[unibas]{University of Basel}
 \date{15.07.2024}
 \subject{AI Planning}
 
@@ -64,16 +66,406 @@ automata
 
 \begin{document}
 
-\section{Background}
-\begin{frame}{Planning}
-	SAS$^+$ Planning Task $\Pi=\langle V,I,O,\gamma \rangle$
+\section{Constraint Programming}
+
+\begin{frame}
+	\only<1>{
+
+		\begin{center}
+			\LARGE{\textcolor{black}{Constraint Programming} Solver for MiniZinc written in Rust}
+		\end{center}
+	}
+	\only<2>{
+		\begin{center}
+			\LARGE{\textcolor{red}{Constraint Programming} Solver for MiniZinc written in Rust}
+		\end{center}
+	}
+\end{frame}
+
+\begin{frame}{Constraint Network}
+	\only<1>{
+		A (binary) \textbf{constraint network} is a 3-tuple $C = \langle V, \text{dom}, (R_{uv})\rangle$ such that:
+		\begin{itemize}
+			\item $V$ is a non-empty and finite set of variables,
+			\item dom is a function that assigns a non-empty and finite domain to each variable $v \in V$, and
+			\item $(R_{uv})_{u,v \in V, u \neq v}$ is a family of binary relations (constraints) over $V$ where for all $u \neq v: R_{uv} \subseteq \text{dom}(u) \times \text{dom}(v)$
+		\end{itemize}
+	}
+	\only<2>{
+		\begin{center}
+			\LARGE{boring...}
+		\end{center}
+	}
+	\only<3>{
+		\begin{itemize}
+			\item Variables
+			      \begin{itemize}
+				      \item Values to choose from
+			      \end{itemize}
+			\item Constraints
+			      \begin{itemize}
+				      \item Rules for choosing values
+			      \end{itemize}
+		\end{itemize}
+	}
+\end{frame}
+
+\begin{frame}{Simple Example}
+	\begin{multicols}{2}
+		\large{Variables:} \\
+		\vspace{0.5cm}
+		\hspace{0.5cm}
+		$\begin{aligned}
+				 & w = \{1, 2, 3, 4\} \\
+				 & y = \{1, 2, 3, 4\} \\
+				 & x = \{1, 2, 3\}    \\
+				 & z = \{1, 2, 3\}    \\
+			\end{aligned}$
+
+		\columnbreak
+
+		\large{Constraints:} \\
+		\vspace{0.5cm}
+		\hspace{0.5cm}
+		$\begin{aligned}
+				 & w = 2 \cdot x \\
+				 & w < z         \\
+				 & y > z         \\
+			\end{aligned}$
+	\end{multicols}
+\end{frame}
+
+\begin{frame}{Constraint Programming}
+	\hspace{2cm}
+	var 1..4: w; \\
+	\hspace{2cm}
+	var 1..4: y; \\
+	\hspace{2cm}
+	var 1..3: x; \\
+	\hspace{2cm}
+	var 1..3: z; \\
+	\vspace{0.35cm}
+	\hspace{2cm}
+	constraint w = 2 $\cdot$ x; \\
+	\hspace{2cm}
+	constraint w $<$ z; \\
+	\hspace{2cm}
+	constraint y $>$ z; \\
+
+	\pause
+	\vspace{0.35cm}
+	\hspace{2cm}
+	solve satisfy;
+
+	\pause
+	\vspace{0.35cm}
+	\hspace{2cm}
+	$\rightarrow$ MiniZinc!
+\end{frame}
+
+\begin{frame}{MiniZinc}
+	\begin{figure}[ht]
+		\includegraphics[scale=0.2]{./figures/minizinc_logo.png}
+	\end{figure}
+	\begin{figure}[ht]
+		\includegraphics[scale=0.1]{./figures/monash_logo.png}
+	\end{figure}
+\end{frame}
+
+\begin{frame}
+	\only<1>{
+		\begin{center}
+			\LARGE{\textcolor{blue}{Constraint Programming} Solver \textcolor{blue}{for MiniZinc} written in Rust}
+		\end{center}
+	}
+	\only<2>{
+		\begin{center}
+			\LARGE{\textcolor{blue}{Constraint Programming} \textcolor{red}{Solver} \textcolor{blue}{for MiniZinc} written in Rust}
+		\end{center}
+	}
+\end{frame}
+
+\section{Backtracking}
+
+\begin{frame}
+	\begin{center}
+		\huge{Backtracking}
+	\end{center}
+\end{frame}
+
+\newcommand{\backtracking}[2]{
+	\only<#1>{
+		\begin{figure}[ht]
+			\centering
+			\includegraphics[scale=0.3]{./figures/backtracking/backtracking_#2.png}
+		\end{figure}
+	}
+}
+
+\begin{frame}{Backtracking Example}
+	\backtracking{1}{1}
+	\backtracking{2}{2}
+	\backtracking{3}{3}
+	\backtracking{4}{4}
+	\backtracking{5}{5}
+	\backtracking{6}{6}
+	\backtracking{7}{final}
+	\backtracking{8}{solution}
+\end{frame}
+
+\begin{frame}
+	\only<1>{
+		\begin{center}
+			\huge{Kinda like search...}
+		\end{center}
+	}
+	\only<2>{
+		\begin{center}
+			\huge{Can we do better?}
+		\end{center}
+	}
+\end{frame}
+
+\section{8-Queens Problem}
+
+\begin{frame}
+	\begin{center}
+		\huge{8-Queens Problem}
+	\end{center}
+\end{frame}
+
+\begin{frame}{Chessboard}
+	\begin{figure}[ht]
+		\centering
+		\newchessgame
+		\chessboard[clearboard, showmover=false]
+	\end{figure}
+\end{frame}
+
+\begin{frame}{One Queen}
+	\only<1>{
+		\begin{figure}[ht]
+			\centering
+			\newchessgame
+			\chessboard[
+				setfen=8/8/8/8/3Q4/8/8/8 w - - 0 1,
+				showmover=false
+			]
+		\end{figure}
+	}
+	\only<2>{
+		\begin{figure}[ht]
+			\centering
+			\newchessgame
+			\chessboard[
+				setfen=8/8/8/8/3Q4/8/8/8 w - - 0 1,
+				color=red!50,
+				pgfstyle=color,
+				markfields={a7,b6,c5,a4,b4,c4,a1,b2,c3,d8,d7,d6,d5,d5,d3,d2,d1,e5,f6,g7,h8,e4,f4,g4,h4,e3,f2,g1},
+				showmover=false
+			]
+		\end{figure}
+	}
+\end{frame}
+
+\begin{frame}{Two Queens}
+	\begin{figure}[ht]
+		\centering
+		\newchessgame
+		\chessboard[
+			setfen=8/8/8/5Q2/3Q4/8/8/8 w - - 0 1,
+			showmover=false
+		]
+	\end{figure}
+\end{frame}
+
+\begin{frame}{N-Queens Problem}
 	\begin{itemize}
-		\item state variables $V$ with finite domain
-		\item initial state $I$
-		\item operators $O$
-		\item goal $\gamma$
+		\item Scalable
+		      \pause
+		      \begin{itemize}
+			      \item 8-Queens $\rightarrow$ N-Queens
+			            \pause
+			      \item $n \times n$ chessboard
+			            \pause
+			      \item $n$ Queens
+		      \end{itemize}
 	\end{itemize}
-	Satisficing planning ignores plan cost.
+\end{frame}
+
+\section{Improvements}
+
+\begin{frame}
+	\begin{center}
+		\huge{Inference}
+	\end{center}
+\end{frame}
+
+\begin{frame}{Inference Example}
+	\only<1>{
+		\begin{figure}[ht]
+			\centering
+			\newchessgame
+			\chessboard[
+				setfen=8/8/8/8/3Q4/8/8/8 w - - 0 1,
+				showmover=false
+			]
+		\end{figure}
+	}
+	\only<2>{
+		\begin{figure}[ht]
+			\centering
+			\newchessgame
+			\chessboard[
+				setfen=8/8/8/8/3Q4/8/8/8 w - - 0 1,
+				color=blue!50,
+				pgfstyle=color,
+				markfields={a7,b6,c5,a4,b4,c4,a1,b2,c3,e5,f6,g7,h8,e4,f4,g4,h4,e3,f2,g1},
+				showmover=false
+			]
+		\end{figure}
+	}
+\end{frame}
+
+\begin{frame}{Improvements}
+	\begin{itemize}
+		\item Inference
+		      \pause
+		      \begin{itemize}
+			      \item Forward Checking
+			            \pause
+			      \item Arc consistency
+			            \pause
+			            \begin{itemize}
+				            \item AC-1
+				                  \pause
+				            \item AC-3
+			            \end{itemize}
+			            \pause
+		      \end{itemize}
+		\item Variable Ordering: fail early
+	\end{itemize}
+\end{frame}
+
+\section{Oxiflex}
+
+\begin{frame}
+	\only<1>{
+		\begin{center}
+			\huge{Oxiflex}
+		\end{center}
+	}
+	\only<2>{
+		\begin{center}
+			\huge{Demo}
+		\end{center}
+	}
+\end{frame}
+
+\begin{frame}
+	\only<1>{
+		\begin{center}
+			\LARGE{\textcolor{blue}{Constraint Programming Solver for MiniZinc} written in Rust}
+		\end{center}
+	}
+	\only<2>{
+		\begin{center}
+			\LARGE{\textcolor{blue}{Constraint Programming Solver for MiniZinc} \textcolor{red}{written in Rust}}
+		\end{center}
+	}
+\end{frame}
+
+\begin{frame}{Solver}
+	\begin{itemize}
+		\item Performance
+		      \pause
+		      \begin{itemize}
+			      \item fast
+			            \pause
+			      \item like real fast
+			            \pause
+		      \end{itemize}
+		\item $\rightarrow$ no abstractions, no garbage collector, no JIT
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Possible Language}
+	\begin{multicols}{2}
+		\begin{center}
+			\huge{Assembly}
+		\end{center}
+		\pause
+		\begin{center}
+			\huge{or}
+		\end{center}
+		\columnbreak
+		\begin{figure}[ht]
+			\includegraphics[scale=0.2]{./figures/c_logo.png}
+		\end{figure}
+	\end{multicols}
+\end{frame}
+
+\begin{frame}{Solver}
+	\begin{itemize}
+		\item Performance
+		      \begin{itemize}
+			      \item fast
+			      \item like real fast
+		      \end{itemize}
+		      \pause
+		\item Correctness
+		      \begin{itemize}
+			      \item Prevent bugs
+		      \end{itemize}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Rust}
+	\begin{figure}[ht]
+		\includegraphics[scale=0.6]{./figures/rust_logo.png}
+	\end{figure}
+\end{frame}
+
+\begin{frame}{Rust}
+	\begin{itemize}
+		\item Performance
+		      \begin{itemize}
+			      \item fast
+			      \item like real fast
+		      \end{itemize}
+		\item Correctness
+		      \begin{itemize}
+			      \item Prevent bugs
+		      \end{itemize}
+		      \pause
+		\item Ease of use
+		      \begin{itemize}
+			      \pause
+			      \item Library manager - Cargo
+			            \pause
+			      \item Functional
+		      \end{itemize}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\begin{center}
+		\LARGE{\textcolor{blue}{Constraint Programming Solver for MiniZinc written in Rust}}
+	\end{center}
+\end{frame}
+
+\begin{frame}
+	\begin{center}
+		\huge{Benchmarks}
+	\end{center}
+\end{frame}
+
+\begin{frame}
+	\begin{center}
+		\huge{
+			The end
+		}
+	\end{center}
 \end{frame}
 
 \end{document}

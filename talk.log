@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.3.27)  23 JUL 2024 19:07
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.3.27)  23 JUL 2024 23:17
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -888,9 +888,140 @@ Package: stmaryrd 1994/03/03 St Mary's Road symbol package
 LaTeX Font Info:    Overwriting symbol font `stmry' in version `bold'
 (Font)                  U/stmry/m/n --> U/stmry/b/n on input line 89.
 )
-(/usr/share/texlive/texmf-dist/tex/latex/pgfplots/pgfplots.sty
-(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplots.revision.tex)
-Package: pgfplots 2021/05/15 v1.18.1 Data Visualization (1.18.1)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/multicol.sty
+Package: multicol 2021/10/28 v1.9b multicolumn formatting (FMi)
+\c@tracingmulticols=\count351
+\mult@box=\box83
+\multicol@leftmargin=\dimen323
+\c@unbalance=\count352
+\c@collectmore=\count353
+\doublecol@number=\count354
+\multicoltolerance=\count355
+\multicolpretolerance=\count356
+\full@width=\dimen324
+\page@free=\dimen325
+\premulticols=\dimen326
+\postmulticols=\dimen327
+\multicolsep=\skip74
+\multicolbaselineskip=\skip75
+\partial@page=\box84
+\last@line=\box85
+\maxbalancingoverflow=\dimen328
+\mult@rightbox=\box86
+\mult@grightbox=\box87
+\mult@firstbox=\box88
+\mult@gfirstbox=\box89
+\@tempa=\box90
+\@tempa=\box91
+\@tempa=\box92
+\@tempa=\box93
+\@tempa=\box94
+\@tempa=\box95
+\@tempa=\box96
+\@tempa=\box97
+\@tempa=\box98
+\@tempa=\box99
+\@tempa=\box100
+\@tempa=\box101
+\@tempa=\box102
+\@tempa=\box103
+\@tempa=\box104
+\@tempa=\box105
+\@tempa=\box106
+\@tempa=\box107
+\@tempa=\box108
+\@tempa=\box109
+\@tempa=\box110
+\@tempa=\box111
+\@tempa=\box112
+\@tempa=\box113
+\@tempa=\box114
+\@tempa=\box115
+\@tempa=\box116
+\@tempa=\box117
+\@tempa=\box118
+\@tempa=\box119
+\@tempa=\box120
+\@tempa=\box121
+\@tempa=\box122
+\@tempa=\box123
+\@tempa=\box124
+\@tempa=\box125
+\c@minrows=\count357
+\c@columnbadness=\count358
+\c@finalcolumnbadness=\count359
+\last@try=\dimen329
+\multicolovershoot=\dimen330
+\multicolundershoot=\dimen331
+\mult@nat@firstbox=\box126
+\colbreak@box=\box127
+\mc@col@check@num=\count360
+)
+(/usr/share/texlive/texmf-dist/tex/latex/xskak/xskak.sty
+Package: xskak 2019/06/23 version v1.5 extended chess typesetting and parsing
+
+(/usr/share/texlive/texmf-dist/tex/latex/skak/skak.sty
+Package: skak 2018/01/08 v1.5.3 Chess typesetting
+
+(/usr/share/texlive/texmf-dist/tex/latex/chessfss/chessfss.sty
+Package: chessfss 2006/06/14 v1.2a chess font selection scheme
+
+(/usr/share/texlive/texmf-dist/tex/latex/chessfss/lsbenc.def
+File: lsbenc.def 2006/06/09 v1.2 Standard LaTeX file
+Now handling font encoding LSB ...
+... no UTF-8 mapping file for font encoding LSB
+)
+(/usr/share/texlive/texmf-dist/tex/latex/chessfss/lsfenc.def
+File: lsfenc.def 2006/06/09 v1.2 Standard LaTeX file
+Now handling font encoding LSF ...
+... no UTF-8 mapping file for font encoding LSF
+)
+(/usr/share/texlive/texmf-dist/tex/latex/chessfss/lsienc.def
+File: lsienc.def 2006/06/09 v1.2 Standard LaTeX file
+Now handling font encoding LSI ...
+... no UTF-8 mapping file for font encoding LSI
+)
+\len@cfss@squarewidth=\skip76
+\len@cfss@squaretotalheight=\skip77
+\len@cfss@squaredepth=\skip78
+)
+(/usr/share/texlive/texmf-dist/tex/plain/lambda-lists/lambda.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/base/textcomp.sty
+Package: textcomp 2020/02/02 v2.0n Standard LaTeX package
+)
+\c@fileFrom=\count361
+\c@rankFrom=\count362
+\c@fileTo=\count363
+\c@rankTo=\count364
+\c@ps@inverse=\count365
+\c@ps@knightangle=\count366
+\c@halfmove=\count367
+\c@move=\count368
+\c@helpgobble=\count369
+\c@helpnumber=\count370
+\c@helpnumberMove=\count371
+\squarelength=\skip79
+\square@multiplier=\count372
+\ranklift=\skip80
+LaTeX Font Info:    Trying to load font information for LSB+skaknew on input li
+ne 1774.
+
+(/usr/share/texlive/texmf-dist/tex/latex/chessfss/lsbskaknew.fd
+File: lsbskaknew.fd 2006/03/31 v1.0 Chess font definitions
+)
+
+LaTeX Font Warning: Font shape `OT1/cmss/m/up' undefined
+(Font)              using `OT1/cmss/m/n' instead on input line 1774.
+
+\store@toks=\toks54
+) (/usr/share/texlive/texmf-dist/tex/latex/xifthen/xifthen.sty
+Package: xifthen 2015/11/05 v1.4.0 Extended ifthen features
+
+(/usr/share/texlive/texmf-dist/tex/latex/ifmtarg/ifmtarg.sty
+Package: ifmtarg 2018/04/16 v1.2b check for an empty argument
+))
+(/usr/share/texlive/texmf-dist/tex/latex/chessboard/chessboard.sty
+Package: chessboard 2020/11/01 version v1.9 print chessboards
 
 (/usr/share/texlive/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty
 (/usr/share/texlive/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty
@@ -898,15 +1029,15 @@ Package: pgf 2021/05/15 v3.1.9a (3.1.9a)
 
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmoduleshapes.code.tex
 File: pgfmoduleshapes.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgfnodeparttextbox=\box83
+\pgfnodeparttextbox=\box128
 ) (/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmoduleplot.code.tex
 File: pgfmoduleplot.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 )
 (/usr/share/texlive/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-0-65
 .sty
 Package: pgfcomp-version-0-65 2021/05/15 v3.1.9a (3.1.9a)
-\pgf@nodesepstart=\dimen323
-\pgf@nodesepend=\dimen324
+\pgf@nodesepstart=\dimen332
+\pgf@nodesepend=\dimen333
 )
 (/usr/share/texlive/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-1-18
 .sty
@@ -920,10 +1051,10 @@ Package: pgfcomp-version-1-18 2021/05/15 v3.1.9a (3.1.9a)
 Package: pgffor 2021/05/15 v3.1.9a (3.1.9a)
 
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex)
-\pgffor@iter=\dimen325
-\pgffor@skip=\dimen326
-\pgffor@stack=\toks54
-\pgffor@toks=\toks55
+\pgffor@iter=\dimen334
+\pgffor@skip=\dimen335
+\pgffor@stack=\toks55
+\pgffor@toks=\toks56
 ))
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex
 Package: tikz 2021/05/15 v3.1.9a (3.1.9a)
@@ -931,46 +1062,77 @@ Package: tikz 2021/05/15 v3.1.9a (3.1.9a)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers
 .code.tex
 File: pgflibraryplothandlers.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgf@plot@mark@count=\count351
-\pgfplotmarksize=\dimen327
+\pgf@plot@mark@count=\count373
+\pgfplotmarksize=\dimen336
 )
-\tikz@lastx=\dimen328
-\tikz@lasty=\dimen329
-\tikz@lastxsaved=\dimen330
-\tikz@lastysaved=\dimen331
-\tikz@lastmovetox=\dimen332
-\tikz@lastmovetoy=\dimen333
-\tikzleveldistance=\dimen334
-\tikzsiblingdistance=\dimen335
-\tikz@figbox=\box84
-\tikz@figbox@bg=\box85
-\tikz@tempbox=\box86
-\tikz@tempbox@bg=\box87
-\tikztreelevel=\count352
-\tikznumberofchildren=\count353
-\tikznumberofcurrentchild=\count354
-\tikz@fig@count=\count355
+\tikz@lastx=\dimen337
+\tikz@lasty=\dimen338
+\tikz@lastxsaved=\dimen339
+\tikz@lastysaved=\dimen340
+\tikz@lastmovetox=\dimen341
+\tikz@lastmovetoy=\dimen342
+\tikzleveldistance=\dimen343
+\tikzsiblingdistance=\dimen344
+\tikz@figbox=\box129
+\tikz@figbox@bg=\box130
+\tikz@tempbox=\box131
+\tikz@tempbox@bg=\box132
+\tikztreelevel=\count374
+\tikznumberofchildren=\count375
+\tikznumberofcurrentchild=\count376
+\tikz@fig@count=\count377
 
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.code.tex
 File: pgfmodulematrix.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgfmatrixcurrentrow=\count356
-\pgfmatrixcurrentcolumn=\count357
-\pgf@matrix@numberofcolumns=\count358
+\pgfmatrixcurrentrow=\count378
+\pgfmatrixcurrentcolumn=\count379
+\pgf@matrix@numberofcolumns=\count380
 )
-\tikz@expandcount=\count359
+\tikz@expandcount=\count381
 
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
 zlibrarytopaths.code.tex
 File: tikzlibrarytopaths.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 )))
+\len@board@tempx=\skip81
+\len@board@tempy=\skip82
+\c@cnt@board@file=\count382
+\c@cnt@board@rank=\count383
+\c@cnt@board=\count384
+\c@filelabel=\count385
+\c@ranklabel=\count386
+
+(/usr/share/texlive/texmf-dist/tex/latex/chessboard/chessboard-keys-main.sty
+File: chessboard-keys-main.sty 2020/11/01 version v1.9 key definitions for ches
+sboard.sty
+)
+(/usr/share/texlive/texmf-dist/tex/latex/chessboard/chessboard-keys-pgf.sty
+File: chessboard-keys-pgf.sty 2020/11/01 version v1.9 key definitions for chess
+board.sty
+)
+(/usr/share/texlive/texmf-dist/tex/latex/chessboard/chessboard-pgf.sty
+File: chessboard-pgf.sty 2020/11/01 version v1.9 pgf code for chessboard.sty
+))
+(/usr/share/texlive/texmf-dist/tex/latex/xskak/xskak-keys.sty
+File: xskak-keys.sty 2019/06/23 version v1.5 key definitions for xskak.sty
+)
+(/usr/share/texlive/texmf-dist/tex/latex/xskak/xskak-nagdef.sty
+File: xskak-nagdef.sty 2019/06/23 version v1.5 nag definitions for xskak.sty
+)
+LaTeX Info: Redefining \variation on input line 1473.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/pgfplots/pgfplots.sty
+(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplots.revision.tex)
+Package: pgfplots 2021/05/15 v1.18.1 Data Visualization (1.18.1)
+
 (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplots.code.tex
 (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplotscore.code.tex
-\t@pgfplots@toka=\toks56
-\t@pgfplots@tokb=\toks57
-\t@pgfplots@tokc=\toks58
-\pgfplots@tmpa=\dimen336
-\c@pgfplots@coordindex=\count360
-\c@pgfplots@scanlineindex=\count361
+\t@pgfplots@toka=\toks57
+\t@pgfplots@tokb=\toks58
+\t@pgfplots@tokc=\toks59
+\pgfplots@tmpa=\dimen345
+\c@pgfplots@coordindex=\count387
+\c@pgfplots@scanlineindex=\count388
 
 (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/sys/pgfplotssysgeneric.code
 .tex))
@@ -987,14 +1149,14 @@ tructure.code.tex)
 tructureext.code.tex)
 (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsarray
 .code.tex
-\c@pgfplotsarray@tmp=\count362
+\c@pgfplotsarray@tmp=\count389
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsmatri
 x.code.tex)
 (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/numtable/pgfplotstableshare
 d.code.tex
-\c@pgfplotstable@counta=\count363
-\t@pgfplotstable@a=\toks59
+\c@pgfplotstable@counta=\count390
+\t@pgfplotstable@a=\toks60
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsdeque
 .code.tex)
@@ -1006,7 +1168,7 @@ de.tex))
 .tex)
 (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/libs/pgflibrarypgfplots.sur
 fshading.code.tex
-\c@pgfplotslibrarysurf@no=\count364
+\c@pgfplotslibrarysurf@no=\count391
 
 (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/sys/pgflibrarypgfplots.surf
 shading.pgfsys-pdftex.def)))
@@ -1033,16 +1195,16 @@ e.tex)
 zlibrarydecorations.code.tex
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmoduledecorations.cod
 e.tex
-\pgfdecoratedcompleteddistance=\dimen337
-\pgfdecoratedremainingdistance=\dimen338
-\pgfdecoratedinputsegmentcompleteddistance=\dimen339
-\pgfdecoratedinputsegmentremainingdistance=\dimen340
-\pgf@decorate@distancetomove=\dimen341
-\pgf@decorate@repeatstate=\count365
-\pgfdecorationsegmentamplitude=\dimen342
-\pgfdecorationsegmentlength=\dimen343
+\pgfdecoratedcompleteddistance=\dimen346
+\pgfdecoratedremainingdistance=\dimen347
+\pgfdecoratedinputsegmentcompleteddistance=\dimen348
+\pgfdecoratedinputsegmentremainingdistance=\dimen349
+\pgf@decorate@distancetomove=\dimen350
+\pgf@decorate@repeatstate=\count392
+\pgfdecorationsegmentamplitude=\dimen351
+\pgfdecorationsegmentlength=\dimen352
 )
-\tikz@lib@dec@box=\box88
+\tikz@lib@dec@box=\box133
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
 zlibrarydecorations.pathmorphing.code.tex
@@ -1054,13 +1216,13 @@ zlibrarydecorations.pathreplacing.code.tex
 decorations.pathreplacing.code.tex))
 (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/libs/tikzlibrarypgfplots.co
 ntourlua.code.tex)
-\pgfplots@numplots=\count366
-\pgfplots@xmin@reg=\dimen344
-\pgfplots@xmax@reg=\dimen345
-\pgfplots@ymin@reg=\dimen346
-\pgfplots@ymax@reg=\dimen347
-\pgfplots@zmin@reg=\dimen348
-\pgfplots@zmax@reg=\dimen349
+\pgfplots@numplots=\count393
+\pgfplots@xmin@reg=\dimen353
+\pgfplots@xmax@reg=\dimen354
+\pgfplots@ymin@reg=\dimen355
+\pgfplots@ymax@reg=\dimen356
+\pgfplots@zmin@reg=\dimen357
+\pgfplots@zmax@reg=\dimen358
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
 zlibraryplotmarks.code.tex
@@ -1089,10 +1251,10 @@ File: tikzlibraryquotes.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.meta.
 code.tex
 File: pgflibraryarrows.meta.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgfarrowinset=\dimen350
-\pgfarrowlength=\dimen351
-\pgfarrowwidth=\dimen352
-\pgfarrowlinewidth=\dimen353
+\pgfarrowinset=\dimen359
+\pgfarrowlength=\dimen360
+\pgfarrowwidth=\dimen361
+\pgfarrowlinewidth=\dimen362
 )))
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
 zlibrarychains.code.tex
@@ -1117,31 +1279,31 @@ File: tikzlibraryshapes.multipart.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshape
 s.multipart.code.tex
 File: pgflibraryshapes.multipart.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgfnodepartlowerbox=\box89
-\pgfnodeparttwobox=\box90
-\pgfnodepartthreebox=\box91
-\pgfnodepartfourbox=\box92
-\pgfnodeparttwentybox=\box93
-\pgfnodepartnineteenbox=\box94
-\pgfnodeparteighteenbox=\box95
-\pgfnodepartseventeenbox=\box96
-\pgfnodepartsixteenbox=\box97
-\pgfnodepartfifteenbox=\box98
-\pgfnodepartfourteenbox=\box99
-\pgfnodepartthirteenbox=\box100
-\pgfnodeparttwelvebox=\box101
-\pgfnodepartelevenbox=\box102
-\pgfnodeparttenbox=\box103
-\pgfnodepartninebox=\box104
-\pgfnodeparteightbox=\box105
-\pgfnodepartsevenbox=\box106
-\pgfnodepartsixbox=\box107
-\pgfnodepartfivebox=\box108
+\pgfnodepartlowerbox=\box134
+\pgfnodeparttwobox=\box135
+\pgfnodepartthreebox=\box136
+\pgfnodepartfourbox=\box137
+\pgfnodeparttwentybox=\box138
+\pgfnodepartnineteenbox=\box139
+\pgfnodeparteighteenbox=\box140
+\pgfnodepartseventeenbox=\box141
+\pgfnodepartsixteenbox=\box142
+\pgfnodepartfifteenbox=\box143
+\pgfnodepartfourteenbox=\box144
+\pgfnodepartthirteenbox=\box145
+\pgfnodeparttwelvebox=\box146
+\pgfnodepartelevenbox=\box147
+\pgfnodeparttenbox=\box148
+\pgfnodepartninebox=\box149
+\pgfnodeparteightbox=\box150
+\pgfnodepartsevenbox=\box151
+\pgfnodepartsixbox=\box152
+\pgfnodepartfivebox=\box153
 )))
 (/usr/share/texlive/texmf-dist/tex/latex/todonotes/todonotes.sty
 Package: todonotes 2021/06/04 v1.1.5 Todonotes source and documentation.
 Package: todonotes 2021/06/04
-\c@@todonotes@numberoftodonotes=\count367
+\c@@todonotes@numberoftodonotes=\count394
 )
 (./commands.tex) (/usr/share/texlive/texmf-dist/tex/latex/animate/animate.sty
 Package: animate 2022/01/31 PDF & SVG animations from files and inline graphics
@@ -1159,7 +1321,7 @@ Package zref Info: New property list: main on input line 764.
 Package zref Info: New property: default on input line 765.
 Package zref Info: New property: page on input line 766.
 )
-\c@abspage=\count368
+\c@abspage=\count395
 Package zref Info: New property: abspage on input line 66.
 )
 (/usr/share/texlive/texmf-dist/tex/latex/media9/pdfbase.sty
@@ -1169,58 +1331,76 @@ Package: expl3 2022-01-21 L3 programming layer (loader)
 
 (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2022-01-12 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count369
-\l__pdf_internal_box=\box109
+\l__color_backend_stack_int=\count396
+\l__pdf_internal_box=\box154
 ))
 Package: l3keys2e 2022-01-12 LaTeX2e option processing using LaTeX3 keys
 )
 Package: pdfbase 2021/09/12 v0.53 driver independent access to low-level PDF fe
 atures
-\g_pbs_page_int=\count370
-\g_pbs_oc_int=\count371
+\g_pbs_page_int=\count397
+\g_pbs_oc_int=\count398
 )
 (/usr/share/texlive/texmf-dist/tex/latex/ocgx2/ocgbase.sty
 Package: ocgbase 2021/06/11 v0.20 support package for ocgx2.sty
-\g_ocgbase_nd_int=\count372
+\g_ocgbase_nd_int=\count399
 )
-\@anim@box=\box110
-\@anim@measbox=\box111
-\@anim@tmpdima=\dimen354
-\@anim@tmpdimb=\dimen355
-\@anim@num=\count373
-\@anim@curframe=\count374
-\@anim@curframe@zb=\count375
-\@anim@resizeflags=\count376
-\@anim@skipfram=\count377
-\@anim@mulframecnt=\count378
+\@anim@box=\box155
+\@anim@measbox=\box156
+\@anim@tmpdima=\dimen363
+\@anim@tmpdimb=\dimen364
+\@anim@num=\count400
+\@anim@curframe=\count401
+\@anim@curframe@zb=\count402
+\@anim@resizeflags=\count403
+\@anim@skipfram=\count404
+\@anim@mulframecnt=\count405
 \@anim@@tmlnfile=\read3
-\@anim@tmpcnt=\count379
-\c@@anim@ltxcnt=\count380
-\@anim@curlayer=\count381
-\@anim@lineno=\count382
-\@anim@curfield=\count383
-\@anim@@resizeflags=\count384
+\@anim@tmpcnt=\count406
+\c@@anim@ltxcnt=\count407
+\@anim@curlayer=\count408
+\@anim@lineno=\count409
+\@anim@curfield=\count410
+\@anim@@resizeflags=\count411
 ) (./talk.aux)
 \openout1 = `talk.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 65.
-LaTeX Font Info:    ... okay on input line 65.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 65.
-LaTeX Font Info:    ... okay on input line 65.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 65.
-LaTeX Font Info:    ... okay on input line 65.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 65.
-LaTeX Font Info:    ... okay on input line 65.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 65.
-LaTeX Font Info:    ... okay on input line 65.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 65.
-LaTeX Font Info:    ... okay on input line 65.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 65.
-LaTeX Font Info:    ... okay on input line 65.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 65.
-LaTeX Font Info:    ... okay on input line 65.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 65.
-LaTeX Font Info:    ... okay on input line 65.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 67.
+LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 67.
+LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 67.
+LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 67.
+LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 67.
+LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 67.
+LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 67.
+LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 67.
+LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 67.
+LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for LSB/skaknew/m/n on input line 67.
+LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for LSF/skaknew/m/n on input line 67.
+LaTeX Font Info:    Trying to load font information for LSF+skaknew on input li
+ne 67.
+
+(/usr/share/texlive/texmf-dist/tex/latex/chessfss/lsfskaknew.fd
+File: lsfskaknew.fd 2006/03/31 v1.0 Chess font definitions
+)
+LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for LSI/skaknew/m/n on input line 67.
+LaTeX Font Info:    Trying to load font information for LSI+skaknew on input li
+ne 67.
+
+(/usr/share/texlive/texmf-dist/tex/latex/chessfss/lsiskaknew.fd
+File: lsiskaknew.fd 2006/03/31 v1.0 Chess font definitions
+)
+LaTeX Font Info:    ... okay on input line 67.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1258,17 +1438,17 @@ LaTeX Font Info:    ... okay on input line 65.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count385
-\scratchdimen=\dimen356
-\scratchbox=\box112
-\nofMPsegments=\count386
-\nofMParguments=\count387
-\everyMPshowfont=\toks60
-\MPscratchCnt=\count388
-\MPscratchDim=\dimen357
-\MPnumerator=\count389
-\makeMPintoPDFobject=\count390
-\everyMPtoPDFconversion=\toks61
+\scratchcounter=\count412
+\scratchdimen=\dimen365
+\scratchbox=\box157
+\nofMPsegments=\count413
+\nofMParguments=\count414
+\everyMPshowfont=\toks61
+\MPscratchCnt=\count415
+\MPscratchDim=\dimen366
+\MPnumerator=\count416
+\makeMPintoPDFobject=\count417
+\everyMPtoPDFconversion=\toks62
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
@@ -1278,7 +1458,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-Package hyperref Info: Link coloring OFF on input line 65.
+Package hyperref Info: Link coloring OFF on input line 67.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
@@ -1289,11 +1469,11 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 (/usr/share/texlive/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count391
+\c@section@level=\count418
 )
-LaTeX Info: Redefining \ref on input line 65.
-LaTeX Info: Redefining \pageref on input line 65.
-LaTeX Info: Redefining \nameref on input line 65.
+LaTeX Info: Redefining \ref on input line 67.
+LaTeX Info: Redefining \pageref on input line 67.
+LaTeX Info: Redefining \nameref on input line 67.
 
 (./talk.out) (./talk.out)
 \@outlinefile=\write5
@@ -1340,24 +1520,266 @@ enefit from \pgfplotsset{compat=1.18} (current compat level: 1.9).
 Package todonotes Warning: The length marginparwidth is less than 2cm and will 
 most likely cause issues with the appearance of inserted todonotes. The issue c
 an be solved by adding a line like \setlength {\marginparwidth }{2cm} prior to 
-loading the todonotes package. on input line 65.
+loading the todonotes package. on input line 67.
 
-(./talk.nav)
-LaTeX Font Info:    Trying to load font information for U+msa on input line 77.
+(./talk.nav) [2
 
+] [3
+
+]
+LaTeX Font Info:    Trying to load font information for U+msa on input line 111
+.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 77.
-
-
+LaTeX Font Info:    Trying to load font information for U+msb on input line 111
+.
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+stmry on input line 7
-7.
+LaTeX Font Info:    Trying to load font information for U+stmry on input line 1
+11.
 
-(/usr/share/texlive/texmf-dist/tex/latex/stmaryrd/Ustmry.fd) [2
+(/usr/share/texlive/texmf-dist/tex/latex/stmaryrd/Ustmry.fd) [4
+
+] [5
+
+] [6
+
+]
+[7
+
+] [8
+
+] [9
+
+] [10
+
+]
+<./figures/minizinc_logo.png, id=486, 256.96pt x 256.96pt>
+File: ./figures/minizinc_logo.png Graphic file (type png)
+<use ./figures/minizinc_logo.png>
+Package pdftex.def Info: ./figures/minizinc_logo.png  used on input line 173.
+(pdftex.def)             Requested size: 51.39108pt x 51.39108pt.
+<./figures/monash_logo.png, id=488, 1027.84pt x 313.17pt>
+File: ./figures/monash_logo.png Graphic file (type png)
+<use ./figures/monash_logo.png>
+Package pdftex.def Info: ./figures/monash_logo.png  used on input line 173.
+(pdftex.def)             Requested size: 102.79001pt x 31.31883pt.
+ [11
+
+ <./figures/minizinc_logo.png> <./figures/monash_logo.png>] [12
+
+] [13
+
+] [14
+
+]
+<./figures/backtracking/backtracking_1.png, id=647, 1015.795pt x 705.63625pt>
+File: ./figures/backtracking/backtracking_1.png Graphic file (type png)
+<use ./figures/backtracking/backtracking_1.png>
+Package pdftex.def Info: ./figures/backtracking/backtracking_1.png  used on inp
+ut line 214.
+(pdftex.def)             Requested size: 304.74084pt x 211.6925pt.
+
+Overfull \vbox (4.10997pt too high) detected at line 214
+ []
+
+[15
+
+ <./figures/backtracking/backtracking_1.png>]
+<./figures/backtracking/backtracking_2.png, id=688, 1015.795pt x 705.63625pt>
+File: ./figures/backtracking/backtracking_2.png Graphic file (type png)
+<use ./figures/backtracking/backtracking_2.png>
+Package pdftex.def Info: ./figures/backtracking/backtracking_2.png  used on inp
+ut line 214.
+(pdftex.def)             Requested size: 304.74084pt x 211.6925pt.
+
+Overfull \vbox (4.10997pt too high) detected at line 214
+ []
+
+[16
+
+ <./figures/backtracking/backtracking_2.png>]
+<./figures/backtracking/backtracking_3.png, id=730, 1015.795pt x 705.63625pt>
+File: ./figures/backtracking/backtracking_3.png Graphic file (type png)
+<use ./figures/backtracking/backtracking_3.png>
+Package pdftex.def Info: ./figures/backtracking/backtracking_3.png  used on inp
+ut line 214.
+(pdftex.def)             Requested size: 304.74084pt x 211.6925pt.
+
+Overfull \vbox (4.10997pt too high) detected at line 214
+ []
+
+[17
+
+ <./figures/backtracking/backtracking_3.png>]
+<./figures/backtracking/backtracking_4.png, id=771, 1015.795pt x 705.63625pt>
+File: ./figures/backtracking/backtracking_4.png Graphic file (type png)
+<use ./figures/backtracking/backtracking_4.png>
+Package pdftex.def Info: ./figures/backtracking/backtracking_4.png  used on inp
+ut line 214.
+(pdftex.def)             Requested size: 304.74084pt x 211.6925pt.
+
+Overfull \vbox (4.10997pt too high) detected at line 214
+ []
+
+[18
+
+ <./figures/backtracking/backtracking_4.png>]
+<./figures/backtracking/backtracking_5.png, id=812, 1015.795pt x 705.63625pt>
+File: ./figures/backtracking/backtracking_5.png Graphic file (type png)
+<use ./figures/backtracking/backtracking_5.png>
+Package pdftex.def Info: ./figures/backtracking/backtracking_5.png  used on inp
+ut line 214.
+(pdftex.def)             Requested size: 304.74084pt x 211.6925pt.
+
+Overfull \vbox (4.10997pt too high) detected at line 214
+ []
+
+[19
+
+ <./figures/backtracking/backtracking_5.png>]
+<./figures/backtracking/backtracking_6.png, id=855, 1015.795pt x 705.63625pt>
+File: ./figures/backtracking/backtracking_6.png Graphic file (type png)
+<use ./figures/backtracking/backtracking_6.png>
+Package pdftex.def Info: ./figures/backtracking/backtracking_6.png  used on inp
+ut line 214.
+(pdftex.def)             Requested size: 304.74084pt x 211.6925pt.
+
+Overfull \vbox (4.10997pt too high) detected at line 214
+ []
+
+[20
+
+ <./figures/backtracking/backtracking_6.png>]
+<./figures/backtracking/backtracking_final.png, id=896, 1015.795pt x 705.63625p
+t>
+File: ./figures/backtracking/backtracking_final.png Graphic file (type png)
+<use ./figures/backtracking/backtracking_final.png>
+Package pdftex.def Info: ./figures/backtracking/backtracking_final.png  used on
+ input line 214.
+(pdftex.def)             Requested size: 304.74084pt x 211.6925pt.
+
+Overfull \vbox (4.10997pt too high) detected at line 214
+ []
+
+[21
+
+ <./figures/backtracking/backtracking_final.png>]
+<./figures/backtracking/backtracking_solution.png, id=937, 1015.795pt x 705.636
+25pt>
+File: ./figures/backtracking/backtracking_solution.png Graphic file (type png)
+<use ./figures/backtracking/backtracking_solution.png>
+Package pdftex.def Info: ./figures/backtracking/backtracking_solution.png  used
+ on input line 214.
+(pdftex.def)             Requested size: 304.74084pt x 211.6925pt.
+
+Overfull \vbox (4.10997pt too high) detected at line 214
+ []
+
+[22
+
+ <./figures/backtracking/backtracking_solution.png>] [23
+
+] [24
+
+] [25
+
+] [26
+
+]
+[27
+
+] [28
+
+] [29
+
+] [30
+
+] [31
+
+] [32
+
+] [33
+
+] [34
+
+] [35
+
+] [36
+
+] [37
+
+] [38
+
+] [39
+
+] [40
+
+] [41
+
+]
+[42
+
+] [43
+
+] [44
+
+] [45
+
+] [46
+
+] [47
+
+] [48
+
+] [49
+
+] [50
+
+]
+<./figures/c_logo.png, id=2076, 381.425pt x 421.575pt>
+File: ./figures/c_logo.png Graphic file (type png)
+<use ./figures/c_logo.png>
+Package pdftex.def Info: ./figures/c_logo.png  used on input line 406.
+(pdftex.def)             Requested size: 76.28365pt x 84.31349pt.
+ [51
+
+ <./figures/c_logo.png>]
+File: ./figures/c_logo.png Graphic file (type png)
+<use ./figures/c_logo.png>
+Package pdftex.def Info: ./figures/c_logo.png  used on input line 406.
+(pdftex.def)             Requested size: 76.28365pt x 84.31349pt.
+
+[52
+
+] [53
+
+] [54
+
+]
+<./figures/rust_logo.png, id=2234, 128.48pt x 128.48pt>
+File: ./figures/rust_logo.png Graphic file (type png)
+<use ./figures/rust_logo.png>
+Package pdftex.def Info: ./figures/rust_logo.png  used on input line 427.
+(pdftex.def)             Requested size: 77.08858pt x 77.08858pt.
+ [55
+
+ <./figures/rust_logo.png>] [56
+
+] [57
+
+] [58
+
+] [59
+
+] [60
+
+] [61
+
+]
+[62
 
 ]
 \tf@nav=\write6
@@ -1370,28 +1792,39 @@ LaTeX Font Info:    Trying to load font information for U+stmry on input line 7
 \openout8 = `talk.snm'.
 
  (./talk.aux)
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
 Package rerunfilecheck Info: File `talk.out' has not changed.
-(rerunfilecheck)             Checksum: 535270E7CC3AD4E6703C024AE60ADC93;93.
+(rerunfilecheck)             Checksum: 4440DCA0AC88EBBF0BEC0B3D775113BE;566.
  ) 
 Here is how much of TeX's memory you used:
- 41549 strings out of 478287
- 990053 string characters out of 5849289
- 1356879 words of memory out of 5000000
- 58926 multiletter control sequences out of 15000+600000
- 476031 words of font info for 54 fonts, out of 8000000 for 9000
+ 46866 strings out of 478287
+ 1085119 string characters out of 5849289
+ 1498152 words of memory out of 5000000
+ 64023 multiletter control sequences out of 15000+600000
+ 483824 words of font info for 86 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 113i,20n,118p,726b,826s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share
-/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texlive/texmf
--dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texlive/texmf-dist/fonts/t
-ype1/public/amsfonts/cm/cmsy10.pfb>
-Output written on talk.pdf (2 pages, 76173 bytes).
+ 113i,20n,118p,726b,1042s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/skaknew/SkakNew-Diagram.pfb
+></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr
+/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share
+/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texliv
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmss10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmss12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmss17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmss8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cms
+s9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.p
+fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></u
+sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb>
+Output written on talk.pdf (62 pages, 658410 bytes).
 PDF statistics:
- 98 PDF objects out of 1000 (max. 8388607)
- 59 compressed objects within 1 object stream
- 6 named destinations out of 1000 (max. 500000)
- 117 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2647 PDF objects out of 2984 (max. 8388607)
+ 2452 compressed objects within 25 object streams
+ 130 named destinations out of 1000 (max. 500000)
+ 209 words of extra memory for PDF output out of 10000 (max. 10000000)
 
