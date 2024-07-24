@@ -6,12 +6,15 @@ use super::{partial_assignment::PartialAssignment, var_id::VarId};
 
 impl Model {
     pub fn forward_checking(&mut self, alpha: &PartialAssignment) {
+        // For all unassigned variables v in α,
         for unassigned_id in alpha.unassigned_variables() {
             let domain = self.domains.get_mut(unassigned_id).unwrap();
 
             if let Some(constraints) = self.constraint_index.get(unassigned_id) {
                 for constraint in constraints {
+                    //remove all values from the domain of v
                     domain.retain(|&possible_value| {
+                        // that are in conflict with already assigned variable/value pairs in α
                         constraint.check(&alpha.union(unassigned_id, possible_value))
                     });
                 }
