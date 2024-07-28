@@ -39,14 +39,20 @@ automata
 {
   \leavevmode%
   \hbox{%
-  \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+  \begin{beamercolorbox}[wd=.3\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
     \usebeamerfont{author in head/foot}\insertshortauthor{~~(\insertshortinstitute)}
   \end{beamercolorbox}%
   \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
     \usebeamerfont{title in head/foot}\insertshorttitle
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.2\paperwidth,ht=2.25ex,dp=1ex,center]{page number in head/foot}%
+    \usebeamerfont{page number in head/foot}\insertframenumber{} / \inserttotalframenumber
   \end{beamercolorbox}}%
   \vskip0pt%
 }
+
+% \setbeamercolor{page number in head/foot}{fg=white, bg=blue@AI!90!white}
+% \setbeamerfont{page number in head/foot}{size=\footnotesize}
 
 \title[Oxiflex - Constraint Programming Solver for MiniZinc]{Oxiflex - A Constraint Programming Solver for MiniZinc written in Rust}
 \author[G.\ Klimmer]{Gianluca Klimmer}
@@ -58,11 +64,9 @@ automata
 % http://www.math-linux.com/latex-26/article/how-to-make-a-presentation-with-latex-introduction-to-beamer
 \setbeamercovered{invisible}
 
-
 \usepackage{animate}
 \usepackage{adjustbox}
 \usetikzlibrary{positioning}
-
 
 \begin{document}
 
@@ -82,32 +86,23 @@ automata
 	}
 \end{frame}
 
+\begin{frame}
+	\begin{center}
+		\LARGE{Constraint Network}
+	\end{center}
+\end{frame}
+
 \begin{frame}{Constraint Network}
-	\only<1>{
-		A (binary) \textbf{constraint network} is a 3-tuple $C = \langle V, \text{dom}, (R_{uv})\rangle$ such that:
-		\begin{itemize}
-			\item $V$ is a non-empty and finite set of variables,
-			\item dom is a function that assigns a non-empty and finite domain to each variable $v \in V$, and
-			\item $(R_{uv})_{u,v \in V, u \neq v}$ is a family of binary relations (constraints) over $V$ where for all $u \neq v: R_{uv} \subseteq \text{dom}(u) \times \text{dom}(v)$
-		\end{itemize}
-	}
-	\only<2>{
-		\begin{center}
-			\LARGE{boring...}
-		\end{center}
-	}
-	\only<3>{
-		\begin{itemize}
-			\item Variables
-			      \begin{itemize}
-				      \item Values to choose from
-			      \end{itemize}
-			\item Constraints
-			      \begin{itemize}
-				      \item Rules for choosing values
-			      \end{itemize}
-		\end{itemize}
-	}
+	\begin{itemize}
+		\item Variables
+		      \begin{itemize}
+			      \item Values to choose from
+		      \end{itemize}
+		\item Constraints
+		      \begin{itemize}
+			      \item Rules for choosing values
+		      \end{itemize}
+	\end{itemize}
 \end{frame}
 
 \begin{frame}{Simple Example}
@@ -163,6 +158,8 @@ automata
 	$\rightarrow$ MiniZinc!
 \end{frame}
 
+\section{MiniZinc}
+
 \begin{frame}{MiniZinc}
 	\begin{figure}[ht]
 		\includegraphics[scale=0.2]{./figures/minizinc_logo.png}
@@ -170,6 +167,129 @@ automata
 	\begin{figure}[ht]
 		\includegraphics[scale=0.1]{./figures/monash_logo.png}
 	\end{figure}
+\end{frame}
+
+\begin{frame}
+	\begin{multicols}{3}
+		\begin{figure}[ht]
+			\includegraphics[scale=0.15]{./figures/mzn-icon.png}
+		\end{figure}
+		\columnbreak
+		\begin{center}
+			\large{compilation} \\
+			\huge{$\rightarrow$}
+		\end{center}
+		\columnbreak
+		\begin{figure}[ht]
+			\includegraphics[scale=0.15]{./figures/fzn-icon.png}
+		\end{figure}
+	\end{multicols}
+\end{frame}
+
+
+\begin{frame}{FlatZinc}
+	\only<1>{
+	\hspace{1cm}
+	array [1..2] of int: x\_introduced\_2\_ = [1,-2]; \\
+	\hspace{1cm}
+	array [1..2] of int: x\_introduced\_3\_ = [1,-1]; \\
+	\hspace{1cm}
+	array [1..2] of int: x\_introduced\_4\_ = [-1,1]; \\
+	\vspace{0.35cm}
+	\hspace{1cm}
+	var 2..4: w:: output\_var; \\
+	\hspace{1cm}
+	var 1..4: y:: output\_var; \\
+	\hspace{1cm}
+	var 1..3: x:: output\_var; \\
+	\hspace{1cm}
+	var 1..3: z:: output\_var; \\
+	\vspace{0.35cm}
+	\hspace{1cm}
+	constraint int\_lin\_eq(x\_introduced\_2\_,[w,x],0); \\
+	\hspace{1cm}
+	constraint int\_lin\_le(x\_introduced\_3\_,[w,z],-1); \\
+	\hspace{1cm}
+	constraint int\_lin\_le(x\_introduced\_4\_,[y,z],-1); \\
+	\vspace{0.35cm}
+	\hspace{1cm}
+	solve  satisfy;
+	}
+	\only<2>{
+	\hspace{1cm}
+	array [1..2] of int: x\_introduced\_2\_ = [1,-2]; \\
+	\hspace{1cm}
+	array [1..2] of int: x\_introduced\_3\_ = [1,-1]; \\
+	\hspace{1cm}
+	array [1..2] of int: x\_introduced\_4\_ = [-1,1]; \\
+	\vspace{0.35cm}
+	\hspace{1cm}
+	var 2..4: w:: output\_var; \\
+	\hspace{1cm}
+	var 1..4: y:: output\_var; \\
+	\hspace{1cm}
+	var 1..3: x:: output\_var; \\
+	\hspace{1cm}
+	var 1..3: z:: output\_var; \\
+	\vspace{0.35cm}
+	\hspace{1cm}
+	\textcolor{red}{constraint int\_lin\_eq(x\_introduced\_2\_,[w,x],0);} \\
+	\hspace{1cm}
+	constraint int\_lin\_le(x\_introduced\_3\_,[w,z],-1); \\
+	\hspace{1cm}
+	constraint int\_lin\_le(x\_introduced\_4\_,[y,z],-1); \\
+	\vspace{0.35cm}
+	\hspace{1cm}
+	solve  satisfy;
+	}
+\end{frame}
+
+\begin{frame}{FlatZinc constraint example}
+	\hspace{1cm}
+	predicate \textcolor{red}{int\_lin\_eq}(array [int] of int: as,\\
+	\hspace{4.2cm} array [int] of var int: bs,\\
+	\hspace{4.2cm} int: c)
+	\pause
+	\vspace{0.6cm}
+	\begin{equation*}
+		c = \sum_{i} \text{as}[i] \cdot \text{bs}[i]
+	\end{equation*}
+	\pause
+	\vspace{0.6cm}
+	\begin{equation*}
+		w = 2 \cdot x
+	\end{equation*}
+\end{frame}
+
+\begin{frame}
+	\hspace{1cm}
+	array [1..2] of int: x\_introduced\_2\_ = [1,-2]; \\
+	\hspace{1cm}
+	... \\
+	\hspace{1cm}
+	constraint int\_lin\_eq(x\_introduced\_2\_,[w,x],0); \\
+
+	\pause
+
+	\begin{equation*}
+		c = \sum_{i} \text{as}[i] \cdot \text{bs}[i]
+	\end{equation*}
+	\pause
+	\begin{equation*}
+		0 = \sum_{i} \text{x\_introduced\_2\_}[i] \cdot \text{[w,x]}[i]
+	\end{equation*}
+	\pause
+	\begin{equation*}
+		0 = \sum_{i} \text{[1,-2]}[i] \cdot \text{[w,x]}[i]
+	\end{equation*}
+	\pause
+	\begin{equation*}
+		0 = 1 \cdot w - 2 \cdot x
+	\end{equation*}
+	\pause
+	\begin{equation*}
+		w = 2 \cdot x
+	\end{equation*}
 \end{frame}
 
 \begin{frame}
@@ -269,14 +389,30 @@ automata
 \end{frame}
 
 \begin{frame}{Two Queens}
-	\begin{figure}[ht]
-		\centering
-		\newchessgame
-		\chessboard[
-			setfen=8/8/8/5Q2/3Q4/8/8/8 w - - 0 1,
-			showmover=false
-		]
-	\end{figure}
+	\only<1>{
+		\begin{figure}[ht]
+			\centering
+			\newchessgame
+			\chessboard[
+				setfen=8/8/8/5Q2/3Q4/8/8/8 w - - 0 1,
+				showmover=false
+			]
+		\end{figure}
+	}
+	\only<2>{
+		\begin{figure}[ht]
+			\centering
+			\newchessgame
+			\chessboard[
+				setfen=8/8/8/8/3Q1Q2/8/8/8 w - - 0 1,
+				opacity=0.5,
+				color=red!50,
+				pgfstyle=color,
+				markfields={d4,f4},
+				showmover=false
+			]
+		\end{figure}
+	}
 \end{frame}
 
 \begin{frame}{N-Queens Problem}
@@ -301,7 +437,13 @@ automata
 	\end{center}
 \end{frame}
 
-\begin{frame}{Inference Example}
+\begin{frame}
+	\begin{center}
+		\huge{Forward Checking}
+	\end{center}
+\end{frame}
+
+\begin{frame}{Forward Checking Example}
 	\only<1>{
 		\begin{figure}[ht]
 			\centering
@@ -323,6 +465,25 @@ automata
 				markfields={a7,b6,c5,a4,b4,c4,a1,b2,c3,e5,f6,g7,h8,e4,f4,g4,h4,e3,f2,g1},
 				showmover=false
 			]
+		\end{figure}
+	}
+\end{frame}
+
+\begin{frame}
+	\begin{center}
+		\huge{Arc Consistency}
+	\end{center}
+\end{frame}
+
+\begin{frame}{Arc Consistency Example}
+	\only<1>{
+		\begin{figure}[ht]
+			\includegraphics[scale=0.35]{./figures/arc_1.png}
+		\end{figure}
+	}
+	\only<2>{
+		\begin{figure}[ht]
+			\includegraphics[scale=0.35]{./figures/arc_2.png}
 		\end{figure}
 	}
 \end{frame}
@@ -362,6 +523,24 @@ automata
 	}
 \end{frame}
 
+\begin{frame}{Limitations}
+	\begin{itemize}
+		\item FlatZinc builtins
+		      \pause
+		      \begin{itemize}
+			      \item IntLinEq
+			      \item IntLinLe
+			      \item IntLinNe
+			            \pause
+		      \end{itemize}
+		\item No floating points
+		      \pause
+		      \begin{itemize}
+			      \item No minimize / maximize
+		      \end{itemize}
+	\end{itemize}
+\end{frame}
+
 \begin{frame}
 	\only<1>{
 		\begin{center}
@@ -375,7 +554,7 @@ automata
 	}
 \end{frame}
 
-\begin{frame}{Solver}
+\begin{frame}{Solver Language}
 	\begin{itemize}
 		\item Performance
 		      \pause
@@ -454,17 +633,75 @@ automata
 	\end{center}
 \end{frame}
 
+\section{Benchmarks}
+
 \begin{frame}
 	\begin{center}
 		\huge{Benchmarks}
 	\end{center}
 \end{frame}
 
+\newcommand{\plot}[2]{
+	\only<#1>{
+		\begin{figure}[ht]
+			\centering
+			\includegraphics[scale=0.6]{./figures/plots/#2.png}
+		\end{figure}
+	}
+}
+
 \begin{frame}
 	\begin{center}
-		\huge{
-			The end
-		}
+		\huge{N-Queens Problem}
+	\end{center}
+\end{frame}
+
+\begin{frame}{Queens Time}
+	\plot{1}{queens/time}
+	\plot{2}{queens/time_no_arc}
+\end{frame}
+
+\begin{frame}{Queens Iterations}
+	\plot{1}{queens/iterations}
+	\plot{2}{queens/iterations_inference}
+\end{frame}
+
+\begin{frame}
+	\begin{center}
+		\huge{Slow Convergence}
+	\end{center}
+\end{frame}
+
+\begin{frame}{Slow Convergence for small $n$}
+	\plot{1}{slow/time_small}
+	\plot{2}{slow/iterations_small}
+\end{frame}
+
+\begin{frame}{Slow Convergence Comparison}
+	\begin{multicols}{2}
+		\begin{figure}[ht]
+			\includegraphics[scale=0.35]{./figures/plots/slow/time.png}
+		\end{figure}
+		\columnbreak
+		\begin{figure}[ht]
+			\includegraphics[scale=0.35]{./figures/plots/slow/iterations.png}
+		\end{figure}
+	\end{multicols}
+\end{frame}
+
+\begin{frame}
+	\plot{1}{slow/gecode}
+\end{frame}
+
+\begin{frame}
+	\begin{center}
+		\huge{Conclusion}
+	\end{center}
+\end{frame}
+
+\begin{frame}
+	\begin{center}
+		\huge{The end}
 	\end{center}
 \end{frame}
 

@@ -1,5 +1,7 @@
 \beamer@sectionintoc {1}{Constraint Programming}{2}{0}{1}
-\beamer@sectionintoc {2}{Backtracking}{14}{0}{2}
-\beamer@sectionintoc {3}{8-Queens Problem}{25}{0}{3}
-\beamer@sectionintoc {4}{Improvements}{34}{0}{4}
-\beamer@sectionintoc {5}{Oxiflex}{43}{0}{5}
+\beamer@sectionintoc {2}{MiniZinc}{10}{0}{2}
+\beamer@sectionintoc {3}{Backtracking}{25}{0}{3}
+\beamer@sectionintoc {4}{8-Queens Problem}{36}{0}{4}
+\beamer@sectionintoc {5}{Improvements}{46}{0}{5}
+\beamer@sectionintoc {6}{Oxiflex}{59}{0}{6}
+\beamer@sectionintoc {7}{Benchmarks}{81}{0}{7}
