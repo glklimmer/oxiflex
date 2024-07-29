@@ -1,0 +1,42 @@
+9/45
+Also array [1..2] of int: x introduced 2 = [1,-2]; red
+
+26/45
+dynamic variable ordering
+add visual aid
+
+28/45
+- add "only one solution" ability
+- check floating min/max "limitation", otherwise change to same bullet point level
+
+36/45
+plots add method info (average) as caption/footnote
+
+40/45
+note that this is took from minizinc benchmarks
+
+41/45
+note adjusted original n from benchmarks
+only Variable Ordering works for this in reasonable time
+say "clearly non-linear" instead of "exponentially"
+
+43/45
+add title
+note what gecode is
+note that this benchmark was easy due to minizinc compatability
+
+conclusion
+- solver from scratch
+  - can read minizinc / flatzinc
+
+- benchmark
+  - datastructes matter a lot
+
+
+feedback
+- move rust to beginning
+  - wanted to apply rust for a serious project (first time)
+
+
+backup slides
+- add profiling pictures
