@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.3.27)  28 JUL 2024 22:28
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.3.27)  30 JUL 2024 22:57
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1526,73 +1526,67 @@ loading the todonotes package. on input line 71.
 
 ] [3
 
-] [4
-
 ]
-LaTeX Font Info:    Trying to load font information for U+msa on input line 106
+<./figures/rust_logo.png, id=291, 128.48pt x 128.48pt>
+File: ./figures/rust_logo.png Graphic file (type png)
+<use ./figures/rust_logo.png>
+Package pdftex.def Info: ./figures/rust_logo.png  used on input line 92.
+(pdftex.def)             Requested size: 77.08858pt x 77.08858pt.
+ [4
+
+ <./figures/rust_logo.png>]
+LaTeX Font Info:    Trying to load font information for U+msa on input line 102
 .
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 106
+LaTeX Font Info:    Trying to load font information for U+msb on input line 102
 .
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Trying to load font information for U+stmry on input line 1
-06.
+02.
 
 (/usr/share/texlive/texmf-dist/tex/latex/stmaryrd/Ustmry.fd) [5
 
 ] [6
 
-] [7
-
 ]
-[8
+<./figures/c_logo.png, id=474, 285.73416pt x 315.36pt>
+File: ./figures/c_logo.png Graphic file (type png)
+<use ./figures/c_logo.png>
+Package pdftex.def Info: ./figures/c_logo.png  used on input line 114.
+(pdftex.def)             Requested size: 85.7209pt x 94.60872pt.
+<./figures/cpp_logo.png, id=475, 428.60126pt x 482.80376pt>
+File: ./figures/cpp_logo.png Graphic file (type png)
+<use ./figures/cpp_logo.png>
+Package pdftex.def Info: ./figures/cpp_logo.png  used on input line 114.
+(pdftex.def)             Requested size: 85.71872pt x 96.55904pt.
+ [7
+
+ <./figures/c_logo.png> <./figures/cpp_logo.png>] [8
 
 ] [9
 
-]
-<./figures/minizinc_logo.png, id=638, 256.96pt x 256.96pt>
-File: ./figures/minizinc_logo.png Graphic file (type png)
-<use ./figures/minizinc_logo.png>
-Package pdftex.def Info: ./figures/minizinc_logo.png  used on input line 170.
-(pdftex.def)             Requested size: 51.39108pt x 51.39108pt.
-<./figures/monash_logo.png, id=640, 1027.84pt x 313.17pt>
-File: ./figures/monash_logo.png Graphic file (type png)
-<use ./figures/monash_logo.png>
-Package pdftex.def Info: ./figures/monash_logo.png  used on input line 170.
-(pdftex.def)             Requested size: 102.79001pt x 31.31883pt.
- [10
+] [10
 
- <./figures/minizinc_logo.png> <./figures/monash_logo.png>]
-<./figures/mzn-icon.png, id=701, 411.136pt x 411.136pt>
-File: ./figures/mzn-icon.png Graphic file (type png)
-<use ./figures/mzn-icon.png>
-Package pdftex.def Info: ./figures/mzn-icon.png  used on input line 187.
-(pdftex.def)             Requested size: 61.66772pt x 61.66772pt.
-<./figures/fzn-icon.png, id=702, 411.136pt x 411.136pt>
-File: ./figures/fzn-icon.png Graphic file (type png)
-<use ./figures/fzn-icon.png>
-Package pdftex.def Info: ./figures/fzn-icon.png  used on input line 187.
-(pdftex.def)             Requested size: 61.66772pt x 61.66772pt.
- [11
+] [11
 
- <./figures/mzn-icon.png> <./figures/fzn-icon.png>] [12
+] [12
 
 ] [13
 
 ] [14
 
-] [15
+]
+[15
 
 ] [16
 
-]
-[17
+] [17
 
 ] [18
 
@@ -1600,146 +1594,168 @@ Package pdftex.def Info: ./figures/fzn-icon.png  used on input line 187.
 
 ] [20
 
-] [21
+]
+<./figures/minizinc_logo.png, id=1310, 256.96pt x 256.96pt>
+File: ./figures/minizinc_logo.png Graphic file (type png)
+<use ./figures/minizinc_logo.png>
+Package pdftex.def Info: ./figures/minizinc_logo.png  used on input line 236.
+(pdftex.def)             Requested size: 51.39108pt x 51.39108pt.
+<./figures/monash_logo.png, id=1311, 1027.84pt x 313.17pt>
+File: ./figures/monash_logo.png Graphic file (type png)
+<use ./figures/monash_logo.png>
+Package pdftex.def Info: ./figures/monash_logo.png  used on input line 236.
+(pdftex.def)             Requested size: 102.79001pt x 31.31883pt.
+ [21
 
-] [22
+ <./figures/minizinc_logo.png> <./figures/monash_logo.png>]
+<./figures/mzn-icon.png, id=1372, 411.136pt x 411.136pt>
+File: ./figures/mzn-icon.png Graphic file (type png)
+<use ./figures/mzn-icon.png>
+Package pdftex.def Info: ./figures/mzn-icon.png  used on input line 253.
+(pdftex.def)             Requested size: 61.66772pt x 61.66772pt.
+<./figures/fzn-icon.png, id=1373, 411.136pt x 411.136pt>
+File: ./figures/fzn-icon.png Graphic file (type png)
+<use ./figures/fzn-icon.png>
+Package pdftex.def Info: ./figures/fzn-icon.png  used on input line 253.
+(pdftex.def)             Requested size: 61.66772pt x 61.66772pt.
+ [22
 
-] [23
+ <./figures/mzn-icon.png> <./figures/fzn-icon.png>] [23
 
-] [24
+]
+[24
 
 ] [25
 
-]
-<./figures/backtracking/backtracking_1.png, id=1584, 1015.795pt x 705.63625pt>
-File: ./figures/backtracking/backtracking_1.png Graphic file (type png)
-<use ./figures/backtracking/backtracking_1.png>
-Package pdftex.def Info: ./figures/backtracking/backtracking_1.png  used on inp
-ut line 334.
-(pdftex.def)             Requested size: 304.74084pt x 211.6925pt.
+] [26
 
-Overfull \vbox (4.10997pt too high) detected at line 334
- []
+] [27
 
-[26
+] [28
 
- <./figures/backtracking/backtracking_1.png>]
-<./figures/backtracking/backtracking_2.png, id=1644, 1015.795pt x 705.63625pt>
-File: ./figures/backtracking/backtracking_2.png Graphic file (type png)
-<use ./figures/backtracking/backtracking_2.png>
-Package pdftex.def Info: ./figures/backtracking/backtracking_2.png  used on inp
-ut line 334.
-(pdftex.def)             Requested size: 304.74084pt x 211.6925pt.
+] [29
 
-Overfull \vbox (4.10997pt too high) detected at line 334
- []
+] [30
 
-[27
+] [31
 
- <./figures/backtracking/backtracking_2.png>]
-<./figures/backtracking/backtracking_3.png, id=1705, 1015.795pt x 705.63625pt>
-File: ./figures/backtracking/backtracking_3.png Graphic file (type png)
-<use ./figures/backtracking/backtracking_3.png>
-Package pdftex.def Info: ./figures/backtracking/backtracking_3.png  used on inp
-ut line 334.
-(pdftex.def)             Requested size: 304.74084pt x 211.6925pt.
+] [32
 
-Overfull \vbox (4.10997pt too high) detected at line 334
- []
+] [33
 
-[28
-
- <./figures/backtracking/backtracking_3.png>]
-<./figures/backtracking/backtracking_4.png, id=1765, 1015.795pt x 705.63625pt>
-File: ./figures/backtracking/backtracking_4.png Graphic file (type png)
-<use ./figures/backtracking/backtracking_4.png>
-Package pdftex.def Info: ./figures/backtracking/backtracking_4.png  used on inp
-ut line 334.
-(pdftex.def)             Requested size: 304.74084pt x 211.6925pt.
-
-Overfull \vbox (4.10997pt too high) detected at line 334
- []
-
-[29
-
- <./figures/backtracking/backtracking_4.png>]
-<./figures/backtracking/backtracking_5.png, id=1826, 1015.795pt x 705.63625pt>
-File: ./figures/backtracking/backtracking_5.png Graphic file (type png)
-<use ./figures/backtracking/backtracking_5.png>
-Package pdftex.def Info: ./figures/backtracking/backtracking_5.png  used on inp
-ut line 334.
-(pdftex.def)             Requested size: 304.74084pt x 211.6925pt.
-
-Overfull \vbox (4.10997pt too high) detected at line 334
- []
-
-[30
-
- <./figures/backtracking/backtracking_5.png>]
-<./figures/backtracking/backtracking_6.png, id=1886, 1015.795pt x 705.63625pt>
-File: ./figures/backtracking/backtracking_6.png Graphic file (type png)
-<use ./figures/backtracking/backtracking_6.png>
-Package pdftex.def Info: ./figures/backtracking/backtracking_6.png  used on inp
-ut line 334.
-(pdftex.def)             Requested size: 304.74084pt x 211.6925pt.
-
-Overfull \vbox (4.10997pt too high) detected at line 334
- []
-
-[31
-
- <./figures/backtracking/backtracking_6.png>]
-<./figures/backtracking/backtracking_final.png, id=1948, 1015.795pt x 705.63625
-pt>
-File: ./figures/backtracking/backtracking_final.png Graphic file (type png)
-<use ./figures/backtracking/backtracking_final.png>
-Package pdftex.def Info: ./figures/backtracking/backtracking_final.png  used on
- input line 334.
-(pdftex.def)             Requested size: 304.74084pt x 211.6925pt.
-
-Overfull \vbox (4.10997pt too high) detected at line 334
- []
-
-[32
-
- <./figures/backtracking/backtracking_final.png>]
-<./figures/backtracking/backtracking_solution.png, id=2009, 1015.795pt x 705.63
-625pt>
-File: ./figures/backtracking/backtracking_solution.png Graphic file (type png)
-<use ./figures/backtracking/backtracking_solution.png>
-Package pdftex.def Info: ./figures/backtracking/backtracking_solution.png  used
- on input line 334.
-(pdftex.def)             Requested size: 304.74084pt x 211.6925pt.
-
-Overfull \vbox (4.10997pt too high) detected at line 334
- []
-
-[33
-
- <./figures/backtracking/backtracking_solution.png>] [34
+] [34
 
 ] [35
 
 ] [36
 
-] [37
-
 ]
+<./figures/backtracking/backtracking_1.png, id=2270, 1015.795pt x 705.63625pt>
+File: ./figures/backtracking/backtracking_1.png Graphic file (type png)
+<use ./figures/backtracking/backtracking_1.png>
+Package pdftex.def Info: ./figures/backtracking/backtracking_1.png  used on inp
+ut line 400.
+(pdftex.def)             Requested size: 304.74084pt x 211.6925pt.
+
+Overfull \vbox (4.10997pt too high) detected at line 400
+ []
+
+[37
+
+ <./figures/backtracking/backtracking_1.png>]
+<./figures/backtracking/backtracking_2.png, id=2333, 1015.795pt x 705.63625pt>
+File: ./figures/backtracking/backtracking_2.png Graphic file (type png)
+<use ./figures/backtracking/backtracking_2.png>
+Package pdftex.def Info: ./figures/backtracking/backtracking_2.png  used on inp
+ut line 400.
+(pdftex.def)             Requested size: 304.74084pt x 211.6925pt.
+
+Overfull \vbox (4.10997pt too high) detected at line 400
+ []
+
 [38
 
-] [39
+ <./figures/backtracking/backtracking_2.png>]
+<./figures/backtracking/backtracking_3.png, id=2394, 1015.795pt x 705.63625pt>
+File: ./figures/backtracking/backtracking_3.png Graphic file (type png)
+<use ./figures/backtracking/backtracking_3.png>
+Package pdftex.def Info: ./figures/backtracking/backtracking_3.png  used on inp
+ut line 400.
+(pdftex.def)             Requested size: 304.74084pt x 211.6925pt.
 
-] [40
+Overfull \vbox (4.10997pt too high) detected at line 400
+ []
 
-] [41
+[39
 
-] [42
+ <./figures/backtracking/backtracking_3.png>]
+<./figures/backtracking/backtracking_4.png, id=2456, 1015.795pt x 705.63625pt>
+File: ./figures/backtracking/backtracking_4.png Graphic file (type png)
+<use ./figures/backtracking/backtracking_4.png>
+Package pdftex.def Info: ./figures/backtracking/backtracking_4.png  used on inp
+ut line 400.
+(pdftex.def)             Requested size: 304.74084pt x 211.6925pt.
 
-] [43
+Overfull \vbox (4.10997pt too high) detected at line 400
+ []
 
-] [44
+[40
 
-] [45
+ <./figures/backtracking/backtracking_4.png>]
+<./figures/backtracking/backtracking_5.png, id=2518, 1015.795pt x 705.63625pt>
+File: ./figures/backtracking/backtracking_5.png Graphic file (type png)
+<use ./figures/backtracking/backtracking_5.png>
+Package pdftex.def Info: ./figures/backtracking/backtracking_5.png  used on inp
+ut line 400.
+(pdftex.def)             Requested size: 304.74084pt x 211.6925pt.
+
+Overfull \vbox (4.10997pt too high) detected at line 400
+ []
+
+[41
+
+ <./figures/backtracking/backtracking_5.png>]
+<./figures/backtracking/backtracking_6.png, id=2579, 1015.795pt x 705.63625pt>
+File: ./figures/backtracking/backtracking_6.png Graphic file (type png)
+<use ./figures/backtracking/backtracking_6.png>
+Package pdftex.def Info: ./figures/backtracking/backtracking_6.png  used on inp
+ut line 400.
+(pdftex.def)             Requested size: 304.74084pt x 211.6925pt.
+
+Overfull \vbox (4.10997pt too high) detected at line 400
+ []
+
+[42
+
+ <./figures/backtracking/backtracking_6.png>]
+<./figures/backtracking/backtracking_final.png, id=2641, 1015.795pt x 705.63625
+pt>
+File: ./figures/backtracking/backtracking_final.png Graphic file (type png)
+<use ./figures/backtracking/backtracking_final.png>
+Package pdftex.def Info: ./figures/backtracking/backtracking_final.png  used on
+ input line 400.
+(pdftex.def)             Requested size: 304.74084pt x 211.6925pt.
+
+Overfull \vbox (4.10997pt too high) detected at line 400
+ []
+
+[43
+
+ <./figures/backtracking/backtracking_final.png>]
+<./figures/backtracking/backtracking_solution.png, id=2702, 1015.795pt x 705.63
+625pt>
+File: ./figures/backtracking/backtracking_solution.png Graphic file (type png)
+<use ./figures/backtracking/backtracking_solution.png>
+Package pdftex.def Info: ./figures/backtracking/backtracking_solution.png  used
+ on input line 400.
+(pdftex.def)             Requested size: 304.74084pt x 211.6925pt.
+
+Overfull \vbox (4.10997pt too high) detected at line 400
+ []
+
+[44
+
+ <./figures/backtracking/backtracking_solution.png>] [45
 
 ] [46
 
@@ -1747,27 +1763,16 @@ Overfull \vbox (4.10997pt too high) detected at line 334
 
 ] [48
 
-] [49
+]
+[49
 
 ] [50
 
-]
-<./figures/arc_1.png, id=3058, 578.16pt x 439.6425pt>
-File: ./figures/arc_1.png Graphic file (type png)
-<use ./figures/arc_1.png>
-Package pdftex.def Info: ./figures/arc_1.png  used on input line 489.
-(pdftex.def)             Requested size: 202.35902pt x 153.87717pt.
- [51
+] [51
 
- <./figures/arc_1.png>]
-<./figures/arc_2.png, id=3118, 578.16pt x 439.6425pt>
-File: ./figures/arc_2.png Graphic file (type png)
-<use ./figures/arc_2.png>
-Package pdftex.def Info: ./figures/arc_2.png  used on input line 489.
-(pdftex.def)             Requested size: 202.35902pt x 153.87717pt.
- [52
+] [52
 
- <./figures/arc_2.png>] [53
+] [53
 
 ] [54
 
@@ -1781,16 +1786,27 @@ Package pdftex.def Info: ./figures/arc_2.png  used on input line 489.
 
 ] [59
 
-]
-[60
+] [60
 
 ] [61
 
-] [62
+]
+<./figures/arc_1.png, id=3771, 578.16pt x 439.6425pt>
+File: ./figures/arc_1.png Graphic file (type png)
+<use ./figures/arc_1.png>
+Package pdftex.def Info: ./figures/arc_1.png  used on input line 555.
+(pdftex.def)             Requested size: 202.35902pt x 153.87717pt.
+ [62
 
-] [63
+ <./figures/arc_1.png>]
+<./figures/arc_2.png, id=3831, 578.16pt x 439.6425pt>
+File: ./figures/arc_2.png Graphic file (type png)
+<use ./figures/arc_2.png>
+Package pdftex.def Info: ./figures/arc_2.png  used on input line 555.
+(pdftex.def)             Requested size: 202.35902pt x 153.87717pt.
+ [63
 
-] [64
+ <./figures/arc_2.png>] [64
 
 ] [65
 
@@ -1802,36 +1818,63 @@ Package pdftex.def Info: ./figures/arc_2.png  used on input line 489.
 
 ] [69
 
-] [70
-
 ]
-<./figures/c_logo.png, id=4232, 381.425pt x 421.575pt>
-File: ./figures/c_logo.png Graphic file (type png)
-<use ./figures/c_logo.png>
-Package pdftex.def Info: ./figures/c_logo.png  used on input line 585.
-(pdftex.def)             Requested size: 76.28365pt x 84.31349pt.
- [71
+<./figures/dyn_order/dyn_order_1.png, id=4252, 1000.73875pt x 726.715pt>
+File: ./figures/dyn_order/dyn_order_1.png Graphic file (type png)
+<use ./figures/dyn_order/dyn_order_1.png>
+Package pdftex.def Info: ./figures/dyn_order/dyn_order_1.png  used on input lin
+e 591.
+(pdftex.def)             Requested size: 300.22394pt x 218.01617pt.
 
- <./figures/c_logo.png>]
-File: ./figures/c_logo.png Graphic file (type png)
-<use ./figures/c_logo.png>
-Package pdftex.def Info: ./figures/c_logo.png  used on input line 585.
-(pdftex.def)             Requested size: 76.28365pt x 84.31349pt.
- [72
+Overfull \vbox (10.43364pt too high) detected at line 591
+ []
 
-] [73
+[70
 
-] [74
+ <./figures/dyn_order/dyn_order_1.png>]
+<./figures/dyn_order/dyn_order_2.png, id=4314, 1000.73875pt x 726.715pt>
+File: ./figures/dyn_order/dyn_order_2.png Graphic file (type png)
+<use ./figures/dyn_order/dyn_order_2.png>
+Package pdftex.def Info: ./figures/dyn_order/dyn_order_2.png  used on input lin
+e 591.
+(pdftex.def)             Requested size: 300.22394pt x 218.01617pt.
 
-]
-<./figures/rust_logo.png, id=4467, 128.48pt x 128.48pt>
-File: ./figures/rust_logo.png Graphic file (type png)
-<use ./figures/rust_logo.png>
-Package pdftex.def Info: ./figures/rust_logo.png  used on input line 606.
-(pdftex.def)             Requested size: 77.08858pt x 77.08858pt.
- [75
+Overfull \vbox (10.43364pt too high) detected at line 591
+ []
 
- <./figures/rust_logo.png>] [76
+[71
+
+ <./figures/dyn_order/dyn_order_2.png>]
+<./figures/dyn_order/dyn_order_3.png, id=4376, 1000.73875pt x 726.715pt>
+File: ./figures/dyn_order/dyn_order_3.png Graphic file (type png)
+<use ./figures/dyn_order/dyn_order_3.png>
+Package pdftex.def Info: ./figures/dyn_order/dyn_order_3.png  used on input lin
+e 591.
+(pdftex.def)             Requested size: 300.22394pt x 218.01617pt.
+
+Overfull \vbox (10.43364pt too high) detected at line 591
+ []
+
+[72
+
+ <./figures/dyn_order/dyn_order_3.png>]
+<./figures/dyn_order/dyn_order_4.png, id=4436, 1000.73875pt x 726.715pt>
+File: ./figures/dyn_order/dyn_order_4.png Graphic file (type png)
+<use ./figures/dyn_order/dyn_order_4.png>
+Package pdftex.def Info: ./figures/dyn_order/dyn_order_4.png  used on input lin
+e 591.
+(pdftex.def)             Requested size: 300.22394pt x 218.01617pt.
+
+Overfull \vbox (10.43364pt too high) detected at line 591
+ []
+
+[73
+
+ <./figures/dyn_order/dyn_order_4.png>] [74
+
+] [75
+
+] [76
 
 ] [77
 
@@ -1839,96 +1882,74 @@ Package pdftex.def Info: ./figures/rust_logo.png  used on input line 606.
 
 ] [79
 
-] [80
-
 ]
-[81
+[80
+
+] [81
 
 ] [82
 
+] [83
+
 ]
-<./figures/plots/queens/time.png, id=4934, 462.528pt x 346.896pt>
+<./figures/plots/queens/time.png, id=5090, 462.528pt x 346.896pt>
 File: ./figures/plots/queens/time.png Graphic file (type png)
 <use ./figures/plots/queens/time.png>
 Package pdftex.def Info: ./figures/plots/queens/time.png  used on input line 66
-2.
-(pdftex.def)             Requested size: 277.51894pt x 208.13919pt.
-
-Overfull \vbox (0.55666pt too high) detected at line 662
- []
-
-[83
+0.
+(pdftex.def)             Requested size: 231.26343pt x 173.44757pt.
+ [84
 
  <./figures/plots/queens/time.png>]
-<./figures/plots/queens/time_no_arc.png, id=4995, 462.528pt x 346.896pt>
+<./figures/plots/queens/time_no_arc.png, id=5151, 462.528pt x 346.896pt>
 File: ./figures/plots/queens/time_no_arc.png Graphic file (type png)
 <use ./figures/plots/queens/time_no_arc.png>
 Package pdftex.def Info: ./figures/plots/queens/time_no_arc.png  used on input 
-line 662.
-(pdftex.def)             Requested size: 277.51894pt x 208.13919pt.
-
-Overfull \vbox (0.55666pt too high) detected at line 662
- []
-
-[84
+line 660.
+(pdftex.def)             Requested size: 231.26343pt x 173.44757pt.
+ [85
 
  <./figures/plots/queens/time_no_arc.png>]
-<./figures/plots/queens/iterations.png, id=5054, 462.528pt x 346.896pt>
+<./figures/plots/queens/iterations.png, id=5214, 462.528pt x 346.896pt>
 File: ./figures/plots/queens/iterations.png Graphic file (type png)
 <use ./figures/plots/queens/iterations.png>
 Package pdftex.def Info: ./figures/plots/queens/iterations.png  used on input l
-ine 667.
-(pdftex.def)             Requested size: 277.51894pt x 208.13919pt.
-
-Overfull \vbox (0.55666pt too high) detected at line 667
- []
-
-[85
+ine 665.
+(pdftex.def)             Requested size: 231.26343pt x 173.44757pt.
+ [86
 
  <./figures/plots/queens/iterations.png>]
-<./figures/plots/queens/iterations_inference.png, id=5116, 462.528pt x 346.896p
+<./figures/plots/queens/iterations_inference.png, id=5274, 462.528pt x 346.896p
 t>
 File: ./figures/plots/queens/iterations_inference.png Graphic file (type png)
 <use ./figures/plots/queens/iterations_inference.png>
 Package pdftex.def Info: ./figures/plots/queens/iterations_inference.png  used 
-on input line 667.
-(pdftex.def)             Requested size: 277.51894pt x 208.13919pt.
+on input line 665.
+(pdftex.def)             Requested size: 231.26343pt x 173.44757pt.
+ [87
 
-Overfull \vbox (0.55666pt too high) detected at line 667
- []
-
-[86
-
- <./figures/plots/queens/iterations_inference.png>] [87
+ <./figures/plots/queens/iterations_inference.png>] [88
 
 ]
-<./figures/plots/slow/time_small.png, id=5233, 462.528pt x 346.896pt>
+<./figures/plots/slow/time_small.png, id=5394, 462.528pt x 346.896pt>
 File: ./figures/plots/slow/time_small.png Graphic file (type png)
 <use ./figures/plots/slow/time_small.png>
 Package pdftex.def Info: ./figures/plots/slow/time_small.png  used on input lin
-e 678.
-(pdftex.def)             Requested size: 277.51894pt x 208.13919pt.
-
-Overfull \vbox (0.55666pt too high) detected at line 678
- []
-
-[88
+e 676.
+(pdftex.def)             Requested size: 231.26343pt x 173.44757pt.
+ [89
 
  <./figures/plots/slow/time_small.png>]
-<./figures/plots/slow/iterations_small.png, id=5293, 462.528pt x 346.896pt>
+<./figures/plots/slow/iterations_small.png, id=5455, 462.528pt x 346.896pt>
 File: ./figures/plots/slow/iterations_small.png Graphic file (type png)
 <use ./figures/plots/slow/iterations_small.png>
 Package pdftex.def Info: ./figures/plots/slow/iterations_small.png  used on inp
-ut line 678.
-(pdftex.def)             Requested size: 277.51894pt x 208.13919pt.
-
-Overfull \vbox (0.55666pt too high) detected at line 678
- []
-
-[89
+ut line 676.
+(pdftex.def)             Requested size: 231.26343pt x 173.44757pt.
+ [90
 
  <./figures/plots/slow/iterations_small.png>]
-<./figures/plots/slow/time.png, id=5353, 462.528pt x 346.896pt>
+<./figures/plots/slow/time.png, id=5516, 462.528pt x 346.896pt>
 File: ./figures/plots/slow/time.png Graphic file (type png)
 <use ./figures/plots/slow/time.png>
 Package pdftex.def Info: ./figures/plots/slow/time.png  used on input line 690.
@@ -1939,7 +1960,7 @@ Overfull \hbox (13.2423pt too wide) in paragraph at lines 690--690
  [] 
  []
 
-<./figures/plots/slow/iterations.png, id=5354, 462.528pt x 346.896pt>
+<./figures/plots/slow/iterations.png, id=5517, 462.528pt x 346.896pt>
 File: ./figures/plots/slow/iterations.png Graphic file (type png)
 <use ./figures/plots/slow/iterations.png>
 Package pdftex.def Info: ./figures/plots/slow/iterations.png  used on input lin
@@ -1950,21 +1971,21 @@ Overfull \hbox (13.2423pt too wide) in paragraph at lines 690--690
  [] 
  []
 
-[90
+[91
 
  <./figures/plots/slow/time.png> <./figures/plots/slow/iterations.png>]
-<./figures/plots/slow/gecode.png, id=5415, 462.528pt x 346.896pt>
+<./figures/plots/slow/gecode.png, id=5579, 462.528pt x 346.896pt>
 File: ./figures/plots/slow/gecode.png Graphic file (type png)
 <use ./figures/plots/slow/gecode.png>
 Package pdftex.def Info: ./figures/plots/slow/gecode.png  used on input line 69
 4.
-(pdftex.def)             Requested size: 277.51894pt x 208.13919pt.
+(pdftex.def)             Requested size: 231.26343pt x 173.44757pt.
 
-[91
+[92
 
- <./figures/plots/slow/gecode.png>] [92
+ <./figures/plots/slow/gecode.png>] [93
 
-] [93
+] [94
 
 ]
 \tf@nav=\write6
@@ -1981,13 +2002,13 @@ Package pdftex.def Info: ./figures/plots/slow/gecode.png  used on input line 69
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `talk.out' has not changed.
-(rerunfilecheck)             Checksum: 7CBF29930FD9634B7BEC04764AB89EDF;742.
+(rerunfilecheck)             Checksum: 8A6BCED4B6C8CBF9CCF7CAD36A19EEBF;805.
  ) 
 Here is how much of TeX's memory you used:
- 47094 strings out of 478287
- 1089971 string characters out of 5849289
- 1515171 words of memory out of 5000000
- 64175 multiletter control sequences out of 15000+600000
+ 47162 strings out of 478287
+ 1091792 string characters out of 5849289
+ 1516639 words of memory out of 5000000
+ 64234 multiletter control sequences out of 15000+600000
  487029 words of font info for 99 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  113i,20n,118p,726b,1046s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -2004,10 +2025,10 @@ amsfonts/cm/cmss17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
 ts/cm/cmss8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
 mss9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.p
 fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb>
-Output written on talk.pdf (93 pages, 1060744 bytes).
+Output written on talk.pdf (94 pages, 1186205 bytes).
 PDF statistics:
- 5695 PDF objects out of 6186 (max. 8388607)
- 5399 compressed objects within 54 object streams
- 194 named destinations out of 1000 (max. 500000)
- 290 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 5863 PDF objects out of 6186 (max. 8388607)
+ 5553 compressed objects within 56 object streams
+ 197 named destinations out of 1000 (max. 500000)
+ 323 words of extra memory for PDF output out of 10000 (max. 10000000)
 

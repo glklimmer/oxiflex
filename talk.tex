@@ -70,18 +70,84 @@ automata
 
 \begin{document}
 
-\section{Constraint Programming}
+\section{Rust}
 
 \begin{frame}
 	\only<1>{
-
 		\begin{center}
-			\LARGE{\textcolor{black}{Constraint Programming} Solver for MiniZinc written in Rust}
+			\LARGE{Constraint Programming Solver for MiniZinc written in Rust}
 		\end{center}
 	}
 	\only<2>{
 		\begin{center}
-			\LARGE{\textcolor{red}{Constraint Programming} Solver for MiniZinc written in Rust}
+			\LARGE{Constraint Programming Solver for MiniZinc \textcolor{red}{written in Rust}}
+		\end{center}
+	}
+\end{frame}
+
+\begin{frame}{Rust}
+	\begin{figure}[ht]
+		\includegraphics[scale=0.6]{./figures/rust_logo.png}
+	\end{figure}
+\end{frame}
+
+\begin{frame}{Why Rust?}
+	\begin{itemize}
+		\item Performance
+		      \pause
+		      \begin{itemize}
+			      \item $\rightarrow$ no abstractions, no garbage collector, no JIT
+		      \end{itemize}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Possible Languages}
+	\begin{multicols}{2}
+		\begin{figure}[ht]
+			\includegraphics[scale=0.3]{./figures/c_logo.png}
+		\end{figure}
+		\columnbreak
+		\begin{figure}[ht]
+			\includegraphics[scale=0.2]{./figures/cpp_logo.png}
+		\end{figure}
+	\end{multicols}
+\end{frame}
+
+\begin{frame}{Why Rust?}
+	\begin{itemize}
+		\item Performance
+		      \begin{itemize}
+			      \item $\rightarrow$ no abstractions, no garbage collector, no JIT
+		      \end{itemize}
+		\item Correctness
+		      \begin{itemize}
+			      \item Prevent bugs
+		      \end{itemize}
+		      \pause
+		\item Ease of use
+		      \begin{itemize}
+			      \item Library manager - Cargo
+			            \pause
+			      \item Functional - Haskell similarities
+			            \pause
+			      \item Enums
+			            \pause
+		      \end{itemize}
+		\item Learn Rust
+	\end{itemize}
+\end{frame}
+
+\section{Constraint Programming}
+
+\begin{frame}
+	\only<1>{
+		\begin{center}
+			\LARGE{\textcolor{black}{Constraint Programming Solver for MiniZinc }\textcolor{blue}{written in Rust}}
+		\end{center}
+	}
+	\only<2>{
+		\begin{center}
+			\LARGE{\textcolor{red}{Constraint Programming} Solver for MiniZinc \textcolor{blue}{written in Rust}}
 		\end{center}
 	}
 \end{frame}
@@ -111,10 +177,10 @@ automata
 		\vspace{0.5cm}
 		\hspace{0.5cm}
 		$\begin{aligned}
-				 & w = \{1, 2, 3, 4\} \\
-				 & y = \{1, 2, 3, 4\} \\
-				 & x = \{1, 2, 3\}    \\
-				 & z = \{1, 2, 3\}    \\
+				 & w \in \{1, 2, 3, 4\} \\
+				 & y \in \{1, 2, 3, 4\} \\
+				 & x \in \{1, 2, 3\}    \\
+				 & z \in \{1, 2, 3\}    \\
 			\end{aligned}$
 
 		\columnbreak
@@ -217,7 +283,7 @@ automata
 	}
 	\only<2>{
 	\hspace{1cm}
-	array [1..2] of int: x\_introduced\_2\_ = [1,-2]; \\
+	\textcolor{red}{array [1..2] of int: x\_introduced\_2\_ = [1,-2];} \\
 	\hspace{1cm}
 	array [1..2] of int: x\_introduced\_3\_ = [1,-1]; \\
 	\hspace{1cm}
@@ -295,12 +361,12 @@ automata
 \begin{frame}
 	\only<1>{
 		\begin{center}
-			\LARGE{\textcolor{blue}{Constraint Programming} Solver \textcolor{blue}{for MiniZinc} written in Rust}
+			\LARGE{\textcolor{blue}{Constraint Programming} Solver \textcolor{blue}{for MiniZinc written in Rust}}
 		\end{center}
 	}
 	\only<2>{
 		\begin{center}
-			\LARGE{\textcolor{blue}{Constraint Programming} \textcolor{red}{Solver} \textcolor{blue}{for MiniZinc} written in Rust}
+			\LARGE{\textcolor{blue}{Constraint Programming} \textcolor{red}{Solver} \textcolor{blue}{for MiniZinc written in Rust}}
 		\end{center}
 	}
 \end{frame}
@@ -504,8 +570,24 @@ automata
 			            \end{itemize}
 			            \pause
 		      \end{itemize}
-		\item Variable Ordering: fail early
+		\item Dynamic Variable Ordering
 	\end{itemize}
+\end{frame}
+
+\newcommand{\dyn}[2]{
+	\only<#1>{
+		\begin{figure}[ht]
+			\centering
+			\includegraphics[scale=0.3]{./figures/dyn_order/dyn_order_#2.png}
+		\end{figure}
+	}
+}
+
+\begin{frame}{Dynamic Variable Ordering}
+	\dyn{1}{1}
+	\dyn{2}{2}
+	\dyn{3}{3}
+	\dyn{4}{4}
 \end{frame}
 
 \section{Oxiflex}
@@ -535,97 +617,12 @@ automata
 		      \end{itemize}
 		\item No floating points
 		      \pause
-		      \begin{itemize}
-			      \item No minimize / maximize
-		      \end{itemize}
-	\end{itemize}
-\end{frame}
-
-\begin{frame}
-	\only<1>{
-		\begin{center}
-			\LARGE{\textcolor{blue}{Constraint Programming Solver for MiniZinc} written in Rust}
-		\end{center}
-	}
-	\only<2>{
-		\begin{center}
-			\LARGE{\textcolor{blue}{Constraint Programming Solver for MiniZinc} \textcolor{red}{written in Rust}}
-		\end{center}
-	}
-\end{frame}
-
-\begin{frame}{Solver Language}
-	\begin{itemize}
-		\item Performance
+		\item No minimize / maximize
 		      \pause
-		      \begin{itemize}
-			      \item fast
-			            \pause
-			      \item like real fast
-			            \pause
-		      \end{itemize}
-		\item $\rightarrow$ no abstractions, no garbage collector, no JIT
+		\item Only one solution
 	\end{itemize}
 \end{frame}
 
-\begin{frame}{Possible Language}
-	\begin{multicols}{2}
-		\begin{center}
-			\huge{Assembly}
-		\end{center}
-		\pause
-		\begin{center}
-			\huge{or}
-		\end{center}
-		\columnbreak
-		\begin{figure}[ht]
-			\includegraphics[scale=0.2]{./figures/c_logo.png}
-		\end{figure}
-	\end{multicols}
-\end{frame}
-
-\begin{frame}{Solver}
-	\begin{itemize}
-		\item Performance
-		      \begin{itemize}
-			      \item fast
-			      \item like real fast
-		      \end{itemize}
-		      \pause
-		\item Correctness
-		      \begin{itemize}
-			      \item Prevent bugs
-		      \end{itemize}
-	\end{itemize}
-\end{frame}
-
-\begin{frame}{Rust}
-	\begin{figure}[ht]
-		\includegraphics[scale=0.6]{./figures/rust_logo.png}
-	\end{figure}
-\end{frame}
-
-\begin{frame}{Rust}
-	\begin{itemize}
-		\item Performance
-		      \begin{itemize}
-			      \item fast
-			      \item like real fast
-		      \end{itemize}
-		\item Correctness
-		      \begin{itemize}
-			      \item Prevent bugs
-		      \end{itemize}
-		      \pause
-		\item Ease of use
-		      \begin{itemize}
-			      \pause
-			      \item Library manager - Cargo
-			            \pause
-			      \item Functional
-		      \end{itemize}
-	\end{itemize}
-\end{frame}
 
 \begin{frame}
 	\begin{center}
@@ -641,11 +638,12 @@ automata
 	\end{center}
 \end{frame}
 
-\newcommand{\plot}[2]{
+\newcommand{\plot}[3]{
 	\only<#1>{
 		\begin{figure}[ht]
 			\centering
-			\includegraphics[scale=0.6]{./figures/plots/#2.png}
+			\includegraphics[scale=0.5]{./figures/plots/#2.png}
+			\caption{#3}
 		\end{figure}
 	}
 }
@@ -657,13 +655,13 @@ automata
 \end{frame}
 
 \begin{frame}{Queens Time}
-	\plot{1}{queens/time}
-	\plot{2}{queens/time_no_arc}
+	\plot{1}{queens/time}{Averaged over $>10$ runs}
+	\plot{2}{queens/time_no_arc}{Averaged over $>10$ runs}
 \end{frame}
 
 \begin{frame}{Queens Iterations}
-	\plot{1}{queens/iterations}
-	\plot{2}{queens/iterations_inference}
+	\plot{1}{queens/iterations}{Averaged over $5$ runs}
+	\plot{2}{queens/iterations_inference}{Averaged over $5$ runs}
 \end{frame}
 
 \begin{frame}
@@ -673,24 +671,26 @@ automata
 \end{frame}
 
 \begin{frame}{Slow Convergence for small $n$}
-	\plot{1}{slow/time_small}
-	\plot{2}{slow/iterations_small}
+	\plot{1}{slow/time_small}{Averaged over $>10$ runs}
+	\plot{2}{slow/iterations_small}{Averaged over $5$ runs}
 \end{frame}
 
 \begin{frame}{Slow Convergence Comparison}
 	\begin{multicols}{2}
 		\begin{figure}[ht]
 			\includegraphics[scale=0.35]{./figures/plots/slow/time.png}
+			\caption{Averaged over $>10$ runs}
 		\end{figure}
 		\columnbreak
 		\begin{figure}[ht]
 			\includegraphics[scale=0.35]{./figures/plots/slow/iterations.png}
+			\caption{Averaged over $5$ runs}
 		\end{figure}
 	\end{multicols}
 \end{frame}
 
-\begin{frame}
-	\plot{1}{slow/gecode}
+\begin{frame}{Oxiflex vs Gecode}
+	\plot{1}{slow/gecode}{Averaged over $>10$ runs}
 \end{frame}
 
 \begin{frame}

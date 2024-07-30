@@ -1,0 +1,17 @@
+Slow Convergence
+  note that this is took from minizinc benchmarks
+
+Slow Convergence p2
+  note adjusted original n from benchmarks
+  only Variable Ordering works for this in reasonable time
+  say "clearly non-linear" instead of "exponentially"
+
+Gecode
+  note what gecode is
+  note that this benchmark was easy due to minizinc compatability
+
+Conclusion
+  solver from scratch
+  can read minizinc / flatzinc
+  datastructes matter a lot
+
